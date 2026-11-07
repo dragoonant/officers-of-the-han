@@ -30,6 +30,16 @@ let stalls = 0
 const totals = { steps: 0, wars: 0, battles: 0, deaths: 0, captures: 0, rebels: 0, joins: 0, events: 0, endings: 0, played: 0, rejects: 0, unknownKinds: 0 }
 const factionsByYear = new Map<number, number[]>()
 const kinds = new Map<string, number>()
+// balance stats (13-balance.md)
+let factionMonths = 0
+let attackerWins = 0
+let famineEarly = 0
+const earlyFamineCities = new Map<string, number>()
+const cityCounts = new Map<number, Map<string, number[]>>() // year -> faction name -> city counts per seed
+const topShare200: number[] = []
+const strongAlive = new Map<string, number>() // label -> seeds alive at the end
+const STRONG: [string, RegExp][] = [['Cao Cao', /cao cao/i], ['Yuan Shao', /yuan shao/i], ['Sun', /\bsun\b/i], ['Liu Biao', /liu biao/i], ['Liu Yan/Zhang', /liu (yan|zhang)/i]]
+const playerPosts = new Map<string, number>()
 const t0 = Date.now()
 
 for (let seed = 1; seed <= seeds; seed++) {
@@ -47,6 +57,13 @@ for (let seed = 1; seed <= seeds; seed++) {
     const arr = factionsByYear.get(st.ym.year) ?? []
     arr.push(alive)
     factionsByYear.set(st.ym.year, arr)
+    if (st.ym.year === 195 || st.ym.year === 200) {
+      const byF = cityCounts.get(st.ym.year) ?? new Map<string, number[]>()
+      const cnt = new Map<string, number>()
+      for (const c of Object.values(st.cities)) if (c.faction) cnt.set(c.faction, (cnt.get(c.faction) ?? 0) + 1)
+      for (const f of Object.values(st.factions)) if (f.alive) { const a = byF.get(f.name) ?? []; a.push(cnt.get(f.id) ?? 0); byF.set(f.name, a) }
+      cityCounts.set(st.ym.year, byF)
+    }
   }
   while (s.phase !== 'ended' && s.ym.year < endYear) {
     const legal = world.legalActions(s)
@@ -65,6 +82,8 @@ for (let seed = 1; seed <= seeds; seed++) {
       actions.push(a)
       s = r.state
       for (const e of r.events) {
+        if (e.kind === 'famine' && s.ym.year === 190 && s.ym.month <= 9 && e.city) { famineEarly++; earlyFamineCities.set(e.city, (earlyFamineCities.get(e.city) ?? 0) + 1) }
+        if (e.kind === 'battle' && / took /.test(e.text)) attackerWins++
         kinds.set(e.kind, (kinds.get(e.kind) ?? 0) + 1)
         if (!LOG_KIND_SET.has(e.kind)) { totals.unknownKinds++; failures.push(`seed ${seed}: unknown log kind ${e.kind}`) }
         if (e.kind === 'war') totals.wars++
@@ -83,13 +102,23 @@ for (let seed = 1; seed <= seeds; seed++) {
       if (failures.length > 40) break
     }
     const m = s.ym.year * 12 + s.ym.month
-    if (m !== lastMonth) { lastMonth = m; monthSteps = 0; if (s.ym.year !== yr) { yr = s.ym.year; record(s) } } else if (++monthSteps > 400) {
+    if (m !== lastMonth) { factionMonths += Object.values(s.factions).filter((f) => f.alive).length; lastMonth = m; monthSteps = 0; if (s.ym.year !== yr) { yr = s.ym.year; record(s) } } else if (++monthSteps > 400) {
       stalls++
       failures.push(`seed ${seed}: stall at ${s.ym.year}-${s.ym.month}`)
       break
     }
   }
   if (s.phase === 'ended') totals.endings++
+  {
+    const cnt = new Map<string, number>()
+    for (const c of Object.values(s.cities)) if (c.faction) cnt.set(c.faction, (cnt.get(c.faction) ?? 0) + 1)
+    const tot = Object.keys(s.cities).length
+    topShare200.push(Math.max(0, ...cnt.values()) / tot)
+    for (const [label, re] of STRONG) if (Object.values(s.factions).some((f) => f.alive && re.test(f.name))) strongAlive.set(label, (strongAlive.get(label) ?? 0) + 1)
+    const po = s.officers[s.player]
+    const key = po ? `${po.status}/${po.post}${po.faction ? ' of ' + s.factions[po.faction]?.name : ''}` : 'none'
+    playerPosts.set(key, (playerPosts.get(key) ?? 0) + 1)
+  }
   if (JSON.stringify(JSON.parse(JSON.stringify(s))) !== JSON.stringify(s)) failures.push(`seed ${seed}: state is not plain JSON`)
   if (seed <= 2) {
     const rep = world.replay(opts, actions)
@@ -117,6 +146,19 @@ console.log(`\n== sim: ${seeds} seeds x ${years} years on ${data === MINI_WORLD 
 console.log(`steps ${totals.steps}, wars ${totals.wars}, battles ${totals.battles}, played battles ${totals.played}, deaths ${totals.deaths}, captures ${totals.captures}, rebellions ${totals.rebels}, joins ${totals.joins}, events ${totals.events}, endings ${totals.endings}`)
 console.log('living factions by year (mean over seeds):')
 for (const [y, arr] of [...factionsByYear.entries()].sort((a, b) => a[0] - b[0])) console.log(`  ${y}: ${(arr.reduce((p, q) => p + q, 0) / arr.length).toFixed(1)}  (min ${Math.min(...arr)}, max ${Math.max(...arr)})`)
+const fy = factionMonths / 12
+const famines = kinds.get('famine') ?? 0
+console.log(`\nbalance (${fy.toFixed(0)} faction-years): famine/faction-year ${(famines / fy).toFixed(2)}; wars/faction-year ${(totals.wars / fy).toFixed(2)}; captures/battle ${(totals.captures / Math.max(1, totals.battles)).toFixed(2)}; attacker wins ${attackerWins}/${totals.battles}; diplomacy/faction-year ${((kinds.get('diplomacy') ?? 0) / fy).toFixed(2)}; missions done ${kinds.get('mission-done') ?? 0} failed ${kinds.get('mission-failed') ?? 0}; successions ${kinds.get('succession') ?? 0}`)
+console.log(`famine events in 190-1..190-9: ${famineEarly} ${[...earlyFamineCities.entries()].map(([k, v]) => `${k}:${v}`).join(' ')}`)
+for (const y of [195, 200]) {
+  const m = cityCounts.get(y)
+  if (!m) continue
+  const rows = [...m.entries()].map(([n, a]) => ({ n, mean: a.reduce((p, q) => p + q, 0) / seeds, seeds: a.length })).sort((a, b) => b.mean - a.mean)
+  console.log(`cities by faction at ${y} (mean over all seeds, seeds alive): ${rows.map((r) => `${r.n} ${r.mean.toFixed(1)} (${r.seeds})`).join(', ')}`)
+}
+console.log(`largest city share at 200 per seed: ${topShare200.map((x) => (x * 100).toFixed(0) + '%').join(' ')}; seeds over 40%: ${topShare200.filter((x) => x > 0.4).length}`)
+console.log(`strong powers alive at the end (seeds of ${seeds}): ${STRONG.map(([l]) => `${l} ${strongAlive.get(l) ?? 0}`).join(', ')}`)
+console.log(`player's officer at the end: ${[...playerPosts.entries()].map(([k, v]) => `${k} x${v}`).join('; ')}`)
 console.log('log kinds:', [...kinds.entries()].sort().map(([k, v]) => `${k}=${v}`).join(' '))
 console.log(`invariant failures: ${failures.length}, stalls: ${stalls}, rejected autopilot actions: ${totals.rejects}, unknown log kinds: ${totals.unknownKinds}`)
 for (const f of failures.slice(0, 20)) console.log('  FAIL', f)
