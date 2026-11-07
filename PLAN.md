@@ -87,6 +87,13 @@ Format: `RULING: <rule> | <what we did> | <why> | <status>`.
 - RULING: confirm-tap | an attack, tactic or challenge target is picked by one tap and confirmed by a second tap on it or the Confirm button, whose cost line carries the `query.attackPreview` / `tacticPreview` numbers | phone-safe | accepted (coordinator 2026-11-07)
 - RULING: gate-preview | the engine has no preview for gate attacks; the button shows gate strength from `query.hexAt` | none exists | accepted (coordinator 2026-11-07)
 - RULING: D-DUEL-3 | hit base is 6 + floor(WAR / 8) (was unfloored, the duel screen showed "Hit 18.125+") | whole numbers on screen, as D-DEB-4 | accepted (coordinator 2026-11-07)
+- RULING: picker | all officers active or marching at the start (not hidden) are offered; one who starts in an army says so on the card | Cao Cao and others must be playable | accepted (coordinator 2026-11-07)
+- RULING: seed | the default seed is `Date.now() % 1e9`, read in the client only, shown in an editable field | no hidden randomness | accepted (coordinator 2026-11-07)
+- RULING: a finished game clears its save (KB rule 22) and the end screen is held in memory only | rule 22 | accepted (coordinator 2026-11-07)
+- RULING: unavailable actions of one kind with the same reason collapse into one button (a house officer's ten travel targets) | readability on phones | accepted (coordinator 2026-11-07)
+- RULING: battle letter | a short silk letter ("Take the field") precedes the board; a resumed saved battle opens the board directly | gives context before a full-screen takeover | accepted (coordinator 2026-11-07)
+- RULING: propose-war army | start from `suggestArmy` with the player forced in as sole commander | `suggestArmy` has no proposer argument | accepted (coordinator 2026-11-07)
+- RULING: successions in the end summary | the lineage is rebuilt from the log (current player, the `begins.` line, `succession` entries) | no state field lists past players | accepted (coordinator 2026-11-07)
 
 ## Change log
 - 2026-11-07 v0.1 written at M0.
