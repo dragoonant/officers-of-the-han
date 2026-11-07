@@ -24,7 +24,7 @@
     "role": "sibling"
    }
   ],
-  "source": "Romance ch.1; Sanguozhi: Biography of Dong Zhuo",
+  "source": "Romance ch.1; Sanguozhi: Biography of Dong Zhuo; Wikipedia: Dong Zhuo",
   "basis": "Pos: seized the capital in 189 and holds the court at Luoyang; stats kept from the sibling game, POL by rubric (looted rather than governed)",
   "courtesy": "Zhongying",
   "estimate": true,
@@ -50,7 +50,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.3; Sanguozhi: Biography of Lu Bu",
+  "source": "Romance ch.3; Sanguozhi: Biography of Lu Bu; Wikipedia: Lü Bu",
   "basis": "Pos: Dong Zhuo's adopted son and bodyguard at Luoyang since 189; WAR 100: the novel's peerless fighter, held Hulao Gate against three; INT 28: easily turned and fooled in the novel; POL 25: never governed; LDR 90: led the Trap-Breaking and cavalry wings of Dong Zhuo's army",
   "courtesy": "Fengxian",
   "estimate": true,
@@ -76,8 +76,9 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.3; Sanguozhi: Biography of Dong Zhuo",
+  "source": "Romance ch.3; Sanguozhi: Biography of Dong Zhuo; Wikipedia: Li Ru",
   "basis": "Pos: Dong Zhuo's son-in-law and chief counsellor; INT 85: urged killing the Emperor Shao and the move to Chang'an; WAR 25: civil officer",
+  "courtesy": "Wenyou",
   "estimate": true
  },
  {
@@ -100,8 +101,9 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.9; Sanguozhi: Biography of Dong Zhuo",
+  "source": "Romance ch.9; Sanguozhi: Biography of Dong Zhuo; Wikipedia: Li Jue (Han dynasty)",
   "basis": "Pos: Dong Zhuo's Xiliang general; stats kept from the sibling game; POL 30 and CHA 30: plundered Chang'an",
+  "courtesy": "Zhiran",
   "estimate": true,
   "portrait": "li-jue"
  },
@@ -125,7 +127,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.9; Sanguozhi: Biography of Dong Zhuo",
+  "source": "Romance ch.9; Sanguozhi: Biography of Dong Zhuo; Wikipedia: Guo Si",
   "basis": "Pos: Dong Zhuo's Xiliang general; stats kept from the sibling game; CHA 28: ruthless and quarrelsome; INT 30: shown as rash or easily fooled in the record (rubric); POL 28: fighter only, no governing record (rubric: below 40)",
   "estimate": true,
   "portrait": "guo-si"
@@ -150,7 +152,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.9; Sanguozhi: Biography of Dong Zhuo",
+  "source": "Romance ch.9; Sanguozhi: Biography of Dong Zhuo; Wikipedia: Zhang Ji (Han dynasty)",
   "basis": "Pos: Xiliang general holding the Chang'an side; POL 30: fighter only, no governing record (rubric: below 40)",
   "estimate": true
  },
@@ -174,7 +176,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.9; Sanguozhi: Biography of Dong Zhuo",
+  "source": "Romance ch.9; Sanguozhi: Biography of Dong Zhuo; Wikipedia: Fan Chou",
   "basis": "Pos: Xiliang general in Dong Zhuo's army; POL 25 and CHA 30: pillager; INT 30: shown as rash or easily fooled in the record (rubric)",
   "estimate": true
  },
@@ -183,7 +185,7 @@
   "name": "Hua Xiong",
   "sex": "m",
   "born": 160,
-  "died": 190,
+  "died": 191,
   "stats": {
    "war": 90,
    "ldr": 62,
@@ -198,8 +200,8 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.5",
-  "basis": "Pos: Dong Zhuo's champion at Sishui Gate in the novel; WAR 90: cut down several coalition generals before Guan Yu killed him; INT 28: rash; POL 20 and CHA 30: fighter only",
+  "source": "Romance ch.5; Wikipedia: Hua Xiong",
+  "basis": "Pos: Dong Zhuo's champion at Sishui Gate in the novel; WAR 90: cut down several coalition generals before Guan Yu killed him; INT 28: rash; POL 20 and CHA 30: fighter only; Dates: died 191 (Wikipedia: Hua Xiong; killed by Sun Jian at Yangren in the record); the novel has Guan Yu kill him in 190",
   "estimate": true
  },
  {
@@ -222,7 +224,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Dong Zhuo",
+  "source": "Sanguozhi: Biography of Dong Zhuo; Wikipedia: Niu Fu",
   "basis": "Pos: Dong Zhuo's son-in-law commanding at Anyi in Hedong; POL 30: fighter only, no governing record (rubric: below 40)",
   "estimate": true
  },
@@ -251,8 +253,9 @@
     "role": "sibling"
    }
   ],
-  "source": "Sanguozhi: Biography of Dong Zhuo",
+  "source": "Sanguozhi: Biography of Dong Zhuo; Wikipedia: Dong Zhuo; Wikipedia: List of people of the Three Kingdoms (D)",
   "basis": "Pos: Dong Zhuo's younger brother, a general of the court",
+  "courtesy": "Shuying",
   "estimate": true
  },
  {
@@ -260,7 +263,7 @@
   "name": "Gao Shun",
   "sex": "m",
   "born": 165,
-  "died": 198,
+  "died": 199,
   "stats": {
    "war": 86,
    "ldr": 88,
@@ -275,7 +278,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.3; Sanguozhi: Biography of Lu Bu",
+  "source": "Romance ch.3; Sanguozhi: Biography of Lu Bu; Wikipedia: Gao Shun",
   "basis": "Pos: Lu Bu's captain of the Trap-Breaking Camp; placed with Lu Bu at Luoyang because the record names him only from 194; WAR 86: the novel's steadiest fighter beside Lu Bu; LDR 88: his Trap-Breaking Camp never broke a line",
   "estimate": true,
   "portrait": "gao-shun"
@@ -300,7 +303,7 @@
    "archer": "A"
   },
   "kin": [],
-  "source": "Romance ch.3; Sanguozhi: Biography of Zhang Liao",
+  "source": "Romance ch.3; Sanguozhi: Biography of Zhang Liao; Wikipedia: Zhang Liao",
   "basis": "Pos: served He Jin, then Dong Zhuo, then Lu Bu; at Luoyang under Lu Bu; WAR 93: broke Sun Quan's line at Xiaoyao Ford; LDR 94: independent commands that won decisive battles",
   "courtesy": "Wenyuan",
   "portrait": "zhang-liao"
@@ -325,7 +328,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.8; Sanguozhi: Biography of Wang Yun",
+  "source": "Romance ch.8; Sanguozhi: Biography of Wang Yun; Wikipedia: Wang Yun (Han dynasty)",
   "basis": "Pos: Minister over the masses at Dong Zhuo's court, plotting against him; WAR 25: civil officer",
   "courtesy": "Zishi"
  },
@@ -333,7 +336,7 @@
   "id": "cai-yong",
   "name": "Cai Yong",
   "sex": "m",
-  "born": 133,
+  "born": 132,
   "died": 192,
   "stats": {
    "war": 15,
@@ -354,7 +357,7 @@
     "role": "child"
    }
   ],
-  "source": "Hou Hanshu: Biography of Cai Yong; Romance ch.8",
+  "source": "Hou Hanshu: Biography of Cai Yong; Romance ch.8; Wikipedia: Cai Yong",
   "basis": "Pos: scholar forced into Dong Zhuo's service at Luoyang; INT 85: the age's great scholar and calligrapher; WAR 15 and LDR 15: never in arms",
   "courtesy": "Bojie"
  },
@@ -383,7 +386,7 @@
     "role": "child"
    }
   ],
-  "source": "Hou Hanshu: Biography of Yang Zhen (Yang Biao); Romance ch.6",
+  "source": "Hou Hanshu: Biography of Yang Zhen (Yang Biao); Romance ch.6; Wikipedia: Yang Biao",
   "basis": "Pos: Minister of works at the court; opposed the move to Chang'an; WAR 20 and LDR 30: civil officer",
   "courtesy": "Wenxian"
  },
@@ -407,9 +410,9 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Hou Hanshu: Biography of Huang Wan; Romance ch.6",
+  "source": "Hou Hanshu: Biography of Huang Wan; Romance ch.6; Wikipedia: List of people of the Three Kingdoms (H)",
   "basis": "Pos: Minister of the court at Luoyang, spoke against moving the capital; WAR 30: no combat record; civil career (rubric: below 50 for civilians)",
-  "courtesy": "Zichun"
+  "courtesy": "Ziyan"
  },
  {
   "id": "zhong-yao",
@@ -431,7 +434,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Zhong Yao",
+  "source": "Sanguozhi: Biography of Zhong Yao; Wikipedia: Zhong Yao",
   "basis": "Pos: junior official of the Han court at Luoyang in 190; WAR 25: civil officer",
   "courtesy": "Yuanchang"
  },
@@ -455,7 +458,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Xun You",
+  "source": "Sanguozhi: Biography of Xun You; Wikipedia: Xun You",
   "basis": "Pos: serving at the Han court in Luoyang under Dong Zhuo; INT 92: author of Cao Cao's best plans later; WAR 25: civil officer",
   "courtesy": "Gongda"
  },
@@ -479,7 +482,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Jia Xu; Romance ch.9",
+  "source": "Sanguozhi: Biography of Jia Xu; Romance ch.9; Wikipedia: Jia Xu",
   "basis": "Pos: staff of Niu Fu's army in Hedong; INT 96: the age's coldest schemer, devised the Chang'an counter-attack; WAR 30: no combat record; civil career (rubric: below 50 for civilians)",
   "courtesy": "Wenhe"
  },
@@ -503,7 +506,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Zhang Xiu",
+  "source": "Sanguozhi: Biography of Zhang Xiu; Wikipedia: Zhang Xiu (warlord)",
   "basis": "Pos: nephew and officer of Zhang Ji, from Wuwei, stationed at Chang'an",
   "estimate": true
  },
@@ -527,7 +530,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Hou Hanshu: Biography of Huangfu Song; Romance ch.2",
+  "source": "Hou Hanshu: Biography of Huangfu Song; Romance ch.2; Wikipedia: Huangfu Song",
   "basis": "Pos: the old general who broke the Yellow Turbans; held at the court of Dong Zhuo; LDR 90: crushed the Yellow Turban main force in 184",
   "courtesy": "Yizhen",
   "estimate": true
@@ -552,7 +555,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.20; Hou Hanshu: Biography of Dong Cheng (Dong Zhuo's kin)",
+  "source": "Romance ch.20; Hou Hanshu: Biography of Dong Cheng (Dong Zhuo's kin); Wikipedia: Dong Cheng (Han dynasty)",
   "basis": "Pos: Emperor Xian's maternal-line kinsman at the court; ages estimated",
   "estimate": true
  },
@@ -560,7 +563,7 @@
   "id": "ma-midi",
   "name": "Ma Midi",
   "sex": "m",
-  "born": 143,
+  "born": 140,
   "died": 194,
   "stats": {
    "war": 20,
@@ -576,9 +579,9 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Hou Hanshu: Biography of Ma Midi",
+  "source": "Hou Hanshu: Biography of Ma Midi; Wikipedia: Ma Midi",
   "basis": "Pos: official of the court in Luoyang; WAR 20 and LDR 25: scholar-official",
-  "courtesy": "Wensheng"
+  "courtesy": "Wengshu"
  },
  {
   "id": "zhu-jun",
@@ -600,7 +603,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Hou Hanshu: Biography of Zhu Jun",
+  "source": "Hou Hanshu: Biography of Zhu Jun; Wikipedia: Zhu Jun (Han dynasty)",
   "basis": "Pos: old Yellow Turban commander at the court; brief service to Dong Zhuo",
   "courtesy": "Gongwei",
   "estimate": true
@@ -625,7 +628,7 @@
    "archer": "C"
   },
   "kin": [],
-  "source": "Romance ch.8",
+  "source": "Romance ch.8; Wikipedia: Diaochan",
   "basis": "Pos: Wang Yun's singer in the novel; fictional, ages invented; CHA 92: the novel's beauty who turned Lu Bu; WAR 15 and LDR 10: no arms",
   "estimate": true
  },
@@ -634,7 +637,7 @@
   "name": "Han Fu",
   "sex": "m",
   "born": 140,
-  "died": 191,
+  "died": 192,
   "stats": {
    "war": 30,
    "ldr": 40,
@@ -649,7 +652,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Yuan Shao (Han Fu); Romance ch.7",
+  "source": "Sanguozhi: Biography of Yuan Shao (Han Fu); Romance ch.7; Wikipedia: Han Fu (warlord)",
   "basis": "Pos: Governor of Ji Province at Ye; WAR 30: timid, gave way to Yuan Shao",
   "courtesy": "Wenjie",
   "estimate": true
@@ -674,7 +677,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Yuan Shao (Ju Shou)",
+  "source": "Sanguozhi: Biography of Yuan Shao (Ju Shou); Wikipedia: Ju Shou",
   "basis": "Pos: Han Fu's staff officer at Ye; INT 90: the best strategist of the north before Guandu",
   "courtesy": "Gongyu",
   "estimate": true
@@ -699,8 +702,8 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Yuan Shao (Tian Feng)",
-  "basis": "Pos: staff officer in Ji Province; the record names him with Yuan Shao from 191; INT 90: sound advice that Yuan Shao refused; WAR 30: no combat record; civil career (rubric: below 50 for civilians)",
+  "source": "Sanguozhi: Biography of Yuan Shao (Tian Feng); Wikipedia: Tian Feng",
+  "basis": "Pos: Wikipedia: around 190 Yuan Shao sent gifts and a letter to recruit him and he accepted, so he starts with Yuan Shao; the record names him with Yuan Shao from 191; INT 90: sound advice that Yuan Shao refused; WAR 30: no combat record; civil career (rubric: below 50 for civilians)",
   "courtesy": "Yuanhao",
   "estimate": true
  },
@@ -724,7 +727,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Yuan Shao (Shen Pei)",
+  "source": "Sanguozhi: Biography of Yuan Shao (Shen Pei); Wikipedia: Shen Pei",
   "basis": "Pos: Han Fu's staff officer, later the steward of Ye",
   "courtesy": "Zhengnan",
   "estimate": true
@@ -749,7 +752,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Yuan Shao (Guo Tu)",
+  "source": "Sanguozhi: Biography of Yuan Shao (Guo Tu); Wikipedia: Guo Tu",
   "basis": "Pos: Han Fu's staff officer; WAR 20 and LDR 40: adviser; CHA 30: jealous slanderer of rivals",
   "courtesy": "Gongze",
   "estimate": true
@@ -759,7 +762,7 @@
   "name": "Xin Ping",
   "sex": "m",
   "born": 160,
-  "died": 205,
+  "died": 204,
   "stats": {
    "war": 20,
    "ldr": 40,
@@ -779,7 +782,7 @@
     "role": "sibling"
    }
   ],
-  "source": "Sanguozhi: Biography of Yuan Shao (Xin Ping)",
+  "source": "Sanguozhi: Biography of Yuan Shao (Xin Ping); Wikipedia: Xin Ping",
   "basis": "Pos: staff officer in Ji Province; WAR 20: no combat record; civil career (rubric: below 50 for civilians)",
   "courtesy": "Zhongzhi",
   "estimate": true
@@ -789,7 +792,7 @@
   "name": "Xin Pi",
   "sex": "m",
   "born": 165,
-  "died": 224,
+  "died": 235,
   "stats": {
    "war": 20,
    "ldr": 40,
@@ -809,7 +812,7 @@
     "role": "sibling"
    }
   ],
-  "source": "Sanguozhi: Biography of Xin Pi",
+  "source": "Sanguozhi: Biography of Xin Pi; Wikipedia: Xin Pi",
   "basis": "Pos: staff officer in Ji Province with his brother Xin Ping; WAR 20: no combat record; civil career (rubric: below 50 for civilians)",
   "courtesy": "Zuozhi",
   "estimate": true
@@ -834,7 +837,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.7; Sanguozhi: Biography of Zhang He",
+  "source": "Romance ch.7; Sanguozhi: Biography of Zhang He; Wikipedia: Zhang He",
   "basis": "Pos: Han Fu's field officer of Ji Province before Yuan Shao; WAR 90: famed champion and cavalry commander; LDR 86: independent commands",
   "courtesy": "Junyi",
   "estimate": true,
@@ -860,8 +863,8 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.7",
-  "basis": "Pos: Ji Province champion in the novel, placed with Han Fu; WAR 94: duelled Gongsun Zan's generals; INT 30, POL 25 and CHA 35: fighter only",
+  "source": "Romance ch.7; Wikipedia: Wen Chou",
+  "basis": "Pos: Yuan Shao's champion; the novel (ch.5) names him among Yuan Shao's generals at the coalition and Wikipedia has him serving Yuan Shao, so he starts with Yuan Shao, not Han Fu; WAR 94: duelled Gongsun Zan's generals; INT 30, POL 25 and CHA 35: fighter only",
   "estimate": true
  },
  {
@@ -884,15 +887,15 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.7",
-  "basis": "Pos: Ji Province champion in the novel, placed with Han Fu; WAR 92: struck down Song Xian and Wei Xu at Baima; POL 25: fighter only",
+  "source": "Romance ch.7; Wikipedia: Yan Liang",
+  "basis": "Pos: Yuan Shao's champion; the novel (ch.5) names him among Yuan Shao's generals at the coalition and Wikipedia has him serving Yuan Shao, so he starts with Yuan Shao, not Han Fu; WAR 92: struck down Song Xian and Wei Xu at Baima; POL 25: fighter only",
   "estimate": true
  },
  {
   "id": "bao-xin",
   "name": "Bao Xin",
   "sex": "m",
-  "born": 151,
+  "born": 152,
   "died": 192,
   "stats": {
    "war": 65,
@@ -908,8 +911,8 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Bao Xin",
-  "basis": "Pos: Chancellor of Jibei, allied to the coalition; placed at Ye in Ji Province",
+  "source": "Sanguozhi: Biography of Bao Xin; Wikipedia: Bao Xin",
+  "basis": "Pos: Wikipedia: in early 190 he led his own troops into the coalition with his brother Bao Tao as acting General Who Destroys Barbarians, fought beside Cao Cao at Xingyang and became Cao Cao's ally, so he starts with Cao Cao, not Han Fu; placed at Ye in Ji Province",
   "courtesy": "Yuanjie"
  },
  {
@@ -932,8 +935,8 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.7; Sanguozhi: Biography of Yu Jin",
-  "basis": "Pos: served Bao Xin in 190; joined Cao Cao later; LDR 85: the strict disciplinarian of the Cao armies",
+  "source": "Romance ch.7; Sanguozhi: Biography of Yu Jin; Wikipedia: Yu Jin",
+  "basis": "Pos: Wikipedia: served Bao Xin in the coalition of 190 and joined Cao Cao after Bao Xin's death in 192; starts with Cao Cao beside Bao Xin; joined Cao Cao later; LDR 85: the strict disciplinarian of the Cao armies",
   "courtesy": "Wenze",
   "estimate": true,
   "portrait": "yu-jin"
@@ -958,7 +961,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Xun Yu",
+  "source": "Sanguozhi: Biography of Xun Yu; Wikipedia: Xun Yu",
   "basis": "Pos: went to Han Fu at Ye in 189 and left for Cao Cao in 191; INT 94: Cao Cao's chief planner; POL 92: built the Cao administration; WAR 20: no combat record; civil career (rubric: below 50 for civilians)",
   "courtesy": "Wenruo"
  },
@@ -982,7 +985,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Cui Yan",
+  "source": "Sanguozhi: Biography of Cui Yan; Wikipedia: Cui Yan",
   "basis": "Pos: living privately in Ji Province before taking office under Yuan Shao",
   "courtesy": "Jigui",
   "estimate": true
@@ -992,7 +995,7 @@
   "name": "Zhang Yan",
   "sex": "m",
   "born": 150,
-  "died": 206,
+  "died": 205,
   "stats": {
    "war": 75,
    "ldr": 72,
@@ -1007,7 +1010,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Zhang Yan (Heishan)",
+  "source": "Sanguozhi: Biography of Zhang Yan (Heishan); Wikipedia: Zhang Yan (Han dynasty)",
   "basis": "Pos: leader of the Heishan bandits in the Taihang hills, hiding near Shangdang",
   "estimate": true
  },
@@ -1044,10 +1047,9 @@
     "role": "child"
    }
   ],
-  "source": "Romance ch.2; Sanguozhi: Biography of Yuan Shao",
+  "source": "Romance ch.2; Sanguozhi: Biography of Yuan Shao; Wikipedia: Yuan Shao",
   "basis": "Pos: Governor of Bohai and leader of the coalition; CHA 86: men of the empire flocked to him",
-  "courtesy": "Benchu",
-  "estimate": true
+  "courtesy": "Benchu"
  },
  {
   "id": "yuan-tan",
@@ -1082,9 +1084,9 @@
     "role": "sibling"
    }
   ],
-  "source": "Sanguozhi: Biography of Yuan Shao (Yuan Tan)",
+  "source": "Sanguozhi: Biography of Yuan Shao (Yuan Tan); Wikipedia: Yuan Tan",
   "basis": "Pos: Yuan Shao's eldest son, with his father",
-  "courtesy": "Xianxi",
+  "courtesy": "Xiansi",
   "estimate": true
  },
  {
@@ -1120,7 +1122,7 @@
     "role": "sibling"
    }
   ],
-  "source": "Sanguozhi: Biography of Yuan Shao (Yuan Xi)",
+  "source": "Sanguozhi: Biography of Yuan Shao (Yuan Xi); Wikipedia: Yuan Xi",
   "basis": "Appears at 16; second son of Yuan Shao",
   "courtesy": "Xianyi",
   "estimate": true
@@ -1158,7 +1160,7 @@
     "role": "sibling"
    }
   ],
-  "source": "Sanguozhi: Biography of Yuan Shao (Yuan Shang)",
+  "source": "Sanguozhi: Biography of Yuan Shao (Yuan Shang); Wikipedia: Yuan Shang",
   "basis": "Appears at 16; Yuan Shao's favoured youngest son",
   "courtesy": "Xianfu",
   "estimate": true
@@ -1167,7 +1169,7 @@
   "id": "gao-gan",
   "name": "Gao Gan",
   "sex": "m",
-  "born": 173,
+  "born": 168,
   "died": 206,
   "stats": {
    "war": 60,
@@ -1183,7 +1185,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Yuan Shao (Gao Gan)",
+  "source": "Sanguozhi: Biography of Yuan Shao (Gao Gan); Wikipedia: Gao Gan",
   "basis": "Pos: Yuan Shao's nephew and aide",
   "courtesy": "Yuancai",
   "estimate": true
@@ -1208,8 +1210,9 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Yuan Shao (Chunyu Qiong); Romance ch.2",
+  "source": "Sanguozhi: Biography of Yuan Shao (Chunyu Qiong); Romance ch.2; Wikipedia: Chunyu Qiong",
   "basis": "Pos: one of the Western Garden commanders who fled Luoyang with Yuan Shao",
+  "courtesy": "Zhongjian",
   "estimate": true
  },
  {
@@ -1232,7 +1235,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Yuan Shao (Xu You)",
+  "source": "Sanguozhi: Biography of Yuan Shao (Xu You); Wikipedia: Xu You (Han dynasty)",
   "basis": "Pos: boyhood friend of Cao Cao and Yuan Shao, adviser in the coalition; INT 85: shrewd plans; CHA 35: greedy; WAR 25: no combat record; civil career (rubric: below 50 for civilians)",
   "courtesy": "Ziyuan",
   "estimate": true
@@ -1257,7 +1260,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Yuan Shao; Hou Hanshu: Biography of Yuan Shao",
+  "source": "Sanguozhi: Biography of Yuan Shao; Hou Hanshu: Biography of Yuan Shao; Wikipedia: Wang Kuang",
   "basis": "Pos: Governor of Henei and a coalition member; no Henei city on our map, so placed with Yuan Shao",
   "courtesy": "Gongjie",
   "estimate": true
@@ -1282,7 +1285,7 @@
    "archer": "C"
   },
   "kin": [],
-  "source": "Sanguozhi: Empress Zhen; Wikipedia: Empress Zhen",
+  "source": "Sanguozhi: Empress Zhen; Wikipedia: Empress Zhen; Wikipedia: Lady Zhen",
   "basis": "Appears at 16 in the Yuan household; CHA 90: the record praises her beauty and grace; WAR 10 and LDR 10: no arms"
  },
  {
@@ -1305,8 +1308,8 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.7; Sanguozhi: Biography of Zhao Yun",
-  "basis": "Pos: young man of Changshan who has not yet found a lord; WAR 96: the novel's rescuer at Changban; LDR 90: led the rearguard at Han River",
+  "source": "Romance ch.7; Sanguozhi: Biography of Zhao Yun; Wikipedia: Zhao Yun",
+  "basis": "Pos: Wikipedia: he led volunteers to Gongsun Zan after Yuan Shao became Governor of Ji (191); the record is silent for 190, so he waits near Gongsun Zan at Beiping; WAR 96: the novel's rescuer at Changban; LDR 90: led the rearguard at Han River",
   "courtesy": "Zilong",
   "estimate": true,
   "portrait": "zhao-yun"
@@ -1340,7 +1343,7 @@
     "role": "spouse"
    }
   ],
-  "source": "Romance ch.1; Sanguozhi: Biography of Cao Cao",
+  "source": "Romance ch.1; Sanguozhi: Biography of Cao Cao; Wikipedia: Cao Cao",
   "basis": "Pos: raised troops at Chenliu in 189 and joined the coalition; LDR 98: the age's greatest field commander; INT 94: author of the Sunzi commentary and many stratagems; POL 92: built the Tuntian system; CHA 96: drew the best talent of the age",
   "courtesy": "Mengde",
   "portrait": "cao-cao"
@@ -1365,7 +1368,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.1; Sanguozhi: Biography of Xiahou Dun",
+  "source": "Romance ch.1; Sanguozhi: Biography of Xiahou Dun; Wikipedia: Xiahou Dun",
   "basis": "Pos: Cao Cao's kinsman and earliest officer; WAR 92: famed champion, lost an eye in the novel; LDR 88: independent commands",
   "courtesy": "Yuanrang",
   "estimate": true,
@@ -1391,7 +1394,7 @@
    "archer": "A"
   },
   "kin": [],
-  "source": "Romance ch.1; Sanguozhi: Biography of Xiahou Yuan",
+  "source": "Romance ch.1; Sanguozhi: Biography of Xiahou Yuan; Wikipedia: Xiahou Yuan",
   "basis": "Pos: Cao Cao's kinsman and cavalry commander; WAR 90: the fast raider of the Cao armies; LDR 85: led independent columns in every campaign",
   "courtesy": "Miaocai",
   "estimate": true,
@@ -1422,7 +1425,7 @@
     "role": "sibling"
    }
   ],
-  "source": "Romance ch.1; Sanguozhi: Biography of Cao Ren",
+  "source": "Romance ch.1; Sanguozhi: Biography of Cao Ren; Wikipedia: Cao Ren",
   "basis": "Pos: Cao Cao's cousin, joined the muster with his own band; WAR 86: leader of the Cao vanguard; LDR 90: held Jiangling against Zhou Yu",
   "courtesy": "Zixiao",
   "portrait": "cao-ren"
@@ -1447,7 +1450,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.1; Sanguozhi: Biography of Cao Hong",
+  "source": "Romance ch.1; Sanguozhi: Biography of Cao Hong; Wikipedia: Cao Hong",
   "basis": "Pos: Cao Cao's cousin who gave him his horse at Xingyang",
   "courtesy": "Zilian",
   "estimate": true
@@ -1477,16 +1480,17 @@
     "role": "sibling"
    }
   ],
-  "source": "Sanguozhi: Biography of Cao Chun",
+  "source": "Sanguozhi: Biography of Cao Chun; Wikipedia: Cao Chun",
   "basis": "Pos: Cao Ren's brother and later commander of the Tiger Cavalry",
-  "courtesy": "Zihe"
+  "courtesy": "Zihe",
+  "estimate": true
  },
  {
   "id": "li-dian",
   "name": "Li Dian",
   "sex": "m",
-  "born": 174,
-  "died": 209,
+  "born": 180,
+  "died": 217,
   "stats": {
    "war": 76,
    "ldr": 76,
@@ -1501,9 +1505,10 @@
    "archer": "A"
   },
   "kin": [],
-  "source": "Romance ch.10; Sanguozhi: Biography of Li Dian",
-  "basis": "Pos: joined Cao Cao's muster at 16 with his uncle's band; stats kept from the sibling game",
-  "courtesy": "Manchang",
+  "source": "Romance ch.10; Sanguozhi: Biography of Li Dian; Wikipedia: Li Dian",
+  "basis": "Pos: Wikipedia gives c.180 to c.217, so he is a boy in 190 and appears at 16 with Cao Cao; stats kept from the sibling game",
+  "courtesy": "Mancheng",
+  "estimate": true,
   "portrait": "li-dian"
  },
  {
@@ -1526,7 +1531,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.10; Sanguozhi: Biography of Yue Jin",
+  "source": "Romance ch.10; Sanguozhi: Biography of Yue Jin; Wikipedia: Yue Jin",
   "basis": "Pos: small man who joined Cao Cao at his first muster; fought in every campaign",
   "courtesy": "Wenqian",
   "estimate": true
@@ -1556,7 +1561,7 @@
     "role": "sibling"
    }
   ],
-  "source": "Sanguozhi: Biography of Zhang Miao; Romance ch.4",
+  "source": "Sanguozhi: Biography of Zhang Miao; Romance ch.4; Wikipedia: Zhang Miao (politician)",
   "basis": "Pos: Governor of Chenliu and Cao Cao's friend, who gave him his base",
   "courtesy": "Mengzhuo",
   "estimate": true
@@ -1581,7 +1586,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.10; Sanguozhi: Biography of Dian Wei",
+  "source": "Romance ch.10; Sanguozhi: Biography of Dian Wei; Wikipedia: Dian Wei",
   "basis": "Pos: served Zhang Miao, then Xiahou Dun, then Cao Cao as bodyguard; WAR 98: held the camp gate at Wan with two spears; INT 30 and POL 30: bodyguard only",
   "estimate": true,
   "portrait": "dian-wei"
@@ -1606,7 +1611,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Cao Xiu",
+  "source": "Sanguozhi: Biography of Cao Xiu; Wikipedia: Cao Xiu",
   "basis": "Appears at 16; Cao Cao called him his thousand-li colt",
   "courtesy": "Wenlie",
   "estimate": true
@@ -1636,7 +1641,7 @@
     "role": "parent"
    }
   ],
-  "source": "Sanguozhi: Biography of Cao Ang",
+  "source": "Sanguozhi: Biography of Cao Ang; Wikipedia: Cao Ang",
   "basis": "Appears at 16; Cao Cao's eldest son, fell at Wan in 197",
   "courtesy": "Zixiu",
   "estimate": true
@@ -1645,7 +1650,7 @@
   "id": "lady-bian",
   "name": "Lady Bian",
   "sex": "f",
-  "born": 161,
+  "born": 159,
   "died": 230,
   "stats": {
    "war": 15,
@@ -1666,8 +1671,9 @@
     "role": "spouse"
    }
   ],
-  "source": "Sanguozhi: Empress Dowager Bian",
-  "basis": "Pos: Cao Cao's household; WAR 15 and LDR 20: no arms"
+  "source": "Sanguozhi: Empress Dowager Bian; Wikipedia: Empress Dowager Bian",
+  "basis": "Pos: Cao Cao's household; WAR 15 and LDR 20: no arms",
+  "estimate": true
  },
  {
   "id": "yuan-shu",
@@ -1689,10 +1695,9 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.5; Sanguozhi: Biography of Yuan Shu",
+  "source": "Romance ch.5; Sanguozhi: Biography of Yuan Shu; Wikipedia: Yuan Shu",
   "basis": "Pos: Governor of Nanyang; CHA 35: proud and heavy with taxes",
-  "courtesy": "Gonglu",
-  "estimate": true
+  "courtesy": "Gonglu"
  },
  {
   "id": "ji-ling",
@@ -1714,7 +1719,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.17; Sanguozhi: Biography of Yuan Shu",
+  "source": "Romance ch.17; Sanguozhi: Biography of Yuan Shu; Wikipedia: Ji Ling",
   "basis": "Pos: Yuan Shu's foremost general; POL 30: fighter only",
   "estimate": true
  },
@@ -1738,7 +1743,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Yuan Shu",
+  "source": "Sanguozhi: Biography of Yuan Shu; Wikipedia: List of people of the Three Kingdoms (Z)",
   "basis": "Pos: Yuan Shu's general",
   "estimate": true
  },
@@ -1762,7 +1767,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Yuan Shu",
+  "source": "Sanguozhi: Biography of Yuan Shu; Wikipedia: List of people of the Three Kingdoms (Y)",
   "basis": "Pos: Yuan Shu's secretary and counsellor; WAR 20: civil",
   "estimate": true
  },
@@ -1786,7 +1791,7 @@
    "archer": "A"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Lu Fan",
+  "source": "Sanguozhi: Biography of Lu Fan; Wikipedia: Lü Fan",
   "basis": "Appears at 17 in Yuan Shu's service",
   "courtesy": "Ziheng",
   "estimate": true,
@@ -1829,7 +1834,7 @@
     "role": "child"
    }
   ],
-  "source": "Romance ch.5; Sanguozhi: Biography of Sun Jian",
+  "source": "Romance ch.5; Sanguozhi: Biography of Sun Jian; Wikipedia: Sun Jian",
   "basis": "Pos: Governor of Changsha, marching north in the coalition; WAR 90: first over the wall at Yangren, struck down Hua Xiong's men; LDR 88: beat Dong Zhuo's army on the Yi River",
   "courtesy": "Wentai"
  },
@@ -1853,7 +1858,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Cheng Pu",
+  "source": "Sanguozhi: Biography of Cheng Pu; Wikipedia: Cheng Pu",
   "basis": "Pos: Sun Jian's oldest officer from the Yellow Turban wars",
   "courtesy": "Demou",
   "estimate": true
@@ -1878,7 +1883,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.5; Sanguozhi: Biography of Huang Gai",
+  "source": "Romance ch.5; Sanguozhi: Biography of Huang Gai; Wikipedia: Huang Gai",
   "basis": "Pos: Sun Jian's officer since 178; stats kept from the sibling game",
   "courtesy": "Gongfu",
   "estimate": true,
@@ -1889,7 +1894,7 @@
   "name": "Han Dang",
   "sex": "m",
   "born": 150,
-  "died": 226,
+  "died": 227,
   "stats": {
    "war": 72,
    "ldr": 70,
@@ -1904,7 +1909,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Han Dang",
+  "source": "Sanguozhi: Biography of Han Dang; Wikipedia: Han Dang",
   "basis": "Pos: Sun Jian's officer",
   "courtesy": "Yigong",
   "estimate": true
@@ -1929,9 +1934,9 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Zhu Zhi",
+  "source": "Sanguozhi: Biography of Zhu Zhi; Wikipedia: Zhu Zhi",
   "basis": "Pos: Sun Jian's officer",
-  "courtesy": "Jun'ai"
+  "courtesy": "Junli"
  },
  {
   "id": "zu-mao",
@@ -1953,7 +1958,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Sun Jian",
+  "source": "Sanguozhi: Biography of Sun Jian; Wikipedia: Campaign against Dong Zhuo",
   "basis": "Pos: Sun Jian's officer; gave up his helmet to save him",
   "courtesy": "Zihui",
   "estimate": true
@@ -1983,9 +1988,9 @@
     "role": "sibling"
    }
   ],
-  "source": "Sanguozhi: Biography of Sun Jing",
+  "source": "Sanguozhi: Biography of Sun Jing; Wikipedia: Sun Jing",
   "basis": "Pos: Sun Jian's younger brother",
-  "courtesy": "Yitai",
+  "courtesy": "Youtai",
   "estimate": true
  },
  {
@@ -2013,7 +2018,7 @@
     "role": "sibling"
    }
   ],
-  "source": "Sanguozhi: Biography of Wu Jing",
+  "source": "Sanguozhi: Biography of Wu Jing; Wikipedia: Wu Jing (Han dynasty)",
   "basis": "Pos: brother of Sun Jian's wife, a family officer",
   "estimate": true
  },
@@ -2054,7 +2059,7 @@
     "role": "sibling"
    }
   ],
-  "source": "Sanguozhi: Consort Wu",
+  "source": "Sanguozhi: Consort Wu; Wikipedia: Lady Wu (wife of Sun Jian)",
   "basis": "Pos: Sun Jian's wife; WAR 10 and LDR 15: no arms",
   "estimate": true
  },
@@ -2091,7 +2096,7 @@
     "role": "sibling"
    }
   ],
-  "source": "Romance ch.15; Sanguozhi: Biography of Sun Ce",
+  "source": "Romance ch.15; Sanguozhi: Biography of Sun Ce; Wikipedia: Sun Ce",
   "basis": "Appears at 16 in his father's house; WAR 92: the Little Conqueror, took Jiangdong; LDR 88: won six commanderies in a few years; CHA 88: men flocked to him",
   "courtesy": "Bofu"
  },
@@ -2128,7 +2133,7 @@
     "role": "parent"
    }
   ],
-  "source": "Romance ch.29; Sanguozhi: Biography of Sun Quan",
+  "source": "Romance ch.29; Sanguozhi: Biography of Sun Quan; Wikipedia: Sun Quan",
   "basis": "Appears at 16; POL 82: steady ruler of the south; CHA 86: held the elders and the new men together",
   "courtesy": "Zhongmou"
  },
@@ -2152,7 +2157,7 @@
    "archer": "A"
   },
   "kin": [],
-  "source": "Romance ch.15; Sanguozhi: Biography of Zhou Yu",
+  "source": "Romance ch.15; Sanguozhi: Biography of Zhou Yu; Wikipedia: Zhou Yu",
   "basis": "Appears at 16, friend of Sun Ce; LDR 96 and INT 96: won at the Red Cliffs; CHA 90: loved by his troops and enemies alike",
   "courtesy": "Gongjin",
   "portrait": "zhou-yu"
@@ -2177,7 +2182,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Lu Meng",
+  "source": "Sanguozhi: Biography of Lu Meng; Wikipedia: Lü Meng",
   "basis": "Appears at 16 as a young man in Runan",
   "courtesy": "Ziming"
  },
@@ -2201,7 +2206,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.83; Sanguozhi: Biography of Lu Xun",
+  "source": "Romance ch.83; Sanguozhi: Biography of Lu Xun; Wikipedia: Lu Xun (Eastern Wu)",
   "basis": "Appears at 16 in Wu; LDR 90: burned Liu Bei's camps at Yiling; INT 90: patient strategist",
   "courtesy": "Boyan"
  },
@@ -2225,7 +2230,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Lu Su",
+  "source": "Sanguozhi: Biography of Lu Su; Wikipedia: Lu Su",
   "basis": "Pos: rich young man of Dongcheng who gives away grain; INT 85: planned the alliance with Liu Bei",
   "courtesy": "Zijing"
  },
@@ -2249,7 +2254,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Zhang Zhao",
+  "source": "Sanguozhi: Biography of Zhang Zhao; Wikipedia: Zhang Zhao (Eastern Wu)",
   "basis": "Pos: scholar of Pengcheng living privately in Xu; POL 90: held the Wu administration together; WAR 15 and LDR 25: civil",
   "courtesy": "Zibu"
  },
@@ -2273,7 +2278,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Zhang Hong",
+  "source": "Sanguozhi: Biography of Zhang Hong; Wikipedia: Zhang Hong (Han dynasty)",
   "basis": "Pos: scholar of Guangling, in private life; WAR 20: no combat record; civil career (rubric: below 50 for civilians); LDR 25: never held an independent command (rubric: below 55)",
   "courtesy": "Zigang"
  },
@@ -2302,7 +2307,7 @@
     "role": "sibling"
    }
   ],
-  "source": "Sanguozhi: Biography of Zhuge Jin",
+  "source": "Sanguozhi: Biography of Zhuge Jin; Wikipedia: Zhuge Jin",
   "basis": "Pos: student of Langya; CHA 85: known for sincerity; WAR 25: civil",
   "courtesy": "Ziyu"
  },
@@ -2326,7 +2331,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Gu Yong",
+  "source": "Sanguozhi: Biography of Gu Yong; Wikipedia: Gu Yong",
   "basis": "Pos: pupil of Cai Yong, living in Wu; WAR 20: no combat record; civil career (rubric: below 50 for civilians); LDR 30: never held an independent command (rubric: below 55)",
   "courtesy": "Yuantan"
  },
@@ -2350,7 +2355,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Yu Fan",
+  "source": "Sanguozhi: Biography of Yu Fan; Wikipedia: Yu Fan",
   "basis": "Pos: official of Kuaiji under Wang Lang; WAR 30: no combat record; civil career (rubric: below 50 for civilians)",
   "courtesy": "Zhongxiang"
  },
@@ -2359,7 +2364,7 @@
   "name": "Zhou Tai",
   "sex": "m",
   "born": 170,
-  "died": 220,
+  "died": 223,
   "stats": {
    "war": 84,
    "ldr": 70,
@@ -2374,7 +2379,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Zhou Tai",
+  "source": "Sanguozhi: Biography of Zhou Tai; Wikipedia: Zhou Tai",
   "basis": "Appears at about 25 as a river fighter; joins Sun Ce",
   "courtesy": "Youping",
   "estimate": true,
@@ -2400,7 +2405,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Jiang Qin",
+  "source": "Sanguozhi: Biography of Jiang Qin; Wikipedia: Jiang Qin",
   "basis": "Appears with Sun Ce",
   "courtesy": "Gongyi",
   "estimate": true,
@@ -2426,7 +2431,7 @@
    "archer": "A"
   },
   "kin": [],
-  "source": "Romance ch.38; Sanguozhi: Biography of Gan Ning",
+  "source": "Romance ch.38; Sanguozhi: Biography of Gan Ning; Wikipedia: Gan Ning",
   "basis": "Appears at 16 as a river bandit of Ba; WAR 94: led a hundred riders against Cao Cao's camp; stats kept from the sibling game",
   "courtesy": "Xingba",
   "estimate": true,
@@ -2452,7 +2457,7 @@
    "archer": "A"
   },
   "kin": [],
-  "source": "Romance ch.11; Sanguozhi: Biography of Taishi Ci",
+  "source": "Romance ch.11; Sanguozhi: Biography of Taishi Ci; Wikipedia: Taishi Ci",
   "basis": "Pos: archer of Donglai who has made an enemy of the Qing authorities; WAR 90: duelled Sun Ce to a draw; archery unrivalled",
   "courtesy": "Ziyi"
  },
@@ -2481,7 +2486,7 @@
     "role": "sibling"
    }
   ],
-  "source": "Sanguozhi: Biography of Zhou Yu; Romance ch.44",
+  "source": "Sanguozhi: Biography of Zhou Yu; Romance ch.44; Wikipedia: Two Qiaos",
   "basis": "Appears at 16 in Lujiang; CHA 90: the record calls the sisters beautiful; WAR 10: no combat record; civil career (rubric: below 50 for civilians); LDR 10: never held an independent command (rubric: below 55)",
   "estimate": true
  },
@@ -2510,7 +2515,7 @@
     "role": "sibling"
    }
   ],
-  "source": "Sanguozhi: Biography of Zhou Yu; Romance ch.44",
+  "source": "Sanguozhi: Biography of Zhou Yu; Romance ch.44; Wikipedia: Two Qiaos",
   "basis": "Appears at 16 in Lujiang; CHA 90: as her sister; WAR 10: no combat record; civil career (rubric: below 50 for civilians); LDR 10: never held an independent command (rubric: below 55)",
   "estimate": true
  },
@@ -2534,7 +2539,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.7; Sanguozhi: Biography of Liu Biao",
+  "source": "Romance ch.7; Sanguozhi: Biography of Liu Biao; Wikipedia: Liu Biao",
   "basis": "Pos: new Governor of Jing, arrived alone in 190 and was settled by the local families at Xiangyang",
   "courtesy": "Jingsheng"
  },
@@ -2563,7 +2568,7 @@
     "role": "sibling"
    }
   ],
-  "source": "Sanguozhi: Biography of Liu Biao (Kuai Liang)",
+  "source": "Sanguozhi: Biography of Liu Biao (Kuai Liang); Wikipedia: Kuai Liang",
   "basis": "Pos: local Xiangyang noble who settled Liu Biao in; INT 85: planned the settling of Jing; WAR 20: civil",
   "courtesy": "Zirou",
   "estimate": true
@@ -2593,7 +2598,7 @@
     "role": "sibling"
    }
   ],
-  "source": "Sanguozhi: Biography of Liu Biao (Kuai Yue)",
+  "source": "Sanguozhi: Biography of Liu Biao (Kuai Yue); Wikipedia: Kuai Yue (Han dynasty)",
   "basis": "Pos: brother of Kuai Liang, Liu Biao's counsellor; WAR 25: no combat record; civil career (rubric: below 50 for civilians)",
   "courtesy": "Yidu",
   "estimate": true
@@ -2618,7 +2623,7 @@
    "archer": "A"
   },
   "kin": [],
-  "source": "Romance ch.31; Sanguozhi: Biography of Liu Biao",
+  "source": "Romance ch.31; Sanguozhi: Biography of Liu Biao; Wikipedia: Cai Mao",
   "basis": "Pos: Xiangyang noble and Liu Biao's naval commander, holding Jiangling; stats kept from the sibling game",
   "courtesy": "Degui",
   "estimate": true,
@@ -2644,7 +2649,7 @@
    "archer": "A"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Sun Jian (Huang Zu)",
+  "source": "Sanguozhi: Biography of Sun Jian (Huang Zu); Wikipedia: Huang Zu",
   "basis": "Pos: Liu Biao's officer, attested at Jiangxia from 191",
   "courtesy": "Jigen",
   "estimate": true
@@ -2669,7 +2674,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Wen Pin",
+  "source": "Sanguozhi: Biography of Wen Pin; Wikipedia: Wen Ping",
   "basis": "Pos: Liu Biao's officer",
   "courtesy": "Zhongye",
   "estimate": true
@@ -2694,9 +2699,10 @@
    "archer": "A"
   },
   "kin": [],
-  "source": "Romance ch.53; Sanguozhi: Biography of Huang Zhong",
+  "source": "Romance ch.53; Sanguozhi: Biography of Huang Zhong; Wikipedia: Huang Zhong",
   "basis": "Pos: Nanyang man in Liu Biao's service; WAR 90: killed Xiahou Yuan at Dingjun Mountain",
-  "courtesy": "Hansheng"
+  "courtesy": "Hansheng",
+  "estimate": true
  },
  {
   "id": "wei-yan",
@@ -2718,7 +2724,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.53; Sanguozhi: Biography of Wei Yan",
+  "source": "Romance ch.53; Sanguozhi: Biography of Wei Yan; Wikipedia: Wei Yan",
   "basis": "Pos: young soldier from Yiyang in Jing; WAR 85: led the Han-zhong campaigns; CHA 40: arrogant and disliked",
   "courtesy": "Wenchang",
   "estimate": true
@@ -2743,7 +2749,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Wang Can",
+  "source": "Sanguozhi: Biography of Wang Can; Wikipedia: Wang Can",
   "basis": "Appears at 16 on arriving in Jing; WAR 15 and LDR 15: poet-scholar",
   "courtesy": "Zhongxuan"
  },
@@ -2767,9 +2773,9 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.35; Hou Hanshu: Biography of Sima Hui",
+  "source": "Romance ch.35; Hou Hanshu: Biography of Sima Hui; Wikipedia: Sima Hui",
   "basis": "Pos: hermit of Xiangyang, called Water Mirror; INT 90: reads men; WAR 15 and LDR 15: scholar",
-  "courtesy": "Dezao",
+  "courtesy": "Decao",
   "estimate": true
  },
  {
@@ -2792,7 +2798,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.35; Sanguozhi: Biography of Pang Tong",
+  "source": "Romance ch.35; Sanguozhi: Biography of Pang Tong; Wikipedia: Pang Tong",
   "basis": "Appears at 16; INT 94: Fledgling Phoenix, planned the Yi campaign",
   "courtesy": "Shiyuan"
  },
@@ -2821,7 +2827,7 @@
     "role": "sibling"
    }
   ],
-  "source": "Romance ch.37; Sanguozhi: Biography of Zhuge Liang",
+  "source": "Romance ch.37; Sanguozhi: Biography of Zhuge Liang; Wikipedia: Zhuge Liang",
   "basis": "Appears at 16 in Longzhong near Xiangyang; INT 100: Crouching Dragon, the novel's master strategist; LDR 92: planned and led the northern campaigns; POL 98: built the Shu administration; CHA 95: drew the loyalty of all",
   "courtesy": "Kongming",
   "portrait": "zhuge-liang"
@@ -2846,7 +2852,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Zhuge Liang (Xu Shu); Romance ch.35",
+  "source": "Sanguozhi: Biography of Zhuge Liang (Xu Shu); Romance ch.35; Wikipedia: Xu Shu",
   "basis": "Pos: swordsman and scholar of Yingchuan, living privately",
   "courtesy": "Yuanzhi",
   "estimate": true
@@ -2871,7 +2877,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Guo Jia",
+  "source": "Sanguozhi: Biography of Guo Jia; Wikipedia: Guo Jia",
   "basis": "Pos: youth of Yingchuan watching the lords from private life; INT 97: foresaw the fall of Lu Bu and Sun Ce; WAR 20: no combat record; civil career (rubric: below 50 for civilians)",
   "courtesy": "Fengxiao"
  },
@@ -2880,7 +2886,7 @@
   "name": "Chen Qun",
   "sex": "m",
   "born": 175,
-  "died": 236,
+  "died": 237,
   "stats": {
    "war": 25,
    "ldr": 45,
@@ -2895,7 +2901,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Chen Qun",
+  "source": "Sanguozhi: Biography of Chen Qun; Wikipedia: Chen Qun",
   "basis": "Appears at 16 in his family home of Yingchuan; WAR 25: no combat record; civil career (rubric: below 50 for civilians)",
   "courtesy": "Changwen",
   "estimate": true,
@@ -2921,7 +2927,7 @@
    "archer": "C"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Hua Tuo; Romance ch.78",
+  "source": "Sanguozhi: Biography of Hua Tuo; Romance ch.78; Wikipedia: Hua Tuo",
   "basis": "Pos: wandering physician of the Pei lands; INT 80: surgeon; LDR 20: no command; WAR 25: no combat record; civil career (rubric: below 50 for civilians)",
   "courtesy": "Yuanhua",
   "estimate": true
@@ -2946,7 +2952,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.12; Sanguozhi: Biography of Xu Chu",
+  "source": "Romance ch.12; Sanguozhi: Biography of Xu Chu; Wikipedia: Xu Chu",
   "basis": "Pos: militia captain of Qiao county, hidden among his village's fort; WAR 97: strongest man of Cao's guard; POL 25: bodyguard",
   "courtesy": "Zhongkang",
   "estimate": true,
@@ -2972,7 +2978,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.28",
+  "source": "Romance ch.28; Wikipedia: Zhou Cang",
   "basis": "Pos: bandit at Wolong Mountain; WAR 85: carried Guan Yu's blade in the novel; INT 30: plain soldier; POL 20: none",
   "estimate": true,
   "portrait": "zhou-cang"
@@ -2997,7 +3003,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.28",
+  "source": "Romance ch.28; Wikipedia: List of fictional people of the Three Kingdoms",
   "basis": "Pos: bandit chief at Wolong Mountain; CHA 30: robber; POL 20: fighter only, no governing record (rubric: below 40)",
   "estimate": true,
   "portrait": "pei-yuanshao"
@@ -3006,7 +3012,7 @@
   "id": "liu-yan",
   "name": "Liu Yan",
   "sex": "m",
-  "born": 140,
+  "born": 132,
   "died": 194,
   "stats": {
    "war": 30,
@@ -3027,7 +3033,7 @@
     "role": "child"
    }
   ],
-  "source": "Sanguozhi: Biography of Liu Yan",
+  "source": "Sanguozhi: Biography of Liu Yan; Wikipedia: Liu Yan (Han dynasty warlord)",
   "basis": "Pos: Governor of Yi who asked to go to the far west to avoid the capital; WAR 30: no combat record; civil career (rubric: below 50 for civilians)",
   "courtesy": "Junlang",
   "estimate": true
@@ -3057,9 +3063,10 @@
     "role": "parent"
    }
   ],
-  "source": "Sanguozhi: Biography of Liu Yan (Liu Zhang)",
+  "source": "Sanguozhi: Biography of Liu Yan (Liu Zhang); Wikipedia: Liu Zhang (warlord)",
   "basis": "Pos: Liu Yan's youngest son; in 190 he was serving at the court, here placed at Chengdu; WAR 25: timid",
-  "courtesy": "Jiyu"
+  "courtesy": "Jiyu",
+  "estimate": true
  },
  {
   "id": "yan-yan",
@@ -3081,7 +3088,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.63; Sanguozhi: Biography of Zhang Fei (Yan Yan)",
+  "source": "Romance ch.63; Sanguozhi: Biography of Zhang Fei (Yan Yan); Wikipedia: Yan Yan (Three Kingdoms)",
   "basis": "Pos: old general of Ba, in private life until Liu Zhang's rule",
   "estimate": true
  },
@@ -3105,9 +3112,9 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Liu Zhang (Zhang Song)",
+  "source": "Sanguozhi: Biography of Liu Zhang (Zhang Song); Wikipedia: Zhang Song",
   "basis": "Pos: scholar of Shu, living privately; INT 82: sharp memory; CHA 35: ugly and bitter; WAR 25 and LDR 30: civil",
-  "courtesy": "Yongnian",
+  "courtesy": "Ziqiao",
   "estimate": true
  },
  {
@@ -3130,7 +3137,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Huang Quan",
+  "source": "Sanguozhi: Biography of Huang Quan; Wikipedia: Huang Quan (general)",
   "basis": "Pos: young man of Langzhong, in private life",
   "courtesy": "Gongheng",
   "estimate": true
@@ -3155,7 +3162,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Fa Zheng",
+  "source": "Sanguozhi: Biography of Fa Zheng; Wikipedia: Fa Zheng",
   "basis": "Appears at 18, fleeing the Chang'an famine to Shu; INT 92: planned the Hanzhong campaign; WAR 30: civil",
   "courtesy": "Xiaozhi",
   "appears": 194
@@ -3180,7 +3187,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Meng Da",
+  "source": "Sanguozhi: Biography of Meng Da; Wikipedia: Meng Da",
   "basis": "Appears with Fa Zheng",
   "courtesy": "Zijing",
   "estimate": true,
@@ -3214,7 +3221,7 @@
   "id": "zhang-lu",
   "name": "Zhang Lu",
   "sex": "m",
-  "born": 165,
+  "born": 163,
   "died": 216,
   "stats": {
    "war": 45,
@@ -3230,7 +3237,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.58; Sanguozhi: Biography of Zhang Lu",
+  "source": "Romance ch.58; Sanguozhi: Biography of Zhang Lu; Wikipedia: Zhang Lu (Han dynasty); Wikipedia: List of people of the Three Kingdoms (Z)",
   "basis": "Pos: grandson of the founder of the Way of the Five Pecks, ruling Hanzhong from 191; placed there at the start",
   "courtesy": "Gongqi",
   "estimate": true
@@ -3239,7 +3246,7 @@
   "id": "zhang-wei",
   "name": "Zhang Wei",
   "sex": "m",
-  "born": 170,
+  "born": 172,
   "died": 215,
   "stats": {
    "war": 70,
@@ -3255,16 +3262,15 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.67; Sanguozhi: Biography of Zhang Lu",
-  "basis": "Pos: Zhang Lu's brother and general",
-  "estimate": true
+  "source": "Romance ch.67; Sanguozhi: Biography of Zhang Lu; Wikipedia: List of people of the Three Kingdoms (Z); Wikipedia: Zhang Lu (Han dynasty)",
+  "basis": "Pos: Zhang Lu's brother and general"
  },
  {
   "id": "yan-pu",
   "name": "Yan Pu",
   "sex": "m",
-  "born": 165,
-  "died": null,
+  "born": 163,
+  "died": 231,
   "stats": {
    "war": 20,
    "ldr": 35,
@@ -3279,9 +3285,8 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Zhang Lu (Yan Pu)",
-  "basis": "Pos: Zhang Lu's adviser; WAR 20: no combat record; civil career (rubric: below 50 for civilians)",
-  "estimate": true
+  "source": "Sanguozhi: Biography of Zhang Lu (Yan Pu); Wikipedia: Battle of Yangping; Wikipedia: List of people of the Three Kingdoms (Y)",
+  "basis": "Pos: Zhang Lu's adviser; WAR 20: no combat record; civil career (rubric: below 50 for civilians)"
  },
  {
   "id": "ma-teng",
@@ -3308,9 +3313,10 @@
     "role": "child"
    }
   ],
-  "source": "Romance ch.10; Sanguozhi: Biography of Ma Teng",
+  "source": "Romance ch.10; Sanguozhi: Biography of Ma Teng; Wikipedia: Ma Teng",
   "basis": "Pos: Liang warlord of Fufeng stock, sworn brother of Han Sui; WAR 85: leading cavalry champion of the west",
-  "courtesy": "Shoucheng"
+  "courtesy": "Shoucheng",
+  "estimate": true
  },
  {
   "id": "ma-chao",
@@ -3337,7 +3343,7 @@
     "role": "parent"
    }
   ],
-  "source": "Romance ch.58; Sanguozhi: Biography of Ma Chao",
+  "source": "Romance ch.58; Sanguozhi: Biography of Ma Chao; Wikipedia: Ma Chao",
   "basis": "Appears at 16; WAR 96: the novel's Splendid Ma, nearly killed Cao Cao at Tong Pass",
   "courtesy": "Mengqi"
  },
@@ -3361,7 +3367,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.58; Sanguozhi: Biography of Pang De",
+  "source": "Romance ch.58; Sanguozhi: Biography of Pang De; Wikipedia: Pang De",
   "basis": "Pos: young officer under Ma Teng; WAR 86: fought Guan Yu at Fan",
   "courtesy": "Lingming",
   "estimate": true
@@ -3386,7 +3392,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Ma Teng (Han Sui)",
+  "source": "Sanguozhi: Biography of Ma Teng (Han Sui); Wikipedia: Han Sui",
   "basis": "Pos: Liang rebel chief, sworn brother of Ma Teng",
   "courtesy": "Wenyue",
   "estimate": true
@@ -3411,7 +3417,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Ma Teng (Han Sui's allies)",
+  "source": "Sanguozhi: Biography of Ma Teng (Han Sui's allies); Wikipedia: Battle of Tong Pass",
   "basis": "Pos: Han Sui's ally among the Liang chiefs",
   "estimate": true
  },
@@ -3435,7 +3441,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Ma Teng (Han Sui's allies)",
+  "source": "Sanguozhi: Biography of Ma Teng (Han Sui's allies); Wikipedia: Yang Qiu (warlord)",
   "basis": "Pos: Han Sui's ally among the Liang chiefs",
   "estimate": true
  },
@@ -3459,9 +3465,9 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Yang Fu",
+  "source": "Sanguozhi: Biography of Yang Fu; Wikipedia: Yang Fu (Han dynasty)",
   "basis": "Pos: young scholar of Tianshui, in private life",
-  "courtesy": "Yizhou",
+  "courtesy": "Yishan",
   "estimate": true
  },
  {
@@ -3484,7 +3490,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.2; Sanguozhi: Biography of Gongsun Zan",
+  "source": "Romance ch.2; Sanguozhi: Biography of Gongsun Zan; Wikipedia: Gongsun Zan",
   "basis": "Pos: Governor of Beiping and master of the White Horse riders; stats kept from the sibling game",
   "courtesy": "Bogui",
   "estimate": true,
@@ -3510,7 +3516,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Gongsun Zan",
+  "source": "Sanguozhi: Biography of Gongsun Zan; Wikipedia: Gongsun Zan",
   "basis": "Pos: Gongsun Zan's cousin and officer",
   "estimate": true
  },
@@ -3534,7 +3540,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Gongsun Zan",
+  "source": "Sanguozhi: Biography of Gongsun Zan; Wikipedia: Tian Kai",
   "basis": "Pos: Gongsun Zan's officer, later at Liu Bei's side in Xu",
   "estimate": true
  },
@@ -3543,7 +3549,7 @@
   "name": "Yan Gang",
   "sex": "m",
   "born": 160,
-  "died": 191,
+  "died": 192,
   "stats": {
    "war": 70,
    "ldr": 65,
@@ -3558,7 +3564,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Gongsun Zan",
+  "source": "Sanguozhi: Biography of Gongsun Zan; Wikipedia: Battle of Jieqiao; Wikipedia: List of people of the Three Kingdoms (Y)",
   "basis": "Pos: Gongsun Zan's general",
   "estimate": true
  },
@@ -3582,7 +3588,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.1; Sanguozhi: Biography of Liu Bei",
+  "source": "Romance ch.1; Sanguozhi: Biography of Liu Bei; Wikipedia: Liu Bei",
   "basis": "Pos: after the Yellow Turban wars Liu Bei lost his office and went to Gongsun Zan; made magistrate of Pingyuan within the year (record dates 191); CHA 98: strangers wept at his parting, men of the empire followed him",
   "courtesy": "Xuande",
   "portrait": "liu-bei"
@@ -3612,7 +3618,7 @@
     "role": "child"
    }
   ],
-  "source": "Romance ch.1; Sanguozhi: Biography of Guan Yu",
+  "source": "Romance ch.1; Sanguozhi: Biography of Guan Yu; Wikipedia: Guan Yu",
   "basis": "Pos: Liu Bei's oath brother and bodyguard; WAR 97: the novel's Duke of Martial Might, killed Hua Xiong and Yan Liang; LDR 95: captured Yu Jin's army at Fan; CHA 85: respected by friend and enemy alike",
   "courtesy": "Yunchang",
   "estimate": true,
@@ -3638,7 +3644,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.1; Sanguozhi: Biography of Zhang Fei",
+  "source": "Romance ch.1; Sanguozhi: Biography of Zhang Fei; Wikipedia: Zhang Fei",
   "basis": "Pos: Liu Bei's oath brother; WAR 98: held Changban Bridge alone in the novel; LDR 85: held the Ba line; INT 30: rash, drunk in the novel; POL 30: none",
   "courtesy": "Yide",
   "estimate": true,
@@ -3664,7 +3670,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.1; Sanguozhi: Biography of Jian Yong",
+  "source": "Romance ch.1; Sanguozhi: Biography of Jian Yong; Wikipedia: Jian Yong",
   "basis": "Pos: Liu Bei's boyhood friend and adviser who joined him early; stats kept from the sibling game",
   "courtesy": "Xianhe",
   "estimate": true,
@@ -3695,7 +3701,7 @@
     "role": "parent"
    }
   ],
-  "source": "Romance ch.28; Sanguozhi: Biography of Guan Yu (Guan Ping)",
+  "source": "Romance ch.28; Sanguozhi: Biography of Guan Yu (Guan Ping); Wikipedia: Guan Ping",
   "basis": "Appears at 16 in Guan Yu's house; adopted son in the novel",
   "estimate": true,
   "portrait": "guan-ping"
@@ -3720,7 +3726,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Hou Hanshu: Biography of Mi Heng; Romance ch.23",
+  "source": "Hou Hanshu: Biography of Mi Heng; Romance ch.23; Wikipedia: Mi Heng",
   "basis": "Pos: gifted young man of Pingyuan who insults every patron; CHA 20: mocked the great; WAR 20 and LDR 20: scholar",
   "courtesy": "Zhengping"
  },
@@ -3744,7 +3750,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Hou Hanshu: Biography of Liu Yu",
+  "source": "Hou Hanshu: Biography of Liu Yu; Wikipedia: Liu Yu (warlord)",
   "basis": "Pos: Governor of You Province at Ji; CHA 85: the north loved his mild rule; POL 82: made peace with the nomads by trade; WAR 30: not a fighter",
   "courtesy": "Bo'an",
   "estimate": true
@@ -3769,7 +3775,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.1; Hou Hanshu: Biography of Liu Yu",
+  "source": "Romance ch.1; Hou Hanshu: Biography of Liu Yu; Wikipedia: Zou Jing (Eastern Han)",
   "basis": "Pos: Han officer of You Province; stats kept from the sibling game",
   "estimate": true,
   "portrait": "zou-jing"
@@ -3778,7 +3784,7 @@
   "id": "lu-zhi",
   "name": "Lu Zhi",
   "sex": "m",
-  "born": 139,
+  "born": 140,
   "died": 192,
   "stats": {
    "war": 55,
@@ -3794,9 +3800,10 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Hou Hanshu: Biography of Lu Zhi; Romance ch.1",
+  "source": "Hou Hanshu: Biography of Lu Zhi; Romance ch.1; Wikipedia: Lu Zhi (Han dynasty)",
   "basis": "Pos: retired general-scholar who taught Liu Bei and Gongsun Zan, living privately in his Zhuo home country",
-  "courtesy": "Zigan"
+  "courtesy": "Zigan",
+  "estimate": true
  },
  {
   "id": "gongsun-du",
@@ -3823,7 +3830,7 @@
     "role": "child"
    }
   ],
-  "source": "Sanguozhi: Biography of Gongsun Du",
+  "source": "Sanguozhi: Biography of Gongsun Du; Wikipedia: Gongsun Du",
   "basis": "Pos: Governor of Liaodong, who made himself Marquis of Pingzhou",
   "courtesy": "Shengji",
   "estimate": true
@@ -3832,8 +3839,8 @@
   "id": "gongsun-kang",
   "name": "Gongsun Kang",
   "sex": "m",
-  "born": 180,
-  "died": 221,
+  "born": 172,
+  "died": 210,
   "stats": {
    "war": 60,
    "ldr": 60,
@@ -3853,9 +3860,10 @@
     "role": "parent"
    }
   ],
-  "source": "Sanguozhi: Biography of Gongsun Du (Gongsun Kang)",
+  "source": "Sanguozhi: Biography of Gongsun Du (Gongsun Kang); Wikipedia: Gongsun Kang",
   "basis": "Appears at 16, son of Gongsun Du",
-  "estimate": true
+  "estimate": true,
+  "appears": 196
  },
  {
   "id": "zheng-xuan",
@@ -3877,7 +3885,7 @@
    "archer": "C"
   },
   "kin": [],
-  "source": "Hou Hanshu: Biography of Zheng Xuan",
+  "source": "Hou Hanshu: Biography of Zheng Xuan; Wikipedia: Zheng Xuan",
   "basis": "Pos: the age's great commentator on the classics, living privately in Beihai; INT 90: unmatched scholarship; CHA 85: scholars from all provinces came to study under him; WAR 10 and LDR 15: no arms",
   "courtesy": "Kangcheng"
  },
@@ -3901,9 +3909,10 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Hou Hanshu: Biography of Kong Rong; Romance ch.11",
+  "source": "Hou Hanshu: Biography of Kong Rong; Romance ch.11; Wikipedia: Kong Rong",
   "basis": "Pos: Governor of Beihai and descendant of Confucius; WAR 25: scholar-governor; CHA 82: a host of scholars",
-  "courtesy": "Wenju"
+  "courtesy": "Wenju",
+  "estimate": true
  },
  {
   "id": "liu-dai",
@@ -3935,7 +3944,7 @@
   "name": "Qiao Mao",
   "sex": "m",
   "born": 150,
-  "died": 191,
+  "died": 190,
   "stats": {
    "war": 40,
    "ldr": 50,
@@ -3950,9 +3959,9 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Cao Cao (Qiao Mao)",
+  "source": "Sanguozhi: Biography of Cao Cao (Qiao Mao); Wikipedia: Qiao Mao",
   "basis": "Pos: Governor of Dong Commandery and a coalition member, in feud with Liu Dai",
-  "courtesy": "Gongxu",
+  "courtesy": "Yuanwei",
   "estimate": true
  },
  {
@@ -3975,7 +3984,7 @@
    "archer": "A"
   },
   "kin": [],
-  "source": "Romance ch.4; Sanguozhi: Biography of Lu Bu (Chen Gong)",
+  "source": "Romance ch.4; Sanguozhi: Biography of Lu Bu (Chen Gong); Wikipedia: Chen Gong",
   "basis": "Pos: left a county magistracy in 189 after fleeing with Cao Cao; at Dong Commandery in 190; INT 92: planned Lu Bu's seizure of Yan; stats kept from the sibling game",
   "courtesy": "Gongtai",
   "estimate": true,
@@ -4001,7 +4010,7 @@
    "archer": "A"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Cheng Yu",
+  "source": "Sanguozhi: Biography of Cheng Yu; Wikipedia: Cheng Yu",
   "basis": "Pos: old scholar of Dong'e, living privately in Dong Commandery; INT 88: planned the defence of Juancheng and Dong'e",
   "courtesy": "Zhongde"
  },
@@ -4025,7 +4034,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Man Chong",
+  "source": "Sanguozhi: Biography of Man Chong; Wikipedia: Man Chong",
   "basis": "Pos: young official of Shanyang living privately before entering Cao Cao's service",
   "courtesy": "Boning",
   "estimate": true
@@ -4050,7 +4059,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.11; Sanguozhi: Biography of Tao Qian",
+  "source": "Romance ch.11; Sanguozhi: Biography of Tao Qian; Wikipedia: Tao Qian (Han dynasty)",
   "basis": "Pos: Governor of Xu at Xiapi; WAR 25: old, no fighter; stats kept from the sibling game",
   "courtesy": "Gongzu",
   "portrait": "tao-qian"
@@ -4080,7 +4089,7 @@
     "role": "sibling"
    }
   ],
-  "source": "Romance ch.11; Sanguozhi: Biography of Mi Zhu",
+  "source": "Romance ch.11; Sanguozhi: Biography of Mi Zhu; Wikipedia: Mi Zhu",
   "basis": "Pos: rich merchant of Donghai, a Xu official; CHA 85: gave his fortune to Liu Bei; WAR 30: merchant",
   "courtesy": "Zizhong",
   "estimate": true,
@@ -4091,7 +4100,7 @@
   "name": "Mi Fang",
   "sex": "m",
   "born": 172,
-  "died": 220,
+  "died": 223,
   "stats": {
    "war": 55,
    "ldr": 50,
@@ -4111,7 +4120,7 @@
     "role": "sibling"
    }
   ],
-  "source": "Sanguozhi: Biography of Mi Zhu (Mi Fang)",
+  "source": "Sanguozhi: Biography of Mi Zhu (Mi Fang); Wikipedia: Mi Fang",
   "basis": "Pos: brother of Mi Zhu, in Xu service",
   "courtesy": "Zifang",
   "estimate": true
@@ -4136,7 +4145,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Romance ch.11; Sanguozhi: Biography of Sun Qian",
+  "source": "Romance ch.11; Sanguozhi: Biography of Sun Qian; Wikipedia: Sun Qian",
   "basis": "Pos: Beihai man serving Tao Qian; the record places him with Liu Bei from 194; stats kept from the sibling game",
   "courtesy": "Gongyou",
   "estimate": true,
@@ -4162,7 +4171,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Chen Deng",
+  "source": "Sanguozhi: Biography of Chen Deng; Wikipedia: Chen Deng",
   "basis": "Pos: Xu official of Guangling; INT 85: advised Liu Bei, Lu Bu and Cao Cao in turn",
   "courtesy": "Yuanlong",
   "estimate": true
@@ -4172,7 +4181,7 @@
   "name": "Cao Bao",
   "sex": "m",
   "born": 160,
-  "died": 195,
+  "died": 196,
   "stats": {
    "war": 65,
    "ldr": 60,
@@ -4187,7 +4196,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Tao Qian",
+  "source": "Sanguozhi: Biography of Tao Qian; Wikipedia: Cao Bao",
   "basis": "Pos: Tao Qian's general",
   "estimate": true
  },
@@ -4216,7 +4225,7 @@
     "role": "sibling"
    }
   ],
-  "source": "Sanguozhi: Biography of Zhang Miao (Zhang Chao)",
+  "source": "Sanguozhi: Biography of Zhang Miao (Zhang Chao); Wikipedia: List of people of the Three Kingdoms (Z)",
   "basis": "Pos: Governor of Guangling, within Xu, and a coalition member; Zhang Miao's brother",
   "estimate": true
  },
@@ -4224,7 +4233,7 @@
   "id": "zang-ba",
   "name": "Zang Ba",
   "sex": "m",
-  "born": 165,
+  "born": 162,
   "died": 233,
   "stats": {
    "war": 82,
@@ -4240,7 +4249,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Zang Ba",
+  "source": "Sanguozhi: Biography of Zang Ba; Wikipedia: Zang Ba",
   "basis": "Pos: bandit chief in the Taishan hills near Langya",
   "courtesy": "Xuangao",
   "estimate": true
@@ -4250,7 +4259,7 @@
   "name": "Kong Zhou",
   "sex": "m",
   "born": 150,
-  "died": 191,
+  "died": 190,
   "stats": {
    "war": 30,
    "ldr": 45,
@@ -4265,7 +4274,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Cao Cao (Kong Zhou)",
+  "source": "Sanguozhi: Biography of Cao Cao (Kong Zhou); Wikipedia: Kong Zhou",
   "basis": "Pos: Governor of Yu Province at Yingchuan and a coalition member; WAR 30: no combat record; civil career (rubric: below 50 for civilians)",
   "courtesy": "Gongxu",
   "estimate": true
@@ -4290,7 +4299,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Wang Lang",
+  "source": "Sanguozhi: Biography of Wang Lang; Wikipedia: Wang Lang (Cao Wei)",
   "basis": "Pos: Governor of Kuaiji, a scholar-official; WAR 30: no combat record; civil career (rubric: below 50 for civilians)",
   "courtesy": "Jingxing",
   "estimate": true
@@ -4344,7 +4353,7 @@
     "role": "sibling"
    }
   ],
-  "source": "Sanguozhi: Biography of Shi Xie",
+  "source": "Sanguozhi: Biography of Shi Xie; Wikipedia: Shi Xie",
   "basis": "Pos: Governor of Jiaozhi, who ruled the far south for forty years; POL 88: kept the peace and trade of Jiao; WAR 20: no fighter",
   "courtesy": "Weiyan"
  },
@@ -4373,7 +4382,7 @@
     "role": "sibling"
    }
   ],
-  "source": "Sanguozhi: Biography of Shi Xie (Shi Yi)",
+  "source": "Sanguozhi: Biography of Shi Xie (Shi Yi); Wikipedia: Shi Yi (Eastern Wu)",
   "basis": "Pos: Shi Xie's brother",
   "estimate": true
  },
@@ -4397,8 +4406,9 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Yuan Shu",
+  "source": "Sanguozhi: Biography of Yuan Shu; Wikipedia: List of people of the Three Kingdoms (C)",
   "basis": "Pos: Inspector of Yang Province at Shouchun; WAR 30: no combat record; civil career (rubric: below 50 for civilians)",
+  "courtesy": "Yuanti",
   "estimate": true
  },
  {
@@ -4421,9 +4431,9 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Lu Bu (Zhang Yang)",
+  "source": "Sanguozhi: Biography of Lu Bu (Zhang Yang); Wikipedia: Zhang Yang (warlord)",
   "basis": "Pos: Governor of Shangdang and a coalition member",
-  "courtesy": "Zhizhong",
+  "courtesy": "Zhishu",
   "estimate": true
  },
  {
@@ -4446,8 +4456,8 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Dong Zhao",
-  "basis": "Pos: scholar-adviser; the record puts him with Zhang Yang from 191; INT 85: sound plans; WAR 20: no combat record; civil career (rubric: below 50 for civilians)",
+  "source": "Sanguozhi: Biography of Dong Zhao; Wikipedia: Dong Zhao (minister)",
+  "basis": "Pos: Wikipedia: served Yuan Shao first as a county official and adviser, then fled to Zhang Yang; the record places him with Yuan Shao before Zhang Yang; the record puts him with Zhang Yang from 191; INT 85: sound plans; WAR 20: no combat record; civil career (rubric: below 50 for civilians)",
   "courtesy": "Gongren"
  },
  {
@@ -4470,10 +4480,9 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Wang Ling",
+  "source": "Sanguozhi: Biography of Wang Ling; Wikipedia: Wang Ling (Three Kingdoms)",
   "basis": "Pos: nephew of Wang Yun, living privately in Taiyuan",
-  "courtesy": "Wenshu",
-  "estimate": true
+  "courtesy": "Yanyun"
  },
  {
   "id": "xu-huang",
@@ -4495,7 +4504,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Xu Huang",
+  "source": "Sanguozhi: Biography of Xu Huang; Wikipedia: Xu Huang",
   "basis": "Pos: clerk of Hedong who served Yang Feng; WAR 85: broke Guan Yu's siege at Fan",
   "courtesy": "Gongming",
   "estimate": true
@@ -4520,7 +4529,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Dong Zhuo (Yang Feng)",
+  "source": "Sanguozhi: Biography of Dong Zhuo (Yang Feng); Wikipedia: Yang Feng",
   "basis": "Pos: White Wave bandit chief in Hedong; POL 30: raider",
   "estimate": true
  },
@@ -4549,7 +4558,7 @@
     "role": "parent"
    }
   ],
-  "source": "Sanguozhi: Biography of Cao Zhi (Yang Xiu)",
+  "source": "Sanguozhi: Biography of Cao Zhi (Yang Xiu); Wikipedia: Yang Xiu (Han dynasty)",
   "basis": "Appears at 16 as the son of Yang Biao; INT 85: quick; WAR 25 and LDR 30: civil",
   "courtesy": "Dezu"
  },
@@ -4578,7 +4587,7 @@
     "role": "sibling"
    }
   ],
-  "source": "Sanguozhi: Biography of Sima Yi (Jin Shu); Romance ch.103",
+  "source": "Sanguozhi: Biography of Sima Yi (Jin Shu); Romance ch.103; Wikipedia: Sima Yi",
   "basis": "Appears at 16 in Wen county of Henei; INT 95: outwitted Zhuge Liang's northern campaigns; LDR 88: crushed Gongsun Yuan and held Wei's west",
   "courtesy": "Zhongda"
  },
@@ -4607,7 +4616,7 @@
     "role": "sibling"
    }
   ],
-  "source": "Sanguozhi: Biography of Sima Lang",
+  "source": "Sanguozhi: Biography of Sima Lang; Wikipedia: Sima Lang",
   "basis": "Pos: elder brother of Sima Yi, living privately in Henei",
   "courtesy": "Boda"
  },
@@ -4636,7 +4645,7 @@
     "role": "parent"
    }
   ],
-  "source": "Hou Hanshu: Biographies of Exemplary Women (Cai Yan)",
+  "source": "Hou Hanshu: Biographies of Exemplary Women (Cai Yan); Wikipedia: Cai Yan",
   "basis": "Appears at 16; daughter of Cai Yong; INT 78: poet and musician; WAR 10 and LDR 10: no arms",
   "courtesy": "Wenji",
   "estimate": true
@@ -4661,9 +4670,9 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Yuan Shao (Feng Ji)",
+  "source": "Sanguozhi: Biography of Yuan Shao (Feng Ji); Wikipedia: Pang Ji",
   "basis": "Pos: adviser to Yuan Shao from the Luoyang days; WAR 20: no combat record; civil career (rubric: below 50 for civilians)",
-  "courtesy": "Yuanpi",
+  "courtesy": "Yuantu",
   "estimate": true
  },
  {
@@ -4686,15 +4695,16 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Sun Ben",
+  "source": "Sanguozhi: Biography of Sun Ben; Wikipedia: Sun Ben",
   "basis": "Pos: nephew of Sun Jian, serving his uncle",
+  "courtesy": "Boyang",
   "estimate": true
  },
  {
   "id": "chen-wu",
   "name": "Chen Wu",
   "sex": "m",
-  "born": 178,
+  "born": 177,
   "died": 215,
   "stats": {
    "war": 82,
@@ -4710,9 +4720,9 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Chen Wu",
+  "source": "Sanguozhi: Biography of Chen Wu; Wikipedia: Chen Wu (Han dynasty)",
   "basis": "Appears at 18; fought for Sun Ce at the Yangtze",
-  "courtesy": "Wenxiao",
+  "courtesy": "Zilie",
   "estimate": true,
   "appears": 196
  },
@@ -4736,7 +4746,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Xu Sheng",
+  "source": "Sanguozhi: Biography of Xu Sheng; Wikipedia: Xu Sheng",
   "basis": "Pos: young man of Langya, in private life",
   "courtesy": "Wenxiang",
   "estimate": true
@@ -4761,7 +4771,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Pan Zhang",
+  "source": "Sanguozhi: Biography of Pan Zhang; Wikipedia: Pan Zhang",
   "basis": "Pos: young man of Dong Commandery, in private life",
   "courtesy": "Wengui",
   "estimate": true
@@ -4771,7 +4781,7 @@
   "name": "Zhu Huan",
   "sex": "m",
   "born": 177,
-  "died": 249,
+  "died": 238,
   "stats": {
    "war": 70,
    "ldr": 80,
@@ -4786,16 +4796,16 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Zhu Huan",
+  "source": "Sanguozhi: Biography of Zhu Huan; Wikipedia: Zhu Huan",
   "basis": "Appears at 16 in Wu",
-  "courtesy": "Xiuyu"
+  "courtesy": "Xiumu"
  },
  {
   "id": "zhu-ran",
   "name": "Zhu Ran",
   "sex": "m",
   "born": 182,
-  "died": 248,
+  "died": 249,
   "stats": {
    "war": 68,
    "ldr": 82,
@@ -4810,7 +4820,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Zhu Ran",
+  "source": "Sanguozhi: Biography of Zhu Ran; Wikipedia: Zhu Ran",
   "basis": "Appears at 16, a friend of Sun Quan",
   "courtesy": "Yifeng"
  },
@@ -4834,7 +4844,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Liao Hua",
+  "source": "Sanguozhi: Biography of Liao Hua; Wikipedia: Liao Hua",
   "basis": "Appears at 16 near Xiangyang",
   "courtesy": "Yuanjian",
   "estimate": true
@@ -4843,7 +4853,7 @@
   "id": "xiang-lang",
   "name": "Xiang Lang",
   "sex": "m",
-  "born": 170,
+  "born": 165,
   "died": 247,
   "stats": {
    "war": 20,
@@ -4859,9 +4869,9 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Xiang Lang",
+  "source": "Sanguozhi: Biography of Xiang Lang; Wikipedia: Xiang Lang",
   "basis": "Pos: scholar of Yicheng in Jing, in private life; WAR 20: scholar; LDR 30: never held an independent command (rubric: below 55)",
-  "courtesy": "Wenlin",
+  "courtesy": "Juda",
   "estimate": true
  },
  {
@@ -4884,7 +4894,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Mao Jie",
+  "source": "Sanguozhi: Biography of Mao Jie; Wikipedia: Mao Jie",
   "basis": "Pos: official from Chenliu who fled south to Jing; POL 85: fair, thrifty administrator; WAR 20: no combat record; civil career (rubric: below 50 for civilians); LDR 30: never held an independent command (rubric: below 55)",
   "courtesy": "Xiaoxian",
   "estimate": true
@@ -4909,7 +4919,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Li Yan",
+  "source": "Sanguozhi: Biography of Li Yan; Wikipedia: Li Yan (Three Kingdoms)",
   "basis": "Pos: young official of Nanyang, in Liu Biao's Jing",
   "courtesy": "Zhengfang",
   "estimate": true
@@ -4934,7 +4944,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Ma Chao (Ma Dai)",
+  "source": "Sanguozhi: Biography of Ma Chao (Ma Dai); Wikipedia: Ma Dai",
   "basis": "Appears at 16, kinsman of Ma Teng",
   "estimate": true
  },
@@ -4943,7 +4953,7 @@
   "name": "Liang Xing",
   "sex": "m",
   "born": 150,
-  "died": 211,
+  "died": 212,
   "stats": {
    "war": 66,
    "ldr": 60,
@@ -4958,7 +4968,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Ma Teng (Han Sui's allies)",
+  "source": "Sanguozhi: Biography of Ma Teng (Han Sui's allies); Wikipedia: Battle of Tong Pass; Wikipedia: List of people of the Three Kingdoms (L)",
   "basis": "Pos: one of the Liang chiefs round Han Sui",
   "estimate": true
  },
@@ -4982,7 +4992,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Yuan Shu",
+  "source": "Sanguozhi: Biography of Yuan Shu; Wikipedia: Yan Xiang (Han dynasty)",
   "basis": "Pos: Yuan Shu's counsellor; WAR 20: no combat record; civil career (rubric: below 50 for civilians); LDR 30: never held an independent command (rubric: below 55)",
   "estimate": true
  },
@@ -5006,7 +5016,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Yuan Shu",
+  "source": "Sanguozhi: Biography of Yuan Shu; Wikipedia: Campaign against Yuan Shu; Wikipedia: List of people of the Three Kingdoms (Q)",
   "basis": "Pos: Yuan Shu's general; POL 30: fighter only, no governing record (rubric: below 40)",
   "estimate": true
  },
@@ -5030,7 +5040,7 @@
    "archer": "C"
   },
   "kin": [],
-  "source": "Hou Hanshu: Annals of Emperor Xian",
+  "source": "Hou Hanshu: Annals of Emperor Xian; Wikipedia: Emperor Xian of Han",
   "basis": "Appears at 16; Emperor Xian, a child at Luoyang in 190, here an officer of the court once of age; WAR 15 and LDR 15: a captive emperor",
   "courtesy": "Bohe"
  },
@@ -5054,7 +5064,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Liu Ye",
+  "source": "Sanguozhi: Biography of Liu Ye; Wikipedia: Liu Ye (Three Kingdoms)",
   "basis": "Pos: young scholar of Hefei in Lujiang, in private life; INT 92: author of the war-machine design and many Wei plans; WAR 25: no combat record; civil career (rubric: below 50 for civilians)",
   "courtesy": "Ziyang",
   "estimate": true
@@ -5063,7 +5073,7 @@
   "id": "jiang-ji",
   "name": "Jiang Ji",
   "sex": "m",
-  "born": 172,
+  "born": 188,
   "died": 249,
   "stats": {
    "war": 20,
@@ -5079,10 +5089,9 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Jiang Ji",
-  "basis": "Pos: young man of Chu, in private life near Shouchun; WAR 20: no combat record; civil career (rubric: below 50 for civilians)",
-  "courtesy": "Ziyi",
-  "estimate": true
+  "source": "Sanguozhi: Biography of Jiang Ji; Wikipedia: Jiang Ji",
+  "basis": "Pos: Wikipedia list gives 188 to 249, so he is a child in 190 and appears at 16 near Shouchun; WAR 20: no combat record; civil career (rubric: below 50 for civilians)",
+  "courtesy": "Zitong"
  },
  {
   "id": "chen-lin",
@@ -5104,7 +5113,7 @@
    "archer": "B"
   },
   "kin": [],
-  "source": "Sanguozhi: Biography of Wang Can (Chen Lin)",
+  "source": "Sanguozhi: Biography of Wang Can (Chen Lin); Wikipedia: Chen Lin (Han dynasty)",
   "basis": "Pos: He Jin's former secretary who fled to Ji Province; WAR 20: scholar; LDR 20: never held an independent command (rubric: below 55)",
   "courtesy": "Kongzhang",
   "estimate": true
