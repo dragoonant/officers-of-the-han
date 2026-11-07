@@ -89,8 +89,8 @@ h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 600; text
 .mapwrap { flex: 1 1 auto; position: relative; min-height: 0; overflow: hidden; touch-action: none; background: radial-gradient(ellipse at 50% 40%, #1a1411, var(--lacquer) 75%); }
 .mapwrap svg { width: 100%; height: 100%; display: block; touch-action: none; }
 .city-g { cursor: pointer; }
-.cityname { font-family: var(--font-body); font-weight: 700; fill: var(--paper); paint-order: stroke; stroke: #0f0c0b; stroke-width: 2.4px; pointer-events: none; }
-.roaddays { fill: var(--ochre); font-size: 7px; paint-order: stroke; stroke: #0f0c0b; stroke-width: 2px; pointer-events: none; }
+.cityname { font-family: var(--font-body); font-weight: 700; fill: var(--paper); paint-order: stroke; stroke: #0f0c0b; stroke-width: 3.6px; stroke-linejoin: round; stroke-opacity: .92; pointer-events: none; }
+.roaddays { fill: var(--ochre); font-size: 6.5px; paint-order: stroke; stroke: #0f0c0b; stroke-width: 3px; stroke-linejoin: round; pointer-events: none; }
 .ticker { flex: 0 0 auto; padding: 4px 10px; font-size: 12.5px; background: var(--lacquer-2); border-top: 1px solid #3a2a22; display: flex; gap: 8px; align-items: center; color: var(--paper); min-height: 28px; }
 .ticker .tx { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .actionbar { flex: 0 0 auto; background: var(--lacquer); border-top: 1px solid #3a2a22; padding: 6px 8px calc(6px + env(safe-area-inset-bottom)); position: relative; z-index: 5; }
@@ -148,3 +148,19 @@ h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 600; text
   .overlay .boxwrap { max-height: 96dvh; }
   .silkwrap { max-height: 94dvh; }
 }
+
+/* title: the lacquer tray, cloud scrolls drifting clockwise round the rim, the title inlaid in ochre */
+.title .lacq { position: absolute; inset: 8px; border: 2px solid #3a2a22; border-radius: 18px; pointer-events: none; box-shadow: inset 0 0 0 7px var(--lacquer), inset 0 0 0 8.5px var(--red-lacquer), inset 0 0 90px rgba(110,29,18,.18); }
+.title .flow { position: absolute; opacity: .85; }
+.title .flow.top, .title .flow.bottom { left: 22px; right: 22px; height: 14px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='14' viewBox='0 0 22 14'%3E%3Cpath d='M0 12 H2 Q7 12 9 8 Q11 3 16 4 Q20 5 19 8.5 Q18 11 14.8 10.2 Q12.8 9.4 14 8' fill='none' stroke='%23c4471d' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: repeat-x; }
+.title .flow.top { top: 14px; animation: flow-x 40s linear infinite; }
+.title .flow.bottom { bottom: 14px; transform: scaleY(-1); animation: flow-x-rev 40s linear infinite; }
+.title .flow.left, .title .flow.right { top: 40px; bottom: 40px; width: 14px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='22' viewBox='0 0 14 22'%3E%3Cg transform='translate(14 0) rotate(90)'%3E%3Cpath d='M0 12 H2 Q7 12 9 8 Q11 3 16 4 Q20 5 19 8.5 Q18 11 14.8 10.2 Q12.8 9.4 14 8' fill='none' stroke='%23c4471d' stroke-width='1.6' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E"); background-repeat: repeat-y; }
+.title .flow.right { right: 14px; animation: flow-y 40s linear infinite; }
+.title .flow.left { left: 14px; animation: flow-y-rev 40s linear infinite; }
+@keyframes flow-x { to { background-position-x: 440px; } }
+@keyframes flow-x-rev { to { background-position-x: -440px; } }
+@keyframes flow-y { to { background-position-y: 440px; } }
+@keyframes flow-y-rev { to { background-position-y: -440px; } }
+@media (prefers-reduced-motion: reduce) { .title .flow { animation: none !important; } }
+.title h1 .inlay { display: inline-block; color: var(--ochre); text-shadow: 0 1px 0 #6e4a14, 0 -1px 0 rgba(255,236,180,.35), 0 0 18px rgba(217,164,65,.18); padding: 10px 0 12px; border-top: 1px solid var(--ochre); border-bottom: 1px solid var(--ochre); box-shadow: 0 5px 0 -4px var(--red-lacquer), 0 -5px 0 -4px var(--red-lacquer); }

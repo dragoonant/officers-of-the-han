@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useGame } from '../store/game'
 import { useUi } from '../store/ui'
-import { CloudRim, LacquerButton, SilkLetter } from './seam'
+import { LacquerButton, SilkLetter } from './seam'
 
 export function HowToPlay({ onClose }: { onClose: () => void }) {
   return (
@@ -29,9 +29,10 @@ export function Title() {
   const broken = saveRead.kind === 'corrupt' || saveRead.kind === 'missing-content'
   return (
     <div className="title" data-testid="title">
-      <div className="rim top"><CloudRim /></div>
-      <div className="rim bot"><CloudRim /></div>
-      <h1><small>An officer's life in the Han</small>Officers of the Han</h1>
+      <div className="lacq" aria-hidden="true" data-testid="title-tray">
+        <div className="flow top" /><div className="flow right" /><div className="flow bottom" /><div className="flow left" />
+      </div>
+      <h1><small>An officer's life in the Han</small><span className="inlay">Officers of the Han</span></h1>
       <div className="menu">
         <LacquerButton big primary={hasSave} disabled={!hasSave} available={hasSave} testid="continue" onClick={() => cont()}>
           Continue
