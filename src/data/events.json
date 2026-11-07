@@ -1,1 +1,2203 @@
-[]
+[
+ {
+  "id": "peach-garden-reunion",
+  "title": "The Oath in the Peach Garden",
+  "from": {
+   "year": 190,
+   "month": 1
+  },
+  "to": {
+   "year": 190,
+   "month": 1
+  },
+  "chance": 100,
+  "conditions": [
+   {
+    "kind": "officerAlive",
+    "id": "liu-bei"
+   },
+   {
+    "kind": "officerAlive",
+    "id": "guan-yu"
+   },
+   {
+    "kind": "officerAlive",
+    "id": "zhang-fei"
+   }
+  ],
+  "text": "Three men who met at a recruiting notice in a Zhuo county market once swore a brotherhood under blossoming peach trees: one house, one fate. Tonight, camped far from home in the north, they renew the vow over a plain meal. Their friendship holds as long as they live.",
+  "effects": [
+   {
+    "kind": "oath",
+    "ids": [
+     "liu-bei",
+     "guan-yu",
+     "zhang-fei"
+    ]
+   },
+   {
+    "kind": "setFlag",
+    "id": "peach-oath"
+   }
+  ],
+  "involves": [
+   "liu-bei",
+   "guan-yu",
+   "zhang-fei"
+  ],
+  "major": true,
+  "source": "Romance ch.1"
+ },
+ {
+  "id": "coalition-forms",
+  "title": "The Lords Swear Against Dong Zhuo",
+  "from": {
+   "year": 190,
+   "month": 1
+  },
+  "to": {
+   "year": 190,
+   "month": 1
+  },
+  "chance": 100,
+  "conditions": [
+   {
+    "kind": "factionExists",
+    "id": "f-yuan-shao"
+   },
+   {
+    "kind": "factionExists",
+    "id": "f-cao-cao"
+   },
+   {
+    "kind": "officerAlive",
+    "id": "dong-zhuo"
+   }
+  ],
+  "text": "Word goes round the east that Dong Zhuo has made himself the master of a captive court. Governors send riders to Yuan Shao at Bohai. A sacrificial ox is slain, blood is smeared on lips, and eleven banners are raised under Yuan Shao as head of the alliance. Each man brings what soldiers he has; none trusts another more than he must.",
+  "effects": [
+   {
+    "kind": "alliance",
+    "factions": [
+     "f-yuan-shao",
+     "f-yuan-shu",
+     "f-han-fu",
+     "f-cao-cao",
+     "f-sun-jian",
+     "f-liu-dai",
+     "f-kong-rong",
+     "f-gongsun-zan",
+     "f-zhang-yang",
+     "f-kong-zhou",
+     "f-tao-qian"
+    ],
+    "months": 12
+   },
+   {
+    "kind": "setFlag",
+    "id": "coalition"
+   },
+   {
+    "kind": "merit",
+    "id": "yuan-shao",
+    "delta": 500
+   }
+  ],
+  "involvesFaction": [
+   "f-yuan-shao",
+   "f-yuan-shu",
+   "f-han-fu",
+   "f-cao-cao",
+   "f-sun-jian",
+   "f-liu-dai",
+   "f-kong-rong",
+   "f-gongsun-zan",
+   "f-zhang-yang",
+   "f-kong-zhou",
+   "f-tao-qian"
+  ],
+  "options": [
+   {
+    "label": "Swear the oath and march",
+    "text": "You put your seal under the pact. For a year the allied lords will not turn on each other.",
+    "effects": [
+     {
+      "kind": "alliance",
+      "factions": [
+       "f-yuan-shao",
+       "f-yuan-shu",
+       "f-han-fu",
+       "f-cao-cao",
+       "f-sun-jian",
+       "f-liu-dai",
+       "f-kong-rong",
+       "f-gongsun-zan",
+       "f-zhang-yang",
+       "f-kong-zhou",
+       "f-tao-qian"
+      ],
+      "months": 12
+     },
+     {
+      "kind": "setFlag",
+      "id": "coalition"
+     },
+     {
+      "kind": "merit",
+      "id": "yuan-shao",
+      "delta": 500
+     }
+    ]
+   },
+   {
+    "label": "Stay out of the pact",
+    "text": "You send regrets and keep your army at home. The others swear without you, and they remember it.",
+    "effects": [
+     {
+      "kind": "alliance",
+      "factions": [
+       "f-yuan-shao",
+       "f-yuan-shu",
+       "f-han-fu",
+       "f-cao-cao",
+       "f-sun-jian",
+       "f-kong-rong"
+      ],
+      "months": 12
+     },
+     {
+      "kind": "setFlag",
+      "id": "coalition"
+     },
+     {
+      "kind": "setFlag",
+      "id": "coalition-refused"
+     }
+    ]
+   }
+  ],
+  "major": true,
+  "source": "Romance ch.5"
+ },
+ {
+  "id": "hulao-gate",
+  "title": "The Fight at Hulao Gate",
+  "from": {
+   "year": 190,
+   "month": 1
+  },
+  "to": {
+   "year": 190,
+   "month": 4
+  },
+  "chance": 100,
+  "conditions": [
+   {
+    "kind": "flag",
+    "id": "coalition"
+   },
+   {
+    "kind": "officerAlive",
+    "id": "lu-bu"
+   },
+   {
+    "kind": "officerAlive",
+    "id": "liu-bei"
+   },
+   {
+    "kind": "officerAlive",
+    "id": "guan-yu"
+   },
+   {
+    "kind": "officerAlive",
+    "id": "zhang-fei"
+   }
+  ],
+  "text": "Dong Zhuo has put Lu Bu on the pass at Hulao. Every general of the alliance who rides at him is driven back. Then Zhang Fei charges, Guan Yu and Liu Bei circle behind him, and for a long hour three men fight the best fighter alive until he wheels his horse and retreats. The allied camp rings with it.",
+  "effects": [
+   {
+    "kind": "friendship",
+    "a": "liu-bei",
+    "b": "guan-yu",
+    "delta": 5
+   },
+   {
+    "kind": "friendship",
+    "a": "liu-bei",
+    "b": "zhang-fei",
+    "delta": 5
+   },
+   {
+    "kind": "friendship",
+    "a": "guan-yu",
+    "b": "zhang-fei",
+    "delta": 5
+   },
+   {
+    "kind": "merit",
+    "id": "liu-bei",
+    "delta": 500
+   },
+   {
+    "kind": "setFlag",
+    "id": "hulao-fought"
+   }
+  ],
+  "involves": [
+   "liu-bei",
+   "guan-yu",
+   "zhang-fei",
+   "sun-jian",
+   "gongsun-zan",
+   "xiahou-dun",
+   "xiahou-yuan",
+   "cao-ren",
+   "wen-chou",
+   "yan-liang",
+   "zhang-he",
+   "huang-gai"
+  ],
+  "options": [
+   {
+    "label": "Watch from the line",
+    "text": "The brothers carry the day while the camp watches.",
+    "effects": [
+     {
+      "kind": "friendship",
+      "a": "liu-bei",
+      "b": "guan-yu",
+      "delta": 5
+     },
+     {
+      "kind": "friendship",
+      "a": "liu-bei",
+      "b": "zhang-fei",
+      "delta": 5
+     },
+     {
+      "kind": "friendship",
+      "a": "guan-yu",
+      "b": "zhang-fei",
+      "delta": 5
+     },
+     {
+      "kind": "merit",
+      "id": "liu-bei",
+      "delta": 500
+     },
+     {
+      "kind": "setFlag",
+      "id": "hulao-fought"
+     }
+    ]
+   },
+   {
+    "label": "Ride out against Lu Bu",
+    "text": "You spur forward alone and the whole line goes quiet.",
+    "effects": [
+     {
+      "kind": "setFlag",
+      "id": "hulao-fought"
+     }
+    ],
+    "contest": {
+     "kind": "duel",
+     "a": "guan-yu",
+     "b": "lu-bu",
+     "onWin": [
+      {
+       "kind": "merit",
+       "id": "guan-yu",
+       "delta": 800
+      },
+      {
+       "kind": "friendship",
+       "a": "guan-yu",
+       "b": "liu-bei",
+       "delta": 3
+      },
+      {
+       "kind": "relation",
+       "a": "f-dong-zhuo",
+       "b": "f-yuan-shao",
+       "delta": -5
+      },
+      {
+       "kind": "setFlag",
+       "id": "lu-bu-beaten"
+      }
+     ],
+     "onLoss": [
+      {
+       "kind": "merit",
+       "id": "guan-yu",
+       "delta": 100
+      },
+      {
+       "kind": "setFlag",
+       "id": "lu-bu-held"
+      }
+     ]
+    }
+   }
+  ],
+  "source": "Romance ch.5"
+ },
+ {
+  "id": "burning-of-luoyang",
+  "title": "The Capital Goes Up in Flames",
+  "from": {
+   "year": 190,
+   "month": 2
+  },
+  "to": {
+   "year": 190,
+   "month": 6
+  },
+  "chance": 60,
+  "conditions": [
+   {
+    "kind": "factionHoldsCity",
+    "faction": "f-dong-zhuo",
+    "city": "luoyang"
+   },
+   {
+    "kind": "officerIsRuler",
+    "id": "dong-zhuo"
+   },
+   {
+    "kind": "officerAlive",
+    "id": "dong-zhuo"
+   }
+  ],
+  "text": "Dong Zhuo cannot hold the road to the east, so he decides not to hold the east at all. The court is marched west to Chang'an, the rich families are driven after it, and the palaces and ancestral temples of Luoyang are fired behind them. For days the sky over the Luo plain is black.",
+  "effects": [
+   {
+    "kind": "moveCapital",
+    "faction": "f-dong-zhuo",
+    "city": "chang-an"
+   },
+   {
+    "kind": "moveOfficer",
+    "id": "dong-zhuo",
+    "city": "chang-an"
+   },
+   {
+    "kind": "cityDelta",
+    "city": "luoyang",
+    "field": "population",
+    "delta": -200000
+   },
+   {
+    "kind": "cityDelta",
+    "city": "luoyang",
+    "field": "farm",
+    "delta": -450
+   },
+   {
+    "kind": "cityDelta",
+    "city": "luoyang",
+    "field": "trade",
+    "delta": -650
+   },
+   {
+    "kind": "cityDelta",
+    "city": "luoyang",
+    "field": "walls",
+    "delta": -300
+   },
+   {
+    "kind": "cityDelta",
+    "city": "luoyang",
+    "field": "order",
+    "delta": -40
+   },
+   {
+    "kind": "cityDelta",
+    "city": "chang-an",
+    "field": "population",
+    "delta": 20000
+   },
+   {
+    "kind": "setFlag",
+    "id": "luoyang-burned"
+   }
+  ],
+  "involves": [
+   "yang-biao",
+   "huang-wan"
+  ],
+  "options": [
+   {
+    "label": "Let the court move",
+    "text": "The order is carried out to the letter.",
+    "effects": [
+     {
+      "kind": "moveCapital",
+      "faction": "f-dong-zhuo",
+      "city": "chang-an"
+     },
+     {
+      "kind": "moveOfficer",
+      "id": "dong-zhuo",
+      "city": "chang-an"
+     },
+     {
+      "kind": "cityDelta",
+      "city": "luoyang",
+      "field": "population",
+      "delta": -200000
+     },
+     {
+      "kind": "cityDelta",
+      "city": "luoyang",
+      "field": "farm",
+      "delta": -450
+     },
+     {
+      "kind": "cityDelta",
+      "city": "luoyang",
+      "field": "trade",
+      "delta": -650
+     },
+     {
+      "kind": "cityDelta",
+      "city": "luoyang",
+      "field": "walls",
+      "delta": -300
+     },
+     {
+      "kind": "cityDelta",
+      "city": "luoyang",
+      "field": "order",
+      "delta": -40
+     },
+     {
+      "kind": "cityDelta",
+      "city": "chang-an",
+      "field": "population",
+      "delta": 20000
+     },
+     {
+      "kind": "setFlag",
+      "id": "luoyang-burned"
+     }
+    ]
+   },
+   {
+    "label": "Argue against the move",
+    "text": "You stand up in the council and refuse to be silent.",
+    "effects": [
+     {
+      "kind": "setFlag",
+      "id": "capital-contested"
+     }
+    ],
+    "contest": {
+     "kind": "debate",
+     "a": "yang-biao",
+     "b": "dong-zhuo",
+     "onWin": [
+      {
+       "kind": "setFlag",
+       "id": "capital-stays"
+      },
+      {
+       "kind": "cityDelta",
+       "city": "luoyang",
+       "field": "order",
+       "delta": 5
+      },
+      {
+       "kind": "merit",
+       "id": "yang-biao",
+       "delta": 300
+      }
+     ],
+     "onLoss": [
+      {
+       "kind": "moveCapital",
+       "faction": "f-dong-zhuo",
+       "city": "chang-an"
+      },
+      {
+       "kind": "moveOfficer",
+       "id": "dong-zhuo",
+       "city": "chang-an"
+      },
+      {
+       "kind": "cityDelta",
+       "city": "luoyang",
+       "field": "population",
+       "delta": -200000
+      },
+      {
+       "kind": "cityDelta",
+       "city": "luoyang",
+       "field": "farm",
+       "delta": -450
+      },
+      {
+       "kind": "cityDelta",
+       "city": "luoyang",
+       "field": "trade",
+       "delta": -650
+      },
+      {
+       "kind": "cityDelta",
+       "city": "luoyang",
+       "field": "walls",
+       "delta": -300
+      },
+      {
+       "kind": "cityDelta",
+       "city": "luoyang",
+       "field": "order",
+       "delta": -40
+      },
+      {
+       "kind": "cityDelta",
+       "city": "chang-an",
+       "field": "population",
+       "delta": 20000
+      },
+      {
+       "kind": "setFlag",
+       "id": "luoyang-burned"
+      },
+      {
+       "kind": "friendship",
+       "a": "yang-biao",
+       "b": "dong-zhuo",
+       "delta": -15
+      }
+     ]
+    }
+   }
+  ],
+  "major": true,
+  "source": "Romance ch.6"
+ },
+ {
+  "id": "imperial-seal",
+  "title": "The Seal in the Well",
+  "from": {
+   "year": 190,
+   "month": 3
+  },
+  "to": {
+   "year": 191,
+   "month": 6
+  },
+  "chance": 50,
+  "conditions": [
+   {
+    "kind": "officerAlive",
+    "id": "sun-jian"
+   },
+   {
+    "kind": "flag",
+    "id": "luoyang-burned"
+   },
+   {
+    "kind": "notFlag",
+    "id": "imperial-seal"
+   }
+  ],
+  "text": "Sun Jian's soldiers clear the ruined palace grounds and fish a body from a well. About its neck hangs a box wrapped in red silk: the jade seal of the empire. His advisers urge him to slip away with it before the others learn. A secret kept among a thousand men is not kept for long.",
+  "effects": [
+   {
+    "kind": "item",
+    "officer": "sun-jian",
+    "item": "imperial-seal"
+   },
+   {
+    "kind": "setFlag",
+    "id": "imperial-seal"
+   },
+   {
+    "kind": "relation",
+    "a": "f-sun-jian",
+    "b": "f-yuan-shao",
+    "delta": -20
+   }
+  ],
+  "involves": [
+   "sun-jian"
+  ],
+  "options": [
+   {
+    "label": "Keep the seal and slip away",
+    "text": "You tell no one and take the seal home. Yuan Shao hears of it within weeks.",
+    "effects": [
+     {
+      "kind": "item",
+      "officer": "sun-jian",
+      "item": "imperial-seal"
+     },
+     {
+      "kind": "setFlag",
+      "id": "imperial-seal"
+     },
+     {
+      "kind": "relation",
+      "a": "f-sun-jian",
+      "b": "f-yuan-shao",
+      "delta": -20
+     }
+    ]
+   },
+   {
+    "label": "Hand it to Yuan Shao",
+    "text": "You lay the box before the allied chief. He thanks you warmly, and now the coalition is his to speak for.",
+    "effects": [
+     {
+      "kind": "item",
+      "officer": "yuan-shao",
+      "item": "imperial-seal"
+     },
+     {
+      "kind": "setFlag",
+      "id": "imperial-seal"
+     },
+     {
+      "kind": "setFlag",
+      "id": "seal-with-yuan-shao"
+     },
+     {
+      "kind": "relation",
+      "a": "f-sun-jian",
+      "b": "f-yuan-shao",
+      "delta": 10
+     },
+     {
+      "kind": "merit",
+      "id": "sun-jian",
+      "delta": 400
+     }
+    ]
+   }
+  ],
+  "source": "Romance ch.6"
+ },
+ {
+  "id": "coalition-breaks",
+  "title": "The Alliance Falls Apart",
+  "from": {
+   "year": 190,
+   "month": 6
+  },
+  "to": {
+   "year": 191,
+   "month": 3
+  },
+  "chance": 40,
+  "conditions": [
+   {
+    "kind": "flag",
+    "id": "coalition"
+   }
+  ],
+  "text": "Months of feasting and no marching have drained the allied camp. Grain runs low, two lords come to blows over a ration, and the commanders drift home one by one. Cao Cao rides out alone after Dong Zhuo, is beaten at Xingyang, and returns to find nobody left to scold.",
+  "effects": [
+   {
+    "kind": "endAlliance",
+    "factions": [
+     "f-yuan-shao",
+     "f-yuan-shu",
+     "f-han-fu",
+     "f-cao-cao",
+     "f-sun-jian",
+     "f-liu-dai",
+     "f-kong-rong",
+     "f-gongsun-zan",
+     "f-zhang-yang",
+     "f-kong-zhou",
+     "f-tao-qian"
+    ]
+   },
+   {
+    "kind": "setFlag",
+    "id": "coalition-ended"
+   },
+   {
+    "kind": "relation",
+    "a": "f-yuan-shao",
+    "b": "f-yuan-shu",
+    "delta": -10
+   },
+   {
+    "kind": "relation",
+    "a": "f-yuan-shao",
+    "b": "f-cao-cao",
+    "delta": -5
+   },
+   {
+    "kind": "relation",
+    "a": "f-liu-dai",
+    "b": "f-kong-zhou",
+    "delta": -10
+   }
+  ],
+  "major": true,
+  "source": "Romance ch.6"
+ },
+ {
+  "id": "ji-province",
+  "title": "Han Fu Yields Ji Province",
+  "from": {
+   "year": 191,
+   "month": 1
+  },
+  "to": {
+   "year": 191,
+   "month": 12
+  },
+  "chance": 40,
+  "conditions": [
+   {
+    "kind": "factionExists",
+    "id": "f-han-fu"
+   },
+   {
+    "kind": "factionExists",
+    "id": "f-yuan-shao"
+   },
+   {
+    "kind": "factionHoldsCity",
+    "faction": "f-han-fu",
+    "city": "ye"
+   },
+   {
+    "kind": "officerAlive",
+    "id": "han-fu"
+   },
+   {
+    "kind": "flag",
+    "id": "coalition-ended"
+   }
+  ],
+  "text": "Han Fu has the grain and cannot decide what to do with it. Yuan Shao has the name and no land. Messengers come and go with soft words, an army on the border, and finally the plain advice of Han Fu's own staff. At last Han Fu signs over Ye and rides out of his own city with a few servants.",
+  "effects": [
+   {
+    "kind": "transferCity",
+    "city": "ye",
+    "faction": "f-yuan-shao"
+   },
+   {
+    "kind": "makeWanderer",
+    "id": "han-fu",
+    "city": "ye"
+   },
+   {
+    "kind": "joinFaction",
+    "id": "ju-shou",
+    "faction": "f-yuan-shao",
+    "post": "officer"
+   },
+   {
+    "kind": "joinFaction",
+    "id": "tian-feng",
+    "faction": "f-yuan-shao",
+    "post": "officer"
+   },
+   {
+    "kind": "joinFaction",
+    "id": "shen-pei",
+    "faction": "f-yuan-shao",
+    "post": "officer"
+   },
+   {
+    "kind": "joinFaction",
+    "id": "guo-tu",
+    "faction": "f-yuan-shao",
+    "post": "officer"
+   },
+   {
+    "kind": "joinFaction",
+    "id": "xin-ping",
+    "faction": "f-yuan-shao",
+    "post": "officer"
+   },
+   {
+    "kind": "joinFaction",
+    "id": "xin-pi",
+    "faction": "f-yuan-shao",
+    "post": "officer"
+   },
+   {
+    "kind": "joinFaction",
+    "id": "zhang-he",
+    "faction": "f-yuan-shao",
+    "post": "officer"
+   },
+   {
+    "kind": "joinFaction",
+    "id": "wen-chou",
+    "faction": "f-yuan-shao",
+    "post": "officer"
+   },
+   {
+    "kind": "joinFaction",
+    "id": "yan-liang",
+    "faction": "f-yuan-shao",
+    "post": "officer"
+   },
+   {
+    "kind": "joinFaction",
+    "id": "bao-xin",
+    "faction": "f-yuan-shao",
+    "post": "officer"
+   },
+   {
+    "kind": "joinFaction",
+    "id": "yu-jin",
+    "faction": "f-yuan-shao",
+    "post": "officer"
+   },
+   {
+    "kind": "setFlag",
+    "id": "yuan-shao-ji"
+   }
+  ],
+  "involves": [
+   "han-fu"
+  ],
+  "options": [
+   {
+    "label": "Yield Ye to Yuan Shao",
+    "text": "You sign the deed and walk out of Ye. Your staff goes over to Yuan Shao.",
+    "effects": [
+     {
+      "kind": "transferCity",
+      "city": "ye",
+      "faction": "f-yuan-shao"
+     },
+     {
+      "kind": "makeWanderer",
+      "id": "han-fu",
+      "city": "ye"
+     },
+     {
+      "kind": "joinFaction",
+      "id": "ju-shou",
+      "faction": "f-yuan-shao",
+      "post": "officer"
+     },
+     {
+      "kind": "joinFaction",
+      "id": "tian-feng",
+      "faction": "f-yuan-shao",
+      "post": "officer"
+     },
+     {
+      "kind": "joinFaction",
+      "id": "shen-pei",
+      "faction": "f-yuan-shao",
+      "post": "officer"
+     },
+     {
+      "kind": "joinFaction",
+      "id": "guo-tu",
+      "faction": "f-yuan-shao",
+      "post": "officer"
+     },
+     {
+      "kind": "joinFaction",
+      "id": "xin-ping",
+      "faction": "f-yuan-shao",
+      "post": "officer"
+     },
+     {
+      "kind": "joinFaction",
+      "id": "xin-pi",
+      "faction": "f-yuan-shao",
+      "post": "officer"
+     },
+     {
+      "kind": "joinFaction",
+      "id": "zhang-he",
+      "faction": "f-yuan-shao",
+      "post": "officer"
+     },
+     {
+      "kind": "joinFaction",
+      "id": "wen-chou",
+      "faction": "f-yuan-shao",
+      "post": "officer"
+     },
+     {
+      "kind": "joinFaction",
+      "id": "yan-liang",
+      "faction": "f-yuan-shao",
+      "post": "officer"
+     },
+     {
+      "kind": "joinFaction",
+      "id": "bao-xin",
+      "faction": "f-yuan-shao",
+      "post": "officer"
+     },
+     {
+      "kind": "joinFaction",
+      "id": "yu-jin",
+      "faction": "f-yuan-shao",
+      "post": "officer"
+     },
+     {
+      "kind": "setFlag",
+      "id": "yuan-shao-ji"
+     }
+    ]
+   },
+   {
+    "label": "Hold Ye against him",
+    "text": "You shut the gates and call the staff to the walls. Yuan Shao does not forget the insult.",
+    "effects": [
+     {
+      "kind": "relation",
+      "a": "f-han-fu",
+      "b": "f-yuan-shao",
+      "delta": -30
+     },
+     {
+      "kind": "setFlag",
+      "id": "ji-contested"
+     }
+    ]
+   }
+  ],
+  "source": "Romance ch.7"
+ },
+ {
+  "id": "sun-jian-falls",
+  "title": "Sun Jian Dies at Xian Mountain",
+  "from": {
+   "year": 191,
+   "month": 6
+  },
+  "to": {
+   "year": 192,
+   "month": 6
+  },
+  "chance": 40,
+  "conditions": [
+   {
+    "kind": "officerAlive",
+    "id": "sun-jian"
+   },
+   {
+    "kind": "officerAlive",
+    "id": "sun-ce"
+   },
+   {
+    "kind": "officerAlive",
+    "id": "liu-biao"
+   },
+   {
+    "kind": "factionExists",
+    "id": "f-sun-jian"
+   },
+   {
+    "kind": "factionExists",
+    "id": "f-liu-biao"
+   },
+   {
+    "kind": "officerIsRuler",
+    "id": "sun-jian"
+   }
+  ],
+  "text": "Sun Jian rides out alone at dusk to follow a beaten Huang Zu into the hills south of Xiangyang. In the stony defile above Xian Mountain, archers and rolling stones are waiting. He is found there the next morning. His son Sun Ce takes the family's soldiers and sorrow home.",
+  "effects": [
+   {
+    "kind": "killOfficer",
+    "id": "sun-jian"
+   },
+   {
+    "kind": "setRuler",
+    "faction": "f-sun-jian",
+    "id": "sun-ce"
+   },
+   {
+    "kind": "relation",
+    "a": "f-sun-jian",
+    "b": "f-liu-biao",
+    "delta": -30
+   }
+  ],
+  "involves": [
+   "sun-jian"
+  ],
+  "options": [
+   {
+    "label": "Ride on into the hills",
+    "text": "The scouts were right to be afraid.",
+    "effects": [
+     {
+      "kind": "killOfficer",
+      "id": "sun-jian"
+     },
+     {
+      "kind": "setRuler",
+      "faction": "f-sun-jian",
+      "id": "sun-ce"
+     },
+     {
+      "kind": "relation",
+      "a": "f-sun-jian",
+      "b": "f-liu-biao",
+      "delta": -30
+     }
+    ]
+   },
+   {
+    "label": "Heed the warning and turn back",
+    "text": "Cheng Pu's caution carries the day, and Huang Zu escapes. You live to fight Liu Biao again.",
+    "effects": [
+     {
+      "kind": "relation",
+      "a": "f-sun-jian",
+      "b": "f-liu-biao",
+      "delta": -10
+     },
+     {
+      "kind": "merit",
+      "id": "sun-jian",
+      "delta": 300
+     },
+     {
+      "kind": "setFlag",
+      "id": "sun-jian-lives"
+     }
+    ]
+   }
+  ],
+  "major": true,
+  "source": "Romance ch.7"
+ },
+ {
+  "id": "chain-stratagem",
+  "title": "The Chain of Beauty and Betrayal",
+  "from": {
+   "year": 192,
+   "month": 1
+  },
+  "to": {
+   "year": 192,
+   "month": 6
+  },
+  "chance": 60,
+  "conditions": [
+   {
+    "kind": "officerAlive",
+    "id": "dong-zhuo"
+   },
+   {
+    "kind": "officerAlive",
+    "id": "lu-bu"
+   },
+   {
+    "kind": "officerAlive",
+    "id": "wang-yun"
+   },
+   {
+    "kind": "officerAlive",
+    "id": "diaochan"
+   },
+   {
+    "kind": "officerInFaction",
+    "id": "lu-bu",
+    "faction": "f-dong-zhuo"
+   }
+  ],
+  "text": "Wang Yun promises his singer to Dong Zhuo in the morning and to Lu Bu at night. Dong Zhuo takes her to his own house. Lu Bu, passing at a gate with his halberd, hears what he should not. A few days later at the palace gate, under a pretence of ceremony, Lu Bu's halberd does what the court could not.",
+  "effects": [
+   {
+    "kind": "killOfficer",
+    "id": "dong-zhuo"
+   },
+   {
+    "kind": "setRuler",
+    "faction": "f-dong-zhuo",
+    "id": "wang-yun"
+   },
+   {
+    "kind": "makeWanderer",
+    "id": "lu-bu",
+    "city": "chang-an"
+   },
+   {
+    "kind": "friendship",
+    "a": "lu-bu",
+    "b": "diaochan",
+    "delta": 30
+   },
+   {
+    "kind": "friendship",
+    "a": "lu-bu",
+    "b": "wang-yun",
+    "delta": 15
+   },
+   {
+    "kind": "setFlag",
+    "id": "dong-zhuo-dead"
+   }
+  ],
+  "involves": [
+   "lu-bu",
+   "diaochan"
+  ],
+  "options": [
+   {
+    "label": "Go along with Wang Yun",
+    "text": "The halberd falls, and the tyrant with it.",
+    "effects": [
+     {
+      "kind": "killOfficer",
+      "id": "dong-zhuo"
+     },
+     {
+      "kind": "setRuler",
+      "faction": "f-dong-zhuo",
+      "id": "wang-yun"
+     },
+     {
+      "kind": "makeWanderer",
+      "id": "lu-bu",
+      "city": "chang-an"
+     },
+     {
+      "kind": "friendship",
+      "a": "lu-bu",
+      "b": "diaochan",
+      "delta": 30
+     },
+     {
+      "kind": "friendship",
+      "a": "lu-bu",
+      "b": "wang-yun",
+      "delta": 15
+     },
+     {
+      "kind": "setFlag",
+      "id": "dong-zhuo-dead"
+     }
+    ]
+   },
+   {
+    "label": "Refuse the plot",
+    "text": "You will not play the part Wang Yun has written. Wang Yun keeps his own counsel from you from then on.",
+    "effects": [
+     {
+      "kind": "friendship",
+      "a": "lu-bu",
+      "b": "wang-yun",
+      "delta": -20
+     },
+     {
+      "kind": "friendship",
+      "a": "lu-bu",
+      "b": "dong-zhuo",
+      "delta": 10
+     },
+     {
+      "kind": "setFlag",
+      "id": "chain-refused"
+     }
+    ]
+   }
+  ],
+  "major": true,
+  "source": "Romance ch.8-9"
+ },
+ {
+  "id": "li-guo-seize",
+  "title": "Li Jue and Guo Si Take Chang'an",
+  "from": {
+   "year": 192,
+   "month": 4
+  },
+  "to": {
+   "year": 192,
+   "month": 12
+  },
+  "chance": 70,
+  "conditions": [
+   {
+    "kind": "flag",
+    "id": "dong-zhuo-dead"
+   },
+   {
+    "kind": "officerAlive",
+    "id": "li-jue"
+   },
+   {
+    "kind": "officerAlive",
+    "id": "guo-si"
+   },
+   {
+    "kind": "officerAlive",
+    "id": "wang-yun"
+   }
+  ],
+  "text": "With Dong Zhuo dead, Wang Yun refuses to pardon his soldiers, and the Xiliang men, afraid of the axe, decide to be feared instead. Li Jue and Guo Si march on Chang'an with jailed men and spare horses. In eight days the gates open, Wang Yun is hanged on the wall, and Lu Bu rides out alone through the east gate.",
+  "effects": [
+   {
+    "kind": "setRuler",
+    "faction": "f-dong-zhuo",
+    "id": "li-jue"
+   },
+   {
+    "kind": "killOfficer",
+    "id": "wang-yun"
+   },
+   {
+    "kind": "moveOfficer",
+    "id": "lu-bu",
+    "city": "wan"
+   },
+   {
+    "kind": "setFlag",
+    "id": "li-jue-regime"
+   }
+  ],
+  "major": true,
+  "source": "Romance ch.9"
+ },
+ {
+  "id": "tao-qian-offers-xu",
+  "title": "Tao Qian Offers Xu Province",
+  "from": {
+   "year": 194,
+   "month": 1
+  },
+  "to": {
+   "year": 194,
+   "month": 12
+  },
+  "chance": 40,
+  "conditions": [
+   {
+    "kind": "officerAlive",
+    "id": "tao-qian"
+   },
+   {
+    "kind": "officerAlive",
+    "id": "liu-bei"
+   },
+   {
+    "kind": "factionExists",
+    "id": "f-tao-qian"
+   }
+  ],
+  "text": "Cao Cao's armies have burned their way through Xu, and Tao Qian is dying. He sends for Liu Bei and puts the governor's seals in his hands. Liu Bei says no twice, three times. The officers of Xu, down to the humblest clerk, kneel in the hall until he says yes.",
+  "effects": [
+   {
+    "kind": "joinFaction",
+    "id": "liu-bei",
+    "faction": "f-tao-qian",
+    "post": "officer"
+   },
+   {
+    "kind": "moveOfficer",
+    "id": "liu-bei",
+    "city": "xiapi"
+   },
+   {
+    "kind": "setRuler",
+    "faction": "f-tao-qian",
+    "id": "liu-bei"
+   },
+   {
+    "kind": "killOfficer",
+    "id": "tao-qian"
+   },
+   {
+    "kind": "joinFaction",
+    "id": "guan-yu",
+    "faction": "f-tao-qian",
+    "post": "officer"
+   },
+   {
+    "kind": "joinFaction",
+    "id": "zhang-fei",
+    "faction": "f-tao-qian",
+    "post": "officer"
+   },
+   {
+    "kind": "joinFaction",
+    "id": "jian-yong",
+    "faction": "f-tao-qian",
+    "post": "officer"
+   },
+   {
+    "kind": "setFlag",
+    "id": "liu-bei-xu"
+   }
+  ],
+  "involves": [
+   "liu-bei"
+  ],
+  "options": [
+   {
+    "label": "Accept Xu Province",
+    "text": "After refusing three times you take the seals. The land of Xu is yours to defend.",
+    "effects": [
+     {
+      "kind": "joinFaction",
+      "id": "liu-bei",
+      "faction": "f-tao-qian",
+      "post": "officer"
+     },
+     {
+      "kind": "moveOfficer",
+      "id": "liu-bei",
+      "city": "xiapi"
+     },
+     {
+      "kind": "setRuler",
+      "faction": "f-tao-qian",
+      "id": "liu-bei"
+     },
+     {
+      "kind": "killOfficer",
+      "id": "tao-qian"
+     },
+     {
+      "kind": "joinFaction",
+      "id": "guan-yu",
+      "faction": "f-tao-qian",
+      "post": "officer"
+     },
+     {
+      "kind": "joinFaction",
+      "id": "zhang-fei",
+      "faction": "f-tao-qian",
+      "post": "officer"
+     },
+     {
+      "kind": "joinFaction",
+      "id": "jian-yong",
+      "faction": "f-tao-qian",
+      "post": "officer"
+     },
+     {
+      "kind": "setFlag",
+      "id": "liu-bei-xu"
+     }
+    ]
+   },
+   {
+    "label": "Decline and support the old guard",
+    "text": "You refuse and ask Cao Bao to hold the province. Tao Qian dies content, but Xu is divided.",
+    "effects": [
+     {
+      "kind": "killOfficer",
+      "id": "tao-qian"
+     },
+     {
+      "kind": "setRuler",
+      "faction": "f-tao-qian",
+      "id": "cao-bao"
+     },
+     {
+      "kind": "friendship",
+      "a": "liu-bei",
+      "b": "cao-bao",
+      "delta": 10
+     },
+     {
+      "kind": "merit",
+      "id": "liu-bei",
+      "delta": 200
+     }
+    ]
+   }
+  ],
+  "major": true,
+  "source": "Romance ch.12"
+ },
+ {
+  "id": "liu-zhang-succeeds",
+  "title": "Liu Yan Dies; Liu Zhang Takes Yi",
+  "from": {
+   "year": 194,
+   "month": 6
+  },
+  "to": {
+   "year": 194,
+   "month": 12
+  },
+  "chance": 50,
+  "conditions": [
+   {
+    "kind": "officerAlive",
+    "id": "liu-yan"
+   },
+   {
+    "kind": "officerAlive",
+    "id": "liu-zhang"
+   },
+   {
+    "kind": "officerIsRuler",
+    "id": "liu-yan"
+   },
+   {
+    "kind": "factionExists",
+    "id": "f-liu-yan"
+   }
+  ],
+  "text": "A fire has taken the governor's hall, and sores and grief take Liu Yan. The local families who profit from a mild lord choose his youngest son, who is easy to persuade. Liu Zhang assumes the seals of Yi province in the year the old man dies.",
+  "effects": [
+   {
+    "kind": "killOfficer",
+    "id": "liu-yan"
+   },
+   {
+    "kind": "setRuler",
+    "faction": "f-liu-yan",
+    "id": "liu-zhang"
+   }
+  ],
+  "source": "Sanguozhi: Biography of Liu Yan"
+ },
+ {
+  "id": "sun-ce-borrows",
+  "title": "Sun Ce Pawns the Seal",
+  "from": {
+   "year": 194,
+   "month": 6
+  },
+  "to": {
+   "year": 195,
+   "month": 12
+  },
+  "chance": 40,
+  "conditions": [
+   {
+    "kind": "officerAlive",
+    "id": "sun-ce"
+   },
+   {
+    "kind": "flag",
+    "id": "imperial-seal"
+   },
+   {
+    "kind": "notFlag",
+    "id": "seal-with-yuan-shao"
+   },
+   {
+    "kind": "factionExists",
+    "id": "f-yuan-shu"
+   },
+   {
+    "kind": "officerAlive",
+    "id": "yuan-shu"
+   },
+   {
+    "kind": "officerIsRuler",
+    "id": "sun-ce"
+   }
+  ],
+  "text": "Sun Ce holds his father's old followers but no place to put them. He takes the seal he guards to Yuan Shu and leaves it as a pledge for three thousand soldiers and five hundred horses. Then he turns his men east, to the unguarded Yangtze, and the country below the river.",
+  "effects": [
+   {
+    "kind": "item",
+    "officer": "yuan-shu",
+    "item": "imperial-seal"
+   },
+   {
+    "kind": "setFlag",
+    "id": "seal-with-yuan-shu"
+   },
+   {
+    "kind": "transferCity",
+    "city": "jianye",
+    "faction": "f-sun-jian"
+   },
+   {
+    "kind": "moveCapital",
+    "faction": "f-sun-jian",
+    "city": "jianye"
+   },
+   {
+    "kind": "moveOfficer",
+    "id": "sun-ce",
+    "city": "jianye"
+   },
+   {
+    "kind": "moveOfficer",
+    "id": "cheng-pu",
+    "city": "jianye"
+   },
+   {
+    "kind": "moveOfficer",
+    "id": "huang-gai",
+    "city": "jianye"
+   },
+   {
+    "kind": "moveOfficer",
+    "id": "han-dang",
+    "city": "jianye"
+   },
+   {
+    "kind": "moveOfficer",
+    "id": "zhu-zhi",
+    "city": "jianye"
+   },
+   {
+    "kind": "relation",
+    "a": "f-sun-jian",
+    "b": "f-yuan-shu",
+    "delta": 20
+   }
+  ],
+  "involves": [
+   "sun-ce"
+  ],
+  "options": [
+   {
+    "label": "Pawn the seal for an army",
+    "text": "Yuan Shu counts out the soldiers. You cross the river with your father's men.",
+    "effects": [
+     {
+      "kind": "item",
+      "officer": "yuan-shu",
+      "item": "imperial-seal"
+     },
+     {
+      "kind": "setFlag",
+      "id": "seal-with-yuan-shu"
+     },
+     {
+      "kind": "transferCity",
+      "city": "jianye",
+      "faction": "f-sun-jian"
+     },
+     {
+      "kind": "moveCapital",
+      "faction": "f-sun-jian",
+      "city": "jianye"
+     },
+     {
+      "kind": "moveOfficer",
+      "id": "sun-ce",
+      "city": "jianye"
+     },
+     {
+      "kind": "moveOfficer",
+      "id": "cheng-pu",
+      "city": "jianye"
+     },
+     {
+      "kind": "moveOfficer",
+      "id": "huang-gai",
+      "city": "jianye"
+     },
+     {
+      "kind": "moveOfficer",
+      "id": "han-dang",
+      "city": "jianye"
+     },
+     {
+      "kind": "moveOfficer",
+      "id": "zhu-zhi",
+      "city": "jianye"
+     },
+     {
+      "kind": "relation",
+      "a": "f-sun-jian",
+      "b": "f-yuan-shu",
+      "delta": 20
+     }
+    ]
+   },
+   {
+    "label": "Keep the seal and cross with what you have",
+    "text": "You keep the seal and go east with only your followers. It will be a harder road.",
+    "effects": [
+     {
+      "kind": "transferCity",
+      "city": "jianye",
+      "faction": "f-sun-jian"
+     },
+     {
+      "kind": "moveCapital",
+      "faction": "f-sun-jian",
+      "city": "jianye"
+     },
+     {
+      "kind": "moveOfficer",
+      "id": "sun-ce",
+      "city": "jianye"
+     },
+     {
+      "kind": "moveOfficer",
+      "id": "cheng-pu",
+      "city": "jianye"
+     },
+     {
+      "kind": "moveOfficer",
+      "id": "huang-gai",
+      "city": "jianye"
+     },
+     {
+      "kind": "moveOfficer",
+      "id": "han-dang",
+      "city": "jianye"
+     },
+     {
+      "kind": "moveOfficer",
+      "id": "zhu-zhi",
+      "city": "jianye"
+     },
+     {
+      "kind": "setFlag",
+      "id": "seal-with-sun"
+     }
+    ]
+   }
+  ],
+  "source": "Romance ch.15"
+ },
+ {
+  "id": "emperor-to-xu",
+  "title": "The Emperor Comes to Xu",
+  "from": {
+   "year": 196,
+   "month": 1
+  },
+  "to": {
+   "year": 196,
+   "month": 12
+  },
+  "chance": 60,
+  "conditions": [
+   {
+    "kind": "officerAlive",
+    "id": "cao-cao"
+   },
+   {
+    "kind": "factionExists",
+    "id": "f-cao-cao"
+   },
+   {
+    "kind": "officerIsRuler",
+    "id": "cao-cao"
+   }
+  ],
+  "text": "The wandering emperor has crossed the burned country with a few servants and wild rice for food. Cao Cao meets him on the Yellow River road, lodges him at Xu, and begins to speak for him. Every governor in the empire now has to decide what to call a letter that comes with the imperial seal on it.",
+  "effects": [
+   {
+    "kind": "transferCity",
+    "city": "xuchang",
+    "faction": "f-cao-cao"
+   },
+   {
+    "kind": "moveCapital",
+    "faction": "f-cao-cao",
+    "city": "xuchang"
+   },
+   {
+    "kind": "setFlag",
+    "id": "emperor-cao"
+   },
+   {
+    "kind": "relation",
+    "a": "f-cao-cao",
+    "b": "f-dong-zhuo",
+    "delta": 8
+   },
+   {
+    "kind": "relation",
+    "a": "f-cao-cao",
+    "b": "f-han-fu",
+    "delta": 8
+   },
+   {
+    "kind": "relation",
+    "a": "f-cao-cao",
+    "b": "f-yuan-shao",
+    "delta": 8
+   },
+   {
+    "kind": "relation",
+    "a": "f-cao-cao",
+    "b": "f-yuan-shu",
+    "delta": 8
+   },
+   {
+    "kind": "relation",
+    "a": "f-cao-cao",
+    "b": "f-sun-jian",
+    "delta": 8
+   },
+   {
+    "kind": "relation",
+    "a": "f-cao-cao",
+    "b": "f-liu-biao",
+    "delta": 8
+   },
+   {
+    "kind": "relation",
+    "a": "f-cao-cao",
+    "b": "f-gongsun-zan",
+    "delta": 8
+   },
+   {
+    "kind": "relation",
+    "a": "f-cao-cao",
+    "b": "f-liu-yu",
+    "delta": 8
+   },
+   {
+    "kind": "relation",
+    "a": "f-cao-cao",
+    "b": "f-gongsun-du",
+    "delta": 8
+   },
+   {
+    "kind": "relation",
+    "a": "f-cao-cao",
+    "b": "f-kong-rong",
+    "delta": 8
+   },
+   {
+    "kind": "relation",
+    "a": "f-cao-cao",
+    "b": "f-liu-dai",
+    "delta": 8
+   },
+   {
+    "kind": "relation",
+    "a": "f-cao-cao",
+    "b": "f-tao-qian",
+    "delta": 8
+   },
+   {
+    "kind": "relation",
+    "a": "f-cao-cao",
+    "b": "f-kong-zhou",
+    "delta": 8
+   },
+   {
+    "kind": "relation",
+    "a": "f-cao-cao",
+    "b": "f-chen-wen",
+    "delta": 8
+   },
+   {
+    "kind": "relation",
+    "a": "f-cao-cao",
+    "b": "f-wang-lang",
+    "delta": 8
+   },
+   {
+    "kind": "relation",
+    "a": "f-cao-cao",
+    "b": "f-yan-baihu",
+    "delta": 8
+   },
+   {
+    "kind": "relation",
+    "a": "f-cao-cao",
+    "b": "f-shi-xie",
+    "delta": 8
+   },
+   {
+    "kind": "relation",
+    "a": "f-cao-cao",
+    "b": "f-liu-yan",
+    "delta": 8
+   },
+   {
+    "kind": "relation",
+    "a": "f-cao-cao",
+    "b": "f-zhang-lu",
+    "delta": 8
+   },
+   {
+    "kind": "relation",
+    "a": "f-cao-cao",
+    "b": "f-ma-teng",
+    "delta": 8
+   },
+   {
+    "kind": "relation",
+    "a": "f-cao-cao",
+    "b": "f-han-sui",
+    "delta": 8
+   },
+   {
+    "kind": "relation",
+    "a": "f-cao-cao",
+    "b": "f-zhang-yang",
+    "delta": 8
+   }
+  ],
+  "major": true,
+  "source": "Romance ch.14"
+ },
+ {
+  "id": "yuan-shu-emperor",
+  "title": "Yuan Shu Takes the Throne",
+  "from": {
+   "year": 197,
+   "month": 1
+  },
+  "to": {
+   "year": 197,
+   "month": 12
+  },
+  "chance": 50,
+  "conditions": [
+   {
+    "kind": "flag",
+    "id": "seal-with-yuan-shu"
+   },
+   {
+    "kind": "factionExists",
+    "id": "f-yuan-shu"
+   },
+   {
+    "kind": "officerAlive",
+    "id": "yuan-shu"
+   },
+   {
+    "kind": "officerIsRuler",
+    "id": "yuan-shu"
+   }
+  ],
+  "text": "Yuan Shu has the seal in his chest and a prophecy about his family in his head. He calls an assembly in his hall, puts on the robes, and names a new reign. Not one of his officers who knew what that meant is willing to stand beside him. The rest of the empire remembers it for him.",
+  "effects": [
+   {
+    "kind": "setFlag",
+    "id": "yuan-shu-emperor"
+   },
+   {
+    "kind": "relation",
+    "a": "f-yuan-shu",
+    "b": "f-dong-zhuo",
+    "delta": -30
+   },
+   {
+    "kind": "relation",
+    "a": "f-yuan-shu",
+    "b": "f-han-fu",
+    "delta": -30
+   },
+   {
+    "kind": "relation",
+    "a": "f-yuan-shu",
+    "b": "f-yuan-shao",
+    "delta": -30
+   },
+   {
+    "kind": "relation",
+    "a": "f-yuan-shu",
+    "b": "f-cao-cao",
+    "delta": -30
+   },
+   {
+    "kind": "relation",
+    "a": "f-yuan-shu",
+    "b": "f-sun-jian",
+    "delta": -30
+   },
+   {
+    "kind": "relation",
+    "a": "f-yuan-shu",
+    "b": "f-liu-biao",
+    "delta": -30
+   },
+   {
+    "kind": "relation",
+    "a": "f-yuan-shu",
+    "b": "f-gongsun-zan",
+    "delta": -30
+   },
+   {
+    "kind": "relation",
+    "a": "f-yuan-shu",
+    "b": "f-liu-yu",
+    "delta": -30
+   },
+   {
+    "kind": "relation",
+    "a": "f-yuan-shu",
+    "b": "f-gongsun-du",
+    "delta": -30
+   },
+   {
+    "kind": "relation",
+    "a": "f-yuan-shu",
+    "b": "f-kong-rong",
+    "delta": -30
+   },
+   {
+    "kind": "relation",
+    "a": "f-yuan-shu",
+    "b": "f-liu-dai",
+    "delta": -30
+   },
+   {
+    "kind": "relation",
+    "a": "f-yuan-shu",
+    "b": "f-tao-qian",
+    "delta": -30
+   },
+   {
+    "kind": "relation",
+    "a": "f-yuan-shu",
+    "b": "f-kong-zhou",
+    "delta": -30
+   },
+   {
+    "kind": "relation",
+    "a": "f-yuan-shu",
+    "b": "f-chen-wen",
+    "delta": -30
+   },
+   {
+    "kind": "relation",
+    "a": "f-yuan-shu",
+    "b": "f-wang-lang",
+    "delta": -30
+   },
+   {
+    "kind": "relation",
+    "a": "f-yuan-shu",
+    "b": "f-yan-baihu",
+    "delta": -30
+   },
+   {
+    "kind": "relation",
+    "a": "f-yuan-shu",
+    "b": "f-shi-xie",
+    "delta": -30
+   },
+   {
+    "kind": "relation",
+    "a": "f-yuan-shu",
+    "b": "f-liu-yan",
+    "delta": -30
+   },
+   {
+    "kind": "relation",
+    "a": "f-yuan-shu",
+    "b": "f-zhang-lu",
+    "delta": -30
+   },
+   {
+    "kind": "relation",
+    "a": "f-yuan-shu",
+    "b": "f-ma-teng",
+    "delta": -30
+   },
+   {
+    "kind": "relation",
+    "a": "f-yuan-shu",
+    "b": "f-han-sui",
+    "delta": -30
+   },
+   {
+    "kind": "relation",
+    "a": "f-yuan-shu",
+    "b": "f-zhang-yang",
+    "delta": -30
+   }
+  ],
+  "major": true,
+  "source": "Romance ch.17"
+ },
+ {
+  "id": "fall-of-xiapi",
+  "title": "The Fall of Xiapi",
+  "from": {
+   "year": 198,
+   "month": 6
+  },
+  "to": {
+   "year": 199,
+   "month": 3
+  },
+  "chance": 50,
+  "conditions": [
+   {
+    "kind": "officerAlive",
+    "id": "lu-bu"
+   },
+   {
+    "kind": "officerAlive",
+    "id": "cao-cao"
+   },
+   {
+    "kind": "flag",
+    "id": "emperor-cao"
+   },
+   {
+    "kind": "factionHoldsCity",
+    "faction": "f-cao-cao",
+    "city": "xuchang"
+   }
+  ],
+  "text": "Cao Cao has the Si and Yi rivers turned onto the walls of Xiapi, and the water stands to the eaves. Lu Bu's officers lose hope, his own sleep fails, and one night his lieutenants bind him as he lies. He pleads with Cao Cao on the tower. Liu Bei reminds Cao Cao how Lu Bu treated his masters.",
+  "effects": [
+   {
+    "kind": "killOfficer",
+    "id": "lu-bu"
+   },
+   {
+    "kind": "killOfficer",
+    "id": "gao-shun"
+   },
+   {
+    "kind": "killOfficer",
+    "id": "chen-gong"
+   },
+   {
+    "kind": "merit",
+    "id": "cao-cao",
+    "delta": 800
+   },
+   {
+    "kind": "setFlag",
+    "id": "lu-bu-fell"
+   }
+  ],
+  "involves": [
+   "lu-bu"
+  ],
+  "options": [
+   {
+    "label": "Be taken at Xiapi",
+    "text": "The bonds hold. The end comes at the White Gate tower.",
+    "effects": [
+     {
+      "kind": "killOfficer",
+      "id": "lu-bu"
+     },
+     {
+      "kind": "killOfficer",
+      "id": "gao-shun"
+     },
+     {
+      "kind": "killOfficer",
+      "id": "chen-gong"
+     },
+     {
+      "kind": "merit",
+      "id": "cao-cao",
+      "delta": 800
+     },
+     {
+      "kind": "setFlag",
+      "id": "lu-bu-fell"
+     }
+    ]
+   },
+   {
+    "label": "Ride out for a last duel",
+    "text": "You cut your bonds and ride for the gate with halberd in hand. Guan Yu rides to meet you.",
+    "effects": [
+     {
+      "kind": "setFlag",
+      "id": "lu-bu-last-stand"
+     }
+    ],
+    "contest": {
+     "kind": "duel",
+     "a": "lu-bu",
+     "b": "guan-yu",
+     "onWin": [
+      {
+       "kind": "makeWanderer",
+       "id": "lu-bu",
+       "city": "xiaopei"
+      },
+      {
+       "kind": "setFlag",
+       "id": "lu-bu-escaped"
+      },
+      {
+       "kind": "merit",
+       "id": "lu-bu",
+       "delta": 400
+      }
+     ],
+     "onLoss": [
+      {
+       "kind": "killOfficer",
+       "id": "lu-bu"
+      },
+      {
+       "kind": "killOfficer",
+       "id": "gao-shun"
+      },
+      {
+       "kind": "killOfficer",
+       "id": "chen-gong"
+      },
+      {
+       "kind": "setFlag",
+       "id": "lu-bu-fell"
+      }
+     ]
+    }
+   }
+  ],
+  "major": true,
+  "source": "Romance ch.19"
+ },
+ {
+  "id": "sun-ce-assassinated",
+  "title": "Sun Ce Falls to the Hunters",
+  "from": {
+   "year": 200,
+   "month": 4
+  },
+  "to": {
+   "year": 200,
+   "month": 12
+  },
+  "chance": 40,
+  "conditions": [
+   {
+    "kind": "officerAlive",
+    "id": "sun-ce"
+   },
+   {
+    "kind": "officerAlive",
+    "id": "sun-quan"
+   },
+   {
+    "kind": "officerIsRuler",
+    "id": "sun-ce"
+   },
+   {
+    "kind": "factionExists",
+    "id": "f-sun-jian"
+   }
+  ],
+  "text": "Sun Ce has killed the Wu governor, Xu Gong, and the governor's three retainers have sworn revenge. Out hunting ahead of his guards on a fine horse, he meets them in a thicket. A poisoned arrow takes his cheek. He sends for his brother and tells him how to run the house: use the elders for the war, the new men for the plans.",
+  "effects": [
+   {
+    "kind": "killOfficer",
+    "id": "sun-ce"
+   },
+   {
+    "kind": "setRuler",
+    "faction": "f-sun-jian",
+    "id": "sun-quan"
+   },
+   {
+    "kind": "friendship",
+    "a": "sun-quan",
+    "b": "zhou-yu",
+    "delta": 10
+   }
+  ],
+  "major": true,
+  "source": "Romance ch.29"
+ }
+]
