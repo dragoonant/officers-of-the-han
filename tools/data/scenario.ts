@@ -238,7 +238,7 @@ export function buildScenario(cities: CityDef[], roads: RoadDef[], officers: Off
       troops,
       training,
       gold: owned ? Math.round((2500 + trade * 6) / 100) * 100 : 300 + Math.round(trade),
-      rice: owned ? Math.round((upkeep * 12 + farm * 6) / 100) * 100 : upkeep * 12,
+      rice: Math.round((upkeep * 12 + farm * 6) / 100) * 100, // vacant cities too (M4a data request: claimants starved)
     }
   })
   // Economy tuning: each faction's monthly gold must cover its salary roll (W-ECO-1, W-OFF-4).

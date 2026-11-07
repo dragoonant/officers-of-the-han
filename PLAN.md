@@ -98,6 +98,8 @@ Format: `RULING: <rule> | <what we did> | <why> | <status>`.
 - RULING: battle letter | a short silk letter ("Take the field") precedes the board; a resumed saved battle opens the board directly | gives context before a full-screen takeover | accepted (coordinator 2026-11-07)
 - RULING: propose-war army | start from `suggestArmy` with the player forced in as sole commander | `suggestArmy` has no proposer argument | accepted (coordinator 2026-11-07)
 - RULING: successions in the end summary | the lineage is rebuilt from the log (current player, the `begins.` line, `succession` entries) | no state field lists past players | accepted (coordinator 2026-11-07)
+- RULING: 190 data, vacant cities | rice = upkeep*12 + farm*6 like owned cities (was upkeep*12: Runan 180 rice for 1,500 troops) | M4a data request: claimants starved by month 5; after: 0 famine in 190-1..9, 0.09 famine per faction-year, wars 0.59 per faction-year, captures 0.18 per battle (10 seeds x 10 years) | accepted (coordinator 2026-11-07)
+- RULING: balance follow-up | Dong Zhuo's house (Li Jue after 192) averages 11.9 cities by 200 and Cao Cao survives in 4 of 10 seeds | left for M4b: a leader brake or Dong Zhuo garrison sizes; the record's Cao Cao nearly died in 190 too | open
 
 ## Change log
 - 2026-11-07 v0.1 written at M0.

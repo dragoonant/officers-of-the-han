@@ -751,7 +751,7 @@
    "troops": 1500,
    "training": 25,
    "gold": 513,
-   "rice": 180
+   "rice": 1800
   },
   {
    "id": "xiaopei",
@@ -764,7 +764,7 @@
    "troops": 1200,
    "training": 25,
    "gold": 462,
-   "rice": 144
+   "rice": 1400
   },
   {
    "id": "xiapi",
@@ -816,7 +816,7 @@
    "troops": 2000,
    "training": 30,
    "gold": 489,
-   "rice": 240
+   "rice": 1700
   },
   {
    "id": "jianye",
@@ -829,7 +829,7 @@
    "troops": 1500,
    "training": 25,
    "gold": 551,
-   "rice": 180
+   "rice": 1800
   },
   {
    "id": "wu",
@@ -868,7 +868,7 @@
    "troops": 2500,
    "training": 30,
    "gold": 492,
-   "rice": 300
+   "rice": 2100
   },
   {
    "id": "chaisang",
@@ -881,7 +881,7 @@
    "troops": 1800,
    "training": 30,
    "gold": 467,
-   "rice": 216
+   "rice": 1400
   },
   {
    "id": "xiangyang",
@@ -972,7 +972,7 @@
    "troops": 1500,
    "training": 30,
    "gold": 414,
-   "rice": 180
+   "rice": 1100
   },
   {
    "id": "lingling",
@@ -985,7 +985,7 @@
    "troops": 1500,
    "training": 30,
    "gold": 443,
-   "rice": 180
+   "rice": 1000
   },
   {
    "id": "guiyang",
@@ -998,7 +998,7 @@
    "troops": 1200,
    "training": 30,
    "gold": 428,
-   "rice": 144
+   "rice": 800
   },
   {
    "id": "shangyong",
@@ -1011,7 +1011,7 @@
    "troops": 1000,
    "training": 25,
    "gold": 397,
-   "rice": 120
+   "rice": 1000
   },
   {
    "id": "hanzhong",
@@ -1076,7 +1076,7 @@
    "troops": 1500,
    "training": 30,
    "gold": 412,
-   "rice": 180
+   "rice": 1000
   },
   {
    "id": "jianning",
@@ -1089,7 +1089,7 @@
    "troops": 1000,
    "training": 25,
    "gold": 415,
-   "rice": 120
+   "rice": 900
   },
   {
    "id": "tianshui",
@@ -1102,7 +1102,7 @@
    "troops": 3000,
    "training": 40,
    "gold": 428,
-   "rice": 360
+   "rice": 1700
   },
   {
    "id": "anding",
@@ -1141,7 +1141,7 @@
    "troops": 3000,
    "training": 35,
    "gold": 484,
-   "rice": 360
+   "rice": 1800
   },
   {
    "id": "shangdang",
@@ -1180,7 +1180,7 @@
    "troops": 1500,
    "training": 30,
    "gold": 534,
-   "rice": 180
+   "rice": 1400
   }
  ],
  "officers": [
