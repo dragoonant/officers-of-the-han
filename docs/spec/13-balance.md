@@ -50,3 +50,54 @@ Reading the sweep: the war count is a cliff, not a slope. With 80% armies and no
 - **Missions:** the AI offered `develop` work that was already at its maximum (impossible), and the autopilot spent mission days on random actions.
 - **Diplomacy spam:** a threatened ruler asked for a truce, then an alliance, every month at 20%, against the same house.
 - **A war at the first step:** `newGame(190)` launched 13-15 armies in month 1. `W-AI-5` forbids AI armies for three months (`newGame` now has 0 armies, tested in `ai-balance.test.ts`); the coalition alliance fires at the end of month 1, so it binds before the first war can start, and its members prefer Dong Zhuo's cities while the flag stands.
+
+# M4b: Dong Zhuo's house and Cao Cao
+
+Measured with `npm run sim -- --years 10 --seeds 10` (seeds 1-10 as above); a 30-seed run backs the headline. The new `M4b:` line in the sim output prints the cities of Dong Zhuo's house (`f-dong-zhuo`, whoever rules it) at 200 over the seeds that reached 200 (a seed whose player line ends early stops sooner), and how many of those had Cao Cao alive. "Before" is the tree at the end of M4a (the merge before this milestone).
+
+## Before / after (10 seeds x 10 years)
+
+| Measure | Target | Before | After | After, 30 seeds |
+|---|---|---|---|---|
+| Dong Zhuo's house, cities at 200 (mean) | <= 6 | 13.2 (21 14 7 9 9 13 21 13 12) | 4.4 (3 5 6 3 5 4 6 3 5) | 5.2 |
+| Cao Cao alive at the end (of 10 seeds) | >= 7 | 4 | 10 | 28 of 30 |
+| Famine lines per faction-year | <= 0.15 | 0.09 | 0.08 | 0.08 |
+| Wars per faction-year | 0.4-0.8 | 0.59 | 0.68 | 0.59 |
+| Invariant failures / stalls | 0 | 0 / 0 | 0 / 0 | 0 / 0 |
+| Seeds where one house holds over 40% of the cities at 200 | at most 2 | 3 | 0 | 0 |
+| Yuan Shao / Sun / Liu Biao alive at the end | not eliminated in over half the seeds | 6 / 10 / 9 | 10 / 7 / 10 | 30 / 26 / 30 |
+| Captures per battle | < 0.25 | 0.18 | 0.22 | 0.23 |
+| Diplomacy lines per faction-year | < 1 | 0.72 | 0.59 | 0.57 |
+| Missions done / failed | done >= failed | 236 / 134 | 351 / 2 | 891 / 15 |
+| Factions at 200 (mean) | 8-14 | 13.4 | 17.9 | 18.6 |
+| Successions | explained | 110 | 123 | 383 |
+
+Sun Jian's house falls in 3 of 10 seeds: the `sun-jian-falls` event kills Sun Jian in 191-192, so a house of one or two cities can fall to Liu Biao or Yuan Shu; history allows it.
+
+**Factions at 200 left the 8-14 band (17.9).** The M4a count of 13.4 was mostly Dong Zhuo absorbing his neighbours (by surrender demand and by conquest); with that gone, 23 houses at the start shrink only to about 18 by 200, because the 1.4x attack ratio produces a standoff once no house has an overwhelming army (battles per year over 10 seeds: 190: ~350, 191: ~230, 195: ~95, 197-198: ~30). Open item for M5/M6: either widen the band or add a late-game pressure (an ambition term that lowers the ratio after years of peace).
+
+## What caused it (found before any change)
+
+1. **Surrender demands.** `W-DIP-4` let a house with 3.5x a neighbour's troops demand surrender at up to 60% chance a month; Dong Zhuo starts with 67,000 troops against 5,000-9,000 for each neighbour, so he swallowed whole houses, Cao Cao included (4 of Cao Cao's 6 endings were "submitted to Dong Zhuo", the rest conquest of Chenliu). Every swallowed house was more troops and cities for the next demand.
+2. **No brake after his death.** Dong Zhuo dies in 192-1/2 in nearly every seed (`W-DEATH-1`, death year 192). The succession cost every officer 10 loyalty and nothing else, so Li Jue / Zhang Lu / Cao Cao (whoever got the merit lead) inherited every city, and the house kept growing (14 -> 21 cities in the worst seeds).
+3. **The 34,000-man Luoyang garrison.** The one army that reached Chenliu in the first spring. The `burning-of-luoyang` event moved the capital but not the troops. With causes 1 and 2 fixed Cao Cao still lived in only 10-12 of 20 seeds; 7 of the 9 deaths were Dong Zhuo taking Chenliu in 190-191.
+4. **A bug.** A scouting officer on a 5-day road walked home and back with its days and ended the month away from the target, so the mission never counted; the same officer failed the same scout every month (the sim's missions failed 134 -> 2 when fixed). This had nothing to do with Dong Zhuo, but it was hiding in the M4a mission numbers and it changed the war count once fixed.
+
+## Changes (one at a time, single 10-seed runs, noisy: compare trends)
+
+| Step | Dong Zhuo 200 | Cao Cao alive | wars / faction-year | factions 200 |
+|---|---|---|---|---|
+| Before | 13.2-13.3 | 3-4 | 0.59-0.60 | 13.4-14.1 |
+| `W-DIP-4`: no surrender from a house of 2+ cities (first cut: 1+) | 9.9 | 7 | 0.60 | n/a |
+| `W-DEATH-4`: succession split, each breakaway founds a faction (base 85) | 5.6 | 5 | 0.39 | 19.3 |
+| + proud rulers (ambitious / reckless / righteous) never kneel, war chance 80 | 4.2 | 8 | 0.70 | 20.9 |
+| + a breakaway prefect goes to the best neighbouring house instead (no splinter factions) | 3.3 | 9 | 0.75 | 19.2 |
+| + scout fix (missions fail 134 -> 2): wars jump to 0.89, Cao Cao 6 | 4.1 | 6 | 0.89 | 17.8 |
+| + war chance 75 | 3.8 | 7 | 0.62 | 18.5 |
+| + burning of Luoyang moves 20,000 troops west | 4.4 | 10 | 0.68 | 17.9 |
+
+Tried and dropped: raising the threatened ruler's truce chance (8% -> 20%) made diplomacy 1.22 per faction-year and Cao Cao worse; a "besieged house keeps its armies home while the coalition stands" clause and a 6-month peaceful opening both lowered Cao Cao's survival (the world is chaotic: a change anywhere reshuffles the whole run, so judge a change on 20-30 seeds). The war count is still a cliff in `WAR_CHANCE`: 70 gives 0.42, 75 gives 0.6-0.7, 80 gives 0.96, 100 gives 2.4.
+
+## Constants
+
+`src/ai/world/ruler.ts`: `WAR_CHANCE` 75. `src/world/rules.ts`: `SURRENDER_MAX_CITIES` 2, `PROUD`. `src/world/people.ts`: `SPLIT_MIN_CITIES` 4, `SPLIT_BASE` 75, `SPLIT_HEIR_RELIEF` 40, `SPLIT_MAX` 70.

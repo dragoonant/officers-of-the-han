@@ -419,6 +419,18 @@
     "delta": 20000
    },
    {
+    "kind": "cityDelta",
+    "city": "luoyang",
+    "field": "troops",
+    "delta": -20000
+   },
+   {
+    "kind": "cityDelta",
+    "city": "chang-an",
+    "field": "troops",
+    "delta": 20000
+   },
+   {
     "kind": "setFlag",
     "id": "luoyang-burned"
    }
@@ -476,6 +488,18 @@
       "kind": "cityDelta",
       "city": "chang-an",
       "field": "population",
+      "delta": 20000
+     },
+     {
+      "kind": "cityDelta",
+      "city": "luoyang",
+      "field": "troops",
+      "delta": -20000
+     },
+     {
+      "kind": "cityDelta",
+      "city": "chang-an",
+      "field": "troops",
       "delta": 20000
      },
      {
@@ -559,6 +583,18 @@
        "kind": "cityDelta",
        "city": "chang-an",
        "field": "population",
+       "delta": 20000
+      },
+      {
+       "kind": "cityDelta",
+       "city": "luoyang",
+       "field": "troops",
+       "delta": -20000
+      },
+      {
+       "kind": "cityDelta",
+       "city": "chang-an",
+       "field": "troops",
        "delta": 20000
       },
       {

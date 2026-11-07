@@ -29,6 +29,14 @@ test('a pending battle opens from Continue, plays out with the AI, and the world
   await expect(page.getByTestId('end-banner')).toBeVisible({ timeout: 200_000 })
   await page.click('#battle-done')
   await expect(page.getByTestId('battle-screen')).toBeHidden()
+  // W-WAR-10: the played battle ends with the result letter
+  const result = page.getByTestId('letter')
+  await expect(result).toBeVisible()
+  await expect(result).toContainText(/Losses: .* lost [\d,]+ troops, .* lost [\d,]+ troops\./)
+  await expect(result).toContainText(/Taken prisoner: .* Slain: /)
+  await expect(result).toContainText(/now holds /)
+  await expect(result).not.toContainText(/undefined|NaN|null/)
+  await page.getByTestId('answer-ack').click()
   // the world continues: the log carries the battle and the save moved on
   await expect.poll(async () => (await saved(page)).snapshot.pending.some((p: { kind: string }) => p.kind === 'battle')).toBe(false)
   const env = await saved(page)

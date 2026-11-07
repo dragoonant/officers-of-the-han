@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import type { WorldState } from '../../../src/contracts/world'
 import { W, J, act, rej, fresh, calm, endMonth, tryRolls, clear } from './helpers'
 import { MINI_WORLD, MINI_OPTS } from '../../fixtures/mini-world'
 import { LOG_KIND_SET, LOG_KINDS } from '../../../src/world/logkinds'
@@ -113,13 +114,27 @@ describe('W-DIP', () => {
   })
   it('W-DIP-4 demanding surrender needs 3x troops; yes merges the target into us', () => {
     const s = fresh('cao-cao', 1, (x) => { calm(x); x.pacts = []; x.cities['xuchang']!.troops = 80000 })
-    const a = { kind: 'diplomacy' as const, envoy: 'cao-cao', faction: 'f-dong-zhuo', proposal: 'surrender' as const, mode: 'roll' as const }
+    const a = { kind: 'diplomacy' as const, envoy: 'cao-cao', faction: 'f-yuan-shao', proposal: 'surrender' as const, mode: 'roll' as const }
     expect(rej(fresh('cao-cao', 1, (x) => { calm(x); x.pacts = [] }), a).code).toBe('not-legal')
-    const d = tryRolls(s, a, (n) => !n.factions['f-dong-zhuo']!.alive)
-    expect(d.cities['luoyang']!.faction).toBe('f-cao-cao')
-    expect(d.officers['dong-zhuo']!.faction).toBe('f-cao-cao')
-    expect(d.officers['dong-zhuo']!.post).toBe('officer')
+    const d = tryRolls(s, a, (n) => !n.factions['f-yuan-shao']!.alive)
+    expect(d.cities['ye']!.faction).toBe('f-cao-cao')
+    expect(d.officers['yuan-shao']!.faction).toBe('f-cao-cao')
+    expect(d.officers['yuan-shao']!.post).toBe('officer')
     expect(W.invariants(d)).toEqual([])
+  })
+  it('W-DIP-4 (M4b) a proud ruler, or a house of 3+ cities, will not submit: the demand is not legal and the chance is 0', () => {
+    const rich = (x: WorldState): void => { calm(x); x.pacts = []; x.cities['xuchang']!.troops = 80000 }
+    // Dong Zhuo is ambitious: proud, however small
+    const proud = fresh('cao-cao', 1, rich)
+    const dz = { kind: 'diplomacy' as const, envoy: 'cao-cao', faction: 'f-dong-zhuo', proposal: 'surrender' as const, mode: 'roll' as const }
+    expect(rej(proud, dz).message).toMatch(/proud/i)
+    expect(W.query.chanceOf(proud, dz)?.pct ?? 0).toBe(0)
+    // Yuan Shao is cautious, but with a third city he has somewhere to fall back to
+    const big = fresh('cao-cao', 1, (x) => { rich(x); x.cities['wancheng']!.faction = 'f-yuan-shao'; x.cities['wancheng']!.troops = 100 })
+    const ys = { ...dz, faction: 'f-yuan-shao' }
+    expect(rej(big, ys).message).toMatch(/fall back/i)
+    const small = fresh('cao-cao', 1, rich)
+    expect(W.query.chanceOf(small, ys)!.pct).toBeGreaterThan(0)
   })
   it('W-DIP-5 success raises relation by 15, refusal lowers it by 5', () => {
     const s = fresh('cao-cao', 1, (x) => { calm(x); x.pacts = [] })
@@ -185,5 +200,36 @@ describe('log kinds', () => {
   it('every log kind has a sample line', () => {
     for (const k of LOG_KINDS) expect(k.sample.length).toBeGreaterThan(3)
     expect(LOG_KIND_SET.size).toBe(LOG_KINDS.length)
+  })
+})
+
+describe('W-DEATH-4 succession split (M4b)', () => {
+  const house = (seed: number, loyalty: number, cities = 4) => fresh('xiahou-dun', seed, (x) => {
+    calm(x); x.pacts = []
+    const mine = ['luoyang', 'changan', 'wancheng', 'xiapi'].slice(0, cities)
+    for (const id of mine) { x.cities[id]!.faction = 'f-dong-zhuo'; x.cities[id]!.prefect = null }
+    x.officers['hua-xiong']!.city = 'changan'; x.cities['changan']!.prefect = 'hua-xiong'
+    const place: [string, string][] = [['li-jue', 'wancheng'], ['diaochan', 'xiapi']]
+    for (const [oid, cid] of place) if (mine.includes(cid)) { const o = x.officers[oid]!; o.city = cid; o.post = 'prefect'; x.cities[cid]!.prefect = oid }
+    for (const oid of ['hua-xiong', 'li-jue', 'diaochan']) x.officers[oid]!.loyalty = loyalty
+    x.officers['dong-zhuo']!.health = 0
+    x.cities['xiapi']!.faction = cities >= 4 ? 'f-dong-zhuo' : x.cities['xiapi']!.faction
+  })
+  it('W-DEATH-4 a ruler of a 4-city house dies: low-loyalty prefects of other cities may break away, to a neighbour or on their own', () => {
+    let splits = 0
+    for (let seed = 1; seed <= 25; seed++) {
+      const s = endMonth(house(seed, 10), true)
+      expect(W.invariants(s)).toEqual([])
+      const reb = s.log.filter((e) => e.kind === 'rebel' && /broke away/.test(e.text))
+      splits += reb.length
+      for (const e of reb) expect(e.city).not.toBe('luoyang') // the capital never splits
+    }
+    expect(splits).toBeGreaterThan(0)
+  })
+  it('W-DEATH-4 loyal prefects (loyalty 100), and houses of fewer than 4 cities, do not split', () => {
+    for (let seed = 1; seed <= 15; seed++) {
+      expect(endMonth(house(seed, 100), true).log.some((e) => e.kind === 'rebel')).toBe(false)
+      expect(endMonth(house(seed, 10, 3), true).log.some((e) => e.kind === 'rebel' && /broke away/.test(e.text))).toBe(false)
+    }
   })
 })

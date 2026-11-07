@@ -9,7 +9,7 @@ import {
   friendship, gainXp, isBound, isKin, isRival, log, nameOf, newPendingId, officersIn, pactBetween, prof, rankOf, relation, roadBetween, roll,
   sameOath, setFriendship, sortedIds, statSum, totalTroops, ymNum, rnd, nearestOwnCity, neighbors,
 } from './core'
-import { checkArmy, createArmy, defencePower, suggestArmy, unitsPower } from './war'
+import { checkArmy, createArmy, defencePower, suggestArmyLedBy, unitsPower } from './war'
 import { clearPrefect, foundFaction, joinFaction, killOfficer, makeWanderer, normalize, pushLetter, succeedRuler, checkEnd } from './people'
 import { uprisingArmy } from './uprising'
 import { mergeFaction } from './merge'
@@ -83,10 +83,27 @@ export function hiddenIn(c: Ctx, cityId: string): OfficerState | null {
   return null
 }
 
+/** W-DIP-4: the largest house that will ever submit without a siege, and the temperaments that never kneel. */
+export const SURRENDER_MAX_CITIES = 2
+export const PROUD: string[] = ['ambitious', 'reckless', 'righteous']
+
+/** W-DIP-4: why `target` will not submit to a demand, or null when it might. */
+export function surrenderBar(c: Ctx, target: string): string | null {
+  if (factionCities(c, target).length > SURRENDER_MAX_CITIES) return 'A house with cities to fall back on does not kneel.'
+  const rid = c.s.factions[target]?.ruler
+  if (rid) {
+    const d = c.d.officerDef.get(rid)
+    const temper = d ? d.temperament : (c.s.officers[rid]?.custom?.temperament ?? 'steady')
+    if (PROUD.includes(temper)) return 'A proud ruler will not kneel.'
+  }
+  return null
+}
+
 export function diploChance(c: Ctx, envoy: OfficerState, ownF: string, target: string, kind: DiploKind): number {
   const ours = totalTroops(c, ownF)
   const theirs = totalTroops(c, target)
   if (kind === 'surrender') {
+    if (surrenderBar(c, target)) return 0 // W-DIP-4
     const ratio = ours / Math.max(1, theirs)
     return clamp(Math.floor((ratio - 3) * 15 + envoy.stats.cha / 10), 0, 60)
   }
@@ -485,6 +502,8 @@ function checkDiplomacy(c: Ctx, o: OfficerState, a: Extract<WorldAction, { kind:
   if (a.proposal === 'surrender') {
     if (totalTroops(c, o.faction) < 3 * totalTroops(c, a.faction)) return fail('not-legal', 'Our troops must be at least 3x theirs.')
     if (pact) return fail('not-legal', 'Not while a pact stands.')
+    const bar = surrenderBar(c, a.faction)
+    if (bar) return fail('not-legal', bar)
   }
   return needDays(o, DAYS.diplomacy)
 }
@@ -503,7 +522,7 @@ function checkPropose(c: Ctx, o: OfficerState, a: Extract<WorldAction, { kind: '
       if (!own) return fail('not-legal', 'Propose war from one of our cities.')
       if (typeof a.to !== 'string') return fail('bad-target', 'Name the target city.')
       if (a.units !== undefined && !Array.isArray(a.units)) return fail('bad-target', 'Units must be a list.')
-      const units = a.units ?? suggestArmy(c, o.faction, o.city!, o.id)
+      const units = a.units ?? suggestArmyLedBy(c, o.faction, o.city!, o.id)
       if (units.length === 0) return fail('bad-target', 'No army can be raised here.')
       if (!units.some((u) => u.commander && u.officer === o.id)) return fail('bad-target', 'The proposer leads the army.')
       const err = checkArmy(c, o.faction, o.city!, a.to, units)
@@ -974,7 +993,7 @@ function doPropose(c: Ctx, o: OfficerState, a: Extract<WorldAction, { kind: 'pro
   let bonus = 0
   let units = a.units
   if (a.proposal === 'war') {
-    units = a.units ?? suggestArmy(c, o.faction!, o.city!, o.id)
+    units = a.units ?? suggestArmyLedBy(c, o.faction!, o.city!, o.id)
     bonus = warContext(c, o.city!, a.to!, units)
   }
   const pct = proposeChance(c, o, ruler, a.proposal, bonus)

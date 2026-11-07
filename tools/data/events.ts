@@ -27,6 +27,9 @@ const burnEffects: EventEffect[] = [
   { kind: 'cityDelta', city: 'luoyang', field: 'walls', delta: -300 },
   { kind: 'cityDelta', city: 'luoyang', field: 'order', delta: -40 },
   { kind: 'cityDelta', city: 'chang-an', field: 'population', delta: 20000 },
+  // the court is escorted west: most of Luoyang's garrison marches with it (M4b: it was the one army that could reach Chenliu in the first spring)
+  { kind: 'cityDelta', city: 'luoyang', field: 'troops', delta: -20000 },
+  { kind: 'cityDelta', city: 'chang-an', field: 'troops', delta: 20000 },
   setFlag('luoyang-burned'),
 ]
 

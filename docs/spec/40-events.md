@@ -17,7 +17,7 @@ The data agent writes these from the novel (chapters noted) and the record, with
 |---|---|---|---|
 | `coalition-forms` | 190-1 | The eastern lords swear the coalition against Dong Zhuo (ch. 5): an alliance among the coalition factions for 12 months; flag `coalition`. | A coalition ruler may refuse to join |
 | `hulao-gate` | 190-1..190-4 | Lü Bu holds the pass; the three brothers fight him (ch. 5). Liu Bei's, Guan Yu's and Zhang Fei's friendship with each other +5; Liu Bei's renown (merit) +500. | If the player is one of the three, or any coalition officer with WAR 80+: duel Lü Bu |
-| `burning-of-luoyang` | 190-2..190-6 | Dong Zhuo moves the capital to Chang'an and burns Luoyang (ch. 6): his capital moves; Luoyang loses most population, farm and trade. | A Dong Zhuo officer may oppose it (debate Dong Zhuo) |
+| `burning-of-luoyang` | 190-2..190-6 | Dong Zhuo moves the capital to Chang'an and burns Luoyang (ch. 6): his capital moves; Luoyang loses most population, farm and trade, and (M4b) 20,000 of its troops march west with the court to Chang'an. | A Dong Zhuo officer may oppose it (debate Dong Zhuo) |
 | `imperial-seal` | 190-3..191-6 | Sun Jian finds the imperial seal in a well at Luoyang (ch. 6): item `imperial-seal` to Sun Jian; relation Sun Jian–Yuan Shao −20. | If the player is Sun Jian: keep it or hand it to Yuan Shao |
 | `coalition-breaks` | 190-6..191-3, needs `coalition` | The coalition falls apart (ch. 6): ends the alliance; flag `coalition-ended`. | |
 | `ji-province` | 191-1..191-12 | Han Fu yields Ji province to Yuan Shao (ch. 7): Ye passes to Yuan Shao; Han Fu becomes a wanderer. | If the player is Han Fu: yield or resist |
