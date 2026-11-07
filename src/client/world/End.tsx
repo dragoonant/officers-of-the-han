@@ -4,7 +4,7 @@ import { useGame } from '../store/game'
 import { ymText } from '../save/save'
 import { LogRow } from './Views'
 import { factionNameOf, nameOf } from './lookup'
-import { CloudBand, LacquerButton } from './seam'
+import { CloudRim, LacquerBox, LacquerButton } from './seam'
 
 /** Every officer the player has been: the current one, the first ("begins" line) and anyone named in a succession. */
 export function lineage(s: WorldState, first?: string): string[] {
@@ -51,10 +51,9 @@ export function End() {
   const c = sum.counts
   return (
     <div className="title" data-testid="end-screen">
-      <div className="rim top"><CloudBand drift /></div>
-      <div className="lbox wide" style={{ maxHeight: '88dvh' }}>
-        <div className="band"><CloudBand /></div>
-        <div className="inner">
+      <div className="rim top"><CloudRim /></div>
+      <div className="boxwrap wide">
+        <LacquerBox title="">
           <h1 style={{ fontSize: 22, color: 'var(--ochre)', textAlign: 'left' }}>{title}</h1>
           <p>{text} It is {ymText(s.ym)}.</p>
           <div className="sec">Your officers</div>
@@ -73,7 +72,7 @@ export function End() {
             {sum.lines.slice(-200).map((l, i) => <LogRow key={i} s={s} e={l} />)}
           </div>
           <div style={{ marginTop: 12 }}><LacquerButton primary big testid="end-title" onClick={goTitle}>Return to the title<span className="sub">The finished game's save is cleared</span></LacquerButton></div>
-        </div>
+        </LacquerBox>
       </div>
     </div>
   )

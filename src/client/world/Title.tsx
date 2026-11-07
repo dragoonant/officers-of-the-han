@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useGame } from '../store/game'
 import { useUi } from '../store/ui'
-import { CloudBand, LacquerButton, SilkLetter } from './seam'
+import { CloudRim, LacquerButton, SilkLetter } from './seam'
 
 export function HowToPlay({ onClose }: { onClose: () => void }) {
   return (
@@ -29,8 +29,8 @@ export function Title() {
   const broken = saveRead.kind === 'corrupt' || saveRead.kind === 'missing-content'
   return (
     <div className="title" data-testid="title">
-      <div className="rim top"><CloudBand drift /></div>
-      <div className="rim bot"><CloudBand drift /></div>
+      <div className="rim top"><CloudRim /></div>
+      <div className="rim bot"><CloudRim /></div>
       <h1><small>An officer's life in the Han</small>Officers of the Han</h1>
       <div className="menu">
         <LacquerButton big primary={hasSave} disabled={!hasSave} available={hasSave} testid="continue" onClick={() => cont()}>
@@ -56,6 +56,7 @@ export function Title() {
         </div>
       )}
       <div className="fine">Unofficial, non-commercial fan project by evilgouki. Not affiliated with Koei Tecmo.</div>
+      <div className="fine"><a href={`${import.meta.env.BASE_URL}lab.html`} style={{ color: 'var(--dust)' }} data-testid="lab-link">Battle lab</a></div>
       {panel === 'help' && <HowToPlay onClose={() => setPanel(null)} />}
       {confirmNew && (
         <SilkLetter title="Replace the saved game?" testid="confirm-new">

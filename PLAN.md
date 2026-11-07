@@ -58,5 +58,29 @@ Format: `RULING: <rule> | <what we did> | <why> | <status>`.
 - RULING: D-DEB-4 | the stat bonus is floored (`floor(INT/20)`) so forces and damage are whole numbers; D-DEB-1 composure is floored after the bonus | whole numbers for the UI | accepted (coordinator 2026-11-07)
 - RULING: D-DEB-2/6 | players with no tablet to play (impossible in 6 rounds) would deal nothing; both at 0 composure goes to the defender (b); an AI-vs-AI state steps with `stepDebate(state, {})` | determinism | accepted (coordinator 2026-11-07)
 
+- RULING: E-4 contest substitution | when the player gets an event choice, `contest.a` is replaced by the player's officer, also inside `onWin`/`onLoss`/option effects that name the old id (coordinator note 1) | historical default is only a default | accepted (coordinator 2026-11-07)
+- RULING: E-3 alliance in options | on any non-zero option the player's faction is dropped from `alliance.factions` (coordinator note 2) | declining must not bind the player | accepted (coordinator 2026-11-07)
+- RULING: E-4 letters | no `letter` effect; a fired event sends a letter when `major` or the player is involved (note 4) | data.ts has no letter kind | accepted (coordinator 2026-11-07)
+- RULING: rivals | each `scenario.rivals` entry is read as a pair by index (note 5) | accepted (coordinator 2026-11-07)
+- RULING: E-3 `relation{a,b}` | a and b may be faction ids or officer ids (an officer means their current faction) | data does not say | accepted (coordinator 2026-11-07)
+- RULING: E-5 | an event is skipped (and re-checked each month, no roll) while any officer or faction named in its main `effects` is dead/unborn/destroyed | simplest reading | accepted (coordinator 2026-11-07)
+- RULING: W-WAR-6 | the winning commander gets 150 + 300 (additive, as B-OUT-1) | accepted (coordinator 2026-11-07)
+- RULING: W-MIS-1 | `campaign` is not a Mission kind in the contract; armies carry units instead. Deadlines are set by the engine (develop/envoy: this month; recruit/scout: end of next month), ignoring the supplied `deadline` | accepted (coordinator 2026-11-07)
+- RULING: W-MIS-2 | an envoy mission completes on the attempt: +200, +220 if refused | accepted (coordinator 2026-11-07)
+- RULING: W-CRT-TRANSFER | the officer moves at once and has 0 days this month (no state field for "arrives next month") | accepted (coordinator 2026-11-07)
+- RULING: W-ACT-GIFT | a ruler's `fromCity` reward may go to any officer of the faction in any city, paid from the ruler's city (or the capital if the ruler is away); needed so the AI court can reward W-AI-2 | accepted (coordinator 2026-11-07)
+- RULING: W-ACT-SEARCH | if a hidden officer is present and the find roll fails, the gold roll (50%) still applies | accepted (coordinator 2026-11-07)
+- RULING: W-WAR-3 | defenders are taken from the pool by prefect first then LDR+WAR; city troops not on the field stay home; a player who defends may omit themselves from the chosen defenders | accepted (coordinator 2026-11-07)
+- RULING: W-WAR-7 | a rebel (uprising) win founds a faction (commander ruler); a rebel loss captures every rebel; rebel training is 20 | accepted (coordinator 2026-11-07)
+- RULING: W-CAP/state | a captive keeps `faction` = old faction (needed for release/recruit); a captured ruler triggers succession first | accepted (coordinator 2026-11-07)
+- RULING: W-ACT-DUEL (AI vs AI) | WAR + health/10 + 20*rng each, within 3 is a draw; AI debates: INT + CHA/2 (with composure bonus) + 15*rng, ties to the asked side | accepted (coordinator 2026-11-07)
+- RULING: W-PROP-1 | AI officers never propose to a player ruler (no offer kind for it); AI officers do send recruit/oath/marry `offer`s to the player (rulers 20%, oath 15%, marriage 10%, per officer per month in the same city) | accepted (coordinator 2026-11-07)
+- RULING: W-AI-2/3 | AI rulers also do city work as officers; the AI keeps a gold reserve of 30 per officer in the city before spending on work; wanderers claim a vacant city when able; officers abroad without a mission walk home | accepted (coordinator 2026-11-07)
+- RULING: officers in data but absent from both `scenario.officers` and `appearances` stay `unborn` forever | accepted (coordinator 2026-11-07)
+- RULING: hidden officers start as wanderers with no faction | accepted (coordinator 2026-11-07)
+- RULING: W-ECO-4 | officers in an army are paid from their source city; officers standing in a foreign city are not paid | accepted (coordinator 2026-11-07)
+- RULING: log | only chronicle kinds (see `LOG_KINDS`) and entries naming the player are stored; the log is capped at 2000 entries | keeps 200-officer sims light | accepted (coordinator 2026-11-07)
+- RULING: sim on real data (10 seeds x 10 years, 2026-11-07) | 0 invariant failures, 0 stalls; factions 23 -> 14.3 by 200; 458 famine lines, 2,242 diplomacy attempts, 1,220 captures, missions failed 2:1 over done | first-pass numbers; tune in M4 (rice economy, AI diplomacy rate, capture rate, mission choice) | open
+
 ## Change log
 - 2026-11-07 v0.1 written at M0.

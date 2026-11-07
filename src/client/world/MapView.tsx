@@ -148,8 +148,8 @@ export function MapView({ state, factionColor, selected, travelTo, onSelect }: M
         <rect x={MAP.x} y={MAP.y} width={MAP.w} height={MAP.h} rx="18" fill="#151110" stroke="#3a2a22" strokeWidth="2" />
         <rect x={MAP.x + 8} y={MAP.y + 8} width={MAP.w - 16} height={MAP.h - 16} rx="12" fill="none" stroke="var(--red-lacquer)" strokeWidth="1.5" />
         <g style={{ color: 'var(--vermilion)' }} opacity="0.8">
-          <svg x={MAP.x + 14} y={MAP.y + 12} width={MAP.w - 28} height="14"><CloudBand drift /></svg>
-          <svg x={MAP.x + 14} y={MAP.y + MAP.h - 26} width={MAP.w - 28} height="14" style={{ transform: 'scaleY(-1)', transformOrigin: 'center', transformBox: 'fill-box' }}><CloudBand drift /></svg>
+          <svg x={MAP.x + 14} y={MAP.y + 12} width={MAP.w - 28} height="14"><CloudBand height={14} /></svg>
+          <svg x={MAP.x + 14} y={MAP.y + MAP.h - 26} width={MAP.w - 28} height="14" style={{ transform: 'scaleY(-1)', transformOrigin: 'center', transformBox: 'fill-box' }}><CloudBand height={14} /></svg>
         </g>
         {/* rivers: ochre brush */}
         <g fill="none" stroke="var(--ochre)" strokeLinecap="round" strokeLinejoin="round" opacity="0.55" filter="url(#brush)">

@@ -142,14 +142,14 @@ export const EVENTS: EventDef[] = [
     effects: [
       { kind: 'transferCity', city: 'ye', faction: 'f-yuan-shao' },
       { kind: 'makeWanderer', id: 'han-fu', city: 'ye' },
-      ...['ju-shou', 'tian-feng', 'shen-pei', 'guo-tu', 'xin-ping', 'xin-pi', 'zhang-he', 'wen-chou', 'yan-liang', 'bao-xin', 'yu-jin'].map<EventEffect>((id) => ({ kind: 'joinFaction', id, faction: 'f-yuan-shao', post: 'officer' })),
+      ...['ju-shou', 'shen-pei', 'guo-tu', 'xin-ping', 'xin-pi', 'zhang-he'].map<EventEffect>((id) => ({ kind: 'joinFaction', id, faction: 'f-yuan-shao', post: 'officer' })),
       setFlag('yuan-shao-ji'),
     ],
     involves: ['han-fu'],
     options: [
       opt('Yield Ye to Yuan Shao', 'You sign the deed and walk out of Ye. Your staff goes over to Yuan Shao.', [
         { kind: 'transferCity', city: 'ye', faction: 'f-yuan-shao' }, { kind: 'makeWanderer', id: 'han-fu', city: 'ye' },
-        ...['ju-shou', 'tian-feng', 'shen-pei', 'guo-tu', 'xin-ping', 'xin-pi', 'zhang-he', 'wen-chou', 'yan-liang', 'bao-xin', 'yu-jin'].map<EventEffect>((id) => ({ kind: 'joinFaction', id, faction: 'f-yuan-shao', post: 'officer' })),
+        ...['ju-shou', 'shen-pei', 'guo-tu', 'xin-ping', 'xin-pi', 'zhang-he'].map<EventEffect>((id) => ({ kind: 'joinFaction', id, faction: 'f-yuan-shao', post: 'officer' })),
         setFlag('yuan-shao-ji'),
       ]),
       opt('Hold Ye against him', 'You shut the gates and call the staff to the walls. Yuan Shao does not forget the insult.',
@@ -303,7 +303,7 @@ export const EVENTS: EventDef[] = [
   {
     id: 'fall-of-xiapi',
     title: 'The Fall of Xiapi',
-    from: ym(198, 6), to: ym(199, 3), chance: 50,
+    from: ym(198, 10), to: ym(199, 2), chance: 50,
     conditions: [alive('lu-bu'), alive('cao-cao'), flag('emperor-cao'), { kind: 'factionHoldsCity', faction: 'f-cao-cao', city: 'xuchang' }],
     text: 'Cao Cao has the Si and Yi rivers turned onto the walls of Xiapi, and the water stands to the eaves. Lu Bu\'s officers lose hope, his own sleep fails, and one night his lieutenants bind him as he lies. He pleads with Cao Cao on the tower. Liu Bei reminds Cao Cao how Lu Bu treated his masters.',
     effects: [
@@ -328,7 +328,7 @@ export const EVENTS: EventDef[] = [
   {
     id: 'sun-ce-assassinated',
     title: 'Sun Ce Falls to the Hunters',
-    from: ym(200, 4), to: ym(200, 12), chance: 40,
+    from: ym(200, 4), to: ym(200, 5), chance: 40,
     conditions: [alive('sun-ce'), alive('sun-quan'), { kind: 'officerIsRuler', id: 'sun-ce' }, exists('f-sun-jian')],
     text: 'Sun Ce has killed the Wu governor, Xu Gong, and the governor\'s three retainers have sworn revenge. Out hunting ahead of his guards on a fine horse, he meets them in a thicket. A poisoned arrow takes his cheek. He sends for his brother and tells him how to run the house: use the elders for the war, the new men for the plans.',
     effects: [{ kind: 'killOfficer', id: 'sun-ce' }, { kind: 'setRuler', faction: 'f-sun-jian', id: 'sun-quan' }, fr('sun-quan', 'zhou-yu', 10)],

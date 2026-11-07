@@ -45,3 +45,4 @@ Ids unique and kebab-case; every reference resolves (city owners, rulers, kin, o
 
 ## Change log
 - 2026-11-07 v0.1 written at M0.
+- 2026-11-07 M1b: dates, courtesy names, 190 seats, coordinates and sources checked against English Wikipedia (`docs/handoff/m1b-verify.md`); scripts in `tools/data/verify/`. A city's lat/lon follows the Wikipedia article of the modern place on the seat.

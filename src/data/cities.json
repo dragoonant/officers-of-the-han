@@ -3,14 +3,14 @@
   "id": "luoyang",
   "name": "Luoyang",
   "province": "Sili",
-  "lat": 34.72,
-  "lon": 112.6,
-  "x": 468,
-  "y": 244,
+  "lat": 34.62,
+  "lon": 112.45,
+  "x": 464,
+  "y": 248,
   "farmMax": 800,
   "tradeMax": 999,
   "wallsMax": 950,
-  "source": "Wikipedia: Luoyang; Hou Hanshu: capital of the Later Han"
+  "source": "Wikipedia: Luoyang; Hou Hanshu: capital of the Later Han; lat/lon checked against Wikipedia: Luoyang"
  },
  {
   "id": "chang-an",
@@ -23,7 +23,7 @@
   "farmMax": 850,
   "tradeMax": 950,
   "wallsMax": 999,
-  "source": "Wikipedia: Chang'an; Hou Hanshu: Western Capital"
+  "source": "Wikipedia: Chang'an; Hou Hanshu: Western Capital; lat/lon checked against Wikipedia: Chang'an"
  },
  {
   "id": "hongnong",
@@ -36,7 +36,7 @@
   "farmMax": 500,
   "tradeMax": 400,
   "wallsMax": 700,
-  "source": "Wikipedia: Hongnong Commandery"
+  "source": "Wikipedia: Hongnong Commandery; lat/lon checked against Wikipedia: Lingbao, Henan"
  },
  {
   "id": "hedong",
@@ -49,7 +49,7 @@
   "farmMax": 600,
   "tradeMax": 500,
   "wallsMax": 450,
-  "source": "Wikipedia: Hedong Commandery (seat Anyi)",
+  "source": "Wikipedia: Hedong Commandery (seat Anyi); lat/lon checked against Wikipedia: Xia County, Shanxi",
   "nudged": true
  },
  {
@@ -57,13 +57,13 @@
   "name": "Ye",
   "province": "Ji",
   "lat": 36.33,
-  "lon": 114.55,
-  "x": 526,
+  "lon": 114.62,
+  "x": 529,
   "y": 186,
   "farmMax": 900,
   "tradeMax": 850,
   "wallsMax": 900,
-  "source": "Wikipedia: Ye (city); seat of Wei Commandery, Ji Province capital from 190"
+  "source": "Wikipedia: Ye (city); seat of Wei Commandery, Ji Province capital from 190; lat/lon checked against Wikipedia: Linzhang County"
  },
  {
   "id": "nanpi",
@@ -76,7 +76,7 @@
   "farmMax": 700,
   "tradeMax": 650,
   "wallsMax": 500,
-  "source": "Wikipedia: Bohai Commandery (seat Nanpi)"
+  "source": "Wikipedia: Bohai Commandery (seat Nanpi); lat/lon checked against Wikipedia: Nanpi County"
  },
  {
   "id": "ji",
@@ -89,7 +89,7 @@
   "farmMax": 600,
   "tradeMax": 750,
   "wallsMax": 700,
-  "source": "Wikipedia: Ji (ancient city); seat of You Province"
+  "source": "Wikipedia: Ji (ancient city); seat of You Province; lat/lon checked against Wikipedia: Xicheng District"
  },
  {
   "id": "beiping",
@@ -102,7 +102,7 @@
   "farmMax": 400,
   "tradeMax": 350,
   "wallsMax": 450,
-  "source": "Wikipedia: Youbeiping Commandery"
+  "source": "Wikipedia: Youbeiping Commandery; lat/lon checked against Wikipedia: Zunhua"
  },
  {
   "id": "xiangping",
@@ -115,7 +115,7 @@
   "farmMax": 350,
   "tradeMax": 300,
   "wallsMax": 400,
-  "source": "Wikipedia: Liaodong Commandery (seat Xiangping)"
+  "source": "Wikipedia: Liaodong Commandery (seat Xiangping); lat/lon checked against Wikipedia: Liaoyang"
  },
  {
   "id": "pingyuan",
@@ -128,20 +128,20 @@
   "farmMax": 550,
   "tradeMax": 450,
   "wallsMax": 450,
-  "source": "Wikipedia: Pingyuan Commandery"
+  "source": "Wikipedia: Pingyuan Commandery; lat/lon checked against Wikipedia: Pingyuan County, Shandong"
  },
  {
   "id": "beihai",
   "name": "Beihai",
   "province": "Qing",
-  "lat": 36.71,
-  "lon": 118.83,
-  "x": 655,
-  "y": 172,
+  "lat": 36.7,
+  "lon": 118.75,
+  "x": 653,
+  "y": 173,
   "farmMax": 600,
   "tradeMax": 550,
   "wallsMax": 500,
-  "source": "Wikipedia: Beihai Commandery (seat Yingling)"
+  "source": "Wikipedia: Beihai Commandery (seat Yingling); lat/lon checked against Wikipedia: Changle County"
  },
  {
   "id": "puyang",
@@ -149,12 +149,13 @@
   "province": "Yan",
   "lat": 35.76,
   "lon": 115.03,
-  "x": 541,
-  "y": 207,
+  "x": 542,
+  "y": 209,
   "farmMax": 650,
   "tradeMax": 550,
   "wallsMax": 500,
-  "source": "Wikipedia: Dong Commandery; Puyang"
+  "source": "Wikipedia: Dong Commandery; Puyang; lat/lon checked against Wikipedia: Puyang",
+  "nudged": true
  },
  {
   "id": "chenliu",
@@ -167,7 +168,7 @@
   "farmMax": 650,
   "tradeMax": 650,
   "wallsMax": 550,
-  "source": "Wikipedia: Chenliu Commandery"
+  "source": "Wikipedia: Chenliu Commandery; lat/lon checked against Wikipedia: Kaifeng"
  },
  {
   "id": "xuchang",
@@ -180,7 +181,7 @@
   "farmMax": 700,
   "tradeMax": 600,
   "wallsMax": 600,
-  "source": "Wikipedia: Xuchang; Yingchuan Commandery"
+  "source": "Wikipedia: Xuchang; Yingchuan Commandery; lat/lon checked against Wikipedia: Xuchang"
  },
  {
   "id": "runan",
@@ -193,7 +194,7 @@
   "farmMax": 650,
   "tradeMax": 450,
   "wallsMax": 450,
-  "source": "Wikipedia: Runan Commandery"
+  "source": "Wikipedia: Runan Commandery; lat/lon checked against Wikipedia: Pingyu County"
  },
  {
   "id": "xiaopei",
@@ -206,33 +207,33 @@
   "farmMax": 450,
   "tradeMax": 350,
   "wallsMax": 350,
-  "source": "Wikipedia: Pei (county) / Xiaopei"
+  "source": "Wikipedia: Pei (county) / Xiaopei; lat/lon checked against Wikipedia: Pei County"
  },
  {
   "id": "xiapi",
   "name": "Xiapi",
   "province": "Xu",
-  "lat": 34.33,
-  "lon": 117.95,
-  "x": 629,
-  "y": 258,
+  "lat": 34.4,
+  "lon": 117.89,
+  "x": 627,
+  "y": 256,
   "farmMax": 600,
   "tradeMax": 600,
   "wallsMax": 650,
-  "source": "Wikipedia: Xiapi; Xu Province"
+  "source": "Wikipedia: Xiapi; Xu Province; lat/lon checked against Wikipedia: Pizhou"
  },
  {
   "id": "langya",
   "name": "Langya",
   "province": "Xu",
-  "lat": 35.05,
-  "lon": 118.35,
-  "x": 640,
-  "y": 232,
+  "lat": 35.1,
+  "lon": 118.36,
+  "x": 641,
+  "y": 230,
   "farmMax": 450,
   "tradeMax": 400,
   "wallsMax": 400,
-  "source": "Wikipedia: Langya Commandery"
+  "source": "Wikipedia: Langya Commandery; lat/lon checked against Wikipedia: Linyi"
  },
  {
   "id": "shouchun",
@@ -245,20 +246,20 @@
   "farmMax": 750,
   "tradeMax": 650,
   "wallsMax": 650,
-  "source": "Wikipedia: Shou County (Anhui); Jiujiang Commandery"
+  "source": "Wikipedia: Shou County (Anhui); Jiujiang Commandery; lat/lon checked against Wikipedia: Shou County"
  },
  {
   "id": "lujiang",
   "name": "Lujiang",
   "province": "Yang",
   "lat": 31.46,
-  "lon": 117,
-  "x": 600,
+  "lon": 116.95,
+  "x": 599,
   "y": 361,
   "farmMax": 600,
   "tradeMax": 400,
   "wallsMax": 400,
-  "source": "Wikipedia: Lujiang Commandery"
+  "source": "Wikipedia: Lujiang Commandery; lat/lon checked against Wikipedia: Shucheng County"
  },
  {
   "id": "jianye",
@@ -271,7 +272,7 @@
   "farmMax": 600,
   "tradeMax": 700,
   "wallsMax": 600,
-  "source": "Wikipedia: Nanjing (Moling, later Jianye)"
+  "source": "Wikipedia: Nanjing (Moling, later Jianye); lat/lon checked against Wikipedia: Nanjing"
  },
  {
   "id": "wu",
@@ -284,20 +285,20 @@
   "farmMax": 700,
   "tradeMax": 700,
   "wallsMax": 450,
-  "source": "Wikipedia: Wu Commandery (Suzhou)"
+  "source": "Wikipedia: Wu Commandery (Suzhou); lat/lon checked against Wikipedia: Suzhou"
  },
  {
   "id": "kuaiji",
   "name": "Kuaiji",
   "province": "Yang",
-  "lat": 30,
+  "lat": 30.05,
   "lon": 120.58,
   "x": 707,
-  "y": 414,
+  "y": 412,
   "farmMax": 600,
   "tradeMax": 500,
   "wallsMax": 400,
-  "source": "Wikipedia: Kuaiji Commandery (Shanyin, Shaoxing)"
+  "source": "Wikipedia: Kuaiji Commandery (Shanyin, Shaoxing); lat/lon checked against Wikipedia: Shaoxing"
  },
  {
   "id": "yuzhang",
@@ -310,7 +311,7 @@
   "farmMax": 600,
   "tradeMax": 450,
   "wallsMax": 400,
-  "source": "Wikipedia: Yuzhang Commandery (Nanchang)"
+  "source": "Wikipedia: Yuzhang Commandery (Nanchang); lat/lon checked against Wikipedia: Nanchang"
  },
  {
   "id": "chaisang",
@@ -323,7 +324,7 @@
   "farmMax": 400,
   "tradeMax": 400,
   "wallsMax": 400,
-  "source": "Wikipedia: Chaisang (Jiujiang)"
+  "source": "Wikipedia: Chaisang (Jiujiang); lat/lon checked against Wikipedia: Jiujiang"
  },
  {
   "id": "xiangyang",
@@ -336,7 +337,7 @@
   "farmMax": 800,
   "tradeMax": 800,
   "wallsMax": 900,
-  "source": "Wikipedia: Xiangyang"
+  "source": "Wikipedia: Xiangyang; lat/lon checked against Wikipedia: Xiangyang"
  },
  {
   "id": "wan",
@@ -349,7 +350,7 @@
   "farmMax": 800,
   "tradeMax": 800,
   "wallsMax": 700,
-  "source": "Wikipedia: Nanyang, Henan; Nanyang Commandery (seat Wan)"
+  "source": "Wikipedia: Nanyang, Henan; Nanyang Commandery (seat Wan); lat/lon checked against Wikipedia: Nanyang, Henan"
  },
  {
   "id": "xinye",
@@ -362,7 +363,7 @@
   "farmMax": 400,
   "tradeMax": 350,
   "wallsMax": 400,
-  "source": "Wikipedia: Xinye County",
+  "source": "Wikipedia: Xinye County; lat/lon checked against Wikipedia: Xinye County",
   "nudged": true
  },
  {
@@ -376,7 +377,7 @@
   "farmMax": 700,
   "tradeMax": 750,
   "wallsMax": 650,
-  "source": "Wikipedia: Jiangling County; Nan Commandery"
+  "source": "Wikipedia: Jiangling County; Nan Commandery; lat/lon checked against Wikipedia: Jingzhou District"
  },
  {
   "id": "jiangxia",
@@ -389,7 +390,7 @@
   "farmMax": 500,
   "tradeMax": 600,
   "wallsMax": 600,
-  "source": "Wikipedia: Jiangxia Commandery (Xiakou, Wuhan)"
+  "source": "Wikipedia: Jiangxia Commandery (Xiakou, Wuhan); lat/lon checked against Wikipedia: Wuhan"
  },
  {
   "id": "changsha",
@@ -402,7 +403,7 @@
   "farmMax": 650,
   "tradeMax": 550,
   "wallsMax": 500,
-  "source": "Wikipedia: Changsha Commandery"
+  "source": "Wikipedia: Changsha Commandery; lat/lon checked against Wikipedia: Changsha"
  },
  {
   "id": "wuling",
@@ -415,7 +416,7 @@
   "farmMax": 350,
   "tradeMax": 300,
   "wallsMax": 300,
-  "source": "Wikipedia: Wuling Commandery (Changde)"
+  "source": "Wikipedia: Wuling Commandery (Changde); lat/lon checked against Wikipedia: Changde"
  },
  {
   "id": "lingling",
@@ -428,7 +429,7 @@
   "farmMax": 350,
   "tradeMax": 300,
   "wallsMax": 300,
-  "source": "Wikipedia: Lingling Commandery (Yongzhou)"
+  "source": "Wikipedia: Lingling Commandery (Yongzhou); lat/lon checked against Wikipedia: Yongzhou (district article has no coordinates)"
  },
  {
   "id": "guiyang",
@@ -441,7 +442,7 @@
   "farmMax": 300,
   "tradeMax": 280,
   "wallsMax": 300,
-  "source": "Wikipedia: Guiyang Commandery (Chenzhou)"
+  "source": "Wikipedia: Guiyang Commandery (Chenzhou); lat/lon checked against Wikipedia: Chenzhou"
  },
  {
   "id": "shangyong",
@@ -454,7 +455,7 @@
   "farmMax": 300,
   "tradeMax": 200,
   "wallsMax": 350,
-  "source": "Wikipedia: Shangyong County; Hanzhong Commandery until 219"
+  "source": "Wikipedia: Shangyong County; Hanzhong Commandery until 219; lat/lon checked against Wikipedia: Zhushan County"
  },
  {
   "id": "hanzhong",
@@ -467,7 +468,7 @@
   "farmMax": 550,
   "tradeMax": 400,
   "wallsMax": 750,
-  "source": "Wikipedia: Hanzhong Commandery (seat Nanzheng)"
+  "source": "Wikipedia: Hanzhong Commandery (seat Nanzheng); lat/lon checked against Wikipedia: Hanzhong"
  },
  {
   "id": "zitong",
@@ -480,7 +481,7 @@
   "farmMax": 450,
   "tradeMax": 350,
   "wallsMax": 400,
-  "source": "Wikipedia: Zitong County; Guanghan Commandery"
+  "source": "Wikipedia: Zitong County; Guanghan Commandery; lat/lon checked against Wikipedia: Zitong County"
  },
  {
   "id": "chengdu",
@@ -493,7 +494,7 @@
   "farmMax": 950,
   "tradeMax": 900,
   "wallsMax": 700,
-  "source": "Wikipedia: Chengdu; Shu Commandery"
+  "source": "Wikipedia: Chengdu; Shu Commandery; lat/lon checked against Wikipedia: Chengdu"
  },
  {
   "id": "jiangzhou",
@@ -506,7 +507,7 @@
   "farmMax": 600,
   "tradeMax": 550,
   "wallsMax": 700,
-  "source": "Wikipedia: Ba Commandery (Jiangzhou, Chongqing)"
+  "source": "Wikipedia: Ba Commandery (Jiangzhou, Chongqing); lat/lon checked against Wikipedia: Chongqing"
  },
  {
   "id": "yongan",
@@ -519,7 +520,7 @@
   "farmMax": 300,
   "tradeMax": 300,
   "wallsMax": 500,
-  "source": "Wikipedia: Fengjie County (Yong'an, Baidi)"
+  "source": "Wikipedia: Fengjie County (Yong'an, Baidi); lat/lon checked against Wikipedia: Fengjie County"
  },
  {
   "id": "jianning",
@@ -532,7 +533,7 @@
   "farmMax": 300,
   "tradeMax": 250,
   "wallsMax": 250,
-  "source": "Wikipedia: Yizhou Commandery (Jianning, Kunming)"
+  "source": "Wikipedia: Yizhou Commandery (Jianning, Kunming); lat/lon checked against Wikipedia: Kunming"
  },
  {
   "id": "tianshui",
@@ -545,7 +546,7 @@
   "farmMax": 450,
   "tradeMax": 350,
   "wallsMax": 450,
-  "source": "Wikipedia: Tianshui; Hanyang Commandery"
+  "source": "Wikipedia: Tianshui; Hanyang Commandery; lat/lon checked against Wikipedia: Tianshui"
  },
  {
   "id": "anding",
@@ -558,7 +559,7 @@
   "farmMax": 350,
   "tradeMax": 250,
   "wallsMax": 400,
-  "source": "Wikipedia: Anding Commandery (Pingliang)"
+  "source": "Wikipedia: Anding Commandery (Pingliang); lat/lon checked against Wikipedia: Pingliang"
  },
  {
   "id": "wuwei",
@@ -571,7 +572,7 @@
   "farmMax": 400,
   "tradeMax": 400,
   "wallsMax": 400,
-  "source": "Wikipedia: Wuwei, Gansu (Guzang)"
+  "source": "Wikipedia: Wuwei, Gansu (Guzang); lat/lon checked against Wikipedia: Wuwei, Gansu"
  },
  {
   "id": "jinyang",
@@ -584,7 +585,7 @@
   "farmMax": 600,
   "tradeMax": 500,
   "wallsMax": 600,
-  "source": "Wikipedia: Taiyuan Commandery (Jinyang)"
+  "source": "Wikipedia: Taiyuan Commandery (Jinyang); lat/lon checked against Wikipedia: Jinyuan District"
  },
  {
   "id": "shangdang",
@@ -597,7 +598,7 @@
   "farmMax": 450,
   "tradeMax": 300,
   "wallsMax": 650,
-  "source": "Wikipedia: Shangdang Commandery (Changzhi)"
+  "source": "Wikipedia: Shangdang Commandery (Changzhi); lat/lon checked against Wikipedia: Changzhi"
  },
  {
   "id": "jiaozhi",
@@ -610,7 +611,7 @@
   "farmMax": 600,
   "tradeMax": 500,
   "wallsMax": 300,
-  "source": "Wikipedia: Jiaozhi (Luy Lau, Long Bien)"
+  "source": "Wikipedia: Jiaozhi (Luy Lau, Long Bien); lat/lon checked against Wikipedia: Thuận Thành, Bắc Ninh"
  },
  {
   "id": "nanhai",
@@ -623,6 +624,6 @@
   "farmMax": 450,
   "tradeMax": 500,
   "wallsMax": 300,
-  "source": "Wikipedia: Nanhai Commandery (Panyu, Guangzhou)"
+  "source": "Wikipedia: Nanhai Commandery (Panyu, Guangzhou); lat/lon checked against Wikipedia: Guangzhou"
  }
 ]

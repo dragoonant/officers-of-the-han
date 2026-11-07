@@ -145,6 +145,7 @@ test.describe('world client', () => {
       await fits()
       await page.getByTestId('start-game').click()
       await expect(page.getByTestId('game')).toBeVisible()
+      await answerLetters(page) // the random seed may open with a letter
       await fits()
       // the action bar and the End Month button are inside the viewport
       const bar = await page.getByTestId('actionbar').boundingBox()

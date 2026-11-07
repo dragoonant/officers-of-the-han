@@ -1,68 +1,10 @@
-// Local ornaments and controls for the world client (Han lacquerware, docs/spec/50-presentation.md).
-// seam.tsx is the only file that decides whether these or the board agent's src/client/ui/** are used.
-import { useId, type CSSProperties, type ReactNode } from 'react'
+// Icons and small helpers for the world client. The ornaments (mirror, box, silk, button) come from
+// src/client/ui/** through seam.tsx.
 import type { StatKey } from '../../contracts/data'
 
 const BASE = import.meta.env.BASE_URL
-
-/** One cloud-scroll motif repeated across a strip. Colour comes from currentColor. */
-export function CloudBand({ className, drift }: { className?: string; drift?: boolean }) {
-  const id = useId()
-  return (
-    <svg className={className} width="100%" height="100%" preserveAspectRatio="none" aria-hidden="true" style={{ display: 'block' }}>
-      <defs>
-        <pattern id={id} width="48" height="14" patternUnits="userSpaceOnUse">
-          <path d="M0 11 C6 11 8 3 15 3 C21 3 22 9 18 9 C15 9 15 6 17 6 M15 3 C20 2 24 6 30 6 C36 6 38 11 48 11" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          <circle cx="30" cy="6" r="1.4" fill="currentColor" />
-        </pattern>
-      </defs>
-      <g className={drift ? 'drift' : undefined}>
-        <rect x="0" y="0" width="3000" height="100%" fill={`url(#${id})`} />
-      </g>
-    </svg>
-  )
-}
-
-/** A bronze mirror: sawtooth rim, concentric rings, knob. */
-export function Mirror({ size = 48, ring, children, style, face = 'var(--bronze-face)' }: { size?: number; ring?: string; children?: ReactNode; style?: CSSProperties; face?: string }) {
-  const r = 50
-  return (
-    <span style={{ position: 'relative', display: 'inline-block', width: size, height: size, flex: '0 0 auto', ...style }}>
-      <svg viewBox="0 0 100 100" width={size} height={size} aria-hidden="true" style={{ position: 'absolute', inset: 0 }}>
-        {ring && <circle cx="50" cy="50" r="48" fill="none" stroke={ring} strokeWidth="5" />}
-        <circle cx="50" cy="50" r="44" fill={face} stroke="#3b2a18" strokeWidth="1.5" />
-        <circle cx="50" cy="50" r="43" fill="none" stroke="#6a5530" strokeWidth="4" strokeDasharray="2.2 2.2" />
-        <circle cx="50" cy="50" r="34" fill="none" stroke="#6a5530" strokeWidth="1.2" />
-        <circle cx="50" cy="50" r="26" fill="none" stroke="#8d7440" strokeWidth="1" />
-        <circle cx="50" cy="50" r={r - 41} fill="#8d7440" opacity={children ? 0 : 1} />
-      </svg>
-      {children && <span style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{children}</span>}
-    </span>
-  )
-}
-
 export function portraitUrl(portrait?: string): string | null {
   return portrait ? `${BASE}portraits/${portrait}.webp` : null
-}
-
-function initials(name: string): string {
-  const parts = name.split(/\s+/).filter(Boolean)
-  return ((parts[0]?.[0] ?? '?') + (parts.length > 1 ? parts[parts.length - 1]![0]! : '')).toUpperCase()
-}
-
-/** Portrait in a mirror frame, or the medallion (initials on a bronze disc) when there is no art. */
-export function Portrait({ name, portrait, size = 56, ring }: { name: string; portrait?: string | undefined; size?: number; ring?: string | undefined }) {
-  const url = portraitUrl(portrait)
-  return (
-    <span style={{ position: 'relative', display: 'inline-block', width: size, height: size, flex: '0 0 auto' }} data-portrait={portrait ?? 'medallion'}>
-      <Mirror size={size} {...(ring ? { ring } : {})} />
-      {url ? (
-        <img src={url} alt="" draggable={false} style={{ position: 'absolute', left: '13%', top: '13%', width: '74%', height: '74%', borderRadius: '50%', objectFit: 'cover', objectPosition: 'center 20%', border: '1px solid #3b2a18' }} />
-      ) : (
-        <span style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: size * 0.28, color: '#3b2a18', letterSpacing: '0.05em' }}>{initials(name)}</span>
-      )}
-    </span>
-  )
 }
 
 export const factionVar = (color: number | null | undefined): string => (color ? `var(--f-${color})` : 'var(--dust)')
@@ -73,70 +15,6 @@ export function FactionDot({ color }: { color: number | null | undefined }) {
 
 const STAT_LABEL: Record<StatKey, string> = { war: 'WAR', ldr: 'LDR', int: 'INT', pol: 'POL', cha: 'CHA' }
 export function statLabel(k: StatKey): string { return STAT_LABEL[k] }
-
-/** A stat as a mirror back: the ring fills to value/100. */
-export function StatDial({ label, value, size = 46 }: { label: string; value: number; size?: number }) {
-  const c = 2 * Math.PI * 38
-  const frac = Math.max(0, Math.min(1, value / 100))
-  return (
-    <span className="dial" data-stat={label}>
-      <span style={{ position: 'relative', display: 'inline-block', width: size, height: size }}>
-        <svg viewBox="0 0 100 100" width={size} height={size} aria-hidden="true" style={{ position: 'absolute', inset: 0 }}>
-          <circle cx="50" cy="50" r="46" fill="#1c1613" stroke="#3b2a18" strokeWidth="2" />
-          <circle cx="50" cy="50" r="38" fill="none" stroke="#4a3a2a" strokeWidth="9" />
-          <circle cx="50" cy="50" r="38" fill="none" stroke="var(--ochre)" strokeWidth="9" strokeDasharray={`${c * frac} ${c}`} transform="rotate(-90 50 50)" />
-          <circle cx="50" cy="50" r="30" fill="var(--bronze-face)" stroke="#3b2a18" strokeWidth="1.5" />
-        </svg>
-        <span style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, color: '#231a12', fontSize: size * 0.3 }}>{value}</span>
-      </span>
-      {label}
-    </span>
-  )
-}
-
-export function LacquerButton({ children, onClick, primary, disabled, available, selected, big, small, className, testid, type = 'button', title }: {
-  children: ReactNode; onClick?: () => void; primary?: boolean; disabled?: boolean; available?: boolean; selected?: boolean; big?: boolean; small?: boolean; className?: string; testid?: string; type?: 'button' | 'submit'; title?: never
-}) {
-  void title
-  const cls = ['lbtn', primary ? 'primary' : '', disabled ? 'off' : '', available && !disabled ? 'avail' : '', selected ? 'sel' : '', big ? 'big' : '', small ? 'small' : '', className ?? ''].filter(Boolean).join(' ')
-  return (
-    <button type={type} className={cls} disabled={disabled} onClick={onClick} data-testid={testid} aria-disabled={disabled || undefined}>
-      {children}
-    </button>
-  )
-}
-
-/** A lacquer box that opens (bottom sheet on phones, via CSS). */
-export function LacquerBox({ title, onClose, children, wide, testid, footer }: { title: ReactNode; onClose?: () => void; children: ReactNode; wide?: boolean; testid?: string; footer?: ReactNode }) {
-  return (
-    <div className="overlay" data-testid={testid}>
-      <div className={`lbox${wide ? ' wide' : ''}`} role="dialog" aria-label={typeof title === 'string' ? title : undefined}>
-        <div className="band"><CloudBand /></div>
-        <div className="inner">
-          <div className="head">
-            <h2>{title}</h2>
-            {onClose && <button className="x" onClick={onClose} aria-label="Close">×</button>}
-          </div>
-          {children}
-          {footer && <div style={{ marginTop: 12 }}>{footer}</div>}
-        </div>
-      </div>
-    </div>
-  )
-}
-
-/** A pale silk letter edged in vermilion; answers are lacquer buttons. */
-export function SilkLetter({ title, from, children, testid }: { title: ReactNode; from?: ReactNode; children: ReactNode; testid?: string }) {
-  return (
-    <div className="overlay letterbg">
-      <div className="silk" role="dialog" aria-label="Letter" data-testid={testid ?? 'letter'}>
-        {from && <div className="from">{from}</div>}
-        <h2>{title}</h2>
-        {children}
-      </div>
-    </div>
-  )
-}
 
 // ---- log icons ----
 export const ICON_PATHS: Record<string, string> = {
