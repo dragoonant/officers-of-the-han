@@ -1,0 +1,45 @@
+import { existsSync } from 'node:fs'
+import { defineConfig, devices } from '@playwright/test'
+
+// PW_PORT lets a run avoid a port another project already holds.
+const PORT = Number(process.env.PW_PORT ?? 5317)
+// Production base path (see vite.config.ts): the preview server serves the build
+// under this sub-path, matching GitHub Pages.
+const BASE_URL = `http://localhost:${PORT}/officers-of-the-han/`
+
+const FALLBACK_CHROMIUM = '/opt/pw-browsers/chromium'
+const executablePath = existsSync(FALLBACK_CHROMIUM) ? FALLBACK_CHROMIUM : undefined
+
+export default defineConfig({
+  testDir: './tests/e2e',
+  outputDir: 'test-results',
+  // The board renders in software GL under headless Chromium, so run one test at a time.
+  fullyParallel: false,
+  workers: 1,
+  timeout: 240_000,
+  expect: { timeout: 15_000 },
+  retries: 0,
+  reporter: 'list',
+  use: {
+    baseURL: BASE_URL,
+    trace: 'on-first-retry',
+  },
+  projects: [
+    {
+      name: 'chromium',
+      use: {
+        ...devices['Desktop Chrome'],
+        launchOptions: {
+          args: ['--ignore-gpu-blocklist', '--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'],
+          ...(executablePath ? { executablePath } : {}),
+        },
+      },
+    },
+  ],
+  webServer: {
+    command: `npm run build && npm run preview -- --port ${PORT} --strictPort`,
+    url: BASE_URL,
+    reuseExistingServer: !process.env.CI,
+    timeout: 120_000,
+  },
+})
