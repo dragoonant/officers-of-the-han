@@ -40,10 +40,12 @@ Built and tested against fake studios; **no real generation yet** (the studios r
 - **Rendering:**
   - Each battle mounts its own WebGL canvas. The persistent-renderer recipe from the KB is not applied yet.
 - **Art and audio:**
-  - Art is debt: portraits and battle figures come from the three-kingdoms-tactics procedural kit, the older style that KB rule 7 replaced. House-style art needs a session on the owner's PC (M5).
-  - No audio (M6).
+  - Portraits, music and effects: the pipelines, prompts and in-game audio are built (D20, `55-portraits.md`, `60-audio.md`). Generation waits for a session on the owner's PC, following `docs/handoff/m5-av-runbook.md`.
+  - Battle figures still come from the three-kingdoms-tactics procedural kit, the older style that KB rule 7 replaced. Not started.
 - **Screenshots:** the older M3a screenshots in `docs/screens/` (`map-midgame.png`, `phone-portrait.png`, `city-box.png`, `letter.png`, `officer-picker.png`) predate M3c's map framing. The current ones are `title.png`, `map-on-open-*.png`, `world-battle-mid-fight.png` and `battle-result-chronicle.png`.
 
 ## Next
 1. M4c balance: late-game pressure, so the world keeps consolidating after 195. Add a digest for result letters.
-2. M5 art on the owner's PC.
+2. On the owner's PC (evilaegis): run `docs/handoff/m5-av-runbook.md` (portraits, music, effects), then review and pick.
+3. Mobile: check the map on a real mid-range phone. The fixes and measurements are in `docs/handoff/m-mobile.md`.
+4. The rule-25 lab tile-tap e2e fails under the full suite's load (several times now) and passes alone; harden it.
