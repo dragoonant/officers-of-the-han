@@ -62,7 +62,7 @@ export function startVigor(c: Contestant): number {
 }
 
 export function hitBase(c: Contestant): number {
-  return 6 + c.stats.war / 8
+  return 6 + Math.floor(c.stats.war / 8)
 }
 
 function copy(st: DuelState): DuelState {

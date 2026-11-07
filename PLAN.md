@@ -81,6 +81,12 @@ Format: `RULING: <rule> | <what we did> | <why> | <status>`.
 - RULING: W-ECO-4 | officers in an army are paid from their source city; officers standing in a foreign city are not paid | accepted (coordinator 2026-11-07)
 - RULING: log | only chronicle kinds (see `LOG_KINDS`) and entries naming the player are stored; the log is capped at 2000 entries | keeps 200-officer sims light | accepted (coordinator 2026-11-07)
 - RULING: sim on real data (10 seeds x 10 years, 2026-11-07) | 0 invariant failures, 0 stalls; factions 23 -> 14.3 by 200; 458 famine lines, 2,242 diplomacy attempts, 1,220 captures, missions failed 2:1 over done | first-pass numbers; tune in M4 (rice economy, AI diplomacy rate, capture rate, mission choice) | open
+- RULING: client-AI | the battle AI runs on the main thread with a 0 or 320 ms timeout per action, not in a Web Worker | a full AI action is a few ms; simpler | accepted (coordinator 2026-11-07)
+- RULING: move-tiles | tiles the player may move to are painted ochre with a slow shimmer ("available", 50-presentation.md), attack/tactic targets dashed vermilion, chosen target and selected unit solid vermilion; the unit's own tile gets an ochre ring | spec colours, malachite ground made verdigris unreadable | accepted (coordinator 2026-11-07)
+- RULING: pigments | sides take a pigment from a pool of eight that contrast with the board (azurite, orpiment, lead white, madder, indigo, plum, sienna, slate), hashed from the faction id, never equal for both sides | spec lists 14 but some match terrain | accepted (coordinator 2026-11-07)
+- RULING: confirm-tap | an attack, tactic or challenge target is picked by one tap and confirmed by a second tap on it or the Confirm button, whose cost line carries the `query.attackPreview` / `tacticPreview` numbers | phone-safe | accepted (coordinator 2026-11-07)
+- RULING: gate-preview | the engine has no preview for gate attacks; the button shows gate strength from `query.hexAt` | none exists | accepted (coordinator 2026-11-07)
+- RULING: D-DUEL-3 | hit base is 6 + floor(WAR / 8) (was unfloored, the duel screen showed "Hit 18.125+") | whole numbers on screen, as D-DEB-4 | accepted (coordinator 2026-11-07)
 
 ## Change log
 - 2026-11-07 v0.1 written at M0.

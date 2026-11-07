@@ -5,7 +5,7 @@ Two original one-on-one contests (PLAN D6). Both are simultaneous-choice games p
 ## 1. Duel (`src/duel`)
 - `[D-DUEL-1]` Each duelist has **vigor** `40 + WAR / 2 + health / 10` and **spirit** 0 (max 100).
 - `[D-DUEL-2]` Each round both pick a stance: **Strike**, **Guard**, **Feint**, or **Mighty Blow** (only at spirit 100), or **Yield** (ends the duel as a loss for the yielder).
-- `[D-DUEL-3]` A hit deals `h = 6 + WAR / 8 + floor(rng() * 5)` to the other side, times the factor below. Resolution (rows: my stance; columns: theirs; the cell is what *I* deal / take):
+- `[D-DUEL-3]` A hit deals `h = 6 + floor(WAR / 8) + floor(rng() * 5)` to the other side, times the factor below. Resolution (rows: my stance; columns: theirs; the cell is what *I* deal / take):
 
 | me \ them | Strike | Guard | Feint | Mighty |
 |---|---|---|---|---|
@@ -39,3 +39,4 @@ The AI's choice for a round is drawn when the round opens and stored in state (`
 
 ## Change log
 - 2026-11-07 v0.1 written at M0.
+- 2026-11-07 D-DUEL-3: hit base floors WAR / 8 (PLAN ruling).
