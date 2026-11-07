@@ -16,6 +16,7 @@ export default defineConfig(({ mode }) => ({
     rollupOptions: {
       input: {
         main: fileURLToPath(new URL('./index.html', import.meta.url)),
+        lab: fileURLToPath(new URL('./lab.html', import.meta.url)),
       },
       output: {
         manualChunks(id: string) {
