@@ -64,3 +64,9 @@
   .hud-top { flex-direction: column; align-items: stretch; }
   .hud-ctl { flex-direction: row; flex-wrap: wrap; justify-content: flex-end; }
 }
+@media (max-width: 799px) {
+  .card-phone .kv { grid-template-columns: auto auto; column-gap: 8px; }
+  .card-phone .kv > :nth-child(n+5), .card-phone .stats { display: none; }
+  .card-phone .card .top { flex: 0 0 auto; }
+  .card-phone .nm { font-size: 12px; }
+}
