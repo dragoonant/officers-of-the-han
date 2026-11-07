@@ -37,6 +37,7 @@ export function workInfo(c: Ctx, o: OfficerState, work: WorkKind): WorkInfo {
       const n = Math.min(Math.floor(ct.population / 50), 300 + st.cha * 5)
       return { gold: Math.ceil(n / 10), gain: n, capped: n < 1, note: `${n} new troops` }
     }
+    default: return { gold: 0, gain: 0, capped: true }
   }
 }
 
@@ -501,6 +502,7 @@ function checkPropose(c: Ctx, o: OfficerState, a: Extract<WorldAction, { kind: '
     case 'war': {
       if (!own) return fail('not-legal', 'Propose war from one of our cities.')
       if (typeof a.to !== 'string') return fail('bad-target', 'Name the target city.')
+      if (a.units !== undefined && !Array.isArray(a.units)) return fail('bad-target', 'Units must be a list.')
       const units = a.units ?? suggestArmy(c, o.faction, o.city!, o.id)
       if (units.length === 0) return fail('bad-target', 'No army can be raised here.')
       if (!units.some((u) => u.commander && u.officer === o.id)) return fail('bad-target', 'The proposer leads the army.')

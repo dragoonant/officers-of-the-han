@@ -1,5 +1,5 @@
 // W-EVT-1 / 40-events.md: the event interpreter (conditions, effects, the player's choice and its contests).
-import type { EventCond, EventDef, EventEffect } from '../contracts/data'
+import type { EventCond, EventDef, EventEffect, EventOption } from '../contracts/data'
 import {
   C, F, O, type Ctx, addFriendship, addMonths, addRelation, cityName, clamp, factionCities, factionName, friendship, log, nameOf, nearestOwnCity,
   newPendingId, pk, roll, setFriendship, ymNum,
@@ -262,6 +262,22 @@ export function runEventsStage(c: Ctx, start: number): 'done' | 'paused' {
   return 'done'
 }
 
+function resolvedOption(c: Ctx, ev: EventDef, option: number): EventOption {
+  const opt0 = ev.options![option]!
+  const pf = c.s.officers[c.s.player]?.faction ?? null
+  // RULING: E-4 | contest.a is a historical default; the player's officer replaces it (also inside onWin/onLoss). Non-zero options drop the player's faction from alliance lists.
+  const subId = (e: EventEffect): EventEffect => {
+    const from = opt0.contest?.a
+    let r: EventEffect = e
+    if (from && from !== c.s.player) r = JSON.parse(JSON.stringify(e).split(`"${from}"`).join(`"${c.s.player}"`)) as EventEffect
+    if (r.kind === 'alliance' && option > 0 && pf) r = { ...r, factions: r.factions.filter((f) => f !== pf) }
+    return r
+  }
+  const o: EventOption = { ...opt0, effects: opt0.effects.map(subId) }
+  if (opt0.contest) o.contest = { ...opt0.contest, a: c.s.player, onWin: opt0.contest.onWin.map(subId), onLoss: opt0.contest.onLoss.map(subId) }
+  return o
+}
+
 /** The player chose an option. Returns an error message or null. */
 export function answerEventChoice(c: Ctx, pendingId: string, option: number): string | null {
   const p = c.s.pending[0]
@@ -270,11 +286,11 @@ export function answerEventChoice(c: Ctx, pendingId: string, option: number): st
   if (!ev || !ev.options) { c.s.pending.shift(); return null }
   if (!Number.isInteger(option) || option < 0 || option >= ev.options.length) return 'No such option.'
   c.s.pending.shift()
-  const opt = ev.options[option]!
+  const opt = resolvedOption(c, ev, option)
   applyEffects(c, opt.effects)
   log(c, 'event', `${ev.title}: ${opt.text}`, [c.s.player])
   const ct = opt.contest
-  if (ct) {
+  if (ct && ct.b !== ct.a) {
     const a = c.s.officers[ct.a]
     const b = c.s.officers[ct.b]
     if (a && b && a.status === 'active' && b.status === 'active') {
@@ -290,7 +306,7 @@ export function answerEventChoice(c: Ctx, pendingId: string, option: number): st
 export function finishEventContest(c: Ctx, setupId: string, aWon: boolean): void {
   const parts = setupId.split('|')
   const ev = c.d.data.events.find((e) => e.id === parts[1])
-  const opt = ev?.options?.[Number(parts[2])]
+  const opt = ev?.options?.[Number(parts[2])] ? resolvedOption(c, ev, Number(parts[2])) : undefined
   if (!ev || !opt?.contest) return
   applyEffects(c, aWon ? opt.contest.onWin : opt.contest.onLoss)
   log(c, 'event', `${ev.title}: ${aWon ? 'won' : 'lost'}.`, [c.s.player])
