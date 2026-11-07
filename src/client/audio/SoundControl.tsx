@@ -1,5 +1,5 @@
-// Volume panel (music, effects, mute). `SoundPanel` is the body, shown in the Menu; `SoundButton` is a slip that opens it on the title and
-// new-game screens. No native tooltips (aria-labels only), saved in localStorage `oth-audio`.
+// Volume panel (music, effects, mute). `SoundPanel` is the body, shown in the Menu; `SoundButton` is a 
+// screen. No native tooltips (aria-labels only), saved in localStorage `oth-audio`.
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { audio, type AudioStatus } from './index'
 import './audio.css'
@@ -53,7 +53,7 @@ export function SoundPanel({ note = true }: { note?: boolean }) {
   )
 }
 
-/** A "Sound" slip that opens the panel (title and new-game screens, where there is no Menu). */
+/** A "Sound" slip that opens the panel (title screen, where there is no Menu). */
 export function SoundButton() {
   const [open, setOpen] = useState(false)
   const wrap = useRef<HTMLSpanElement>(null)

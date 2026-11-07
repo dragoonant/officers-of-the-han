@@ -35,7 +35,7 @@ Effects (Stable Audio Open, `kind: sfx`, `role: sfx`, cue name = id without `sfx
 
 | Game state | Mood |
 |---|---|
-| title or new-game screen | `title` |
+| title or new-game screen | `title` (the sound slip is on the title screen only) |
 | end screen, chronicle `unified` | `victory`; any other end | `defeat` |
 | a duel screen is open (world duel or the field duel inside a battle) | `duel` |
 | a debate screen is open | `debate` |
@@ -76,7 +76,7 @@ Battle effects are skipped at the Instant speed (the e2e setting).
 - **Size budget: about 5 MB shipped.** Estimate from the table: loops, jingles and stings add up to about 304 s of music (about 4.7 MB at 128 kbps) plus about 30 s of effects (about 0.5 MB): about 5.2 MB. The master prints the shipped size, warns above 5.5 MB, and reports it in `report.json`. Beds are fetched lazily when a mood is first needed. Audition mode lists both candidates and is over budget by design: `--pick … --prune` before committing. If the real total is over, lower `OGG_QUALITY` in `tools/audio/lib.mjs` or shorten a bed (fewer bars).
 
 ## 6. Settings and the manifest
-- **Settings:** music volume, effects volume, mute, in the Menu (and a "Sound" slip on the title and new-game screens). Stored in `localStorage` key **`oth-audio`** as `{music, sfx, muted}` (0 to 1; slider position squared is the gain; mute zeroes the master and keeps the sliders). Every read and write is in try/catch.
+- **Settings:** music volume, effects volume, mute, in the Menu (and a "Sound" slip on the title screen). Stored in `localStorage` key **`oth-audio`** as `{music, sfx, muted}` (0 to 1; slider position squared is the gain; mute zeroes the master and keeps the sliders). Every read and write is in try/catch.
 - **Unlock:** the `AudioContext` is created on the first gesture (`pointerup`, `touchend`, `click`, `keydown`; listeners stay for the session; suspend on a hidden tab). Nothing is fetched or decoded before then; calls made earlier are remembered and applied on unlock.
 - **Silent until files exist:** `public/audio/manifest.json` is committed as `{"version":1,"tracks":[]}` (so there is never a 404) and read at runtime. Invalid entries are dropped with a one-time `console.warn`; a missing or undecodable file is logged once and is silence. A page with no files has 0 console errors.
 - **Manifest entry:** `{id, file, alt?, bpm, beatsPerBar, loopStart, loopEnd, gainDb, role: bed|charge|stinger|sfx, mood?, cue?}`. Beds and jingles carry a `mood`; stings and effects carry a `cue` (`sting-letter`, `ui-tap`, …). The master writes it; do not edit it by hand.

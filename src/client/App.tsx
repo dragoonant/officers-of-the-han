@@ -28,7 +28,7 @@ export function App() {
       {screen === 'new' && <NewGame />}
       {screen === 'game' && <Game />}
       {screen === 'end' && <End />}
-      {(screen === 'title' || screen === 'new') && <SoundButton />}
+      {screen === 'title' && <SoundButton />}
     </div>
   )
 }
