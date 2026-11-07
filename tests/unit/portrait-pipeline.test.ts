@@ -1,4 +1,5 @@
 // Portrait pipeline (docs/spec/55-portraits.md) against the fake Flux Studio: prompts, lint, runner, sheets, pick. Needs ffmpeg with libwebp.
+import { spawnSync } from 'node:child_process'
 import { existsSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
@@ -15,6 +16,11 @@ import {
 import { main as pick } from '../../tools/gen/portraits/pick-portraits.mjs'
 
 const table = loadPromptTable()
+// The sheet and pick steps decode and encode with ffmpeg (pick needs libwebp). CI runners may lack it; the PC run has it (runbook).
+const ffmpegWebp = ((): boolean => {
+  const r = spawnSync('ffmpeg', ['-hide_banner', '-encoders'], { encoding: 'utf8' })
+  return r.status === 0 && /libwebp/.test(r.stdout)
+})()
 const quiet = () => {
   const lines: string[] = []
   return { lines, io: { log: (s: string) => lines.push(s), err: (s: string) => lines.push(`ERR ${s}`) } }
@@ -181,7 +187,7 @@ describe('the fake studio and the runner', () => {
     }
   })
 
-  it('makes 4x4 sheets, then picks, crops to 256 and 128 WebP and writes the manifest', async () => {
+  it.skipIf(!ffmpegWebp)('makes 4x4 sheets, then picks, crops to 256 and 128 WebP and writes the manifest', async () => {
     await gen(['--base', studio.url, '--out', dir, '--only', ids, '--poll-ms', '5'], quiet().io)
     const q = quiet()
     expect(await sheets(['--out', dir, '--only', ids, '--tile', '64'], q.io)).toBe(0)
@@ -209,7 +215,7 @@ describe('the fake studio and the runner', () => {
     expect(Object.keys(JSON.parse(readFileSync(path.join(pub, 'manifest.json'), 'utf8')).portraits).length).toBe(3)
   })
 
-  it('refuses an unknown id in --pick', async () => {
+  it.skipIf(!ffmpegWebp)('refuses an unknown id in --pick', async () => {
     expect(await pick(['--out', dir, '--pick', 'nobody=a'], quiet().io)).toBe(2)
     writeFileSync(path.join(dir, 'x'), '')
   })
