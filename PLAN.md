@@ -80,6 +80,10 @@ Format: `RULING: <rule> | <what we did> | <why> | <status>`.
 - RULING: hidden officers start as wanderers with no faction | accepted (coordinator 2026-11-07)
 - RULING: W-ECO-4 | officers in an army are paid from their source city; officers standing in a foreign city are not paid | accepted (coordinator 2026-11-07)
 - RULING: log | only chronicle kinds (see `LOG_KINDS`) and entries naming the player are stored; the log is capped at 2000 entries | keeps 200-officer sims light | accepted (coordinator 2026-11-07)
+- RULING: W-WAR-5 | capture chance 20% -> 10% (+20 with no retreat unchanged); a losing ruler with another city retreats instead of being captured | sim 10x10: captures/battle 0.45 -> see docs/spec/13-balance.md; 115 of 206 successions were captured rulers | open
+- RULING: W-AI-2 war throttle | the AI looks for a war with 60% chance per slot per month; armies are 80% of the city's troops (25% against an undefended city); threat truce 20% -> 8% and only without a pact; new surrender demand at 3.5x troops (6%/month) | sim 10x10: wars/faction-year 1.30 -> 0.49, diplomacy 1.46 -> 0.69, factions at 200 15.9 -> 13.9 | open
+- RULING: W-AI-5 | no AI war in the first 3 months of a scenario; coalition members prefer Dong Zhuo's cities while the `coalition` flag stands | coordinator request: newGame(190) had 13-15 armies on the march | open
+- RULING: W-AI-6 | AI drafts and sends armies only with enough rice to the next harvest | sim: early-190 famine lines 336 -> 5 | open
 - RULING: sim on real data (10 seeds x 10 years, 2026-11-07) | 0 invariant failures, 0 stalls; factions 23 -> 14.3 by 200; 458 famine lines, 2,242 diplomacy attempts, 1,220 captures, missions failed 2:1 over done | first-pass numbers; tune in M4 (rice economy, AI diplomacy rate, capture rate, mission choice) | open
 - RULING: client-AI | the battle AI runs on the main thread with a 0 or 320 ms timeout per action, not in a Web Worker | a full AI action is a few ms; simpler | accepted (coordinator 2026-11-07)
 - RULING: move-tiles | tiles the player may move to are painted ochre with a slow shimmer ("available", 50-presentation.md), attack/tactic targets dashed vermilion, chosen target and selected unit solid vermilion; the unit's own tile gets an ochre ring | spec colours, malachite ground made verdigris unreadable | accepted (coordinator 2026-11-07)
@@ -87,6 +91,13 @@ Format: `RULING: <rule> | <what we did> | <why> | <status>`.
 - RULING: confirm-tap | an attack, tactic or challenge target is picked by one tap and confirmed by a second tap on it or the Confirm button, whose cost line carries the `query.attackPreview` / `tacticPreview` numbers | phone-safe | accepted (coordinator 2026-11-07)
 - RULING: gate-preview | the engine has no preview for gate attacks; the button shows gate strength from `query.hexAt` | none exists | accepted (coordinator 2026-11-07)
 - RULING: D-DUEL-3 | hit base is 6 + floor(WAR / 8) (was unfloored, the duel screen showed "Hit 18.125+") | whole numbers on screen, as D-DEB-4 | accepted (coordinator 2026-11-07)
+- RULING: picker | all officers active or marching at the start (not hidden) are offered; one who starts in an army says so on the card | Cao Cao and others must be playable | accepted (coordinator 2026-11-07)
+- RULING: seed | the default seed is `Date.now() % 1e9`, read in the client only, shown in an editable field | no hidden randomness | accepted (coordinator 2026-11-07)
+- RULING: a finished game clears its save (KB rule 22) and the end screen is held in memory only | rule 22 | accepted (coordinator 2026-11-07)
+- RULING: unavailable actions of one kind with the same reason collapse into one button (a house officer's ten travel targets) | readability on phones | accepted (coordinator 2026-11-07)
+- RULING: battle letter | a short silk letter ("Take the field") precedes the board; a resumed saved battle opens the board directly | gives context before a full-screen takeover | accepted (coordinator 2026-11-07)
+- RULING: propose-war army | start from `suggestArmy` with the player forced in as sole commander | `suggestArmy` has no proposer argument | accepted (coordinator 2026-11-07)
+- RULING: successions in the end summary | the lineage is rebuilt from the log (current player, the `begins.` line, `succession` entries) | no state field lists past players | accepted (coordinator 2026-11-07)
 
 ## Change log
 - 2026-11-07 v0.1 written at M0.

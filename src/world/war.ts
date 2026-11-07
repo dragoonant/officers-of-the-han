@@ -407,8 +407,15 @@ export function applyOutcome(c: Ctx, armyId: string, setup: BattleSetup, outcome
   for (const r of outcome.units) {
     if (!isReal(r.officer)) continue
     if (r.slain) killOfficer(c, r.officer, 'slain in battle')
-    else if (r.captured || (!attackerWins && atkFid === null && r.side === 'attacker')) captured.push(r.officer)
+    else if (r.captured || (!attackerWins && atkFid === null && r.side === 'attacker')) {
+      // W-WAR-5: a ruler with another city to fall back on retreats instead of being captured
+      const ro = O(c, r.officer)
+      const fid = r.side === 'attacker' ? atkFid : defFid
+      if (fid && ro.post === 'ruler' && Object.values(c.s.cities).some((x) => x.faction === fid && x.id !== setup.cityId)) continue
+      captured.push(r.officer)
+    }
   }
+  captured.sort((a, b) => (O(c, a).post === 'ruler' ? 1 : 0) - (O(c, b).post === 'ruler' ? 1 : 0)) // rulers last, so no chain of successions
   const atkName = atkFid ? factionName(c, atkFid) : 'The rebels'
   const defName = factionName(c, defFid)
   const cmdId = army.units.find((u) => u.commander)?.officer ?? army.units[0]!.officer

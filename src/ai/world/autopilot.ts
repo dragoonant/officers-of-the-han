@@ -38,7 +38,7 @@ export function autopilotAction(data: GameData, state: WorldState, legal: WorldA
       if (w) return w
     }
   }
-  if (variety && po.days >= 5 && rnd(c) < 0.22) {
+  if (variety && !po.mission && po.days >= 5 && rnd(c) < 0.22) {
     const opts = legal.filter((a) => !VARIETY_SKIP.has(a.kind))
     if (opts.length) {
       const a = opts[Math.floor(rnd(c) * opts.length)]!
