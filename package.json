@@ -14,7 +14,8 @@
     "validate:data": "tsx tools/validate-data.ts",
     "sim": "tsx tools/sim.ts",
     "bench:ai": "tsx tools/ai-bench.ts",
-    "audio:gen": "node tools/audio/gen-music.mjs && node tools/audio/master-audio.mjs"
+    "audio:gen": "node tools/audio/gen-music.mjs && node tools/audio/master-audio.mjs",
+    "bench:battle": "tsx tools/battle-bench.ts"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.8",
