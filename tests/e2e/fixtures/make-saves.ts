@@ -79,8 +79,33 @@ export function makeDebate(seed = 7): Env {
   return env(opts, actions, until(s, actions, 'debate', 0))
 }
 
+/** Fresh starts for the text sweep: a ruler, a prefect, an officer, a wanderer, a created officer, a one-officer faction's ruler. */
+export function makeSweepStarts(): { label: string; env: Env }[] {
+  const out: { label: string; env: Env }[] = []
+  const want: Record<string, string | undefined> = {}
+  const base = world.newGame({ scenario: '190', seed: 3, officer: 'cao-cao' })
+  for (const id of Object.keys(base.officers)) {
+    let s: WorldState
+    try { s = world.newGame({ scenario: '190', seed: 3, officer: id }) } catch { continue }
+    const sum = world.query.saveSummary(s)
+    const o = s.officers[id]!
+    const fac = o.faction ? Object.values(s.officers).filter((x) => x.faction === o.faction && x.status === 'active').length : 0
+    const key = sum.post === 'ruler' && fac === 1 ? 'one-officer ruler' : sum.post
+    if (sum.post === 'ruler' && !want['ruler'] && fac > 1) want['ruler'] = id
+    if (!want[key] && ['prefect', 'wanderer', 'officer', 'one-officer ruler'].includes(key)) want[key] = id
+  }
+  for (const [label, id] of Object.entries(want)) {
+    if (!id) continue
+    const opts: NewGameOptions = { scenario: '190', seed: 3, officer: id }
+    out.push({ label: `${label}: ${id}`, env: env(opts, [], world.newGame(opts)) })
+  }
+  const created: NewGameOptions = { scenario: '190', seed: 3, officer: { name: 'Test Created', sex: 'f', born: 165, stats: { war: 60, ldr: 60, int: 60, pol: 60, cha: 60 }, temperament: 'steady', bestType: 'spear', city: 'luoyang' } as never }
+  out.push({ label: 'created officer', env: env(created, [], world.newGame(created)) })
+  return out
+}
+
 export function makeSaves(): Record<Kind, Env> {
   return { battle: makeBattle(), duel: makeDuel(), debate: makeDebate() }
 }
 
-if (process.argv[1]?.endsWith('make-saves.ts')) process.stdout.write(JSON.stringify(makeSaves()))
+if (process.argv[1]?.endsWith('make-saves.ts')) process.stdout.write(JSON.stringify(process.argv[2] === 'sweep' ? makeSweepStarts() : makeSaves()))

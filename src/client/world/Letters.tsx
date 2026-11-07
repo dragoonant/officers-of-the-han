@@ -37,6 +37,8 @@ export function Letters({ s }: { s: WorldState }) {
 function Letter({ s, p }: { s: WorldState; p: Pending }) {
   const { err, answer } = useAnswer()
   const stored = useGame((g) => g.battle)
+  // the board is handed the saved battle once, when the letter mounts: feeding it the live copy would re-initialise the board after every action
+  const [resumed] = useState(stored)
   const setBattle = useGame((g) => g.setBattle)
   const [open, setOpen] = useState(false)
   switch (p.kind) {
@@ -111,7 +113,7 @@ function Letter({ s, p }: { s: WorldState; p: Pending }) {
       const att = p.setup.units.filter((u) => u.side === 'attacker')
       const def = p.setup.units.filter((u) => u.side === 'defender')
       const sum = (us: typeof att): number => us.reduce((a, u) => a + u.troops, 0)
-      if (!open && !stored) {
+      if (!open && !resumed) {
         return (
           <SilkLetter title={`Battle at ${p.setup.cityName}`} from={<>A battle letter<Count s={s} /></>} testid="battle-letter">
             <p>{factionNameOf(s, p.setup.attackerFaction)} marches on {p.setup.cityName}, held by {factionNameOf(s, p.setup.defenderFaction)}. The attackers field {att.length} units ({money(sum(att))} troops); the defenders {def.length} ({money(sum(def))}).</p>
@@ -122,7 +124,7 @@ function Letter({ s, p }: { s: WorldState; p: Pending }) {
       }
       return (
         <div className="fullscreen" style={{ position: 'fixed', inset: 0, zIndex: 70, background: 'var(--lacquer)' }} data-testid="world-battle">
-          <BattleScreen setup={p.setup} {...(stored ? { initial: stored } : {})} onChange={setBattle} onDone={(outcome) => answer({ kind: 'resolveBattle', pending: p.id, outcome })} />
+          <BattleScreen setup={p.setup} {...(resumed ? { initial: resumed } : {})} onChange={setBattle} onDone={(outcome) => answer({ kind: 'resolveBattle', pending: p.id, outcome })} />
           {err && <div className="toast">{err}</div>}
         </div>
       )

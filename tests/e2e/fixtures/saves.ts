@@ -20,3 +20,9 @@ export async function seed(page: Page, env: Env): Promise<void> {
 }
 
 export const saved = (page: Page) => page.evaluate(() => JSON.parse(localStorage.getItem('oth-save') ?? 'null'))
+
+let sweep: { label: string; env: Env }[] | null = null
+export function sweepStarts(): { label: string; env: Env }[] {
+  sweep ??= JSON.parse(execFileSync('npx', ['tsx', join(process.cwd(), 'tests/e2e/fixtures/make-saves.ts'), 'sweep'], { encoding: 'utf8', maxBuffer: 64 << 20 })) as { label: string; env: Env }[]
+  return sweep
+}

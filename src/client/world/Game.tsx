@@ -36,7 +36,7 @@ export function Game() {
         {ui.city && <CityBox s={s} id={ui.city} onClose={() => ui.setCity(null)} />}
         {lastError && <div className="toast" role="alert" onClick={clearError}>{lastError}</div>}
       </div>
-      <button className="ticker" style={{ border: 'none', textAlign: 'left', color: 'inherit', font: 'inherit' }} onClick={() => ui.setPanel('chronicle')} data-testid="ticker" aria-label="Open the chronicle">
+      <button className="wticker" style={{ border: 'none', textAlign: 'left', color: 'inherit', font: 'inherit' }} onClick={() => ui.setPanel('chronicle')} data-testid="ticker" aria-label="Open the chronicle">
         <span className="dust">{ymText(s.ym)}</span>
         <span className="tx" data-testid="ticker-text">{last ? last.text : 'The chronicle is empty.'}</span>
         <span className="dust">{report.length} this month</span>

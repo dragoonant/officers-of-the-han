@@ -23,6 +23,9 @@ test('a pending battle opens from Continue, plays out with the AI, and the world
   await expect(page.getByTestId('action-bar')).toBeVisible({ timeout: 90_000 })
   await page.click('#speed-instant')
   await page.click('#ai-toggle')
+  // the board is not re-initialised by the saves it emits: the AI switch survives the first actions
+  await expect.poll(() => page.evaluate(() => window.__oth!.store.getState().state!.actionCount), { timeout: 60_000 }).toBeGreaterThan(3)
+  expect(await page.evaluate(() => window.__oth!.store.getState().aiCommand)).toBe(true)
   await expect(page.getByTestId('end-banner')).toBeVisible({ timeout: 200_000 })
   await page.click('#battle-done')
   await expect(page.getByTestId('battle-screen')).toBeHidden()
