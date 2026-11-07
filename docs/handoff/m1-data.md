@@ -24,7 +24,7 @@ RULING: Zhang Lu | ruler of a faction at Hanzhong at the start | record dates hi
 RULING: Cao Cao's base | Cao Cao holds Chenliu; his friend Zhang Miao, who was governor there, is an officer of his faction | the map has no second city for him in 190; Zhang Miao breaks with him only in 194 | open
 RULING: Wang Kuang | placed with Yuan Shao at Nanpi | Henei has no city on our map | open
 RULING: Sun family | Sun Ce (191), Sun Quan (198) appear at Changsha in faction f-sun-jian; Zhou Yu appears 191 as a wanderer at Lujiang; Lady Wu and Wu Jing start at Changsha | Changsha is the only city of the faction; the record has the family in Shu/Lujiang and then with Yuan Shu | open
-RULING: Han Fu's staff | Ju Shou, Tian Feng, Shen Pei, Guo Tu, Xin Ping, Xin Pi, Zhang He, Wen Chou, Yan Liang, Bao Xin, Yu Jin and Xun Yu start with Han Fu at Ye and move to Yuan Shao in `ji-province` (except Xun Yu, who stays Han Fu's and becomes a wanderer when Ye falls? no: see open item below) | the record has Ji's officers serving Han Fu then Yuan Shao in 191; Wen Chou and Yan Liang are novel figures placed with Ji's governor | open
+RULING: Han Fu's staff | Ju Shou, Tian Feng, Shen Pei, Guo Tu, Xin Ping, Xin Pi, Zhang He, Wen Chou, Yan Liang, Bao Xin, Yu Jin and Xun Yu start with Han Fu at Ye and move to Yuan Shao in `ji-province` (Xun Yu is the exception, next ruling) | the record has Ji's officers serving Han Fu then Yuan Shao in 191; Wen Chou and Yan Liang are novel figures placed with Ji's governor | open
 RULING: Xun Yu | starts with Han Fu but is NOT in the `ji-province` joinFaction list | he left for Cao Cao in 191 (record); the engine will leave him a wanderer when Han Fu's faction is destroyed | open
 RULING: Yuan Shu's Nanyang | Wan and Xinye; Sun Jian is a separate faction rather than Yuan Shu's officer | Sun Jian governed Changsha and acted for Yuan Shu only nominally | open
 RULING: single-officer factions | Gongsun Du, Kong Rong, Kong Zhou, Chen Wen, Yan Baihu have no officers beside the ruler (a few more have 1-2) | the record names no staff; hidden/wandering officers sit in or near their cities (Taishi Ci at Beihai, Yu Fan at Kuaiji, Zhang Zhao at Xiapi) so players can recruit them | open
@@ -53,6 +53,6 @@ RULING: fictional people | Diao Chan (Romance ch.8) and Meng Huo (Romance ch.87,
 ## Left undone
 - No web verification (see Sources). No `docs/sources/` dumps.
 - No spouse data for Zhou Yu/Xiao Qiao, Sun Ce/Da Qiao, Yuan Xi/Zhen Luo.
-- Zhang Fei's, Zhao Yun's and a few others' basis lines are short; the 180+ stat <= 30 lines for civilians are generated from templates (`build.ts` TAGS) where the row has none.
+- Zhang Fei's, Zhao Yun's and a few others' basis lines are short; the basis lines for stats <= 30 are generated from templates (`build.ts` TAGS) where the row has none.
 - Henei, Guangling, Donghai, Dai and Yuyang have no city; their governors (Wang Kuang, Zhang Chao, and others) are placed with the nearest faction.
 - Portraits: 34 sibling-game portraits matched; the other 161 officers use the medallion.

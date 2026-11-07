@@ -11,7 +11,7 @@ import { applyKin, buildScenario } from './scenario'
 import { EVENTS } from './events'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..')
-const SRC_PORTRAITS = process.env.PORTRAIT_SRC ?? '/home/user/three-kingdoms-tactics/public/portraits'
+const SRC_PORTRAITS = process.env.PORTRAIT_SRC ?? join(ROOT, '..', 'three-kingdoms-tactics', 'public', 'portraits')
 const TEMP: Record<string, Temperament> = { R: 'righteous', A: 'ambitious', C: 'cautious', X: 'reckless', S: 'steady' }
 const APT: Record<string, Aptitude> = { A: 'A', B: 'B', C: 'C' }
 const TAGS: [StatKey, string, string][] = [
