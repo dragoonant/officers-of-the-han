@@ -121,7 +121,7 @@ function Letter({ s, p }: { s: WorldState; p: Pending }) {
         )
       }
       return (
-        <div className="fullscreen" style={{ position: 'fixed', inset: 0, zIndex: 70, background: 'var(--lacquer)' }} data-testid="battle-screen">
+        <div className="fullscreen" style={{ position: 'fixed', inset: 0, zIndex: 70, background: 'var(--lacquer)' }} data-testid="world-battle">
           <BattleScreen setup={p.setup} {...(stored ? { initial: stored } : {})} onChange={setBattle} onDone={(outcome) => answer({ kind: 'resolveBattle', pending: p.id, outcome })} />
           {err && <div className="toast">{err}</div>}
         </div>
@@ -129,14 +129,14 @@ function Letter({ s, p }: { s: WorldState; p: Pending }) {
     }
     case 'duel':
       return (
-        <div className="fullscreen" style={{ position: 'fixed', inset: 0, zIndex: 70, background: 'var(--lacquer)' }} data-testid="duel-screen">
+        <div className="fullscreen" style={{ position: 'fixed', inset: 0, zIndex: 70, background: 'var(--lacquer)' }} data-testid="world-duel">
           <DuelScreen setup={p.setup} onDone={(outcome) => answer({ kind: 'resolveDuel', pending: p.id, outcome })} />
           {err && <div className="toast">{err}</div>}
         </div>
       )
     case 'debate':
       return (
-        <div className="fullscreen" style={{ position: 'fixed', inset: 0, zIndex: 70, background: 'var(--lacquer)' }} data-testid="debate-screen">
+        <div className="fullscreen" style={{ position: 'fixed', inset: 0, zIndex: 70, background: 'var(--lacquer)' }} data-testid="world-debate">
           <DebateScreen setup={p.setup} onDone={(outcome) => answer({ kind: 'resolveDebate', pending: p.id, outcome })} />
           {err && <div className="toast">{err}</div>}
         </div>
