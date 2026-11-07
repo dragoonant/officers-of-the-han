@@ -1,0 +1,69 @@
+[
+  {
+    "rate": 4,
+    "firstMapMs": 294,
+    "pan": {
+      "n": 91,
+      "median": 16.7,
+      "p95": 16.8,
+      "over50": 0,
+      "max": 16.8,
+      "long": 0,
+      "longMax": 0,
+      "long100": 0,
+      "rasterMs": 367,
+      "mainMs": 907,
+      "scriptMs": 92,
+      "styleMs": 61,
+      "layoutMs": 14
+    },
+    "pinch": {
+      "n": 124,
+      "median": 16.7,
+      "p95": 33.4,
+      "over50": 0,
+      "max": 50,
+      "long": 0,
+      "longMax": 0,
+      "long100": 0,
+      "rasterMs": 700,
+      "mainMs": 2118,
+      "scriptMs": 200,
+      "styleMs": 86,
+      "layoutMs": 626
+    },
+    "cityOpenMs": 214,
+    "cityOpen": {
+      "n": 8,
+      "median": 16.7,
+      "p95": 100,
+      "over50": 1,
+      "max": 100,
+      "long": 2,
+      "longMax": 65,
+      "long100": 0,
+      "rasterMs": 11,
+      "mainMs": 197,
+      "scriptMs": 59,
+      "styleMs": 16,
+      "layoutMs": 20
+    },
+    "endMonthMs": 551,
+    "endMonth": {
+      "n": 23,
+      "median": 16.7,
+      "p95": 33.3,
+      "over50": 1,
+      "max": 166.6,
+      "long": 1,
+      "longMax": 157,
+      "long100": 1,
+      "rasterMs": 9,
+      "mainMs": 385,
+      "scriptMs": 149,
+      "styleMs": 22,
+      "layoutMs": 16
+    },
+    "errors": []
+  }
+]
