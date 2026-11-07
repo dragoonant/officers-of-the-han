@@ -243,6 +243,33 @@ describe('W-WAR', () => {
     else expect(lj.status).toBe('captive')
     expect(W.invariants(s)).toEqual([])
   })
+  it('W-WAR-10 the player\'s house wins an auto-resolved battle: one letter with the numbers, prisoners and holder', () => {
+    let s = setup(100)
+    s.officers['li-jue']!.city = 'changan'
+    s.cities['wancheng']!.troops = 400
+    s = act(s, { kind: 'war', from: 'xuchang', to: 'wancheng', units: unitsOf(s) })
+    s = act(s, { kind: 'endMonth' })
+    const letters = s.pending.filter((p) => p.kind === 'letter' && p.title.includes('Wancheng')) as Extract<typeof s.pending[0], { kind: 'letter' }>[]
+    expect(letters.length).toBe(1)
+    const l = letters[0]!
+    expect(l.title).toBe('Wancheng has fallen')
+    expect(s.cities['wancheng']!.faction).toBe('f-cao-cao')
+    expect(l.text).toContain('won the day')
+    expect(l.text).toMatch(/Losses: .* lost [\d,]+ troops, .* lost [1-9][\d,]* troops\./)
+    expect(l.text).toContain(`${s.factions['f-cao-cao']!.name} now holds Wancheng.`)
+    expect(l.text).not.toMatch(/undefined|NaN/)
+  })
+  it('W-WAR-10 the player\'s house is told when its attack fails', () => {
+    let s = setup(9000)
+    s.cities['wancheng']!.walls = 500
+    s.officers['li-jue']!.city = 'wancheng'
+    s.officers['li-jue']!.stats = { war: 100, ldr: 100, int: 50, pol: 50, cha: 50 }
+    s = act(s, { kind: 'war', from: 'xuchang', to: 'wancheng', units: [{ officer: 'cao-ren', troops: 3000, type: 'spear', commander: true }] })
+    s = act(s, { kind: 'endMonth' })
+    const l = s.pending.find((p) => p.kind === 'letter' && p.title.includes('Wancheng')) as Extract<typeof s.pending[0], { kind: 'letter' }>
+    expect(l.title).toBe('Wancheng held')
+    expect(l.text).toContain(`${s.factions['f-dong-zhuo']!.name} now holds Wancheng.`)
+  })
   it('W-WAR-9 a faction with no cities is destroyed and its officers become wanderers', () => {
     let s = fresh('cao-cao', 1, (x) => { calm(x); x.pacts = []; x.cities['luoyang']!.faction = 'f-cao-cao'; x.cities['luoyang']!.troops = 10; x.cities['luoyang']!.prefect = null; for (const id of ['dong-zhuo', 'lu-bu', 'li-ru', 'diaochan']) x.officers[id]!.city = 'changan'; x.cities['luoyang']!.faction = 'f-cao-cao' })
     s.cities['changan']!.troops = 10

@@ -229,6 +229,8 @@ function TransportDialog({ s, onClose }: { s: WorldState; onClose: Close }) {
 
 // ---------- armies ----------
 export function ArmyForm({ s, from, to, units, setUnits, lockCommander }: { s: WorldState; from: string; to: string; units: ArmyUnit[]; setUnits: (u: ArmyUnit[]) => void; lockCommander?: string }) {
+  // the form must not depend on its buttons being disabled: with no route (or a stale one) it says so
+  if (!s.cities[from] || !s.cities[to]) return <div className="dust" data-testid="army-unavailable">Not available: there is no army to raise or no city to march on right now.</div>
   const me = s.officers[s.player]
   const cv = q.cityView(s, from)
   const pool = (cv?.officers ?? []).filter((o) => o.faction === me?.faction && s.officers[o.id]?.status === 'active' && !s.officers[o.id]?.hidden)
@@ -302,11 +304,14 @@ function WarBody({ s, from, to, init, onClose }: { s: WorldState; from: string; 
   )
 }
 
-/** The army a proposer would lead: the engine's suggestion with the player as sole commander. */
+/** The army a proposer would lead: the engine's army led by and fitted to the player (`query.suggestArmy` with a proposer). */
 export function proposerArmy(s: WorldState, from: string, to: string): ArmyUnit[] {
   const me = s.player
-  const sug = q.suggestArmy(s, from, to).map((u) => ({ ...u, commander: u.officer === me }))
-  if (sug.some((u) => u.officer === me)) return sug
+  if (!s.cities[from]) return []
+  const led = q.suggestArmy(s, from, to, me)
+  if (led.length) return led
+  // the engine found no army for them (for example too little rice): start from their own unit
+  const sug = q.suggestArmy(s, from, to).filter((u) => u.officer !== me)
   const best = (['spear', 'cavalry', 'archer'] as const).reduce((b, t) => ((q.officerView(s, me)?.aptitude[t] ?? 'C') < (q.officerView(s, me)?.aptitude[b] ?? 'C') ? t : b), 'spear' as TroopType)
   const mine: ArmyUnit = { officer: me, troops: Math.min(q.troopCap(s, me), 800), type: best, commander: true }
   return [mine, ...sug.slice(0, 4)].map((u, i) => ({ ...u, commander: i === 0 }))
@@ -323,6 +328,7 @@ function ProposeDialog({ s, onClose }: { s: WorldState; onClose: Close }) {
   return (
     <LacquerBox title="Propose to the ruler" onClose={onClose} wide testid="dialog-propose">
       <div className="dust">You may propose once a month. The ruler decides, and approves with the chance shown.</div>
+      {kinds.length === 0 && <div className="dust" data-testid="propose-unavailable">Not available: you cannot propose anything right now.</div>}
       <div className="tabs" style={{ marginTop: 8 }}>{kinds.map((k) => <button key={k} className={`tab${kind === k ? ' on' : ''}`} onClick={() => { setKind(k); setPick(0) }}>{{ war: 'A war, led by you', alliance: 'An alliance', truce: 'A truce', prefect: 'To be made prefect' }[k]}</button>)}</div>
       {kind === 'war' && base && me?.city && (
         <>

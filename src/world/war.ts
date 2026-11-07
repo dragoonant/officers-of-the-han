@@ -113,6 +113,14 @@ export function suggestArmy(c: Ctx, fid: string, from: string, mustInclude?: str
   return pick.map((o, i) => ({ officer: o.id, troops: Math.min(per, troopCap(o)), type: bestType(c, o.id), commander: i === 0 }))
 }
 
+/** An army fitted to a proposing officer (W-PROP-1): they are in it, they are its commander (listed first), and the rest is `suggestArmy`. Empty when they cannot march. */
+export function suggestArmyLedBy(c: Ctx, fid: string, from: string, proposer: string): ArmyUnit[] {
+  const units = suggestArmy(c, fid, from, proposer)
+  const mine = units.find((u) => u.officer === proposer)
+  if (!mine) return []
+  return [{ ...mine, commander: true }, ...units.filter((u) => u !== mine).map((u) => ({ ...u, commander: false }))]
+}
+
 /** W-WAR-1 / W-WAR-2 validation. Returns a message when the army is not allowed. */
 export function checkArmy(c: Ctx, fid: string, from: string, to: string, units: ArmyUnit[]): string | null {
   const src = c.s.cities[from]
@@ -466,7 +474,6 @@ export function applyOutcome(c: Ctx, armyId: string, setup: BattleSetup, outcome
       if (cand) { ct.prefect = cand.id; cand.post = 'prefect' }
     }
     log(c, 'battle', `${atkName} took ${cityName(c, setup.cityId)} from ${defName}.`, involved, setup.cityId)
-    if (pf && pf === prevFid) pushLetter(c, `${cityName(c, setup.cityId)} has fallen`, `${atkName} took ${cityName(c, setup.cityId)}. Our officers fell back.`)
   } else {
     // defender holds
     ct.troops = nonParticipating + defEnd
@@ -484,7 +491,42 @@ export function applyOutcome(c: Ctx, armyId: string, setup: BattleSetup, outcome
     if (o && o.status === 'army') o.status = 'active'
   }
   normalize(c)
+  battleLetter(c, setup, outcome, atkName, defName, attackerWins)
   checkEnd(c)
+}
+
+/** W-WAR-10: the player hears how a battle they were in (or their house was in) ended. Every number is read from the outcome. */
+function battleLetter(c: Ctx, setup: BattleSetup, outcome: BattleOutcome, atkName: string, defName: string, attackerWins: boolean): void {
+  const player = c.s.player
+  const pf = c.s.officers[player]?.faction ?? null
+  const inBattle = setup.units.some((u) => u.officer.id === player)
+  const houseIn = !!pf && (pf === setup.attackerFaction || pf === setup.defenderFaction)
+  if (!inBattle && !houseIn) return
+  const res = new Map(outcome.units.map((u) => [u.officer, u]))
+  const lost = { attacker: 0, defender: 0 }
+  const names = { slain: [] as string[], captive: [] as string[] }
+  for (const u of setup.units) {
+    const r = res.get(u.officer.id)
+    const kept = r && !r.slain && !r.captured ? r.troopsEnd : 0
+    lost[u.side] += Math.max(0, u.troops - kept)
+    if (u.officer.id.startsWith('garrison-')) continue
+    const o = c.s.officers[u.officer.id]
+    if (!o) continue
+    if (o.status === 'dead') names.slain.push(nameOf(c, o.id))
+    else if (o.status === 'captive') names.captive.push(nameOf(c, o.id))
+  }
+  const city = cityName(c, setup.cityId)
+  const holder = c.s.cities[setup.cityId]?.faction ?? null
+  const list = (xs: string[]): string => (xs.length ? xs.join(', ') : 'none')
+  const t = (n: number): string => n.toLocaleString('en-US')
+  const text = [
+    `${atkName} marched on ${city}, held by ${defName}.`,
+    attackerWins ? `${atkName} won the day.` : `${defName} won the day.`,
+    `Losses: ${atkName} lost ${t(lost.attacker)} troops, ${defName} lost ${t(lost.defender)} troops.`,
+    `Taken prisoner: ${list(names.captive)}. Slain: ${list(names.slain)}.`,
+    holder ? `${factionName(c, holder)} now holds ${city}.` : `${city} is held by no one.`,
+  ].join(' ')
+  pushLetter(c, attackerWins ? `${city} has fallen` : `${city} held`, text)
 }
 
 export { sidePower, wallsFactor, rankOf, joinFaction }

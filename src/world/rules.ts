@@ -9,7 +9,7 @@ import {
   friendship, gainXp, isBound, isKin, isRival, log, nameOf, newPendingId, officersIn, pactBetween, prof, rankOf, relation, roadBetween, roll,
   sameOath, setFriendship, sortedIds, statSum, totalTroops, ymNum, rnd, nearestOwnCity, neighbors,
 } from './core'
-import { checkArmy, createArmy, defencePower, suggestArmy, unitsPower } from './war'
+import { checkArmy, createArmy, defencePower, suggestArmyLedBy, unitsPower } from './war'
 import { clearPrefect, foundFaction, joinFaction, killOfficer, makeWanderer, normalize, pushLetter, succeedRuler, checkEnd } from './people'
 import { uprisingArmy } from './uprising'
 import { mergeFaction } from './merge'
@@ -503,7 +503,7 @@ function checkPropose(c: Ctx, o: OfficerState, a: Extract<WorldAction, { kind: '
       if (!own) return fail('not-legal', 'Propose war from one of our cities.')
       if (typeof a.to !== 'string') return fail('bad-target', 'Name the target city.')
       if (a.units !== undefined && !Array.isArray(a.units)) return fail('bad-target', 'Units must be a list.')
-      const units = a.units ?? suggestArmy(c, o.faction, o.city!, o.id)
+      const units = a.units ?? suggestArmyLedBy(c, o.faction, o.city!, o.id)
       if (units.length === 0) return fail('bad-target', 'No army can be raised here.')
       if (!units.some((u) => u.commander && u.officer === o.id)) return fail('bad-target', 'The proposer leads the army.')
       const err = checkArmy(c, o.faction, o.city!, a.to, units)
@@ -974,7 +974,7 @@ function doPropose(c: Ctx, o: OfficerState, a: Extract<WorldAction, { kind: 'pro
   let bonus = 0
   let units = a.units
   if (a.proposal === 'war') {
-    units = a.units ?? suggestArmy(c, o.faction!, o.city!, o.id)
+    units = a.units ?? suggestArmyLedBy(c, o.faction!, o.city!, o.id)
     bonus = warContext(c, o.city!, a.to!, units)
   }
   const pct = proposeChance(c, o, ruler, a.proposal, bonus)

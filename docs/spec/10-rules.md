@@ -103,6 +103,7 @@ Each action lists its day cost, who may take it and its effect. The player and t
 - `[W-WAR-7]` **Attacker wins:** the city passes to the attacker. The attacking officers move in, their surviving troops become the city's troops, and the commander becomes prefect. The city keeps 50% of its gold and rice and loses 20 order. Defending officers not captured retreat (`W-WAR-8`). **Defender wins:** the surviving attackers and their troops return to the source city.
 - `[W-WAR-8]` **Retreat:** to the faction city nearest by road days (ties: lowest city id). If the faction has no other city, the officer is captured.
 - `[W-WAR-9]` A faction with no cities is destroyed. Its ruler and officers who are not captured become wanderers where they stand.
+- `[W-WAR-10]` **Battle result letter:** when a battle resolves (played or auto) and the player's officer was in it, or the player's faction was its attacker or defender, a `letter` pending is added for the player. Title: "<City> has fallen" if the attacker won, else "<City> held". Text, in order: who marched on which city and who held it; who won; troops lost by each side (units' start troops minus the troops of units that were neither slain nor captured at the end; read from the outcome); officers taken prisoner and officers slain (the participants' final status); who holds the city now. It replaces the old "has fallen" letter sent only to the loser.
 
 ## 8. Captives, death and succession
 - `[W-CAP-1]` A captive is held in a city of the captor's faction, takes no actions and is not paid.
@@ -137,3 +138,4 @@ Each action lists its day cost, who may take it and its effect. The player and t
 ## Change log
 - 2026-11-07 v0.1 written at M0.
 - M4a balance: `W-AI-2` retuned (war chance, army size, truce rate, surrender demand, mission choice), new `W-AI-5` and `W-AI-6`; `W-WAR-5` capture 20% -> 10%, rulers with another city retreat instead of being captured. Further AI entries follow in `13-balance.md`.
+- M4b: `[W-WAR-10]` battle result letter.

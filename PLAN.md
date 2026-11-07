@@ -100,6 +100,8 @@ Format: `RULING: <rule> | <what we did> | <why> | <status>`.
 - RULING: successions in the end summary | the lineage is rebuilt from the log (current player, the `begins.` line, `succession` entries) | no state field lists past players | accepted (coordinator 2026-11-07)
 - RULING: 190 data, vacant cities | rice = upkeep*12 + farm*6 like owned cities (was upkeep*12: Runan 180 rice for 1,500 troops) | M4a data request: claimants starved by month 5; after: 0 famine in 190-1..9, 0.09 famine per faction-year, wars 0.59 per faction-year, captures 0.18 per battle (10 seeds x 10 years) | accepted (coordinator 2026-11-07)
 - RULING: balance follow-up | Dong Zhuo's house (Li Jue after 192) averages 11.9 cities by 200 and Cao Cao survives in 4 of 10 seeds | left for M4b: a leader brake or Dong Zhuo garrison sizes; the record's Cao Cao nearly died in 190 too | open
+- RULING: W-WAR-10 | a resolved battle that involves the player (officer in it, or their faction attacker/defender) sends one `letter` pending with attacker, defender, city, winner, losses, prisoners, slain and the city's holder; replaces the loser-only 'has fallen' letter | M3c handoff: the player had no feedback after a battle | open
+- RULING: W-PROP-1 army | `query.suggestArmy(s, from, to, proposer?)` returns an army with the proposer first and sole commander (`suggestArmyLedBy`); a `propose war` without units and the AI/query chance preview use it too, so a proposal that omits units no longer fails 'the proposer leads the army'; replaces the M3a 'propose-war army' client workaround | M3a/M3c request | open
 
 ## Change log
 - 2026-11-07 v0.1 written at M0.

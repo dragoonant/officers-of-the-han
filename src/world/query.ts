@@ -9,7 +9,7 @@ import {
   DAYS, captiveChance, checkAction, costOf, describeMission, diploChance, hiddenIn, marryChance, proposeChance, recruitChance, searchChances, serveChance,
   servePatron, warContext, workInfo,
 } from './rules'
-import { armyPower as armyPowerC, defencePower as defencePowerC, defenceTroops, formDefence, suggestArmy as suggestArmyC, unitsPower } from './war'
+import { armyPower as armyPowerC, defencePower as defencePowerC, defenceTroops, formDefence, suggestArmy as suggestArmyC, suggestArmyLedBy, unitsPower } from './war'
 import type {
   ActionGroup, ActionItem, CanResult, ChanceInfo, CityView, FactionView, MonthReportRow, OfficerView, PowerInfo, SaveSummary, TieView,
 } from './types'
@@ -295,7 +295,7 @@ export function createQuery(d: DataIdx) {
         const f = o.faction ? c.s.factions[o.faction] : undefined
         const r = f ? c.s.officers[f.ruler] : undefined
         if (!r) return null
-        const bonus = a.proposal === 'war' && a.to ? warContext(c, o.city, a.to, a.units ?? suggestArmyC(c, o.faction!, o.city, o.id)) : 0
+        const bonus = a.proposal === 'war' && a.to ? warContext(c, o.city, a.to, a.units ?? suggestArmyLedBy(c, o.faction!, o.city, o.id)) : 0
         return { pct: proposeChance(c, o, r, a.proposal, bonus), what: 'the ruler approves' }
       }
       default: return null
@@ -348,12 +348,13 @@ export function createQuery(d: DataIdx) {
       return info
     },
     defenceTroops(s: WorldState, city: string): number { return defenceTroops(ctx(s), city) },
-    suggestArmy(s: WorldState, from: string, to: string): ArmyUnit[] {
+    /** The army the player's house would raise in `from`; with `proposer` (W-PROP-1) an army led by and fitted to that officer. */
+    suggestArmy(s: WorldState, from: string, to: string, proposer?: string): ArmyUnit[] {
       const c = ctx(s)
       const o = s.officers[s.player]
       if (!o?.faction) return []
       void to
-      return suggestArmyC(c, o.faction, from, undefined)
+      return proposer ? suggestArmyLedBy(c, o.faction, from, proposer) : suggestArmyC(c, o.faction, from, undefined)
     },
     monthReport(s: WorldState): MonthReportRow[] {
       const prev = ymNum(s.ym) - 1
