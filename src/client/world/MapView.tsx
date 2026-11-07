@@ -2,13 +2,13 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import type { WorldState } from '../../contracts/world'
 import { GAME_DATA } from '../../data'
-import { riverBrush, RIVERS } from './geo'
+import { placeLabels, rangeTufts, RANGES, riverBrush, RIVERS } from './geo'
 import { CloudBand } from './seam'
 
 const CITY = new Map(GAME_DATA.cities.map((c) => [c.id, c]))
 const MAP = { x: 90, y: -30, w: 800, h: 820 }
 const MIN_W = 150
-const MAX_W = 900
+const MAX_W = 1700
 
 interface VB { x: number; y: number; w: number }
 
@@ -26,33 +26,79 @@ export function MapView({ state, factionColor, selected, travelTo, onSelect }: M
   const [box, setBox] = useState({ w: 800, h: 600 })
   const player = state.officers[state.player]
   const home = player?.city ? CITY.get(player.city) : undefined
-  const [vb, setVb] = useState<VB>(() => ({ x: (home?.x ?? 450) - 320, y: (home?.y ?? 350) - 240, w: 640 }))
+  const [vb, setVb] = useState<VB>(() => ({ x: MAP.x - 20, y: MAP.y - 20, w: MAP.w + 40 }))
   const vbRef = useRef(vb)
   vbRef.current = vb
   const boxRef = useRef(box)
   boxRef.current = box
 
+  const anim = useRef(0)
+  const fitFor = (b: { w: number; h: number }): VB => {
+    const w = Math.max(MAP.w + 40, ((MAP.h + 40) * b.w) / b.h)
+    return { w, x: MAP.x + MAP.w / 2 - w / 2, y: MAP.y + MAP.h / 2 - (w * b.h) / b.w / 2 }
+  }
+  /** A comfortable zoom for this screen: about 2.2 screens of tray across. */
+  const comfy = (b: { w: number; h: number }): number => Math.min(620, Math.max(250, b.w / 1.9))
+  const flyTo = (cx: number, cy: number, w: number, instant = false): void => {
+    cancelAnimationFrame(anim.current)
+    const b = boxRef.current
+    const to = (ww: number): VB => ({ w: ww, x: cx - ww / 2, y: cy - (ww * b.h) / b.w / 2 })
+    const reduce = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (instant || reduce) { setVb(to(w)); return }
+    const from = vbRef.current
+    const fcx = from.x + from.w / 2
+    const fcy = from.y + (from.w * b.h) / b.w / 2
+    const t0 = performance.now()
+    const tick = (now: number): void => {
+      const k = Math.min(1, (now - t0) / 650)
+      const e = k * k * (3 - 2 * k)
+      // zoom geometrically so the move feels even
+      const ww = from.w * Math.pow(w / from.w, e)
+      setVb({ w: ww, x: fcx + (cx - fcx) * e - ww / 2, y: fcy + (cy - fcy) * e - (ww * b.h) / b.w / 2 })
+      if (k < 1) anim.current = requestAnimationFrame(tick)
+    }
+    anim.current = requestAnimationFrame(tick)
+  }
+  const framed = useRef(false)
+  useEffect(() => () => cancelAnimationFrame(anim.current), [])
   useEffect(() => {
     const el = ref.current
     if (!el) return
-    const ro = new ResizeObserver(() => setBox({ w: Math.max(1, el.clientWidth), h: Math.max(1, el.clientHeight) }))
+    const measure = (): void => {
+      const nb = { w: Math.max(1, el.clientWidth), h: Math.max(1, el.clientHeight) }
+      boxRef.current = nb
+      setBox(nb)
+      if (!framed.current && el.clientWidth > 1 && el.clientHeight > 1) {
+        // on open and on Continue: the whole tray, then in to the player's city
+        framed.current = true
+        setVb(fitFor(nb))
+        vbRef.current = fitFor(nb)
+        const c = playerCityRef.current
+        if (c) flyTo(c.x, c.y, comfy(nb))
+      }
+    }
+    const ro = new ResizeObserver(measure)
     ro.observe(el)
-    setBox({ w: Math.max(1, el.clientWidth), h: Math.max(1, el.clientHeight) })
+    measure()
     return () => ro.disconnect()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const aspect = box.h / box.w
   const vh = vb.w * aspect
 
-  // centre on the player's city when it changes (travel, new game)
-  const lastCity = useRef<string | null>(null)
+  // centre on the player's city when it changes (travel)
+  const playerCityRef = useRef(home)
+  playerCityRef.current = home
+  const lastCity = useRef<string | null>(player?.city ?? null)
   useEffect(() => {
     const c = player?.city ?? null
     if (c && c !== lastCity.current) {
       lastCity.current = c
       const d = CITY.get(c)
-      if (d) setVb((v) => ({ ...v, x: d.x - v.w / 2, y: d.y - (v.w * boxRef.current.h) / boxRef.current.w / 2 }))
+      if (d) flyTo(d.x, d.y, vbRef.current.w)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [player?.city])
 
   const clampVb = (v: VB): VB => {
@@ -82,6 +128,7 @@ export function MapView({ state, factionColor, selected, travelTo, onSelect }: M
     if (!el) return
     const onWheel = (e: WheelEvent): void => {
       e.preventDefault()
+      cancelAnimationFrame(anim.current)
       zoomAt(e.clientX, e.clientY, Math.exp(e.deltaY * 0.0015))
     }
     el.addEventListener('wheel', onWheel, { passive: false })
@@ -89,6 +136,7 @@ export function MapView({ state, factionColor, selected, travelTo, onSelect }: M
   })
 
   const onDown = (e: React.PointerEvent): void => {
+    cancelAnimationFrame(anim.current)
     if ((e.target as Element).closest?.('button')) return
     ptrs.current.set(e.pointerId, { x: e.clientX, y: e.clientY })
     ;(e.currentTarget as Element).setPointerCapture?.(e.pointerId)
@@ -135,8 +183,24 @@ export function MapView({ state, factionColor, selected, travelTo, onSelect }: M
 
   const pops = useMemo(() => Object.values(state.cities).map((c) => c.population), [state.cities])
   const popMax = Math.max(...pops, 1)
-  const zoomedIn = vb.w < 460
+  const zoomedIn = vb.w < 640
   const veryIn = vb.w < 300
+
+  const fs = veryIn ? 7 : 8
+  const radius = (id: string): number => 5 + 6 * Math.sqrt((state.cities[id]?.population ?? 0) / popMax)
+  const nameShown = (id: string): boolean => zoomedIn || (state.cities[id]?.population ?? 0) > popMax * 0.35 || selected === id
+  const labels = useMemo(() => {
+    const items = GAME_DATA.cities.filter((d) => state.cities[d.id] && nameShown(d.id)).map((d) => ({
+      id: d.id, x: d.x, y: d.y, r: radius(d.id) + 3.5, w: d.name.length * fs * 0.6 + 4, h: fs + 2, weight: (state.cities[d.id]?.population ?? 0) + (selected === d.id ? 1e9 : 0) + (home?.id === d.id ? 5e8 : 0),
+    }))
+    const circles = GAME_DATA.cities.filter((d) => state.cities[d.id]).map((d) => ({ x: d.x, y: d.y, r: radius(d.id) + 2 }))
+    const tok = home ? [{ x: home.x + radius(home.id) + 1, y: home.y - radius(home.id) - 10, w: 14, h: 22 }] : []
+    const days = GAME_DATA.roads.flatMap((r) => { const a = CITY.get(r.a); const b = CITY.get(r.b); return a && b ? [{ x: (a.x + b.x) / 2 - 5, y: (a.y + b.y) / 2 - 5, w: 10, h: 8 }] : [] })
+    return placeLabels(items, circles, MAP, [...tok, ...days])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.cities, fs, zoomedIn, selected, home?.id])
+  const tufts = useMemo(() => RANGES.flatMap((r) => rangeTufts(r)), [])
+  const homeR = home ? radius(home.id) : 0
 
   return (
     <div ref={ref} className="mapwrap" data-testid="map" onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={onUp}>
@@ -150,6 +214,10 @@ export function MapView({ state, factionColor, selected, travelTo, onSelect }: M
         <g style={{ color: 'var(--vermilion)' }} opacity="0.8">
           <svg x={MAP.x + 14} y={MAP.y + 12} width={MAP.w - 28} height="14"><CloudBand height={14} /></svg>
           <svg x={MAP.x + 14} y={MAP.y + MAP.h - 26} width={MAP.w - 28} height="14" style={{ transform: 'scaleY(-1)', transformOrigin: 'center', transformBox: 'fill-box' }}><CloudBand height={14} /></svg>
+        </g>
+        {/* mountain ranges (approximate): faint cloud-scroll hatching */}
+        <g fill="none" stroke="var(--dust)" strokeWidth="1.5" strokeLinecap="round" opacity="0.28" pointerEvents="none" data-testid="ranges">
+          {tufts.map((u, i) => <path key={i} d="M0 12 H2 Q7 12 9 8 Q11 3 16 4 Q20 5 19 8.5 Q18 11 14.8 10.2 Q12.8 9.4 14 8" transform={`translate(${u.x.toFixed(1)} ${u.y.toFixed(1)}) rotate(${u.angle.toFixed(0)}) scale(0.5) translate(-11 -8)`} />)}
         </g>
         {/* rivers: ochre brush */}
         <g fill="none" stroke="var(--ochre)" strokeLinecap="round" strokeLinejoin="round" opacity="0.55" filter="url(#brush)">
@@ -165,7 +233,7 @@ export function MapView({ state, factionColor, selected, travelTo, onSelect }: M
             return (
               <g key={r.a + r.b}>
                 <line x1={a.x} y1={a.y} x2={b.x} y2={b.y} stroke="var(--vermilion)" strokeWidth={near ? 1.6 : 0.9} opacity={near ? 0.95 : 0.5} />
-                {(zoomedIn || near) && <text className="roaddays" x={(a.x + b.x) / 2} y={(a.y + b.y) / 2 + 2} textAnchor="middle" fontSize={veryIn ? 6 : 7}>{r.days}</text>}
+                {(zoomedIn || near) && <text className="roaddays" x={(a.x + b.x) / 2} y={(a.y + b.y) / 2 + 2} textAnchor="middle" fontSize={veryIn ? 5.5 : 6.2}>{r.days}</text>}
               </g>
             )
           })}
@@ -213,19 +281,20 @@ export function MapView({ state, factionColor, selected, travelTo, onSelect }: M
               <circle r={Math.max(1.6, r * 0.2)} fill="#6a5530" />
               {sel && <circle r={r + 5} fill="none" stroke="var(--vermilion)" strokeWidth="1.8" />}
               {trav && !sel && <circle r={r + 5} fill="none" stroke="var(--vermilion)" strokeWidth="1.3" strokeDasharray="3 2.5" />}
-              {showName && <text className="cityname" y={r + 9} textAnchor="middle" fontSize={veryIn ? 7 : 8.5}>{d.name}</text>}
+              {showName && (() => { const lp = labels.get(d.id) ?? { dx: 0, dy: r + 9, anchor: 'middle' as const }; return <text className="cityname" x={lp.dx} y={lp.dy} textAnchor={lp.anchor} fontSize={fs}>{d.name}</text> })()}
             </g>
           )
         })}
         {/* the player's token */}
         {home && (
-          <g transform={`translate(${home.x} ${home.y - 20})`} data-testid="player-token" pointerEvents="none">
+          <g transform={`translate(${home.x + homeR + 1} ${home.y - homeR - 10})`} data-testid="player-token" pointerEvents="none">
             <path d="M0 11 L-6 0 A7 7 0 1 1 6 0 Z" fill="var(--vermilion)" stroke="var(--ochre)" strokeWidth="1.2" />
             <circle cy="-3.5" r="2.4" fill="var(--ochre)" />
           </g>
         )}
       </svg>
       <div style={{ position: 'absolute', left: 8, bottom: 8, display: 'flex', gap: 6 }}>
+        <button className="lbtn small" aria-label="Find me" data-testid="find-me" onClick={() => { if (home) flyTo(home.x, home.y, comfy(boxRef.current)) }}>Find me</button>
         <button className="lbtn small" aria-label="Zoom in" onClick={() => { const r = ref.current?.getBoundingClientRect(); if (r) zoomAt(r.left + r.width / 2, r.top + r.height / 2, 0.7) }}>+</button>
         <button className="lbtn small" aria-label="Zoom out" onClick={() => { const r = ref.current?.getBoundingClientRect(); if (r) zoomAt(r.left + r.width / 2, r.top + r.height / 2, 1.4) }}>-</button>
       </div>

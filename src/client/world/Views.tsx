@@ -19,7 +19,7 @@ export function OfficerChip({ s, id, extra, selected, target, onClick }: { s: Wo
   const open = useUi((u) => u.openOfficer)
   const o = s.officers[id]
   return (
-    <button className={`chip${selected ? ' sel' : ''}${target ? ' target' : ''}`} onClick={onClick ?? (() => open(id))} data-officer={id}>
+    <button className={`wchip${selected ? ' sel' : ''}${target ? ' target' : ''}`} onClick={onClick ?? (() => open(id))} data-officer={id}>
       <Portrait name={nameOf(s, id)} portrait={portraitOf(s, id)} size={30} ring={o?.faction ? `var(--f-${colorOf(s, o.faction)})` : undefined} />
       <span>{nameOf(s, id)}{extra ? <span className="sm"> {extra}</span> : null}</span>
     </button>
@@ -58,7 +58,7 @@ export function OfficerCard({ s, id, onClose }: { s: WorldState; id: string; onC
       <div className="dials">{STATS.map((k) => <StatDial key={k} label={statLabel(k)} value={v.stats[k]} />)}</div>
       <div className="sec">Troops</div>
       <div className="row">
-        {(['spear', 'cavalry', 'archer'] as const).map((t) => <span key={t} className="chip" style={{ padding: '3px 10px' }}>{TROOP_TEXT[t]} <b className="ochre">{v.aptitude[t]}</b></span>)}
+        {(['spear', 'cavalry', 'archer'] as const).map((t) => <span key={t} className="wchip" style={{ padding: '3px 10px' }}>{TROOP_TEXT[t]} <b className="ochre">{v.aptitude[t]}</b></span>)}
         <span className="dust">Leads up to {money(v.troopCap)} troops</span>
       </div>
       <div className="sec">Standing</div>
@@ -185,7 +185,7 @@ export function FactionsPanel({ s, onClose }: { s: WorldState; onClose: () => vo
             <div><span>Rice</span><span>{money(sel.totalRice)}</span></div>
           </div>
           <div className="sec">Cities</div>
-          <div className="chips">{sel.cities.map((c) => <button key={c} className="chip" style={{ padding: '3px 10px' }} onClick={() => { setCity(c); onClose() }}>{cityNameOf(c)}</button>)}</div>
+          <div className="chips">{sel.cities.map((c) => <button key={c} className="wchip" style={{ padding: '3px 10px' }} onClick={() => { setCity(c); onClose() }}>{cityNameOf(c)}</button>)}</div>
           <div className="sec">Relations and pacts</div>
           <div className="dust">{sel.relations.filter((r) => r.pact || Math.abs(r.value) >= 20).map((r) => `${r.name}: ${r.value}${r.pact ? ` (${r.pact}${r.until ? ` until ${ymText(r.until)}` : ''})` : ''}`).join('; ') || 'No pacts, no strong feelings.'}</div>
         </>
@@ -207,7 +207,7 @@ export function ChroniclePanel({ s, onClose }: { s: WorldState; onClose: () => v
       {rows.length === 0 && <div className="dust">Nothing recorded yet.</div>}
       {rows.map((e, i) => <LogRow key={i} s={s} e={e} />)}
       <details style={{ marginTop: 10 }}><summary className="dust">Key to the marks</summary>
-        <div className="row" style={{ marginTop: 6 }}>{LOG_KINDS.map((k) => <span key={k.kind} className="chip" style={{ padding: '2px 8px' }}><Icon name={iconFor(k.kind)} size={13} /> {k.kind}</span>)}</div>
+        <div className="row" style={{ marginTop: 6 }}>{LOG_KINDS.map((k) => <span key={k.kind} className="wchip" style={{ padding: '2px 8px' }}><Icon name={iconFor(k.kind)} size={13} /> {k.kind}</span>)}</div>
       </details>
     </LacquerBox>
   )

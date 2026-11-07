@@ -52,7 +52,7 @@ export function ActionBar({ s }: { s: WorldState }) {
         {GROUPS.map((g) => <button key={g} className={`tab${g === group ? ' on' : ''}`} onClick={() => setGroup(g)} data-testid={`tab-${g}`}>{g} <span className="dust">{counts(g)}</span></button>)}
         <LacquerButton small primary className="endm" testid="end-month" available onClick={() => (days > 0 ? setDialog('endMonth') : act({ kind: 'endMonth' }))}>End Month<span className="sub">{days > 0 ? `${days} days unspent` : 'All days spent'}</span></LacquerButton>
       </div>
-      <div className="actions">
+      <div className="wactions">
         {mine.map((it, i) => {
           const ch = it.available ? it.chance : null
           const what = it.available && it.chance !== null ? world.query.chanceOf(s, it.action)?.what : undefined
