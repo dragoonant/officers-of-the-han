@@ -169,6 +169,33 @@ async function runRate(browser, rate) {
   return out
 }
 
+async function battlePerf(browser, rate) {
+  const { execFileSync } = await import('node:child_process')
+  const env = JSON.parse(execFileSync('npx', ['tsx', 'tests/e2e/fixtures/make-saves.ts'], { encoding: 'utf8', maxBuffer: 64 << 20 })).battle
+  const ctx = await browser.newContext({ ...DEVICE, baseURL: BASE })
+  const page = await ctx.newPage()
+  await page.addInitScript(INSTALL)
+  await page.addInitScript((t) => { try { localStorage.setItem('oth-save', t) } catch {} }, JSON.stringify(env))
+  const cdp = await ctx.newCDPSession(page)
+  await page.goto('./')
+  await page.getByTestId('continue').click()
+  await page.getByTestId('battle-open').click()
+  const t0 = Date.now()
+  await cdp.send('Emulation.setCPUThrottlingRate', { rate })
+  await page.getByTestId('action-bar').waitFor({ timeout: 120000 })
+  const readyMs = Date.now() - t0
+  const info = await page.evaluate(() => { const c = document.querySelector('canvas'); return { canvas: c ? `${c.width}x${c.height}` : null, dpr: devicePixelRatio } })
+  await page.evaluate(() => { window.__frames = []; window.__long = []; window.__rec = true })
+  await sleep(5000)
+  const r = await page.evaluate(() => { window.__rec = false; return { f: window.__frames, l: window.__long } })
+  await ctx.close()
+  return { rate, readyMs, ...info, idle: stats(r.f), longMax: r.l.length ? Math.max(...r.l) : 0 }
+}
+if (args.includes('--battle')) {
+  const b = await chromium.launch({ ...exe, args: ['--no-sandbox', '--ignore-gpu-blocklist', '--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] })
+  for (const r of RATES) console.log('battle', JSON.stringify(await battlePerf(b, r)))
+  await b.close(); server?.kill(); process.exit(0)
+}
 const browser = await chromium.launch({ ...exe, args: ['--no-sandbox'] })
 if (SHOT) { // 390x844 at device scale 1, the map after the opening mission is answered, zoomed on the player's city
   const ctx = await browser.newContext({ ...DEVICE, viewport: { width: 390, height: 844 }, deviceScaleFactor: 1, baseURL: BASE })

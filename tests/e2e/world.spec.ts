@@ -129,6 +129,30 @@ test.describe('world client', () => {
     await expect(page.getByTestId('save-broken')).toContainText('no longer in the game')
   })
 
+  test('the map pans by drag, zooms by wheel, and Find me flies back (the view is one matrix on the world group)', async ({ page }) => {
+    await startAs(page, 'liu-bei', 1)
+    await answerLetters(page)
+    const world = page.getByTestId('map-world')
+    const matrix = async (): Promise<number[]> => ((await world.getAttribute('transform')) ?? '').replace(/matrix\(|\)/g, '').split(' ').map(Number)
+    await page.waitForTimeout(1200) // the framing tween
+    const m0 = await matrix()
+    const box = (await page.getByTestId('map').boundingBox())!
+    const vbBefore = await page.locator('[data-testid=map] > svg').getAttribute('viewBox')
+    await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2)
+    await page.mouse.down()
+    await page.mouse.move(box.x + box.width / 2 - 80, box.y + box.height / 2 - 40, { steps: 6 })
+    await page.mouse.up()
+    await expect.poll(async () => (await matrix())[4]).toBeLessThan(m0[4]! - 40)
+    expect(await page.locator('[data-testid=map] > svg').getAttribute('viewBox')).toBe(vbBefore) // panning never changes the viewBox
+    await page.mouse.wheel(0, -300) // zoom in
+    await expect.poll(async () => (await matrix())[0]).toBeGreaterThan(m0[0]!)
+    await page.getByTestId('find-me').click()
+    await page.waitForTimeout(1000)
+    const m1 = await matrix()
+    expect(Math.abs(m1[4]! - m0[4]!)).toBeLessThan(2) // back on the player's city, at the comfortable zoom
+    expect(Math.abs(m1[0]! - m0[0]!)).toBeLessThan(0.01)
+  })
+
   test('phone portrait and landscape fit with no horizontal scroll and no text selection', async ({ browser }) => {
     for (const vp of [{ width: 390, height: 844 }, { width: 844, height: 390 }]) {
       const ctx = await browser.newContext({ viewport: vp, deviceScaleFactor: 2, hasTouch: true, isMobile: true, baseURL: BASE })

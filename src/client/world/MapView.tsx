@@ -37,11 +37,11 @@ const Backdrop = memo(function Backdrop() {
           <svg x={MAP.x + 14} y={MAP.y + MAP.h - 26} width={MAP.w - 28} height="14" style={{ transform: 'scaleY(-1)', transformOrigin: 'center', transformBox: 'fill-box' }}><CloudBand height={14} /></svg>
         </g>
         {/* mountain ranges (approximate): faint cloud-scroll hatching */}
-        <g fill="none" stroke="var(--dust)" strokeWidth="1.5" strokeLinecap="round" opacity="0.28" pointerEvents="none" data-testid="ranges">
+        <g fill="none" stroke="var(--dust)" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.28" pointerEvents="none" data-testid="ranges">
           {TUFTS.map((u, i) => <path key={i} d="M0 12 H2 Q7 12 9 8 Q11 3 16 4 Q20 5 19 8.5 Q18 11 14.8 10.2 Q12.8 9.4 14 8" transform={`translate(${u.x.toFixed(1)} ${u.y.toFixed(1)}) rotate(${u.angle.toFixed(0)}) scale(0.5) translate(-11 -8)`} />)}
         </g>
         {/* rivers: ochre brush */}
-        <g fill="none" stroke="var(--ochre)" strokeLinecap="round" strokeLinejoin="round" opacity="0.55">
+        <g fill="none" stroke="var(--ochre)" strokeLinecap="round" strokeLinejoin="round" strokeOpacity="0.55">
           {RIVER_PATHS.map((r) => <path key={r.id} d={r.d} strokeWidth={r.width} />)}
         </g>
     </>
@@ -292,7 +292,7 @@ export function MapView({ state, factionColor, selected, travelTo, onSelect }: M
   return (
     <div ref={ref} className="mapwrap" data-testid="map" onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={onUp}>
       <svg ref={svgRef} viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Map of the realm">
-        <g ref={worldRef}>
+        <g ref={worldRef} data-testid="map-world">
         <Backdrop />
         <Roads playerCity={player?.city ?? null} zoomedIn={zoomedIn} veryIn={veryIn} />
         {/* armies on the march */}
