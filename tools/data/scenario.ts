@@ -78,7 +78,7 @@ export const OATHS: string[][] = [['liu-bei', 'guan-yu', 'zhang-fei'], ['ma-teng
 export const KIN: [string, 'parent' | 'child' | 'sibling' | 'spouse', string][] = [
   ['sun-jian', 'child', 'sun-ce'], ['sun-jian', 'child', 'sun-quan'], ['sun-jian', 'spouse', 'lady-wu'], ['sun-jian', 'sibling', 'sun-jing'],
   ['lady-wu', 'sibling', 'wu-jing'], ['lady-wu', 'child', 'sun-ce'], ['lady-wu', 'child', 'sun-quan'], ['sun-ce', 'sibling', 'sun-quan'],
-  ['yuan-shao', 'child', 'yuan-tan'], ['yuan-shao', 'child', 'yuan-xi'], ['yuan-shao', 'child', 'yuan-shang'],
+  ['yuan-shao', 'sibling', 'yuan-shu'], ['zhang-lu', 'sibling', 'zhang-wei'], ['yuan-shao', 'child', 'yuan-tan'], ['yuan-shao', 'child', 'yuan-xi'], ['yuan-shao', 'child', 'yuan-shang'],
   ['yuan-tan', 'sibling', 'yuan-xi'], ['yuan-tan', 'sibling', 'yuan-shang'], ['yuan-xi', 'sibling', 'yuan-shang'],
   ['cao-cao', 'spouse', 'lady-bian'], ['cao-cao', 'child', 'cao-ang'], ['cao-ren', 'sibling', 'cao-chun'],
   ['liu-yan', 'child', 'liu-zhang'], ['ma-teng', 'child', 'ma-chao'], ['mi-zhu', 'sibling', 'mi-fang'], ['zhuge-jin', 'sibling', 'zhuge-liang'],

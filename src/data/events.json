@@ -797,12 +797,6 @@
    },
    {
     "kind": "joinFaction",
-    "id": "tian-feng",
-    "faction": "f-yuan-shao",
-    "post": "officer"
-   },
-   {
-    "kind": "joinFaction",
     "id": "shen-pei",
     "faction": "f-yuan-shao",
     "post": "officer"
@@ -828,30 +822,6 @@
    {
     "kind": "joinFaction",
     "id": "zhang-he",
-    "faction": "f-yuan-shao",
-    "post": "officer"
-   },
-   {
-    "kind": "joinFaction",
-    "id": "wen-chou",
-    "faction": "f-yuan-shao",
-    "post": "officer"
-   },
-   {
-    "kind": "joinFaction",
-    "id": "yan-liang",
-    "faction": "f-yuan-shao",
-    "post": "officer"
-   },
-   {
-    "kind": "joinFaction",
-    "id": "bao-xin",
-    "faction": "f-yuan-shao",
-    "post": "officer"
-   },
-   {
-    "kind": "joinFaction",
-    "id": "yu-jin",
     "faction": "f-yuan-shao",
     "post": "officer"
    },
@@ -886,12 +856,6 @@
      },
      {
       "kind": "joinFaction",
-      "id": "tian-feng",
-      "faction": "f-yuan-shao",
-      "post": "officer"
-     },
-     {
-      "kind": "joinFaction",
       "id": "shen-pei",
       "faction": "f-yuan-shao",
       "post": "officer"
@@ -917,30 +881,6 @@
      {
       "kind": "joinFaction",
       "id": "zhang-he",
-      "faction": "f-yuan-shao",
-      "post": "officer"
-     },
-     {
-      "kind": "joinFaction",
-      "id": "wen-chou",
-      "faction": "f-yuan-shao",
-      "post": "officer"
-     },
-     {
-      "kind": "joinFaction",
-      "id": "yan-liang",
-      "faction": "f-yuan-shao",
-      "post": "officer"
-     },
-     {
-      "kind": "joinFaction",
-      "id": "bao-xin",
-      "faction": "f-yuan-shao",
-      "post": "officer"
-     },
-     {
-      "kind": "joinFaction",
-      "id": "yu-jin",
       "faction": "f-yuan-shao",
       "post": "officer"
      },
@@ -2015,11 +1955,11 @@
   "title": "The Fall of Xiapi",
   "from": {
    "year": 198,
-   "month": 6
+   "month": 10
   },
   "to": {
    "year": 199,
-   "month": 3
+   "month": 2
   },
   "chance": 50,
   "conditions": [
@@ -2158,7 +2098,7 @@
   },
   "to": {
    "year": 200,
-   "month": 12
+   "month": 5
   },
   "chance": 40,
   "conditions": [
