@@ -43,13 +43,14 @@ describe('store: the sole caller of world.step, with autosave after every accept
   it('answers pendings through the store and keeps a battle in progress', async () => {
     const { useGame } = await import('../../../src/client/store/game')
     const { readSave } = await import('../../../src/client/save/save')
+    const { world } = await import('../../../src/world')
     useGame.getState().startNew(opts)
     useGame.getState().act({ kind: 'endMonth' })
     for (let i = 0; i < 20 && useGame.getState().state!.pending.length; i++) {
       const p = useGame.getState().state!.pending[0]!
       if (p.kind === 'letter') useGame.getState().act({ kind: 'ack', pending: p.id })
       else if (p.kind === 'offer') useGame.getState().act({ kind: 'answerOffer', pending: p.id, accept: false })
-      else break
+      else useGame.getState().act(world.legalActions(useGame.getState().state!)[0]!) // event choices and the like: take the first legal answer
     }
     useGame.getState().setBattle({ marker: 2 } as never)
     const r = readSave(st)
