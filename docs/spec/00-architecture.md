@@ -48,3 +48,4 @@ One versioned envelope under `localStorage['oth-save']`: `{ version, savedAt, op
 
 ## Change log
 - 2026-11-07 v0.1 written at M0 (contracts frozen: `src/contracts/*.ts`).
+- 2026-11-07 The world engine is built as `createWorldApi(data: GameData)` returning `{ newGame, legalActions, step, replay, query }` (the `WorldApi` methods plus `query`), so tests run on a fixture and the game on `GAME_DATA`. `src/world/index.ts` exports `world = createWorldApi(GAME_DATA)`.
