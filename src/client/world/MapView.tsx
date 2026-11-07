@@ -5,6 +5,7 @@ import { GAME_DATA } from '../../data'
 import { placeLabels, rangeTufts, RANGES, riverBrush, RIVERS } from './geo'
 import { CloudBand } from './seam'
 
+const RIVER_PATHS = RIVERS.map((r) => ({ id: r.id, width: r.width, d: riverBrush(r) }))
 const CITY = new Map(GAME_DATA.cities.map((c) => [c.id, c]))
 const MAP = { x: 90, y: -30, w: 800, h: 820 }
 const MIN_W = 150
@@ -205,9 +206,6 @@ export function MapView({ state, factionColor, selected, travelTo, onSelect }: M
   return (
     <div ref={ref} className="mapwrap" data-testid="map" onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={onUp}>
       <svg viewBox={`${vb.x} ${vb.y} ${vb.w} ${vh}`} preserveAspectRatio="xMidYMid meet" role="img" aria-label="Map of the realm">
-        <defs>
-          <filter id="brush"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="3" result="n" /><feDisplacementMap in="SourceGraphic" in2="n" scale="3" /></filter>
-        </defs>
         {/* the tray and its cloud-scroll rim */}
         <rect x={MAP.x} y={MAP.y} width={MAP.w} height={MAP.h} rx="18" fill="#151110" stroke="#3a2a22" strokeWidth="2" />
         <rect x={MAP.x + 8} y={MAP.y + 8} width={MAP.w - 16} height={MAP.h - 16} rx="12" fill="none" stroke="var(--red-lacquer)" strokeWidth="1.5" />
@@ -220,8 +218,8 @@ export function MapView({ state, factionColor, selected, travelTo, onSelect }: M
           {tufts.map((u, i) => <path key={i} d="M0 12 H2 Q7 12 9 8 Q11 3 16 4 Q20 5 19 8.5 Q18 11 14.8 10.2 Q12.8 9.4 14 8" transform={`translate(${u.x.toFixed(1)} ${u.y.toFixed(1)}) rotate(${u.angle.toFixed(0)}) scale(0.5) translate(-11 -8)`} />)}
         </g>
         {/* rivers: ochre brush */}
-        <g fill="none" stroke="var(--ochre)" strokeLinecap="round" strokeLinejoin="round" opacity="0.55" filter="url(#brush)">
-          {RIVERS.map((r) => <path key={r.id} d={riverBrush(r)} strokeWidth={r.width} />)}
+        <g fill="none" stroke="var(--ochre)" strokeLinecap="round" strokeLinejoin="round" opacity="0.55">
+          {RIVER_PATHS.map((r) => <path key={r.id} d={r.d} strokeWidth={r.width} />)}
         </g>
         {/* roads */}
         <g>

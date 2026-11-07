@@ -16,18 +16,54 @@ export const RIVERS: River[] = [
 
 export const riverPath = (r: River): string => r.points.map(([lon, lat], i) => `${i ? 'L' : 'M'}${projectX(lon).toFixed(1)} ${projectY(lat).toFixed(1)}`).join(' ')
 
-/** Smooth the polyline with quadratic midpoints so it reads as a brush stroke. */
+/** Deterministic hash of a string to [0, 1): seeds each river's wobble so it never changes between renders or builds. */
+const hash01 = (s: string): number => { let h = 2166136261; for (let i = 0; i < s.length; i++) h = Math.imul(h ^ s.charCodeAt(i), 16777619); return ((h >>> 0) % 100000) / 100000 }
+
+/** The brush stroke as geometry. The wobble used to be an SVG feTurbulence + feDisplacementMap filter, which the browser
+ *  re-rasterised on every pan and zoom frame (very costly on phones). It is now baked into the path: the course is sampled
+ *  every `STEP` map units along a quadratic-smoothed polyline, and each sample is pushed sideways by two summed sines
+ *  (about 25 and 12 map units long, +-1.5 in all, the filter's scale), seeded by the river id. Same look, no filter. */
 export function riverBrush(r: River): string {
   const p = r.points.map(([lon, lat]) => [projectX(lon), projectY(lat)] as const)
   if (p.length < 3) return riverPath(r)
-  let d = `M${p[0]![0].toFixed(1)} ${p[0]![1].toFixed(1)}`
-  for (let i = 1; i < p.length - 1; i++) {
-    const [x, y] = p[i]!
-    const [nx, ny] = p[i + 1]!
-    d += ` Q${x.toFixed(1)} ${y.toFixed(1)} ${((x + nx) / 2).toFixed(1)} ${((y + ny) / 2).toFixed(1)}`
+  const STEP = 3
+  const ph = hash01(r.id) * Math.PI * 2
+  // sample the smooth course (quadratic Beziers between segment midpoints)
+  const pts: [number, number][] = [[p[0]![0], p[0]![1]]]
+  let prev: readonly [number, number] = p[0]!
+  for (let i = 1; i < p.length; i++) {
+    const c = p[i]!
+    const n = p[i + 1]
+    const end: readonly [number, number] = n ? [(c[0] + n[0]) / 2, (c[1] + n[1]) / 2] : c
+    const len = Math.hypot(c[0] - prev[0], c[1] - prev[1]) + Math.hypot(end[0] - c[0], end[1] - c[1])
+    const k = Math.max(2, Math.ceil(len / STEP))
+    for (let j = 1; j <= k; j++) {
+      const t = j / k
+      const u = 1 - t
+      pts.push([u * u * prev[0] + 2 * u * t * c[0] + t * t * end[0], u * u * prev[1] + 2 * u * t * c[1] + t * t * end[1]])
+    }
+    prev = end
   }
-  const last = p[p.length - 1]!
-  return d + ` L${last[0].toFixed(1)} ${last[1].toFixed(1)}`
+  // push each sample sideways along the local normal
+  let d: string
+  let s = 0
+  const out: [number, number][] = []
+  for (let i = 0; i < pts.length; i++) {
+    const a = pts[Math.max(0, i - 1)]!
+    const b = pts[Math.min(pts.length - 1, i + 1)]!
+    const l = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1
+    if (i) s += Math.hypot(pts[i]![0] - pts[i - 1]![0], pts[i]![1] - pts[i - 1]![1])
+    const w = 1.0 * Math.sin(s * 0.25 + ph) + 0.5 * Math.sin(s * 0.52 + ph * 1.7)
+    out.push([pts[i]![0] - ((b[1] - a[1]) / l) * w, pts[i]![1] + ((b[0] - a[0]) / l) * w])
+  }
+  d = `M${out[0]![0].toFixed(1)} ${out[0]![1].toFixed(1)}`
+  for (let i = 1; i < out.length - 1; i++) {
+    const [x, y] = out[i]!
+    const [nx, ny] = out[i + 1]!
+    d += `Q${x.toFixed(1)} ${y.toFixed(1)} ${((x + nx) / 2).toFixed(1)} ${((y + ny) / 2).toFixed(1)}`
+  }
+  const last = out[out.length - 1]!
+  return d + `L${last[0].toFixed(1)} ${last[1].toFixed(1)}`
 }
 
 // APPROXIMATE mountain ranges, hand-traced from memory, drawn as faint cloud-scroll hatching along the line.
