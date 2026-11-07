@@ -46,7 +46,7 @@ export function autoBattleOutcome(d: DataIdx, s: WorldState, setup: BattleSetup,
     const end = Math.max(0, u.troops - loss)
     let captured = false
     if (!won && !u.officer.id.startsWith('garrison-')) {
-      const pct = 20 + (u.side === 'defender' && noRetreat ? 20 : 0)
+      const pct = 10 + (u.side === 'defender' && noRetreat ? 20 : 0)
       captured = 1 + Math.floor(nextFloat(rng) * 100) <= pct
     }
     units.push({

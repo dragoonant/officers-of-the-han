@@ -22,7 +22,7 @@ describe('W-AI', () => {
     expect(s.cities['xuchang']!.prefect).not.toBeNull()
   })
   it('W-AI-2 an AI ruler gives the player\'s officer a mission offer (60%) and attacks when P_att > 1.4 P_def', () => {
-    const s = fresh('xiahou-dun', 1, (x) => { x.options.events = false; x.pacts = []; x.cities['wancheng']!.faction = null; x.cities['xuchang']!.troops = 8000 })
+    const s = fresh('xiahou-dun', 1, (x) => { x.options.events = false; x.pacts = []; x.ym = { year: 190, month: 5 } /* past the W-AI-5 opening */; x.cities['wancheng']!.faction = null; x.cities['xuchang']!.troops = 8000 })
     let offers = 0
     let wars = 0
     for (let i = 1; i < 30; i++) {

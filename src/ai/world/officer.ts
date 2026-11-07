@@ -40,6 +40,17 @@ function nearestOwn(c: Ctx, fid: string, from: string): string | null {
   return best
 }
 
+/** Months of upkeep a city pays before the next harvest arrives (rice income is at the start of month 9, W-ECO-2). */
+export function monthsToHarvest(c: Ctx): number {
+  const m = c.s.ym.month
+  return m <= 8 ? 8 - m : 20 - m
+}
+
+/** The rice a city of `troops` soldiers needs to reach the harvest, with one month to spare (W-AI-6). */
+export function riceNeeded(c: Ctx, troops: number): number {
+  return (monthsToHarvest(c) + 1) * Math.ceil(troops / 100)
+}
+
 const ok = (c: Ctx, id: string, a: WorldAction): WorldAction | null => (checkAction(c, id, a) === null ? a : null)
 
 function workChoice(c: Ctx, id: string): WorldAction | null {
@@ -52,6 +63,7 @@ function workChoice(c: Ctx, id: string): WorldAction | null {
     if (info.capped) return false
     if (info.gold > 0 && ct.gold - info.gold < reserve) return false
     if (w === 'draft' && (ct.population < 4000 || ct.order < 50)) return false
+    if (w === 'draft' && ct.rice < riceNeeded(c, ct.troops + info.gain)) return false // W-AI-6: never draft into a famine
     return checkAction(c, id, { kind: 'work', work: w }) === null
   }
   const ratios: [WorkKind, number][] = [

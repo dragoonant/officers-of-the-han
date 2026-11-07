@@ -1,12 +1,22 @@
 // W-AI-2: the AI court at month start (prefects, transfers, missions, captives, rewards, war, diplomacy).
-import type { Mission, WorldAction } from '../../contracts/world'
+import type { ArmyUnit, Mission, WorldAction } from '../../contracts/world'
 import {
   C, F, O, type Ctx, factionCities, factionOfficers, friendship, isRival, newPendingId, nameOf, neighbors, officersIn, pactBetween, roll, rnd, sortedIds, totalTroops,
-  distance, cityName, log,
+  distance, cityName, log, ymNum,
 } from '../../world/core'
-import { applyAction, checkAction, describeMission, normalizeMission, hiddenIn } from '../../world/rules'
+import { applyAction, checkAction, describeMission, normalizeMission, hiddenIn, workInfo } from '../../world/rules'
 import { checkArmy, defencePower, suggestArmy, unitsPower } from '../../world/war'
-import { isBorder } from './officer'
+import { isBorder, riceNeeded } from './officer'
+
+/** W-AI-2: the attack threshold. */
+export const WAR_RATIO = 1.4
+
+/** W-AI-2: a threatened ruler with no pact yet asks the threat for a truce this often (percent per month). */
+export const DIPLO_CHANCE = 8
+/** W-AI-2: a ruler with 3.5x the troops of an adjacent house demands surrender with this chance (percent per month). */
+export const SURRENDER_CHANCE = 6
+/** W-AI-2: chance (percent) that a ruler looks for a war in a given month, per war slot. */
+export const WAR_CHANCE = 60
 
 const ok = (c: Ctx, id: string, a: WorldAction): WorldAction | null => (checkAction(c, id, a) === null ? a : null)
 
@@ -47,27 +57,62 @@ export function moveAction(c: Ctx, fid: string): WorldAction | null {
   return null
 }
 
-/** The best attack for a faction right now, or null (P_att > 1.4 * P_def, rice there). */
+/** W-AI-5: no AI war in the first three months of a scenario. */
+export function peacefulOpening(c: Ctx): boolean {
+  const sc = c.d.data.scenarios.find((x) => x.id === c.s.scenario)
+  if (!sc) return false
+  return ymNum(c.s.ym) - ymNum({ year: sc.year, month: sc.month }) < OPENING_MONTHS
+}
+export const OPENING_MONTHS = 3
+
+/** W-AI-5: while the coalition stands, a coalition member's preferred victim (Dong Zhuo's house), else null. */
+function coalitionTarget(c: Ctx, fid: string): string | null {
+  if (!c.s.flags.includes('coalition') || c.s.flags.includes('coalition-ended')) return null
+  const ev = c.d.data.events.find((e) => e.id === 'coalition-forms')
+  const al = ev?.effects.find((e) => e.kind === 'alliance')
+  if (!al || al.kind !== 'alliance' || !al.factions.includes(fid)) return null
+  const dz = c.s.officers['dong-zhuo']
+  const f = dz && dz.status !== 'dead' ? dz.faction : null
+  return f && f !== fid && c.s.factions[f]?.alive ? f : null
+}
+
+/** Army sizes the AI tries, smallest first (W-AI-2: send only what the job needs). */
+const FRACTIONS = [0.25, 0.8]
+
+/** The best attack for a faction right now, or null (P_att > WAR_RATIO * P_def with the smallest army that manages it, rice there). */
 export function bestWar(c: Ctx, fid: string, minTroops = 1000): WorldAction | null {
+  if (peacefulOpening(c)) return null // W-AI-5
   const ruler = F(c, fid).ruler
+  const hostile = coalitionTarget(c, fid) // W-AI-5: the coalition marches on Dong Zhuo's cities
   const pl = c.s.officers[c.s.player]
   let best: { a: WorldAction; ratio: number } | null = null
   for (const from of factionCities(c, fid)) {
     const ct = C(c, from)
     if (ct.troops < minTroops) continue
     const must = pl && pl.status === 'active' && pl.faction === fid && pl.city === from && pl.health >= 30 && pl.post !== 'ruler' ? pl.id : undefined
-    const units = suggestArmy(c, fid, from, must)
-    if (units.length === 0) continue
-    const patt = unitsPower(c, units, ct.training)
+    // W-AI-6: the troops left at home must still be fed until the harvest
+    const options: { units: ArmyUnit[]; patt: number }[] = []
+    for (const fr of FRACTIONS) {
+      const units = suggestArmy(c, fid, from, must, fr)
+      if (units.length === 0) continue
+      let a = 0
+      for (const u of units) a += u.troops
+      if (ct.rice - Math.ceil(a / 100) * 2 < riceNeeded(c, ct.troops - a)) continue
+      options.push({ units, patt: unitsPower(c, units, ct.training) })
+    }
+    if (options.length === 0) continue
+    const top = options[options.length - 1]!
     for (const e of neighbors(c, from)) {
       const t = C(c, e.to)
       if (t.faction === fid || (t.faction && pactBetween(c, fid, t.faction))) continue
-      if (checkArmy(c, fid, from, e.to, units) !== null) continue
       const pdef = defencePower(c, e.to)
-      if (pdef > 0 && patt <= 1.4 * pdef) continue
-      const ratio = pdef > 0 ? patt / pdef : 1e9
+      const pick = pdef > 0 ? (top.patt > WAR_RATIO * pdef ? top : undefined) : options[0] // a vacant city needs only a small force
+      if (!pick) continue
+      if (checkArmy(c, fid, from, e.to, pick.units) !== null) continue
+      let ratio = pdef > 0 ? top.patt / pdef : 1e9
+      if (hostile && t.faction === hostile) ratio = ratio * 100 + 1
       if (!best || ratio > best.ratio) {
-        const a = ok(c, ruler, { kind: 'war', from, to: e.to, units })
+        const a = ok(c, ruler, { kind: 'war', from, to: e.to, units: pick.units })
         if (a) best = { a, ratio }
       }
     }
@@ -100,13 +145,15 @@ function missionOffer(c: Ctx, fid: string): void {
       ['farm', ct.farm / Math.max(1, def.farmMax)], ['trade', ct.trade / Math.max(1, def.tradeMax)], ['order', ct.order / 100], ['walls', ct.walls / Math.max(1, def.wallsMax)],
     ]
     r.sort((a, b) => a[1] - b[1])
-    opts.push({ kind: 'develop', city: ct.id, work: r[0]![0], count: 2, done: 0, deadline: { ...c.s.ym } })
+    // a mission must be doable: skip work that is already at its maximum, and keep the gold for two actions
+    const w = r.find(([k]) => { const info = workInfo(c, pl, k); return !info.capped && ct.gold >= info.gold * 2 + 100 })
+    if (w) opts.push({ kind: 'develop', city: ct.id, work: w[0], count: 2, done: 0, deadline: { ...c.s.ym } })
   }
   const wand = officersIn(c, pl.city, (x) => x.post === 'wanderer' && !isRival(c, pl.id, x.id))[0]
   if (wand) opts.push({ kind: 'recruit', officer: wand.id, deadline: { ...c.s.ym } })
   for (const e of neighbors(c, pl.city)) {
     const t = C(c, e.to)
-    if (t.faction && t.faction !== fid) { opts.push({ kind: 'scout', city: e.to, reached: false, deadline: { ...c.s.ym } }); break }
+    if (t.faction && t.faction !== fid && e.days <= 15) { opts.push({ kind: 'scout', city: e.to, reached: false, deadline: { ...c.s.ym } }); break }
   }
   if (opts.length === 0) return
   const m = normalizeMission(c, opts[Math.floor(rnd(c) * opts.length)]!)
@@ -158,17 +205,36 @@ export function runCourt(c: Ctx, fid: string): void {
   const cities = factionCities(c, fid).length
   const limit = cities >= 9 ? 2 : 1
   for (let w = 0; w < limit; w++) {
+    if (!roll(c, WAR_CHANCE)) continue
     const a = bestWar(c, fid)
     if (!a) break
     applyAction(c, ruler, a)
   }
   // threatened: truce or alliance
   const th = threat(c, fid)
-  if (th && roll(c, 20)) {
-    const pact = pactBetween(c, fid, th)
-    const proposal = pact === 'truce' ? 'alliance' : 'truce'
+  if (th && !pactBetween(c, fid, th) && roll(c, DIPLO_CHANCE)) {
+    const proposal = 'truce'
     const a = ok(c, ruler, { kind: 'diplomacy', envoy: ruler, faction: th, proposal, mode: 'roll' })
     if (a) applyAction(c, ruler, a)
+  }
+  // a much stronger neighbour may demand surrender (W-DIP-4)
+  if (SURRENDER_CHANCE > 0) {
+    const mine = totalTroops(c, fid)
+    let weakest: string | null = null
+    let wt = Infinity
+    const seen = new Set<string>()
+    for (const cid of factionCities(c, fid)) for (const e of neighbors(c, cid)) {
+      const f2 = C(c, e.to).faction
+      if (f2 && f2 !== fid && !seen.has(f2)) seen.add(f2)
+    }
+    for (const f2 of [...seen].sort()) {
+      const tt = totalTroops(c, f2)
+      if (mine >= 3.5 * tt && !pactBetween(c, fid, f2) && tt < wt) { wt = tt; weakest = f2 }
+    }
+    if (weakest && roll(c, SURRENDER_CHANCE)) {
+      const a = ok(c, ruler, { kind: 'diplomacy', envoy: ruler, faction: weakest, proposal: 'surrender', mode: 'roll' })
+      if (a) applyAction(c, ruler, a)
+    }
   }
   void friendship; void hiddenIn; void isBorder; void cityName; void log
 }
