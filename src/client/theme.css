@@ -1,0 +1,98 @@
+/* Han lacquerware theme (docs/spec/50-presentation.md). Black lacquer ground, vermilion cloud-scroll bands,
+   verdigris/bronze mirrors, Josefin Sans display caps, Nunito Sans body. Re-skinning is not re-colouring (KB rule 21). */
+:root {
+  --lacquer: #0f0c0b;
+  --lacquer-2: #1c1613;
+  --lacquer-3: #2a201b;
+  --vermilion: #c4471d;
+  --red-lacquer: #6e1d12;
+  --ochre: #d9a441;
+  --verdigris: #5f8f7f;
+  --bronze-face: #b79a62;
+  --silk: #eadbab;
+  --ink: #231a12;
+  --paper: #efe3c8;
+  --dust: #9b8a72;
+  /* faction pigments: vermilion is never one */
+  --f-1: #2f7d5b; /* malachite */
+  --f-2: #3f6fb5; /* azurite */
+  --f-3: #d6a41e; /* orpiment */
+  --f-4: #e8e4d8; /* lead white */
+  --f-5: #5b5b5e; /* carbon grey */
+  --f-6: #a8324f; /* madder */
+  --f-7: #34407e; /* indigo */
+  --f-8: #6b4a33; /* umber */
+  --f-9: #cdbd7e; /* ochre pale */
+  --f-10: #8a4b2e; /* cinnabar brown */
+  --f-11: #8db8a0; /* celadon */
+  --f-12: #7a3d7a; /* plum */
+  --f-13: #b0643a; /* sienna */
+  --f-14: #6d7c8c; /* slate */
+  --font-display: 'Josefin Sans', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Nunito Sans', 'Segoe UI', system-ui, sans-serif;
+  --box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  --gutter: 12px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body, #root { margin: 0; height: 100%; background: var(--lacquer); color: var(--paper); font-family: var(--font-body); font-variant-numeric: tabular-nums; }
+body { overflow: hidden; overscroll-behavior: none; }
+
+/* KB rule 24: a long press never selects text, pops a callout or flashes a highlight. */
+html, body, #root { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
+input, textarea, select, [contenteditable='true'] { -webkit-user-select: text; user-select: text; -webkit-touch-callout: default; }
+img, canvas { -webkit-user-drag: none; }
+button { touch-action: manipulation; font-family: inherit; }
+
+.caps { font-family: var(--font-display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* ---------- Lacquer box ---------- */
+.lbox {
+  position: relative;
+  background: var(--lacquer-2);
+  clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px);
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.55));
+  animation: lid 180ms ease-out both;
+}
+.lbox-wrap { filter: drop-shadow(var(--box-shadow)); }
+.lbox-in { margin: 6px; background: var(--red-lacquer); padding: 8px 10px 10px; min-height: 24px; position: relative; background-image: radial-gradient(ellipse at 50% 0%, rgba(217, 164, 65, 0.1), transparent 70%); }
+.lbox-title { font-family: var(--font-display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; font-size: 13px; color: var(--ochre); margin: 2px 2px 6px; }
+.lbox .cloud { position: absolute; left: 0; right: 0; top: 0; height: 14px; color: var(--vermilion); pointer-events: none; }
+@keyframes lid { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+
+/* ---------- Silk letter ---------- */
+.silk { background: var(--silk); color: var(--ink); border: 3px solid var(--vermilion); padding: 12px 16px; position: relative; animation: unroll 260ms ease-out both; transform-origin: top; box-shadow: var(--box-shadow); }
+.silk h3 { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.12em; margin: 0 0 6px; font-size: 14px; }
+@keyframes unroll { from { opacity: 0; transform: scaleY(0.6); } to { opacity: 1; transform: none; } }
+
+/* ---------- Lacquer button ---------- */
+.lbtn {
+  position: relative; display: inline-flex; flex-direction: column; align-items: flex-start; gap: 1px; min-width: 96px; min-height: 44px;
+  padding: 7px 14px 6px; color: var(--paper); background: var(--lacquer-3); border: 0; cursor: pointer; text-align: left; flex: 0 0 auto;
+  clip-path: polygon(7px 0, calc(100% - 7px) 0, 100% 7px, 100% calc(100% - 7px), calc(100% - 7px) 100%, 7px 100%, 0 calc(100% - 7px), 0 7px);
+  box-shadow: inset 0 0 0 2px var(--vermilion);
+}
+.lbtn.primary { background: var(--red-lacquer); }
+.lbtn:disabled { opacity: 0.4; cursor: not-allowed; box-shadow: inset 0 0 0 2px var(--lacquer-3); }
+.lbtn .lbtn-name { font-family: var(--font-display); font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; font-size: 13px; line-height: 1.2; }
+.lbtn .lbtn-cost { font-size: 11.5px; color: var(--dust); line-height: 1.25; max-width: 24ch; }
+.lbtn.avail::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--ochre), transparent); background-size: 200% 100%; animation: shimmer 2.6s linear infinite; }
+.lbtn.selected { box-shadow: inset 0 0 0 3px var(--vermilion), 0 0 0 1px var(--ochre); background: var(--red-lacquer); }
+.lbtn.target { box-shadow: inset 0 0 0 2px transparent; outline: 2px dashed var(--vermilion); outline-offset: -4px; }
+.lbtn:focus-visible { outline: 2px solid var(--ochre); outline-offset: 2px; }
+@keyframes shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+
+/* ---------- Mirror (round) ---------- */
+.mirror { display: inline-block; position: relative; flex: 0 0 auto; }
+.mirror svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.mirror .mirror-in { position: absolute; inset: 14%; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.mirror .mirror-in img { width: 100%; height: 100%; object-fit: cover; }
+.medallion-letter { font-family: var(--font-display); font-weight: 600; color: var(--ink); font-size: 1.6em; line-height: 1; }
+
+/* ---------- Misc ---------- */
+.dust { color: var(--dust); }
+.ochre { color: var(--ochre); }
+.row { display: flex; gap: 8px; align-items: center; }
+.scrollx { overflow-x: auto; scrollbar-width: thin; scrollbar-color: var(--vermilion) var(--lacquer); }
+@media (prefers-reduced-motion: reduce) { .lbtn.avail::after, .lbox, .silk { animation: none; } }
