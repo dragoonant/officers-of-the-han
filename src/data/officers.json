@@ -1039,6 +1039,10 @@
     "role": "child"
    },
    {
+    "id": "yuan-shu",
+    "role": "sibling"
+   },
+   {
     "id": "yuan-tan",
     "role": "child"
    },
@@ -1694,7 +1698,12 @@
    "cavalry": "B",
    "archer": "B"
   },
-  "kin": [],
+  "kin": [
+   {
+    "id": "yuan-shao",
+    "role": "sibling"
+   }
+  ],
   "source": "Romance ch.5; Sanguozhi: Biography of Yuan Shu; Wikipedia: Yuan Shu",
   "basis": "Pos: Governor of Nanyang; CHA 35: proud and heavy with taxes",
   "courtesy": "Gonglu"
@@ -3236,7 +3245,12 @@
    "cavalry": "B",
    "archer": "B"
   },
-  "kin": [],
+  "kin": [
+   {
+    "id": "zhang-wei",
+    "role": "sibling"
+   }
+  ],
   "source": "Romance ch.58; Sanguozhi: Biography of Zhang Lu; Wikipedia: Zhang Lu (Han dynasty); Wikipedia: List of people of the Three Kingdoms (Z)",
   "basis": "Pos: grandson of the founder of the Way of the Five Pecks, ruling Hanzhong from 191; placed there at the start",
   "courtesy": "Gongqi",
@@ -3261,7 +3275,12 @@
    "cavalry": "B",
    "archer": "B"
   },
-  "kin": [],
+  "kin": [
+   {
+    "id": "zhang-lu",
+    "role": "sibling"
+   }
+  ],
   "source": "Romance ch.67; Sanguozhi: Biography of Zhang Lu; Wikipedia: List of people of the Three Kingdoms (Z); Wikipedia: Zhang Lu (Han dynasty)",
   "basis": "Pos: Zhang Lu's brother and general"
  },
