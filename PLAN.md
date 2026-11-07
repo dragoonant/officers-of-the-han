@@ -34,7 +34,7 @@ Asked through the multiple-choice UI before the owner went to sleep (two batches
 | M2a | World engine (`src/world`) + world AI + headless 10-year sim with invariants | done |
 | M2b | Hex battle engine (`src/battle`) + battle AI + bench; duel and debate engines (`src/duel`, `src/debate`) | done |
 | M3 | First playable on Pages: title, new game (pick or create officer), lacquer map, city/officer/letters screens, month loop, hex battle board, duel and debate screens, autosave + Continue, e2e | done locally (M3a client, M3b board, M3c integration); not on Pages until the repo exists |
-| M4 | Balance: sim + bench passes, AI tiers | M4a done (famine, war spam, captures, missions); M4b open: Dong Zhuo dominance |
+| M4 | Balance: sim + bench passes, AI tiers | M4a and M4b done (Dong Zhuo dominance fixed); open: factions at 200 above the band, a quiet late game |
 | M5 | Art: portraits for every officer, battle figures per officer kit (owner PC for GPU) | |
 | M6 | Audio (owner PC) | |
 | M7 | Polish, Viceroy, more scenarios (184, 194, 200) | |

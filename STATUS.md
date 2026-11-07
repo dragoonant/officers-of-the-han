@@ -1,6 +1,6 @@
 # STATUS — Officers of the Han
 
-**2026-11-07, end of the first overnight run.** M0–M3 done and M4a done, all committed locally. Not on Pages yet: the repo `dragoonant/officers-of-the-han` does not exist (PLAN D1), and the cloud session cannot create it.
+**2026-11-07, end of the first overnight run.** M0–M3, M4a and M4b done, all committed locally. Not on Pages yet: the repo `dragoonant/officers-of-the-han` does not exist (PLAN D1), and the cloud session cannot create it.
 
 ## Playable now (`npm run dev`)
 - Title, new game in 190: pick any of 159 officers, or create your own. Map framing centres on you, with a "Find me" button.
@@ -11,28 +11,29 @@
 
 ## Gates (main, 2026-11-07)
 - typecheck clean
-- 337 unit tests
+- 346 unit tests
 - `validate:data` ok
 - build ok
 - 20 e2e passed, 2 skipped (screenshot specs, run with `SHOTS=1`)
-  - The lab "mouse" pan test flaked once and passed on rerun.
+  - Under the full suite's load, two lab tests have each failed once: the "mouse" pan and the rule-25 tile tap. Both passed on rerun. Treat them as timing flakes to harden.
 
-## Sim (10 seeds × 10 years, `npm run sim`)
+## Sim (10 seeds × 10 years, `npm run sim`; after M4b)
 | Metric | Value |
 |---|---|
 | Invariant failures | 0 |
-| Famine | 0.09 per faction-year |
-| Wars | 0.59 per faction-year |
-| Captures | 0.18 per battle |
-| AI wars in the first 3 months | none |
+| Famine | 0.08 per faction-year |
+| Wars | 0.68 per faction-year (0.59 over 30 seeds) |
+| Captures | 0.22 per battle |
+| Dong Zhuo's successor house at 200 | 4.4 cities |
+| Cao Cao alive at 200 | 10 of 10 (28 of 30) |
+| Seeds with any house over 40% of cities | none |
 
-**Open:** Dong Zhuo's house dominates (about 12 cities by 200), and Cao Cao survives only 4 of 10 seeds. M4b is working on it.
+**Open:** about 18 factions are left at 200 (the target band is 8–14), and battles fall from about 350 a year in 190 to about 30 by 198. The late game is too quiet and needs a pressure term. War count jumps sharply with the AI war chance (`docs/spec/13-balance.md`). Battle result letters can pile up when the player's house is attacked often.
 
 ## Known gaps
 - **Feedback and engine:**
-  - No battle result letter yet; the outcome shows only in the ticker and chronicle. M4b is adding one.
-  - The `war` and `propose` dialogs crash if opened while unavailable; the UI disables them. M4b is fixing this.
-  - `suggestArmy` takes no proposer. M4b is adding it.
+  - Done in M4b: a battle result letter (`W-WAR-10`), a guard in the war and propose dialogs, and `suggestArmy` with a proposer.
+  - One data-level fix: the `burning-of-luoyang` event moves 20,000 troops from Luoyang to Chang'an (`docs/handoff/m4b.md`).
 - **Rendering:**
   - Each battle mounts its own WebGL canvas. The persistent-renderer recipe from the KB is not applied yet.
 - **Art and audio:**
@@ -42,5 +43,5 @@
 
 ## Next
 1. The owner creates `dragoonant/officers-of-the-han`: empty and public, with Pages set to Source: GitHub Actions. The session then pushes main, and `.github/workflows/deploy.yml` deploys it.
-2. Merge M4b: the result letter, the dialog guard, the proposer for `suggestArmy`, and the Dong Zhuo balance.
+2. M4c balance: late-game pressure, so the world keeps consolidating after 195. Add a digest for result letters.
 3. M5 art on the owner's PC.
