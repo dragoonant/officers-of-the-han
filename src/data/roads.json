@@ -2,7 +2,7 @@
  {
   "a": "luoyang",
   "b": "hongnong",
-  "days": 7,
+  "days": 6,
   "terrain": "hills"
  },
  {
@@ -38,7 +38,7 @@
  {
   "a": "luoyang",
   "b": "ye",
-  "days": 11,
+  "days": 12,
   "terrain": "river"
  },
  {
@@ -110,7 +110,7 @@
  {
   "a": "shangdang",
   "b": "ye",
-  "days": 8,
+  "days": 9,
   "terrain": "mountain"
  },
  {
@@ -128,7 +128,7 @@
  {
   "a": "ye",
   "b": "nanpi",
-  "days": 12,
+  "days": 11,
   "terrain": "plain"
  },
  {
@@ -158,7 +158,7 @@
  {
   "a": "pingyuan",
   "b": "beihai",
-  "days": 10,
+  "days": 9,
   "terrain": "plain"
  },
  {
@@ -200,7 +200,7 @@
  {
   "a": "xiapi",
   "b": "jianye",
-  "days": 11,
+  "days": 12,
   "terrain": "river"
  },
  {
