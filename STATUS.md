@@ -1,6 +1,6 @@
 # STATUS — Officers of the Han
 
-**2026-11-07, end of the first overnight run.** M0–M3, M4a and M4b done, all committed locally. Not on Pages yet: the repo `dragoonant/officers-of-the-han` does not exist (PLAN D1), and the cloud session cannot create it.
+**2026-11-07, end of the first overnight run.** M0–M3, M4a and M4b done. **Live on Pages: https://dragoonant.github.io/officers-of-the-han/** (lab: https://dragoonant.github.io/officers-of-the-han/lab.html). It was first deployed on 2026-11-07 after the owner created the repo.
 
 ## Playable now (`npm run dev`)
 - Title, new game in 190: pick any of 159 officers, or create your own. Map framing centres on you, with a "Find me" button.
@@ -42,6 +42,5 @@
 - **Screenshots:** the older M3a screenshots in `docs/screens/` (`map-midgame.png`, `phone-portrait.png`, `city-box.png`, `letter.png`, `officer-picker.png`) predate M3c's map framing. The current ones are `title.png`, `map-on-open-*.png`, `world-battle-mid-fight.png` and `battle-result-chronicle.png`.
 
 ## Next
-1. The owner creates `dragoonant/officers-of-the-han`: empty and public, with Pages set to Source: GitHub Actions. The session then pushes main, and `.github/workflows/deploy.yml` deploys it.
-2. M4c balance: late-game pressure, so the world keeps consolidating after 195. Add a digest for result letters.
-3. M5 art on the owner's PC.
+1. M4c balance: late-game pressure, so the world keeps consolidating after 195. Add a digest for result letters.
+2. M5 art on the owner's PC.
