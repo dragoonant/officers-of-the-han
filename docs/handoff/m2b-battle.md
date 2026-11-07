@@ -3,7 +3,7 @@
 Branch `m2b-battle` (worktree `oth-battle`). Contracts in `src/contracts/*` and `src/shared/*` are untouched. `package.json` changed only by the `bench:battle` script.
 
 ## Gates (all green at handoff)
-- `npm run typecheck` clean. `npm test`: **176 tests, 8 files** (battle 104 + fuzz/AI 15 = 119 incl. 18 map, 37 combat, 20 tactics, 30 duel/siege/outcome; duel 36; debate 20; scaffold 1).
+- `npm run typecheck` clean. `npm test`: **176 tests, 8 files** (battle 104 + fuzz/AI 15 = 119 incl. 18 map, 37 combat, 20 tactics, 29 duel/siege/outcome; duel 36; debate 20; scaffold 1).
 - `npm run bench:battle` (default 150 battles, `-- 200 --seed=2` etc.): passes for seeds 1, 2, 3 at N=200.
   - AI vs AI attacker win rate by power ratio (attacker/defender, power = sum troops x (0.5 + (WAR+LDR)/200)): <0.7: 15%, 0.7-1: 50%, 1-1.4: 60%, 1.4-2: 85%, >2: 96%.
   - Average 11 days; rout reasons over 200 battles: keep-taken 103, time 50, commander-routed 47 (all-routed never happens because the commander rout comes first). ~0.4 duels and 2.8 fires per battle, 2 gates broken per battle.
