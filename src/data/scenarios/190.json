@@ -1,1 +1,3213 @@
-{ "id": "190", "name": "The Coalition against Dong Zhuo", "year": 190, "month": 1, "blurb": "", "factions": [], "relations": [], "cities": [], "officers": [], "appearances": [], "oaths": [], "friendships": [], "rivals": [], "flags": [] }
+{
+ "id": "190",
+ "name": "The Coalition against Dong Zhuo",
+ "year": 190,
+ "month": 1,
+ "blurb": "January 190. Dong Zhuo holds the child emperor at Luoyang and the east has sworn to pull him down. Yuan Shao, Cao Cao, Yuan Shu, Sun Jian and a dozen governors are raising armies, while Liu Bei, a minor officer, rides with Gongsun Zan.",
+ "factions": [
+  {
+   "id": "f-dong-zhuo",
+   "name": "Dong Zhuo",
+   "ruler": "dong-zhuo",
+   "capital": "luoyang",
+   "color": 1,
+   "glyph": "董"
+  },
+  {
+   "id": "f-han-fu",
+   "name": "Han Fu",
+   "ruler": "han-fu",
+   "capital": "ye",
+   "color": 3,
+   "glyph": "韓"
+  },
+  {
+   "id": "f-yuan-shao",
+   "name": "Yuan Shao",
+   "ruler": "yuan-shao",
+   "capital": "nanpi",
+   "color": 8,
+   "glyph": "袁"
+  },
+  {
+   "id": "f-cao-cao",
+   "name": "Cao Cao",
+   "ruler": "cao-cao",
+   "capital": "chenliu",
+   "color": 4,
+   "glyph": "曹"
+  },
+  {
+   "id": "f-yuan-shu",
+   "name": "Yuan Shu",
+   "ruler": "yuan-shu",
+   "capital": "wan",
+   "color": 9,
+   "glyph": "袁"
+  },
+  {
+   "id": "f-sun-jian",
+   "name": "Sun Jian",
+   "ruler": "sun-jian",
+   "capital": "changsha",
+   "color": 6,
+   "glyph": "孫"
+  },
+  {
+   "id": "f-liu-biao",
+   "name": "Liu Biao",
+   "ruler": "liu-biao",
+   "capital": "xiangyang",
+   "color": 12,
+   "glyph": "劉"
+  },
+  {
+   "id": "f-gongsun-zan",
+   "name": "Gongsun Zan",
+   "ruler": "gongsun-zan",
+   "capital": "beiping",
+   "color": 2,
+   "glyph": "公"
+  },
+  {
+   "id": "f-liu-yu",
+   "name": "Liu Yu",
+   "ruler": "liu-yu",
+   "capital": "ji",
+   "color": 7,
+   "glyph": "劉"
+  },
+  {
+   "id": "f-gongsun-du",
+   "name": "Gongsun Du",
+   "ruler": "gongsun-du",
+   "capital": "xiangping",
+   "color": 3,
+   "glyph": "公"
+  },
+  {
+   "id": "f-kong-rong",
+   "name": "Kong Rong",
+   "ruler": "kong-rong",
+   "capital": "beihai",
+   "color": 11,
+   "glyph": "孔"
+  },
+  {
+   "id": "f-liu-dai",
+   "name": "Liu Dai",
+   "ruler": "liu-dai",
+   "capital": "puyang",
+   "color": 6,
+   "glyph": "劉"
+  },
+  {
+   "id": "f-tao-qian",
+   "name": "Tao Qian",
+   "ruler": "tao-qian",
+   "capital": "xiapi",
+   "color": 13,
+   "glyph": "陶"
+  },
+  {
+   "id": "f-kong-zhou",
+   "name": "Kong Zhou",
+   "ruler": "kong-zhou",
+   "capital": "xuchang",
+   "color": 5,
+   "glyph": "孔"
+  },
+  {
+   "id": "f-chen-wen",
+   "name": "Chen Wen",
+   "ruler": "chen-wen",
+   "capital": "shouchun",
+   "color": 1,
+   "glyph": "陳"
+  },
+  {
+   "id": "f-wang-lang",
+   "name": "Wang Lang",
+   "ruler": "wang-lang",
+   "capital": "kuaiji",
+   "color": 7,
+   "glyph": "王"
+  },
+  {
+   "id": "f-yan-baihu",
+   "name": "Yan Baihu",
+   "ruler": "yan-baihu",
+   "capital": "wu",
+   "color": 8,
+   "glyph": "嚴"
+  },
+  {
+   "id": "f-shi-xie",
+   "name": "Shi Xie",
+   "ruler": "shi-xie",
+   "capital": "jiaozhi",
+   "color": 9,
+   "glyph": "士"
+  },
+  {
+   "id": "f-liu-yan",
+   "name": "Liu Yan",
+   "ruler": "liu-yan",
+   "capital": "chengdu",
+   "color": 4,
+   "glyph": "劉"
+  },
+  {
+   "id": "f-zhang-lu",
+   "name": "Zhang Lu",
+   "ruler": "zhang-lu",
+   "capital": "hanzhong",
+   "color": 14,
+   "glyph": "張"
+  },
+  {
+   "id": "f-ma-teng",
+   "name": "Ma Teng",
+   "ruler": "ma-teng",
+   "capital": "wuwei",
+   "color": 5,
+   "glyph": "馬"
+  },
+  {
+   "id": "f-han-sui",
+   "name": "Han Sui",
+   "ruler": "han-sui",
+   "capital": "anding",
+   "color": 10,
+   "glyph": "韓"
+  },
+  {
+   "id": "f-zhang-yang",
+   "name": "Zhang Yang",
+   "ruler": "zhang-yang",
+   "capital": "shangdang",
+   "color": 2,
+   "glyph": "張"
+  }
+ ],
+ "relations": [
+  {
+   "a": "f-yuan-shao",
+   "b": "f-yuan-shu",
+   "value": 40
+  },
+  {
+   "a": "f-yuan-shao",
+   "b": "f-han-fu",
+   "value": 50
+  },
+  {
+   "a": "f-yuan-shao",
+   "b": "f-cao-cao",
+   "value": 60
+  },
+  {
+   "a": "f-yuan-shao",
+   "b": "f-sun-jian",
+   "value": 60
+  },
+  {
+   "a": "f-yuan-shao",
+   "b": "f-liu-dai",
+   "value": 60
+  },
+  {
+   "a": "f-yuan-shao",
+   "b": "f-kong-rong",
+   "value": 60
+  },
+  {
+   "a": "f-yuan-shao",
+   "b": "f-gongsun-zan",
+   "value": 45
+  },
+  {
+   "a": "f-yuan-shao",
+   "b": "f-zhang-yang",
+   "value": 60
+  },
+  {
+   "a": "f-yuan-shao",
+   "b": "f-kong-zhou",
+   "value": 60
+  },
+  {
+   "a": "f-yuan-shao",
+   "b": "f-tao-qian",
+   "value": 60
+  },
+  {
+   "a": "f-yuan-shu",
+   "b": "f-han-fu",
+   "value": 60
+  },
+  {
+   "a": "f-yuan-shu",
+   "b": "f-cao-cao",
+   "value": 60
+  },
+  {
+   "a": "f-yuan-shu",
+   "b": "f-sun-jian",
+   "value": 60
+  },
+  {
+   "a": "f-yuan-shu",
+   "b": "f-liu-dai",
+   "value": 60
+  },
+  {
+   "a": "f-yuan-shu",
+   "b": "f-kong-rong",
+   "value": 60
+  },
+  {
+   "a": "f-yuan-shu",
+   "b": "f-gongsun-zan",
+   "value": 60
+  },
+  {
+   "a": "f-yuan-shu",
+   "b": "f-zhang-yang",
+   "value": 60
+  },
+  {
+   "a": "f-yuan-shu",
+   "b": "f-kong-zhou",
+   "value": 60
+  },
+  {
+   "a": "f-yuan-shu",
+   "b": "f-tao-qian",
+   "value": 60
+  },
+  {
+   "a": "f-han-fu",
+   "b": "f-cao-cao",
+   "value": 60
+  },
+  {
+   "a": "f-han-fu",
+   "b": "f-sun-jian",
+   "value": 60
+  },
+  {
+   "a": "f-han-fu",
+   "b": "f-liu-dai",
+   "value": 60
+  },
+  {
+   "a": "f-han-fu",
+   "b": "f-kong-rong",
+   "value": 60
+  },
+  {
+   "a": "f-han-fu",
+   "b": "f-gongsun-zan",
+   "value": 60
+  },
+  {
+   "a": "f-han-fu",
+   "b": "f-zhang-yang",
+   "value": 60
+  },
+  {
+   "a": "f-han-fu",
+   "b": "f-kong-zhou",
+   "value": 60
+  },
+  {
+   "a": "f-han-fu",
+   "b": "f-tao-qian",
+   "value": 60
+  },
+  {
+   "a": "f-cao-cao",
+   "b": "f-sun-jian",
+   "value": 60
+  },
+  {
+   "a": "f-cao-cao",
+   "b": "f-liu-dai",
+   "value": 60
+  },
+  {
+   "a": "f-cao-cao",
+   "b": "f-kong-rong",
+   "value": 60
+  },
+  {
+   "a": "f-cao-cao",
+   "b": "f-gongsun-zan",
+   "value": 60
+  },
+  {
+   "a": "f-cao-cao",
+   "b": "f-zhang-yang",
+   "value": 60
+  },
+  {
+   "a": "f-cao-cao",
+   "b": "f-kong-zhou",
+   "value": 60
+  },
+  {
+   "a": "f-cao-cao",
+   "b": "f-tao-qian",
+   "value": 60
+  },
+  {
+   "a": "f-sun-jian",
+   "b": "f-liu-dai",
+   "value": 60
+  },
+  {
+   "a": "f-sun-jian",
+   "b": "f-kong-rong",
+   "value": 60
+  },
+  {
+   "a": "f-sun-jian",
+   "b": "f-gongsun-zan",
+   "value": 60
+  },
+  {
+   "a": "f-sun-jian",
+   "b": "f-zhang-yang",
+   "value": 60
+  },
+  {
+   "a": "f-sun-jian",
+   "b": "f-kong-zhou",
+   "value": 60
+  },
+  {
+   "a": "f-sun-jian",
+   "b": "f-tao-qian",
+   "value": 60
+  },
+  {
+   "a": "f-liu-dai",
+   "b": "f-kong-rong",
+   "value": 60
+  },
+  {
+   "a": "f-liu-dai",
+   "b": "f-gongsun-zan",
+   "value": 60
+  },
+  {
+   "a": "f-liu-dai",
+   "b": "f-zhang-yang",
+   "value": 60
+  },
+  {
+   "a": "f-liu-dai",
+   "b": "f-kong-zhou",
+   "value": 60
+  },
+  {
+   "a": "f-liu-dai",
+   "b": "f-tao-qian",
+   "value": 60
+  },
+  {
+   "a": "f-kong-rong",
+   "b": "f-gongsun-zan",
+   "value": 60
+  },
+  {
+   "a": "f-kong-rong",
+   "b": "f-zhang-yang",
+   "value": 60
+  },
+  {
+   "a": "f-kong-rong",
+   "b": "f-kong-zhou",
+   "value": 60
+  },
+  {
+   "a": "f-kong-rong",
+   "b": "f-tao-qian",
+   "value": 60
+  },
+  {
+   "a": "f-gongsun-zan",
+   "b": "f-zhang-yang",
+   "value": 60
+  },
+  {
+   "a": "f-gongsun-zan",
+   "b": "f-kong-zhou",
+   "value": 60
+  },
+  {
+   "a": "f-gongsun-zan",
+   "b": "f-tao-qian",
+   "value": 60
+  },
+  {
+   "a": "f-zhang-yang",
+   "b": "f-kong-zhou",
+   "value": 60
+  },
+  {
+   "a": "f-zhang-yang",
+   "b": "f-tao-qian",
+   "value": 60
+  },
+  {
+   "a": "f-kong-zhou",
+   "b": "f-tao-qian",
+   "value": 60
+  },
+  {
+   "a": "f-dong-zhuo",
+   "b": "f-yuan-shao",
+   "value": 5
+  },
+  {
+   "a": "f-dong-zhuo",
+   "b": "f-yuan-shu",
+   "value": 8
+  },
+  {
+   "a": "f-dong-zhuo",
+   "b": "f-han-fu",
+   "value": 10
+  },
+  {
+   "a": "f-dong-zhuo",
+   "b": "f-cao-cao",
+   "value": 5
+  },
+  {
+   "a": "f-dong-zhuo",
+   "b": "f-sun-jian",
+   "value": 5
+  },
+  {
+   "a": "f-dong-zhuo",
+   "b": "f-liu-dai",
+   "value": 12
+  },
+  {
+   "a": "f-dong-zhuo",
+   "b": "f-kong-rong",
+   "value": 12
+  },
+  {
+   "a": "f-dong-zhuo",
+   "b": "f-gongsun-zan",
+   "value": 12
+  },
+  {
+   "a": "f-dong-zhuo",
+   "b": "f-zhang-yang",
+   "value": 12
+  },
+  {
+   "a": "f-dong-zhuo",
+   "b": "f-kong-zhou",
+   "value": 12
+  },
+  {
+   "a": "f-dong-zhuo",
+   "b": "f-tao-qian",
+   "value": 12
+  },
+  {
+   "a": "f-dong-zhuo",
+   "b": "f-ma-teng",
+   "value": 25
+  },
+  {
+   "a": "f-dong-zhuo",
+   "b": "f-han-sui",
+   "value": 25
+  },
+  {
+   "a": "f-liu-yu",
+   "b": "f-gongsun-zan",
+   "value": 25
+  },
+  {
+   "a": "f-sun-jian",
+   "b": "f-liu-biao",
+   "value": 20
+  },
+  {
+   "a": "f-yuan-shu",
+   "b": "f-liu-biao",
+   "value": 25
+  },
+  {
+   "a": "f-ma-teng",
+   "b": "f-han-sui",
+   "value": 75
+  },
+  {
+   "a": "f-zhang-lu",
+   "b": "f-liu-yan",
+   "value": 70
+  }
+ ],
+ "cities": [
+  {
+   "id": "luoyang",
+   "faction": "f-dong-zhuo",
+   "population": 246000,
+   "farm": 583,
+   "trade": 793,
+   "walls": 640,
+   "order": 60,
+   "troops": 34000,
+   "training": 70,
+   "gold": 7300,
+   "rice": 7600
+  },
+  {
+   "id": "chang-an",
+   "faction": "f-dong-zhuo",
+   "population": 232100,
+   "farm": 614,
+   "trade": 617,
+   "walls": 742,
+   "order": 65,
+   "troops": 16000,
+   "training": 60,
+   "gold": 6200,
+   "rice": 5600
+  },
+  {
+   "id": "hongnong",
+   "faction": "f-dong-zhuo",
+   "population": 132000,
+   "farm": 409,
+   "trade": 302,
+   "walls": 514,
+   "order": 55,
+   "troops": 8000,
+   "training": 55,
+   "gold": 4300,
+   "rice": 3400
+  },
+  {
+   "id": "hedong",
+   "faction": "f-dong-zhuo",
+   "population": 157800,
+   "farm": 411,
+   "trade": 367,
+   "walls": 373,
+   "order": 55,
+   "troops": 9000,
+   "training": 60,
+   "gold": 4700,
+   "rice": 3500
+  },
+  {
+   "id": "ye",
+   "faction": "f-han-fu",
+   "population": 256900,
+   "farm": 612,
+   "trade": 512,
+   "walls": 716,
+   "order": 70,
+   "troops": 18000,
+   "training": 55,
+   "gold": 5600,
+   "rice": 5800
+  },
+  {
+   "id": "nanpi",
+   "faction": "f-yuan-shao",
+   "population": 196000,
+   "farm": 506,
+   "trade": 504,
+   "walls": 381,
+   "order": 70,
+   "troops": 10000,
+   "training": 65,
+   "gold": 5500,
+   "rice": 4200
+  },
+  {
+   "id": "ji",
+   "faction": "f-liu-yu",
+   "population": 185300,
+   "farm": 447,
+   "trade": 600,
+   "walls": 482,
+   "order": 75,
+   "troops": 15000,
+   "training": 55,
+   "gold": 6100,
+   "rice": 4500
+  },
+  {
+   "id": "beiping",
+   "faction": "f-gongsun-zan",
+   "population": 107000,
+   "farm": 266,
+   "trade": 253,
+   "walls": 317,
+   "order": 65,
+   "troops": 14000,
+   "training": 75,
+   "gold": 4000,
+   "rice": 3300
+  },
+  {
+   "id": "xiangping",
+   "faction": "f-gongsun-du",
+   "population": 94500,
+   "farm": 259,
+   "trade": 224,
+   "walls": 332,
+   "order": 60,
+   "troops": 9000,
+   "training": 55,
+   "gold": 3800,
+   "rice": 2600
+  },
+  {
+   "id": "pingyuan",
+   "faction": "f-gongsun-zan",
+   "population": 143500,
+   "farm": 363,
+   "trade": 318,
+   "walls": 362,
+   "order": 60,
+   "troops": 4000,
+   "training": 60,
+   "gold": 4400,
+   "rice": 2700
+  },
+  {
+   "id": "beihai",
+   "faction": "f-kong-rong",
+   "population": 160000,
+   "farm": 397,
+   "trade": 395,
+   "walls": 351,
+   "order": 70,
+   "troops": 7000,
+   "training": 50,
+   "gold": 4900,
+   "rice": 3200
+  },
+  {
+   "id": "puyang",
+   "faction": "f-liu-dai",
+   "population": 180200,
+   "farm": 439,
+   "trade": 450,
+   "walls": 396,
+   "order": 60,
+   "troops": 8000,
+   "training": 50,
+   "gold": 5200,
+   "rice": 3600
+  },
+  {
+   "id": "chenliu",
+   "faction": "f-cao-cao",
+   "population": 173700,
+   "farm": 497,
+   "trade": 585,
+   "walls": 374,
+   "order": 70,
+   "troops": 5000,
+   "training": 70,
+   "gold": 5200,
+   "rice": 3600
+  },
+  {
+   "id": "xuchang",
+   "faction": "f-kong-zhou",
+   "population": 186000,
+   "farm": 477,
+   "trade": 444,
+   "walls": 432,
+   "order": 60,
+   "troops": 5000,
+   "training": 45,
+   "gold": 5200,
+   "rice": 3500
+  },
+  {
+   "id": "runan",
+   "faction": null,
+   "population": 170900,
+   "farm": 263,
+   "trade": 213,
+   "walls": 220,
+   "order": 45,
+   "troops": 1500,
+   "training": 25,
+   "gold": 513,
+   "rice": 180
+  },
+  {
+   "id": "xiaopei",
+   "faction": null,
+   "population": 118700,
+   "farm": 203,
+   "trade": 162,
+   "walls": 142,
+   "order": 50,
+   "troops": 1200,
+   "training": 25,
+   "gold": 462,
+   "rice": 144
+  },
+  {
+   "id": "xiapi",
+   "faction": "f-tao-qian",
+   "population": 173200,
+   "farm": 480,
+   "trade": 441,
+   "walls": 534,
+   "order": 75,
+   "troops": 10000,
+   "training": 50,
+   "gold": 5100,
+   "rice": 4100
+  },
+  {
+   "id": "langya",
+   "faction": "f-tao-qian",
+   "population": 124400,
+   "farm": 320,
+   "trade": 309,
+   "walls": 300,
+   "order": 65,
+   "troops": 5000,
+   "training": 45,
+   "gold": 4400,
+   "rice": 2500
+  },
+  {
+   "id": "shouchun",
+   "faction": "f-chen-wen",
+   "population": 185600,
+   "farm": 564,
+   "trade": 532,
+   "walls": 453,
+   "order": 60,
+   "troops": 6000,
+   "training": 45,
+   "gold": 5700,
+   "rice": 4100
+  },
+  {
+   "id": "lujiang",
+   "faction": null,
+   "population": 156300,
+   "farm": 241,
+   "trade": 189,
+   "walls": 194,
+   "order": 50,
+   "troops": 2000,
+   "training": 30,
+   "gold": 489,
+   "rice": 240
+  },
+  {
+   "id": "jianye",
+   "faction": null,
+   "population": 159900,
+   "farm": 263,
+   "trade": 251,
+   "walls": 313,
+   "order": 50,
+   "troops": 1500,
+   "training": 25,
+   "gold": 551,
+   "rice": 180
+  },
+  {
+   "id": "wu",
+   "faction": "f-yan-baihu",
+   "population": 182200,
+   "farm": 561,
+   "trade": 450,
+   "walls": 379,
+   "order": 40,
+   "troops": 7000,
+   "training": 50,
+   "gold": 5200,
+   "rice": 4200
+  },
+  {
+   "id": "kuaiji",
+   "faction": "f-wang-lang",
+   "population": 150000,
+   "farm": 434,
+   "trade": 325,
+   "walls": 297,
+   "order": 65,
+   "troops": 5000,
+   "training": 45,
+   "gold": 4500,
+   "rice": 3200
+  },
+  {
+   "id": "yuzhang",
+   "faction": null,
+   "population": 154200,
+   "farm": 300,
+   "trade": 192,
+   "walls": 174,
+   "order": 55,
+   "troops": 2500,
+   "training": 30,
+   "gold": 492,
+   "rice": 300
+  },
+  {
+   "id": "chaisang",
+   "faction": null,
+   "population": 107900,
+   "farm": 196,
+   "trade": 167,
+   "walls": 170,
+   "order": 50,
+   "troops": 1800,
+   "training": 30,
+   "gold": 467,
+   "rice": 216
+  },
+  {
+   "id": "xiangyang",
+   "faction": "f-liu-biao",
+   "population": 226800,
+   "farm": 577,
+   "trade": 628,
+   "walls": 685,
+   "order": 70,
+   "troops": 12000,
+   "training": 60,
+   "gold": 6300,
+   "rice": 4900
+  },
+  {
+   "id": "wan",
+   "faction": "f-yuan-shu",
+   "population": 205500,
+   "farm": 565,
+   "trade": 498,
+   "walls": 576,
+   "order": 55,
+   "troops": 22000,
+   "training": 55,
+   "gold": 5500,
+   "rice": 6000
+  },
+  {
+   "id": "xinye",
+   "faction": "f-yuan-shu",
+   "population": 110900,
+   "farm": 288,
+   "trade": 274,
+   "walls": 266,
+   "order": 55,
+   "troops": 6000,
+   "training": 50,
+   "gold": 4100,
+   "rice": 2400
+  },
+  {
+   "id": "jiangling",
+   "faction": "f-liu-biao",
+   "population": 197800,
+   "farm": 487,
+   "trade": 560,
+   "walls": 546,
+   "order": 65,
+   "troops": 7000,
+   "training": 55,
+   "gold": 5900,
+   "rice": 3800
+  },
+  {
+   "id": "jiangxia",
+   "faction": "f-liu-biao",
+   "population": 151400,
+   "farm": 372,
+   "trade": 485,
+   "walls": 412,
+   "order": 60,
+   "troops": 6000,
+   "training": 55,
+   "gold": 5400,
+   "rice": 3000
+  },
+  {
+   "id": "changsha",
+   "faction": "f-sun-jian",
+   "population": 174600,
+   "farm": 463,
+   "trade": 420,
+   "walls": 328,
+   "order": 65,
+   "troops": 8000,
+   "training": 70,
+   "gold": 5000,
+   "rice": 3700
+  },
+  {
+   "id": "wuling",
+   "faction": null,
+   "population": 87700,
+   "farm": 161,
+   "trade": 114,
+   "walls": 163,
+   "order": 55,
+   "troops": 1500,
+   "training": 30,
+   "gold": 414,
+   "rice": 180
+  },
+  {
+   "id": "lingling",
+   "faction": null,
+   "population": 96600,
+   "farm": 142,
+   "trade": 143,
+   "walls": 147,
+   "order": 55,
+   "troops": 1500,
+   "training": 30,
+   "gold": 443,
+   "rice": 180
+  },
+  {
+   "id": "guiyang",
+   "faction": null,
+   "population": 83100,
+   "farm": 116,
+   "trade": 128,
+   "walls": 141,
+   "order": 50,
+   "troops": 1200,
+   "training": 30,
+   "gold": 428,
+   "rice": 144
+  },
+  {
+   "id": "shangyong",
+   "faction": null,
+   "population": 78200,
+   "farm": 142,
+   "trade": 97,
+   "walls": 175,
+   "order": 45,
+   "troops": 1000,
+   "training": 25,
+   "gold": 397,
+   "rice": 120
+  },
+  {
+   "id": "hanzhong",
+   "faction": "f-zhang-lu",
+   "population": 141000,
+   "farm": 380,
+   "trade": 297,
+   "walls": 627,
+   "order": 65,
+   "troops": 6000,
+   "training": 55,
+   "gold": 4300,
+   "rice": 3000
+  },
+  {
+   "id": "zitong",
+   "faction": "f-liu-yan",
+   "population": 113300,
+   "farm": 341,
+   "trade": 241,
+   "walls": 311,
+   "order": 60,
+   "troops": 4000,
+   "training": 45,
+   "gold": 3900,
+   "rice": 2500
+  },
+  {
+   "id": "chengdu",
+   "faction": "f-liu-yan",
+   "population": 246400,
+   "farm": 704,
+   "trade": 594,
+   "walls": 460,
+   "order": 75,
+   "troops": 10000,
+   "training": 50,
+   "gold": 6100,
+   "rice": 5400
+  },
+  {
+   "id": "jiangzhou",
+   "faction": "f-liu-yan",
+   "population": 166200,
+   "farm": 386,
+   "trade": 431,
+   "walls": 465,
+   "order": 60,
+   "troops": 5000,
+   "training": 45,
+   "gold": 5100,
+   "rice": 2900
+  },
+  {
+   "id": "yongan",
+   "faction": null,
+   "population": 77700,
+   "farm": 136,
+   "trade": 112,
+   "walls": 269,
+   "order": 50,
+   "troops": 1500,
+   "training": 30,
+   "gold": 412,
+   "rice": 180
+  },
+  {
+   "id": "jianning",
+   "faction": null,
+   "population": 80100,
+   "farm": 134,
+   "trade": 115,
+   "walls": 118,
+   "order": 40,
+   "troops": 1000,
+   "training": 25,
+   "gold": 415,
+   "rice": 120
+  },
+  {
+   "id": "tianshui",
+   "faction": null,
+   "population": 110200,
+   "farm": 226,
+   "trade": 128,
+   "walls": 206,
+   "order": 50,
+   "troops": 3000,
+   "training": 40,
+   "gold": 428,
+   "rice": 360
+  },
+  {
+   "id": "anding",
+   "faction": "f-han-sui",
+   "population": 93500,
+   "farm": 237,
+   "trade": 150,
+   "walls": 279,
+   "order": 50,
+   "troops": 9000,
+   "training": 65,
+   "gold": 3400,
+   "rice": 2500
+  },
+  {
+   "id": "wuwei",
+   "faction": "f-ma-teng",
+   "population": 103000,
+   "farm": 307,
+   "trade": 242,
+   "walls": 285,
+   "order": 55,
+   "troops": 10000,
+   "training": 70,
+   "gold": 4000,
+   "rice": 3000
+  },
+  {
+   "id": "jinyang",
+   "faction": null,
+   "population": 147700,
+   "farm": 240,
+   "trade": 184,
+   "walls": 315,
+   "order": 55,
+   "troops": 3000,
+   "training": 35,
+   "gold": 484,
+   "rice": 360
+  },
+  {
+   "id": "shangdang",
+   "faction": "f-zhang-yang",
+   "population": 109000,
+   "farm": 327,
+   "trade": 197,
+   "walls": 486,
+   "order": 60,
+   "troops": 8000,
+   "training": 55,
+   "gold": 3700,
+   "rice": 2900
+  },
+  {
+   "id": "jiaozhi",
+   "faction": "f-shi-xie",
+   "population": 151300,
+   "farm": 373,
+   "trade": 332,
+   "walls": 198,
+   "order": 70,
+   "troops": 6000,
+   "training": 45,
+   "gold": 4500,
+   "rice": 3000
+  },
+  {
+   "id": "nanhai",
+   "faction": null,
+   "population": 132000,
+   "farm": 205,
+   "trade": 234,
+   "walls": 123,
+   "order": 55,
+   "troops": 1500,
+   "training": 30,
+   "gold": 534,
+   "rice": 180
+  }
+ ],
+ "officers": [
+  {
+   "id": "dong-zhuo",
+   "faction": "f-dong-zhuo",
+   "city": "luoyang",
+   "post": "ruler",
+   "loyalty": null,
+   "merit": 12000,
+   "gold": 714
+  },
+  {
+   "id": "lu-bu",
+   "faction": "f-dong-zhuo",
+   "city": "luoyang",
+   "post": "officer",
+   "loyalty": 58,
+   "merit": 300,
+   "gold": 95
+  },
+  {
+   "id": "li-ru",
+   "faction": "f-dong-zhuo",
+   "city": "luoyang",
+   "post": "officer",
+   "loyalty": 67,
+   "merit": 300,
+   "gold": 228
+  },
+  {
+   "id": "li-jue",
+   "faction": "f-dong-zhuo",
+   "city": "hongnong",
+   "post": "prefect",
+   "loyalty": 57,
+   "merit": 1200,
+   "gold": 203
+  },
+  {
+   "id": "guo-si",
+   "faction": "f-dong-zhuo",
+   "city": "luoyang",
+   "post": "officer",
+   "loyalty": 66,
+   "merit": 300,
+   "gold": 215
+  },
+  {
+   "id": "zhang-ji",
+   "faction": "f-dong-zhuo",
+   "city": "chang-an",
+   "post": "prefect",
+   "loyalty": 81,
+   "merit": 1200,
+   "gold": 320
+  },
+  {
+   "id": "fan-chou",
+   "faction": "f-dong-zhuo",
+   "city": "luoyang",
+   "post": "officer",
+   "loyalty": 59,
+   "merit": 300,
+   "gold": 134
+  },
+  {
+   "id": "hua-xiong",
+   "faction": "f-dong-zhuo",
+   "city": "luoyang",
+   "post": "officer",
+   "loyalty": 67,
+   "merit": 300,
+   "gold": 99
+  },
+  {
+   "id": "niu-fu",
+   "faction": "f-dong-zhuo",
+   "city": "hedong",
+   "post": "prefect",
+   "loyalty": 74,
+   "merit": 1200,
+   "gold": 296
+  },
+  {
+   "id": "dong-min",
+   "faction": "f-dong-zhuo",
+   "city": "luoyang",
+   "post": "officer",
+   "loyalty": 100,
+   "merit": 300,
+   "gold": 83
+  },
+  {
+   "id": "gao-shun",
+   "faction": "f-dong-zhuo",
+   "city": "luoyang",
+   "post": "officer",
+   "loyalty": 86,
+   "merit": 600,
+   "gold": 222
+  },
+  {
+   "id": "zhang-liao",
+   "faction": "f-dong-zhuo",
+   "city": "luoyang",
+   "post": "officer",
+   "loyalty": 62,
+   "merit": 1200,
+   "gold": 254
+  },
+  {
+   "id": "wang-yun",
+   "faction": "f-dong-zhuo",
+   "city": "luoyang",
+   "post": "officer",
+   "loyalty": 78,
+   "merit": 300,
+   "gold": 117
+  },
+  {
+   "id": "cai-yong",
+   "faction": "f-dong-zhuo",
+   "city": "luoyang",
+   "post": "officer",
+   "loyalty": 81,
+   "merit": 300,
+   "gold": 161
+  },
+  {
+   "id": "yang-biao",
+   "faction": "f-dong-zhuo",
+   "city": "luoyang",
+   "post": "officer",
+   "loyalty": 86,
+   "merit": 300,
+   "gold": 218
+  },
+  {
+   "id": "huang-wan",
+   "faction": "f-dong-zhuo",
+   "city": "luoyang",
+   "post": "officer",
+   "loyalty": 78,
+   "merit": 300,
+   "gold": 113
+  },
+  {
+   "id": "zhong-yao",
+   "faction": "f-dong-zhuo",
+   "city": "luoyang",
+   "post": "officer",
+   "loyalty": 73,
+   "merit": 300,
+   "gold": 178
+  },
+  {
+   "id": "xun-you",
+   "faction": "f-dong-zhuo",
+   "city": "luoyang",
+   "post": "officer",
+   "loyalty": 65,
+   "merit": 300,
+   "gold": 80
+  },
+  {
+   "id": "jia-xu",
+   "faction": "f-dong-zhuo",
+   "city": "hedong",
+   "post": "officer",
+   "loyalty": 76,
+   "merit": 300,
+   "gold": 218
+  },
+  {
+   "id": "zhang-xiu",
+   "faction": "f-dong-zhuo",
+   "city": "chang-an",
+   "post": "officer",
+   "loyalty": 68,
+   "merit": 300,
+   "gold": 120
+  },
+  {
+   "id": "huangfu-song",
+   "faction": "f-dong-zhuo",
+   "city": "chang-an",
+   "post": "officer",
+   "loyalty": 82,
+   "merit": 1200,
+   "gold": 263
+  },
+  {
+   "id": "dong-cheng",
+   "faction": "f-dong-zhuo",
+   "city": "luoyang",
+   "post": "officer",
+   "loyalty": 79,
+   "merit": 300,
+   "gold": 135
+  },
+  {
+   "id": "ma-midi",
+   "faction": "f-dong-zhuo",
+   "city": "luoyang",
+   "post": "officer",
+   "loyalty": 80,
+   "merit": 300,
+   "gold": 147
+  },
+  {
+   "id": "zhu-jun",
+   "faction": "f-dong-zhuo",
+   "city": "luoyang",
+   "post": "officer",
+   "loyalty": 87,
+   "merit": 600,
+   "gold": 229
+  },
+  {
+   "id": "diaochan",
+   "faction": "f-dong-zhuo",
+   "city": "luoyang",
+   "post": "officer",
+   "loyalty": 77,
+   "merit": 300,
+   "gold": 106
+  },
+  {
+   "id": "han-fu",
+   "faction": "f-han-fu",
+   "city": "ye",
+   "post": "ruler",
+   "loyalty": null,
+   "merit": 12000,
+   "gold": 868
+  },
+  {
+   "id": "ju-shou",
+   "faction": "f-han-fu",
+   "city": "ye",
+   "post": "officer",
+   "loyalty": 78,
+   "merit": 600,
+   "gold": 116
+  },
+  {
+   "id": "tian-feng",
+   "faction": "f-han-fu",
+   "city": "ye",
+   "post": "officer",
+   "loyalty": 82,
+   "merit": 300,
+   "gold": 172
+  },
+  {
+   "id": "shen-pei",
+   "faction": "f-han-fu",
+   "city": "ye",
+   "post": "officer",
+   "loyalty": 76,
+   "merit": 300,
+   "gold": 98
+  },
+  {
+   "id": "guo-tu",
+   "faction": "f-han-fu",
+   "city": "ye",
+   "post": "officer",
+   "loyalty": 59,
+   "merit": 300,
+   "gold": 126
+  },
+  {
+   "id": "xin-ping",
+   "faction": "f-han-fu",
+   "city": "ye",
+   "post": "officer",
+   "loyalty": 82,
+   "merit": 300,
+   "gold": 172
+  },
+  {
+   "id": "xin-pi",
+   "faction": "f-han-fu",
+   "city": "ye",
+   "post": "officer",
+   "loyalty": 81,
+   "merit": 300,
+   "gold": 152
+  },
+  {
+   "id": "zhang-he",
+   "faction": "f-han-fu",
+   "city": "ye",
+   "post": "officer",
+   "loyalty": 68,
+   "merit": 600,
+   "gold": 142
+  },
+  {
+   "id": "wen-chou",
+   "faction": "f-han-fu",
+   "city": "ye",
+   "post": "officer",
+   "loyalty": 71,
+   "merit": 300,
+   "gold": 155
+  },
+  {
+   "id": "yan-liang",
+   "faction": "f-han-fu",
+   "city": "ye",
+   "post": "officer",
+   "loyalty": 76,
+   "merit": 300,
+   "gold": 221
+  },
+  {
+   "id": "bao-xin",
+   "faction": "f-han-fu",
+   "city": "ye",
+   "post": "officer",
+   "loyalty": 80,
+   "merit": 600,
+   "gold": 141
+  },
+  {
+   "id": "yu-jin",
+   "faction": "f-han-fu",
+   "city": "ye",
+   "post": "officer",
+   "loyalty": 66,
+   "merit": 600,
+   "gold": 161
+  },
+  {
+   "id": "xun-yu",
+   "faction": "f-han-fu",
+   "city": "ye",
+   "post": "officer",
+   "loyalty": 70,
+   "merit": 600,
+   "gold": 94
+  },
+  {
+   "id": "cui-yan",
+   "faction": null,
+   "city": "ye",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 143,
+   "hidden": true
+  },
+  {
+   "id": "zhang-yan",
+   "faction": null,
+   "city": "shangdang",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 143,
+   "hidden": true
+  },
+  {
+   "id": "yuan-shao",
+   "faction": "f-yuan-shao",
+   "city": "nanpi",
+   "post": "ruler",
+   "loyalty": null,
+   "merit": 12000,
+   "gold": 642
+  },
+  {
+   "id": "yuan-tan",
+   "faction": "f-yuan-shao",
+   "city": "nanpi",
+   "post": "officer",
+   "loyalty": 100,
+   "merit": 300,
+   "gold": 187
+  },
+  {
+   "id": "gao-gan",
+   "faction": "f-yuan-shao",
+   "city": "nanpi",
+   "post": "officer",
+   "loyalty": 55,
+   "merit": 300,
+   "gold": 80
+  },
+  {
+   "id": "chunyu-qiong",
+   "faction": "f-yuan-shao",
+   "city": "nanpi",
+   "post": "officer",
+   "loyalty": 81,
+   "merit": 300,
+   "gold": 213
+  },
+  {
+   "id": "xu-you",
+   "faction": "f-yuan-shao",
+   "city": "nanpi",
+   "post": "officer",
+   "loyalty": 60,
+   "merit": 300,
+   "gold": 137
+  },
+  {
+   "id": "wang-kuang",
+   "faction": "f-yuan-shao",
+   "city": "nanpi",
+   "post": "officer",
+   "loyalty": 82,
+   "merit": 300,
+   "gold": 227
+  },
+  {
+   "id": "zhao-yun",
+   "faction": null,
+   "city": "nanpi",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 256,
+   "gold": 218
+  },
+  {
+   "id": "cao-cao",
+   "faction": "f-cao-cao",
+   "city": "chenliu",
+   "post": "ruler",
+   "loyalty": null,
+   "merit": 12000,
+   "gold": 613
+  },
+  {
+   "id": "xiahou-dun",
+   "faction": "f-cao-cao",
+   "city": "chenliu",
+   "post": "officer",
+   "loyalty": 65,
+   "merit": 1200,
+   "gold": 186
+  },
+  {
+   "id": "xiahou-yuan",
+   "faction": "f-cao-cao",
+   "city": "chenliu",
+   "post": "officer",
+   "loyalty": 84,
+   "merit": 600,
+   "gold": 195
+  },
+  {
+   "id": "cao-ren",
+   "faction": "f-cao-cao",
+   "city": "chenliu",
+   "post": "officer",
+   "loyalty": 82,
+   "merit": 1200,
+   "gold": 326
+  },
+  {
+   "id": "cao-hong",
+   "faction": "f-cao-cao",
+   "city": "chenliu",
+   "post": "officer",
+   "loyalty": 81,
+   "merit": 300,
+   "gold": 216
+  },
+  {
+   "id": "cao-chun",
+   "faction": "f-cao-cao",
+   "city": "chenliu",
+   "post": "officer",
+   "loyalty": 74,
+   "merit": 300,
+   "gold": 133
+  },
+  {
+   "id": "li-dian",
+   "faction": "f-cao-cao",
+   "city": "chenliu",
+   "post": "officer",
+   "loyalty": 86,
+   "merit": 600,
+   "gold": 218
+  },
+  {
+   "id": "yue-jin",
+   "faction": "f-cao-cao",
+   "city": "chenliu",
+   "post": "officer",
+   "loyalty": 81,
+   "merit": 300,
+   "gold": 217
+  },
+  {
+   "id": "zhang-miao",
+   "faction": "f-cao-cao",
+   "city": "chenliu",
+   "post": "officer",
+   "loyalty": 80,
+   "merit": 300,
+   "gold": 137
+  },
+  {
+   "id": "dian-wei",
+   "faction": "f-cao-cao",
+   "city": "chenliu",
+   "post": "officer",
+   "loyalty": 77,
+   "merit": 300,
+   "gold": 106
+  },
+  {
+   "id": "lady-bian",
+   "faction": "f-cao-cao",
+   "city": "chenliu",
+   "post": "officer",
+   "loyalty": 100,
+   "merit": 300,
+   "gold": 213
+  },
+  {
+   "id": "yuan-shu",
+   "faction": "f-yuan-shu",
+   "city": "wan",
+   "post": "ruler",
+   "loyalty": null,
+   "merit": 12000,
+   "gold": 750
+  },
+  {
+   "id": "ji-ling",
+   "faction": "f-yuan-shu",
+   "city": "xinye",
+   "post": "prefect",
+   "loyalty": 79,
+   "merit": 1200,
+   "gold": 230
+  },
+  {
+   "id": "zhang-xun",
+   "faction": "f-yuan-shu",
+   "city": "wan",
+   "post": "officer",
+   "loyalty": 74,
+   "merit": 300,
+   "gold": 131
+  },
+  {
+   "id": "yang-hong",
+   "faction": "f-yuan-shu",
+   "city": "wan",
+   "post": "officer",
+   "loyalty": 76,
+   "merit": 300,
+   "gold": 212
+  },
+  {
+   "id": "sun-jian",
+   "faction": "f-sun-jian",
+   "city": "changsha",
+   "post": "ruler",
+   "loyalty": null,
+   "merit": 12000,
+   "gold": 887
+  },
+  {
+   "id": "cheng-pu",
+   "faction": "f-sun-jian",
+   "city": "changsha",
+   "post": "officer",
+   "loyalty": 76,
+   "merit": 600,
+   "gold": 149
+  },
+  {
+   "id": "huang-gai",
+   "faction": "f-sun-jian",
+   "city": "changsha",
+   "post": "officer",
+   "loyalty": 80,
+   "merit": 1200,
+   "gold": 242
+  },
+  {
+   "id": "han-dang",
+   "faction": "f-sun-jian",
+   "city": "changsha",
+   "post": "officer",
+   "loyalty": 81,
+   "merit": 300,
+   "gold": 220
+  },
+  {
+   "id": "zhu-zhi",
+   "faction": "f-sun-jian",
+   "city": "changsha",
+   "post": "officer",
+   "loyalty": 81,
+   "merit": 300,
+   "gold": 158
+  },
+  {
+   "id": "zu-mao",
+   "faction": "f-sun-jian",
+   "city": "changsha",
+   "post": "officer",
+   "loyalty": 81,
+   "merit": 300,
+   "gold": 161
+  },
+  {
+   "id": "sun-jing",
+   "faction": "f-sun-jian",
+   "city": "changsha",
+   "post": "officer",
+   "loyalty": 100,
+   "merit": 300,
+   "gold": 137
+  },
+  {
+   "id": "wu-jing",
+   "faction": "f-sun-jian",
+   "city": "changsha",
+   "post": "officer",
+   "loyalty": 81,
+   "merit": 300,
+   "gold": 224
+  },
+  {
+   "id": "lady-wu",
+   "faction": "f-sun-jian",
+   "city": "changsha",
+   "post": "officer",
+   "loyalty": 100,
+   "merit": 300,
+   "gold": 132
+  },
+  {
+   "id": "lu-su",
+   "faction": null,
+   "city": "lujiang",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 63,
+   "hidden": true
+  },
+  {
+   "id": "zhang-zhao",
+   "faction": null,
+   "city": "xiapi",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 89,
+   "hidden": true
+  },
+  {
+   "id": "zhang-hong",
+   "faction": null,
+   "city": "xiapi",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 141,
+   "hidden": true
+  },
+  {
+   "id": "zhuge-jin",
+   "faction": null,
+   "city": "langya",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 142,
+   "hidden": true
+  },
+  {
+   "id": "gu-yong",
+   "faction": null,
+   "city": "wu",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 67,
+   "hidden": true
+  },
+  {
+   "id": "yu-fan",
+   "faction": "f-wang-lang",
+   "city": "kuaiji",
+   "post": "officer",
+   "loyalty": 82,
+   "merit": 300,
+   "gold": 170
+  },
+  {
+   "id": "taishi-ci",
+   "faction": null,
+   "city": "beihai",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 244,
+   "gold": 245
+  },
+  {
+   "id": "liu-biao",
+   "faction": "f-liu-biao",
+   "city": "xiangyang",
+   "post": "ruler",
+   "loyalty": null,
+   "merit": 12000,
+   "gold": 969
+  },
+  {
+   "id": "kuai-liang",
+   "faction": "f-liu-biao",
+   "city": "xiangyang",
+   "post": "officer",
+   "loyalty": 76,
+   "merit": 300,
+   "gold": 89
+  },
+  {
+   "id": "kuai-yue",
+   "faction": "f-liu-biao",
+   "city": "xiangyang",
+   "post": "officer",
+   "loyalty": 76,
+   "merit": 300,
+   "gold": 97
+  },
+  {
+   "id": "cai-mao",
+   "faction": "f-liu-biao",
+   "city": "jiangling",
+   "post": "prefect",
+   "loyalty": 60,
+   "merit": 1200,
+   "gold": 238
+  },
+  {
+   "id": "huang-zu",
+   "faction": "f-liu-biao",
+   "city": "jiangxia",
+   "post": "prefect",
+   "loyalty": 70,
+   "merit": 1200,
+   "gold": 243
+  },
+  {
+   "id": "wen-pin",
+   "faction": "f-liu-biao",
+   "city": "xiangyang",
+   "post": "officer",
+   "loyalty": 81,
+   "merit": 300,
+   "gold": 153
+  },
+  {
+   "id": "huang-zhong",
+   "faction": "f-liu-biao",
+   "city": "xiangyang",
+   "post": "officer",
+   "loyalty": 75,
+   "merit": 600,
+   "gold": 83
+  },
+  {
+   "id": "wei-yan",
+   "faction": "f-liu-biao",
+   "city": "xiangyang",
+   "post": "officer",
+   "loyalty": 56,
+   "merit": 300,
+   "gold": 97
+  },
+  {
+   "id": "sima-hui",
+   "faction": null,
+   "city": "xiangyang",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 80,
+   "hidden": true
+  },
+  {
+   "id": "xu-shu",
+   "faction": null,
+   "city": "xuchang",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 137,
+   "hidden": true
+  },
+  {
+   "id": "guo-jia",
+   "faction": null,
+   "city": "xuchang",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 110,
+   "hidden": true
+  },
+  {
+   "id": "hua-tuo",
+   "faction": null,
+   "city": "xiaopei",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 83,
+   "hidden": true
+  },
+  {
+   "id": "xu-chu",
+   "faction": null,
+   "city": "xiaopei",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 73,
+   "hidden": true
+  },
+  {
+   "id": "zhou-cang",
+   "faction": null,
+   "city": "runan",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 115,
+   "hidden": true
+  },
+  {
+   "id": "pei-yuanshao",
+   "faction": null,
+   "city": "runan",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 78,
+   "hidden": true
+  },
+  {
+   "id": "liu-yan",
+   "faction": "f-liu-yan",
+   "city": "chengdu",
+   "post": "ruler",
+   "loyalty": null,
+   "merit": 12000,
+   "gold": 681
+  },
+  {
+   "id": "liu-zhang",
+   "faction": "f-liu-yan",
+   "city": "chengdu",
+   "post": "officer",
+   "loyalty": 100,
+   "merit": 300,
+   "gold": 205
+  },
+  {
+   "id": "yan-yan",
+   "faction": null,
+   "city": "jiangzhou",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 117,
+   "hidden": true
+  },
+  {
+   "id": "zhang-song",
+   "faction": null,
+   "city": "chengdu",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 80,
+   "hidden": true
+  },
+  {
+   "id": "huang-quan",
+   "faction": null,
+   "city": "zitong",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 109,
+   "hidden": true
+  },
+  {
+   "id": "meng-huo",
+   "faction": null,
+   "city": "jianning",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 51,
+   "hidden": true
+  },
+  {
+   "id": "zhang-lu",
+   "faction": "f-zhang-lu",
+   "city": "hanzhong",
+   "post": "ruler",
+   "loyalty": null,
+   "merit": 12000,
+   "gold": 821
+  },
+  {
+   "id": "zhang-wei",
+   "faction": "f-zhang-lu",
+   "city": "hanzhong",
+   "post": "officer",
+   "loyalty": 66,
+   "merit": 300,
+   "gold": 90
+  },
+  {
+   "id": "yan-pu",
+   "faction": "f-zhang-lu",
+   "city": "hanzhong",
+   "post": "officer",
+   "loyalty": 75,
+   "merit": 300,
+   "gold": 210
+  },
+  {
+   "id": "ma-teng",
+   "faction": "f-ma-teng",
+   "city": "wuwei",
+   "post": "ruler",
+   "loyalty": null,
+   "merit": 12000,
+   "gold": 854
+  },
+  {
+   "id": "pang-de",
+   "faction": "f-ma-teng",
+   "city": "wuwei",
+   "post": "officer",
+   "loyalty": 84,
+   "merit": 300,
+   "gold": 193
+  },
+  {
+   "id": "han-sui",
+   "faction": "f-han-sui",
+   "city": "anding",
+   "post": "ruler",
+   "loyalty": null,
+   "merit": 12000,
+   "gold": 683
+  },
+  {
+   "id": "cheng-yin",
+   "faction": "f-han-sui",
+   "city": "anding",
+   "post": "officer",
+   "loyalty": 76,
+   "merit": 300,
+   "gold": 151
+  },
+  {
+   "id": "yang-qiu",
+   "faction": "f-han-sui",
+   "city": "anding",
+   "post": "officer",
+   "loyalty": 72,
+   "merit": 300,
+   "gold": 101
+  },
+  {
+   "id": "yang-fu",
+   "faction": null,
+   "city": "tianshui",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 125,
+   "hidden": true
+  },
+  {
+   "id": "gongsun-zan",
+   "faction": "f-gongsun-zan",
+   "city": "beiping",
+   "post": "ruler",
+   "loyalty": null,
+   "merit": 12000,
+   "gold": 668
+  },
+  {
+   "id": "gongsun-yue",
+   "faction": "f-gongsun-zan",
+   "city": "beiping",
+   "post": "officer",
+   "loyalty": 86,
+   "merit": 300,
+   "gold": 217
+  },
+  {
+   "id": "tian-kai",
+   "faction": "f-gongsun-zan",
+   "city": "beiping",
+   "post": "officer",
+   "loyalty": 75,
+   "merit": 300,
+   "gold": 145
+  },
+  {
+   "id": "yan-gang",
+   "faction": "f-gongsun-zan",
+   "city": "beiping",
+   "post": "officer",
+   "loyalty": 75,
+   "merit": 300,
+   "gold": 81
+  },
+  {
+   "id": "liu-bei",
+   "faction": "f-gongsun-zan",
+   "city": "pingyuan",
+   "post": "prefect",
+   "loyalty": 77,
+   "merit": 1800,
+   "gold": 207
+  },
+  {
+   "id": "guan-yu",
+   "faction": "f-gongsun-zan",
+   "city": "pingyuan",
+   "post": "officer",
+   "loyalty": 84,
+   "merit": 1800,
+   "gold": 287
+  },
+  {
+   "id": "zhang-fei",
+   "faction": "f-gongsun-zan",
+   "city": "pingyuan",
+   "post": "officer",
+   "loyalty": 65,
+   "merit": 300,
+   "gold": 84
+  },
+  {
+   "id": "jian-yong",
+   "faction": "f-gongsun-zan",
+   "city": "pingyuan",
+   "post": "officer",
+   "loyalty": 79,
+   "merit": 300,
+   "gold": 194
+  },
+  {
+   "id": "mi-heng",
+   "faction": null,
+   "city": "pingyuan",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 168,
+   "gold": 255
+  },
+  {
+   "id": "liu-yu",
+   "faction": "f-liu-yu",
+   "city": "ji",
+   "post": "ruler",
+   "loyalty": null,
+   "merit": 12000,
+   "gold": 510
+  },
+  {
+   "id": "zou-jing",
+   "faction": "f-liu-yu",
+   "city": "ji",
+   "post": "officer",
+   "loyalty": 85,
+   "merit": 300,
+   "gold": 211
+  },
+  {
+   "id": "lu-zhi",
+   "faction": null,
+   "city": "ji",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 145,
+   "hidden": true
+  },
+  {
+   "id": "gongsun-du",
+   "faction": "f-gongsun-du",
+   "city": "xiangping",
+   "post": "ruler",
+   "loyalty": null,
+   "merit": 12000,
+   "gold": 817
+  },
+  {
+   "id": "zheng-xuan",
+   "faction": null,
+   "city": "beihai",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 62,
+   "hidden": true
+  },
+  {
+   "id": "kong-rong",
+   "faction": "f-kong-rong",
+   "city": "beihai",
+   "post": "ruler",
+   "loyalty": null,
+   "merit": 12000,
+   "gold": 684
+  },
+  {
+   "id": "liu-dai",
+   "faction": "f-liu-dai",
+   "city": "puyang",
+   "post": "ruler",
+   "loyalty": null,
+   "merit": 12000,
+   "gold": 627
+  },
+  {
+   "id": "qiao-mao",
+   "faction": "f-liu-dai",
+   "city": "puyang",
+   "post": "officer",
+   "loyalty": 69,
+   "merit": 300,
+   "gold": 128
+  },
+  {
+   "id": "chen-gong",
+   "faction": null,
+   "city": "puyang",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 209,
+   "gold": 166
+  },
+  {
+   "id": "cheng-yu",
+   "faction": null,
+   "city": "puyang",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 228,
+   "gold": 204
+  },
+  {
+   "id": "man-chong",
+   "faction": null,
+   "city": "puyang",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 128,
+   "hidden": true
+  },
+  {
+   "id": "tao-qian",
+   "faction": "f-tao-qian",
+   "city": "xiapi",
+   "post": "ruler",
+   "loyalty": null,
+   "merit": 12000,
+   "gold": 896
+  },
+  {
+   "id": "mi-zhu",
+   "faction": "f-tao-qian",
+   "city": "xiapi",
+   "post": "officer",
+   "loyalty": 77,
+   "merit": 300,
+   "gold": 107
+  },
+  {
+   "id": "mi-fang",
+   "faction": "f-tao-qian",
+   "city": "xiapi",
+   "post": "officer",
+   "loyalty": 65,
+   "merit": 300,
+   "gold": 211
+  },
+  {
+   "id": "sun-qian",
+   "faction": "f-tao-qian",
+   "city": "xiapi",
+   "post": "officer",
+   "loyalty": 80,
+   "merit": 300,
+   "gold": 144
+  },
+  {
+   "id": "chen-deng",
+   "faction": "f-tao-qian",
+   "city": "xiapi",
+   "post": "officer",
+   "loyalty": 85,
+   "merit": 600,
+   "gold": 207
+  },
+  {
+   "id": "cao-bao",
+   "faction": "f-tao-qian",
+   "city": "langya",
+   "post": "prefect",
+   "loyalty": 76,
+   "merit": 1200,
+   "gold": 257
+  },
+  {
+   "id": "zhang-chao",
+   "faction": "f-tao-qian",
+   "city": "xiapi",
+   "post": "officer",
+   "loyalty": 79,
+   "merit": 300,
+   "gold": 130
+  },
+  {
+   "id": "zang-ba",
+   "faction": null,
+   "city": "langya",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 231,
+   "gold": 254
+  },
+  {
+   "id": "kong-zhou",
+   "faction": "f-kong-zhou",
+   "city": "xuchang",
+   "post": "ruler",
+   "loyalty": null,
+   "merit": 12000,
+   "gold": 951
+  },
+  {
+   "id": "wang-lang",
+   "faction": "f-wang-lang",
+   "city": "kuaiji",
+   "post": "ruler",
+   "loyalty": null,
+   "merit": 12000,
+   "gold": 854
+  },
+  {
+   "id": "yan-baihu",
+   "faction": "f-yan-baihu",
+   "city": "wu",
+   "post": "ruler",
+   "loyalty": null,
+   "merit": 12000,
+   "gold": 948
+  },
+  {
+   "id": "shi-xie",
+   "faction": "f-shi-xie",
+   "city": "jiaozhi",
+   "post": "ruler",
+   "loyalty": null,
+   "merit": 12000,
+   "gold": 584
+  },
+  {
+   "id": "shi-yi",
+   "faction": "f-shi-xie",
+   "city": "jiaozhi",
+   "post": "officer",
+   "loyalty": 100,
+   "merit": 300,
+   "gold": 137
+  },
+  {
+   "id": "chen-wen",
+   "faction": "f-chen-wen",
+   "city": "shouchun",
+   "post": "ruler",
+   "loyalty": null,
+   "merit": 12000,
+   "gold": 600
+  },
+  {
+   "id": "zhang-yang",
+   "faction": "f-zhang-yang",
+   "city": "shangdang",
+   "post": "ruler",
+   "loyalty": null,
+   "merit": 12000,
+   "gold": 716
+  },
+  {
+   "id": "dong-zhao",
+   "faction": "f-zhang-yang",
+   "city": "shangdang",
+   "post": "officer",
+   "loyalty": 67,
+   "merit": 300,
+   "gold": 109
+  },
+  {
+   "id": "wang-ling",
+   "faction": null,
+   "city": "jinyang",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 127,
+   "hidden": true
+  },
+  {
+   "id": "xu-huang",
+   "faction": null,
+   "city": "hedong",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 215,
+   "gold": 204
+  },
+  {
+   "id": "yang-feng",
+   "faction": null,
+   "city": "hedong",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 85,
+   "hidden": true
+  },
+  {
+   "id": "sima-lang",
+   "faction": null,
+   "city": "luoyang",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 67,
+   "hidden": true
+  },
+  {
+   "id": "feng-ji",
+   "faction": "f-yuan-shao",
+   "city": "nanpi",
+   "post": "officer",
+   "loyalty": 60,
+   "merit": 300,
+   "gold": 146
+  },
+  {
+   "id": "sun-ben",
+   "faction": "f-sun-jian",
+   "city": "changsha",
+   "post": "officer",
+   "loyalty": 76,
+   "merit": 300,
+   "gold": 154
+  },
+  {
+   "id": "xu-sheng",
+   "faction": null,
+   "city": "langya",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 95,
+   "hidden": true
+  },
+  {
+   "id": "pan-zhang",
+   "faction": null,
+   "city": "puyang",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 91,
+   "hidden": true
+  },
+  {
+   "id": "xiang-lang",
+   "faction": null,
+   "city": "xiangyang",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 98,
+   "hidden": true
+  },
+  {
+   "id": "mao-jie",
+   "faction": null,
+   "city": "xiangyang",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 102,
+   "hidden": true
+  },
+  {
+   "id": "li-yan",
+   "faction": "f-liu-biao",
+   "city": "xiangyang",
+   "post": "officer",
+   "loyalty": 55,
+   "merit": 300,
+   "gold": 83
+  },
+  {
+   "id": "liang-xing",
+   "faction": "f-han-sui",
+   "city": "anding",
+   "post": "officer",
+   "loyalty": 80,
+   "merit": 300,
+   "gold": 201
+  },
+  {
+   "id": "yan-xiang",
+   "faction": "f-yuan-shu",
+   "city": "wan",
+   "post": "officer",
+   "loyalty": 70,
+   "merit": 300,
+   "gold": 139
+  },
+  {
+   "id": "qiao-rui",
+   "faction": "f-yuan-shu",
+   "city": "xinye",
+   "post": "officer",
+   "loyalty": 73,
+   "merit": 300,
+   "gold": 121
+  },
+  {
+   "id": "liu-ye",
+   "faction": null,
+   "city": "lujiang",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 133,
+   "hidden": true
+  },
+  {
+   "id": "jiang-ji",
+   "faction": null,
+   "city": "shouchun",
+   "post": "wanderer",
+   "loyalty": null,
+   "merit": 0,
+   "gold": 82,
+   "hidden": true
+  },
+  {
+   "id": "chen-lin",
+   "faction": "f-han-fu",
+   "city": "ye",
+   "post": "officer",
+   "loyalty": 67,
+   "merit": 300,
+   "gold": 228
+  }
+ ],
+ "appearances": [
+  {
+   "id": "yuan-xi",
+   "year": 199,
+   "city": "nanpi",
+   "faction": "f-yuan-shao"
+  },
+  {
+   "id": "yuan-shang",
+   "year": 200,
+   "city": "nanpi",
+   "faction": "f-yuan-shao"
+  },
+  {
+   "id": "zhen-luo",
+   "year": 199,
+   "city": "nanpi",
+   "faction": "f-yuan-shao"
+  },
+  {
+   "id": "cao-xiu",
+   "year": 191,
+   "city": "chenliu",
+   "faction": "f-cao-cao"
+  },
+  {
+   "id": "cao-ang",
+   "year": 193,
+   "city": "chenliu",
+   "faction": "f-cao-cao"
+  },
+  {
+   "id": "lu-fan",
+   "year": 196,
+   "city": "wan",
+   "faction": "f-yuan-shu"
+  },
+  {
+   "id": "sun-ce",
+   "year": 191,
+   "city": "changsha",
+   "faction": "f-sun-jian"
+  },
+  {
+   "id": "sun-quan",
+   "year": 198,
+   "city": "changsha",
+   "faction": "f-sun-jian"
+  },
+  {
+   "id": "zhou-yu",
+   "year": 191,
+   "city": "lujiang",
+   "faction": null
+  },
+  {
+   "id": "lu-meng",
+   "year": 194,
+   "city": "runan",
+   "faction": null
+  },
+  {
+   "id": "lu-xun",
+   "year": 199,
+   "city": "wu",
+   "faction": null,
+   "hidden": true
+  },
+  {
+   "id": "zhou-tai",
+   "year": 195,
+   "city": "jianye",
+   "faction": null
+  },
+  {
+   "id": "jiang-qin",
+   "year": 195,
+   "city": "jianye",
+   "faction": null
+  },
+  {
+   "id": "gan-ning",
+   "year": 191,
+   "city": "jiangzhou",
+   "faction": null
+  },
+  {
+   "id": "da-qiao",
+   "year": 195,
+   "city": "lujiang",
+   "faction": null
+  },
+  {
+   "id": "xiao-qiao",
+   "year": 197,
+   "city": "lujiang",
+   "faction": null
+  },
+  {
+   "id": "wang-can",
+   "year": 193,
+   "city": "xiangyang",
+   "faction": "f-liu-biao"
+  },
+  {
+   "id": "pang-tong",
+   "year": 195,
+   "city": "xiangyang",
+   "faction": null,
+   "hidden": true
+  },
+  {
+   "id": "zhuge-liang",
+   "year": 197,
+   "city": "xiangyang",
+   "faction": null,
+   "hidden": true
+  },
+  {
+   "id": "chen-qun",
+   "year": 193,
+   "city": "xuchang",
+   "faction": null,
+   "hidden": true
+  },
+  {
+   "id": "fa-zheng",
+   "year": 194,
+   "city": "chengdu",
+   "faction": null
+  },
+  {
+   "id": "meng-da",
+   "year": 194,
+   "city": "chengdu",
+   "faction": null
+  },
+  {
+   "id": "ma-chao",
+   "year": 192,
+   "city": "wuwei",
+   "faction": "f-ma-teng"
+  },
+  {
+   "id": "guan-ping",
+   "year": 194,
+   "city": "pingyuan",
+   "faction": "f-gongsun-zan"
+  },
+  {
+   "id": "gongsun-kang",
+   "year": 196,
+   "city": "xiangping",
+   "faction": "f-gongsun-du"
+  },
+  {
+   "id": "yang-xiu",
+   "year": 191,
+   "city": "chang-an",
+   "faction": null
+  },
+  {
+   "id": "sima-yi",
+   "year": 195,
+   "city": "luoyang",
+   "faction": null,
+   "hidden": true
+  },
+  {
+   "id": "cai-yan",
+   "year": 194,
+   "city": "chang-an",
+   "faction": null
+  },
+  {
+   "id": "chen-wu",
+   "year": 196,
+   "city": "lujiang",
+   "faction": null
+  },
+  {
+   "id": "zhu-huan",
+   "year": 193,
+   "city": "wu",
+   "faction": null
+  },
+  {
+   "id": "zhu-ran",
+   "year": 198,
+   "city": "wu",
+   "faction": null
+  },
+  {
+   "id": "liao-hua",
+   "year": 196,
+   "city": "xiangyang",
+   "faction": null,
+   "hidden": true
+  },
+  {
+   "id": "ma-dai",
+   "year": 196,
+   "city": "wuwei",
+   "faction": "f-ma-teng"
+  },
+  {
+   "id": "liu-xie",
+   "year": 197,
+   "city": "chang-an",
+   "faction": "f-dong-zhuo"
+  }
+ ],
+ "oaths": [
+  [
+   "liu-bei",
+   "guan-yu",
+   "zhang-fei"
+  ],
+  [
+   "ma-teng",
+   "han-sui"
+  ]
+ ],
+ "friendships": [
+  {
+   "a": "liu-bei",
+   "b": "guan-yu",
+   "value": 95
+  },
+  {
+   "a": "liu-bei",
+   "b": "zhang-fei",
+   "value": 95
+  },
+  {
+   "a": "guan-yu",
+   "b": "zhang-fei",
+   "value": 92
+  },
+  {
+   "a": "cao-cao",
+   "b": "xiahou-dun",
+   "value": 80
+  },
+  {
+   "a": "cao-cao",
+   "b": "xiahou-yuan",
+   "value": 72
+  },
+  {
+   "a": "cao-cao",
+   "b": "cao-ren",
+   "value": 80
+  },
+  {
+   "a": "cao-cao",
+   "b": "cao-hong",
+   "value": 85
+  },
+  {
+   "a": "cao-cao",
+   "b": "cao-chun",
+   "value": 80
+  },
+  {
+   "a": "cao-cao",
+   "b": "zhang-miao",
+   "value": 75
+  },
+  {
+   "a": "cao-cao",
+   "b": "yuan-shao",
+   "value": 60
+  },
+  {
+   "a": "cao-cao",
+   "b": "xu-you",
+   "value": 65
+  },
+  {
+   "a": "cao-cao",
+   "b": "dian-wei",
+   "value": 60
+  },
+  {
+   "a": "sun-jian",
+   "b": "cheng-pu",
+   "value": 80
+  },
+  {
+   "a": "sun-jian",
+   "b": "huang-gai",
+   "value": 80
+  },
+  {
+   "a": "sun-jian",
+   "b": "han-dang",
+   "value": 80
+  },
+  {
+   "a": "sun-jian",
+   "b": "zhu-zhi",
+   "value": 70
+  },
+  {
+   "a": "sun-jian",
+   "b": "zu-mao",
+   "value": 75
+  },
+  {
+   "a": "sun-ce",
+   "b": "zhou-yu",
+   "value": 92
+  },
+  {
+   "a": "zhou-yu",
+   "b": "lu-su",
+   "value": 70
+  },
+  {
+   "a": "sun-ce",
+   "b": "sun-quan",
+   "value": 75
+  },
+  {
+   "a": "sun-ce",
+   "b": "cheng-pu",
+   "value": 70
+  },
+  {
+   "a": "lu-bu",
+   "b": "gao-shun",
+   "value": 70
+  },
+  {
+   "a": "lu-bu",
+   "b": "zhang-liao",
+   "value": 60
+  },
+  {
+   "a": "lu-bu",
+   "b": "dong-zhuo",
+   "value": 55
+  },
+  {
+   "a": "lu-bu",
+   "b": "chen-gong",
+   "value": 20
+  },
+  {
+   "a": "diaochan",
+   "b": "wang-yun",
+   "value": 75
+  },
+  {
+   "a": "li-jue",
+   "b": "guo-si",
+   "value": 75
+  },
+  {
+   "a": "li-jue",
+   "b": "zhang-ji",
+   "value": 60
+  },
+  {
+   "a": "jia-xu",
+   "b": "niu-fu",
+   "value": 40
+  },
+  {
+   "a": "liu-bei",
+   "b": "gongsun-zan",
+   "value": 65
+  },
+  {
+   "a": "liu-bei",
+   "b": "lu-zhi",
+   "value": 60
+  },
+  {
+   "a": "gongsun-zan",
+   "b": "lu-zhi",
+   "value": 65
+  },
+  {
+   "a": "liu-bei",
+   "b": "jian-yong",
+   "value": 85
+  },
+  {
+   "a": "xun-yu",
+   "b": "xun-you",
+   "value": 70
+  },
+  {
+   "a": "xun-yu",
+   "b": "guo-jia",
+   "value": 50
+  },
+  {
+   "a": "kong-rong",
+   "b": "taishi-ci",
+   "value": 55
+  },
+  {
+   "a": "kong-rong",
+   "b": "zheng-xuan",
+   "value": 70
+  },
+  {
+   "a": "ma-teng",
+   "b": "han-sui",
+   "value": 75
+  },
+  {
+   "a": "ma-teng",
+   "b": "pang-de",
+   "value": 70
+  },
+  {
+   "a": "ma-chao",
+   "b": "pang-de",
+   "value": 70
+  },
+  {
+   "a": "zhuge-liang",
+   "b": "pang-tong",
+   "value": 65
+  },
+  {
+   "a": "zhuge-liang",
+   "b": "xu-shu",
+   "value": 70
+  },
+  {
+   "a": "pang-tong",
+   "b": "sima-hui",
+   "value": 60
+  },
+  {
+   "a": "zhuge-liang",
+   "b": "sima-hui",
+   "value": 60
+  },
+  {
+   "a": "yuan-shao",
+   "b": "xu-you",
+   "value": 65
+  },
+  {
+   "a": "ju-shou",
+   "b": "tian-feng",
+   "value": 70
+  },
+  {
+   "a": "zhang-he",
+   "b": "yan-liang",
+   "value": 40
+  },
+  {
+   "a": "bao-xin",
+   "b": "yu-jin",
+   "value": 70
+  },
+  {
+   "a": "tao-qian",
+   "b": "mi-zhu",
+   "value": 55
+  },
+  {
+   "a": "mi-zhu",
+   "b": "sun-qian",
+   "value": 65
+  },
+  {
+   "a": "mi-zhu",
+   "b": "chen-deng",
+   "value": 55
+  },
+  {
+   "a": "liu-biao",
+   "b": "kuai-liang",
+   "value": 70
+  },
+  {
+   "a": "liu-biao",
+   "b": "cai-mao",
+   "value": 55
+  },
+  {
+   "a": "wang-yun",
+   "b": "cai-yong",
+   "value": 85
+  },
+  {
+   "a": "cai-yong",
+   "b": "dong-zhuo",
+   "value": 60
+  },
+  {
+   "a": "sima-yi",
+   "b": "sima-lang",
+   "value": 85
+  },
+  {
+   "a": "huang-zhong",
+   "b": "wei-yan",
+   "value": 30
+  }
+ ],
+ "rivals": [
+  [
+   "yuan-shao",
+   "yuan-shu"
+  ],
+  [
+   "yuan-shao",
+   "gongsun-zan"
+  ],
+  [
+   "liu-yu",
+   "gongsun-zan"
+  ],
+  [
+   "liu-dai",
+   "qiao-mao"
+  ],
+  [
+   "wang-yun",
+   "dong-zhuo"
+  ],
+  [
+   "mi-heng",
+   "cao-cao"
+  ],
+  [
+   "ju-shou",
+   "guo-tu"
+  ],
+  [
+   "shen-pei",
+   "guo-tu"
+  ]
+ ],
+ "flags": []
+}
