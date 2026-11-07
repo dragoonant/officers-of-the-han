@@ -33,3 +33,15 @@ describe('M4b ArmyForm is safe without a route', () => {
     expect(html2).toContain('Not available')
   })
 })
+
+describe('M4b W-AI-3 a scout that has arrived stays until the month ends', () => {
+  it('W-AI-3 at the scouted city and not yet reached, the officer does not walk home with the day budget', () => {
+    const s = fresh('cao-ren', 1, (x) => {
+      calm(x)
+      const o = x.officers['cao-ren']!
+      o.city = 'wancheng'; o.post = 'officer'; x.cities['xuchang']!.prefect = 'xun-yu'
+      o.mission = { kind: 'scout', city: 'wancheng', reached: false, deadline: { year: 190, month: 2 } }
+    })
+    expect(W.autopilot(s, false)).toEqual({ kind: 'endMonth' })
+  })
+})

@@ -16,7 +16,7 @@ export const DIPLO_CHANCE = 8
 /** W-AI-2: a ruler with 3.5x the troops of an adjacent house demands surrender with this chance (percent per month). */
 export const SURRENDER_CHANCE = 6
 /** W-AI-2: chance (percent) that a ruler looks for a war in a given month, per war slot. */
-export const WAR_CHANCE = 60
+export const WAR_CHANCE = 75
 
 const ok = (c: Ctx, id: string, a: WorldAction): WorldAction | null => (checkAction(c, id, a) === null ? a : null)
 

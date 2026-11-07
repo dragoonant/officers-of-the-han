@@ -155,6 +155,8 @@ export function nextOfficerAction(c: Ctx, id: string): WorldAction | null {
   if (o.mission) {
     const a = missionAction(c, id)
     if (a) return a
+    // W-AI-3: a scout that has arrived stays until the month ends (that is what marks it reached), instead of walking home with the day budget
+    if (o.mission.kind === 'scout' && !o.mission.reached && o.city === o.mission.city) return null
   }
   if (o.post === 'wanderer') return wandererAction(c, id)
   const ct = C(c, o.city)

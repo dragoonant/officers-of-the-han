@@ -83,10 +83,27 @@ export function hiddenIn(c: Ctx, cityId: string): OfficerState | null {
   return null
 }
 
+/** W-DIP-4: the largest house that will ever submit without a siege, and the temperaments that never kneel. */
+export const SURRENDER_MAX_CITIES = 2
+export const PROUD: string[] = ['ambitious', 'reckless', 'righteous']
+
+/** W-DIP-4: why `target` will not submit to a demand, or null when it might. */
+export function surrenderBar(c: Ctx, target: string): string | null {
+  if (factionCities(c, target).length > SURRENDER_MAX_CITIES) return 'A house with cities to fall back on does not kneel.'
+  const rid = c.s.factions[target]?.ruler
+  if (rid) {
+    const d = c.d.officerDef.get(rid)
+    const temper = d ? d.temperament : (c.s.officers[rid]?.custom?.temperament ?? 'steady')
+    if (PROUD.includes(temper)) return 'A proud ruler will not kneel.'
+  }
+  return null
+}
+
 export function diploChance(c: Ctx, envoy: OfficerState, ownF: string, target: string, kind: DiploKind): number {
   const ours = totalTroops(c, ownF)
   const theirs = totalTroops(c, target)
   if (kind === 'surrender') {
+    if (surrenderBar(c, target)) return 0 // W-DIP-4
     const ratio = ours / Math.max(1, theirs)
     return clamp(Math.floor((ratio - 3) * 15 + envoy.stats.cha / 10), 0, 60)
   }
@@ -485,6 +502,8 @@ function checkDiplomacy(c: Ctx, o: OfficerState, a: Extract<WorldAction, { kind:
   if (a.proposal === 'surrender') {
     if (totalTroops(c, o.faction) < 3 * totalTroops(c, a.faction)) return fail('not-legal', 'Our troops must be at least 3x theirs.')
     if (pact) return fail('not-legal', 'Not while a pact stands.')
+    const bar = surrenderBar(c, a.faction)
+    if (bar) return fail('not-legal', bar)
   }
   return needDays(o, DAYS.diplomacy)
 }

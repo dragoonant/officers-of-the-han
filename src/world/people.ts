@@ -3,7 +3,7 @@ import type { Post } from '../contracts/data'
 import type { Pending } from '../contracts/world'
 import {
   C, F, O, type Ctx, ageOf, cityName, clamp, factionCities, factionName, factionOfficers, friendship, isKin, log, nameOf,
-  nearestOwnCity, newPendingId, prof, setFriendship, sortedIds,
+  nearestOwnCity, neighbors, newPendingId, prof, roll, setFriendship, sortedIds, isBound,
 } from './core'
 
 export function pushLetter(c: Ctx, title: string, text: string): void {
@@ -92,7 +92,31 @@ export function succeedRuler(c: Ctx, fid: string, departing: string): string | n
   for (const o of factionOfficers(c, fid)) if (o.id !== pick && o.loyalty !== null) o.loyalty = clamp(o.loyalty - 10, 0, 100)
   log(c, 'succession', `${nameOf(c, pick)} became ruler of ${f.name}, after ${nameOf(c, departing)}.`, [pick, departing], n.city ?? undefined)
   if (c.s.officers[c.s.player]?.faction === fid) pushLetter(c, 'A new ruler', `${nameOf(c, pick)} now leads ${f.name}.`)
+  if (old && old.status === 'dead') splitHouse(c, fid, pick, (c.d.childrenOf.get(departing) ?? []).includes(pick))
   return pick
+}
+
+/** W-DEATH-4: a large house whose ruler died may lose provinces to its own prefects. */
+export const SPLIT_MIN_CITIES = 4
+export const SPLIT_BASE = 75
+export const SPLIT_HEIR_RELIEF = 40
+export const SPLIT_MAX = 70
+
+function splitHouse(c: Ctx, fid: string, heir: string, isChild: boolean): void {
+  const f = F(c, fid)
+  const cities = factionCities(c, fid)
+  if (cities.length < SPLIT_MIN_CITIES) return
+  const heirCity = c.s.officers[heir]?.city ?? null
+  for (const cid of cities) {
+    if (cid === f.capital || cid === heirCity) continue
+    const ct = C(c, cid)
+    if (ct.faction !== fid || !ct.prefect) continue
+    const p = O(c, ct.prefect)
+    if (p.id === c.s.player || p.status !== 'active' || p.loyalty === null || isBound(c, p)) continue
+    if (!factionCities(c, fid).includes(f.capital)) break
+    const pct = clamp(SPLIT_BASE - p.loyalty - (isChild ? SPLIT_HEIR_RELIEF : 0), 0, SPLIT_MAX)
+    if (roll(c, pct)) rebelCity(c, p.id, 'broke away from', true)
+  }
 }
 
 export function destroyFaction(c: Ctx, fid: string): void {
@@ -129,6 +153,56 @@ export function destroyFaction(c: Ctx, fid: string): void {
   if (pl && pl.post === 'wanderer' && pl.status !== 'dead') {
     /* player's own faction handled by letter in normalize when relevant */
   }
+}
+
+/** W-DEATH-4: the living house on a road to `cityId` (not `prev`) whose ruler the prefect finds most worth following: ruler CHA + half their friendship. */
+function protectorFor(c: Ctx, cityId: string, prev: string, prefect: string): string | null {
+  let best: string | null = null
+  let bs = -Infinity
+  for (const e of neighbors(c, cityId)) {
+    const fid = C(c, e.to).faction
+    if (!fid || fid === prev || !F(c, fid).alive) continue
+    const r = c.s.officers[F(c, fid).ruler]
+    if (!r) continue
+    const score = r.stats.cha + Math.floor(friendship(c, prefect, r.id) / 2)
+    if (score > bs || (score === bs && best !== null && fid < best)) { bs = score; best = fid }
+  }
+  return best
+}
+
+/** W-LOY-3: the prefect `id` takes their city out of the house and founds a faction there. W-DEATH-4 (`protector`): or hands it to a neighbouring house. */
+export function rebelCity(c: Ctx, id: string, verb: string, protector = false): void {
+  const o = O(c, id)
+  const cityId = o.city!
+  const ct = C(c, cityId)
+  const prev = ct.faction
+  if (!prev) return
+  const prevName = factionName(c, prev)
+  const host = protector ? protectorFor(c, cityId, prev, id) : null
+  let nf: string
+  if (host) {
+    nf = host
+    ct.faction = host
+    joinFaction(c, id, host, 60 + Math.floor(friendship(c, id, F(c, host).ruler) / 4), 'prefect')
+    ct.prefect = id
+  } else {
+    nf = foundFaction(c, id, cityId, [])
+  }
+  for (const oid of sortedIds(c.s.officers)) {
+    const x = c.s.officers[oid]!
+    if (oid === id || x.status !== 'active' || x.faction !== prev || x.city !== cityId) continue
+    if (x.post !== 'ruler' && (x.loyalty ?? 100) < 50) {
+      clearPrefect(c, oid)
+      joinFaction(c, oid, nf, 60 + Math.floor(friendship(c, oid, host ? F(c, host).ruler : id) / 4))
+    } else {
+      const dest = nearestOwnCity(c, prev, cityId, cityId)
+      if (dest) { x.city = dest; if (x.post === 'prefect') x.post = 'officer' }
+    }
+  }
+  if (host) log(c, 'rebel', `${nameOf(c, id)} ${verb} ${prevName} and gave ${cityName(c, cityId)} to ${factionName(c, host)}.`, [id], cityId)
+  else log(c, 'rebel', `${nameOf(c, id)} ${verb} ${prevName} and seized ${cityName(c, cityId)}.`, [id], cityId)
+  if (c.s.officers[c.s.player]?.faction === prev) pushLetter(c, 'A city rebels', host ? `${nameOf(c, id)} has gone over to ${factionName(c, host)} with ${cityName(c, cityId)}.` : `${nameOf(c, id)} has taken ${cityName(c, cityId)} from ${prevName}.`)
+  normalize(c)
 }
 
 /** Candidates for the player's successor (W-DEATH-2). Call before clearing the dead officer's ties. */

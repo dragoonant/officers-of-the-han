@@ -8,7 +8,7 @@ import {
 } from './core'
 import { runEventsStage } from './events'
 import { captiveChance, doResign, releaseCaptive, failMission, completeMission } from './rules'
-import { captureOfficer, checkEnd, foundFaction, joinFaction, killOfficer, normalize, pushLetter } from './people'
+import { captureOfficer, checkEnd, foundFaction, joinFaction, killOfficer, normalize, pushLetter, rebelCity } from './people'
 import { runArmiesStage } from './war'
 
 export const STAGES = ['ai-officers', 'armies', 'captives', 'events', 'deaths', 'loyalty', 'missions', 'month-start'] as const
@@ -120,43 +120,8 @@ function stageLoyalty(c: Ctx): void {
     o.loyalty = Math.abs(gap) < 2 ? t : o.loyalty + (gap > 0 ? 2 : -2)
     if (id === c.s.player) continue
     if (o.loyalty < 30 && roll(c, (30 - o.loyalty) * 2)) { doResign(c, id); continue }
-    if (o.post === 'prefect' && prof(c, id).temperament === 'ambitious' && o.loyalty < 25 && roll(c, 10)) rebel(c, id)
+    if (o.post === 'prefect' && prof(c, id).temperament === 'ambitious' && o.loyalty < 25 && roll(c, 10)) rebelCity(c, id, 'rebelled against')
   }
-}
-
-/** W-LOY-3 */
-function rebel(c: Ctx, id: string): void {
-  const o = O(c, id)
-  const cityId = o.city!
-  const ct = C(c, cityId)
-  const prev = ct.faction
-  if (!prev) return
-  const prevName = factionName(c, prev)
-  const nf = foundFaction(c, id, cityId, [])
-  for (const oid of sortedIds(c.s.officers)) {
-    const x = c.s.officers[oid]!
-    if (oid === id || x.status !== 'active' || x.faction !== prev || x.city !== cityId) continue
-    if (x.post !== 'ruler' && (x.loyalty ?? 100) < 50) {
-      joinFaction(c, oid, nf, 60 + Math.floor(friendship(c, oid, id) / 4))
-    } else {
-      const dest = nearestOwn(c, prev, cityId)
-      if (dest) { x.city = dest; if (x.post === 'prefect') x.post = 'officer' }
-    }
-  }
-  log(c, 'rebel', `${nameOf(c, id)} rebelled against ${prevName} and seized ${cityName(c, cityId)}.`, [id], cityId)
-  if (c.s.officers[c.s.player]?.faction === prev) pushLetter(c, 'A city rebels', `${nameOf(c, id)} has taken ${cityName(c, cityId)} from ${prevName}.`)
-  normalize(c)
-}
-
-function nearestOwn(c: Ctx, fid: string, from: string): string | null {
-  let best: string | null = null
-  let bd = Infinity
-  for (const cid of c.d.cityIds) {
-    if (cid === from || C(c, cid).faction !== fid) continue
-    const d = c.d.dist.get(from)?.get(cid) ?? Infinity
-    if (d < bd) { bd = d; best = cid }
-  }
-  return best
 }
 
 function stageMissions(c: Ctx): void {

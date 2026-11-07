@@ -40,6 +40,9 @@ const topShare200: number[] = []
 const strongAlive = new Map<string, number>() // label -> seeds alive at the end
 const STRONG: [string, RegExp][] = [['Cao Cao', /cao cao/i], ['Yuan Shao', /yuan shao/i], ['Sun', /\bsun\b/i], ['Liu Biao', /liu biao/i], ['Liu Yan/Zhang', /liu (yan|zhang)/i]]
 const playerPosts = new Map<string, number>()
+const dzEnd: number[] = [] // M4b: cities of Dong Zhuo's house (f-dong-zhuo, whoever rules it) at the end, seeds that reached the end year
+const ccEnd: boolean[] = []
+const dzPeak: number[] = []
 const t0 = Date.now()
 
 for (let seed = 1; seed <= seeds; seed++) {
@@ -115,6 +118,10 @@ for (let seed = 1; seed <= seeds; seed++) {
     const tot = Object.keys(s.cities).length
     topShare200.push(Math.max(0, ...cnt.values()) / tot)
     for (const [label, re] of STRONG) if (Object.values(s.factions).some((f) => f.alive && re.test(f.name))) strongAlive.set(label, (strongAlive.get(label) ?? 0) + 1)
+    if (s.ym.year >= endYear) {
+      dzEnd.push(cnt.get('f-dong-zhuo') ?? 0)
+      ccEnd.push(!!s.factions['f-cao-cao']?.alive)
+    }
     const po = s.officers[s.player]
     const key = po ? `${po.status}/${po.post}${po.faction ? ' of ' + s.factions[po.faction]?.name : ''}` : 'none'
     playerPosts.set(key, (playerPosts.get(key) ?? 0) + 1)
@@ -157,6 +164,8 @@ for (const y of [195, 200]) {
   console.log(`cities by faction at ${y} (mean over all seeds, seeds alive): ${rows.map((r) => `${r.n} ${r.mean.toFixed(1)} (${r.seeds})`).join(', ')}`)
 }
 console.log(`largest city share at 200 per seed: ${topShare200.map((x) => (x * 100).toFixed(0) + '%').join(' ')}; seeds over 40%: ${topShare200.filter((x) => x > 0.4).length}`)
+const mean = (a: number[]): string => (a.length ? (a.reduce((p, q) => p + q, 0) / a.length).toFixed(1) : 'n/a')
+console.log(`M4b: Dong Zhuo's house at ${years + 190}: ${mean(dzEnd)} cities on average over the ${dzEnd.length} seeds that reached it (${dzEnd.join(' ')}); Cao Cao alive in ${ccEnd.filter(Boolean).length} of those ${ccEnd.length}`)
 console.log(`strong powers alive at the end (seeds of ${seeds}): ${STRONG.map(([l]) => `${l} ${strongAlive.get(l) ?? 0}`).join(', ')}`)
 console.log(`player's officer at the end: ${[...playerPosts.entries()].map(([k, v]) => `${k} x${v}`).join('; ')}`)
 console.log('log kinds:', [...kinds.entries()].sort().map(([k, v]) => `${k}=${v}`).join(' '))
