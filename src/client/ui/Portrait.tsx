@@ -25,7 +25,7 @@ export function Medallion({ name, size }: { name: string; size: number }) {
 }
 
 /**
- * An officer portrait in a mirror frame. a generated portrait listed in public/portraits/gen/manifest.json wins (by `id`, then `portrait`); else `portrait` (or `id`) names public/portraits/<name>.webp; without a file the medallion is shown.
+ * An officer portrait in a mirror frame. a generated portrait listed in public/portraits/gen/manifest.json wins (by `id`, then `portrait`); else `portrait` names public/portraits/<portrait>.webp; without a file the medallion is shown.
  * `rings` forwards to the mirror (vigor / spirit arcs); `faction` is a CSS colour for the lacquer dot.
  */
 export function Portrait({ id, name, portrait, size = 56, faction, rings, selected, target }: { id?: string; name: string; portrait?: string; size?: number; faction?: string; rings?: MirrorRing[]; selected?: boolean; target?: boolean }) {

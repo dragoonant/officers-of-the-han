@@ -49,7 +49,7 @@ A prompt is `Subject, dress, expression. STYLE`. Built from `src/data/officers.j
 `src/client/ui/portraitSource.ts` (pure, tested) and `Portrait.tsx`:
 1. `public/portraits/gen/manifest.json` is read once at runtime. A committed manifest lists nothing, so there is never a 404 and never a console error.
 2. If the manifest lists the officer's **id**, or the officer's `portrait` name (created officers carry `face-NN`), the generated `gen/<name>.webp` (or `-128`) is shown.
-3. Otherwise the older file `portraits/<portrait ?? id>.webp` (the copied tactics portraits, PLAN D15).
+3. Otherwise the older file `portraits/<portrait>.webp`, only when the data names a `portrait` (the copied tactics portraits, PLAN D15); never guessed from the id.
 4. If that fails to load, or there is none, the lacquer medallion.
 A generated file that fails to load falls through to steps 3 and 4.
 

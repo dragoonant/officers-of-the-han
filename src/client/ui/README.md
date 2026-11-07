@@ -10,6 +10,6 @@ Import the theme once (`import '../client/theme.css'`) and call `installNoSelect
 | `<SilkLetter title? actions? >children</SilkLetter>` | | Yellow silk, vermilion edge, unrolls 260 ms. |
 | `<LacquerButton name cost? onClick disabled? primary? state? />` | `state: 'available' \| 'selected' \| 'target' \| 'none'` | `name` says what it does; `cost` is the second line (numbers from `query.*`). Min 44 px tall. |
 | `<StatDial label value max? size? color? />` | | A mirror-back dial for one number. |
-| `<Portrait id? name portrait? size? faction? rings? selected? target? />` | portrait file `public/portraits/<portrait ?? id>.webp` | Falls back to the medallion (surname initial + cloud scroll). |
+| `<Portrait id? name portrait? size? faction? rings? selected? target? />` | a generated portrait (`public/portraits/gen/`), else `public/portraits/<portrait>.webp` | Falls back to the medallion (surname initial + cloud scroll). |
 | `<OfficerChip id? name portrait? sub? faction? size? />` | | Small portrait + name + a line. |
 | `installNoSelect()` | | `selectstart` / `contextmenu` fallback listeners. |

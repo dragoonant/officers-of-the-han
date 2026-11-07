@@ -1,5 +1,5 @@
 // Which image an officer portrait shows (docs/spec/55-portraits.md section 5). Pure: no DOM, no fetch except `fetchPortraitManifest`.
-// Order: a generated portrait the manifest lists (by officer id, then by the portrait name), then the older file `portraits/<name>.webp`
+// Order: a generated portrait the manifest lists (by officer id, then by the portrait name), then the older file `portraits/<portrait>.webp` (only when the data names one)
 // (the copied tactics portraits and the medallion's fallback), then nothing (the caller draws the medallion).
 export interface PortraitManifest {
   version: 1
@@ -34,8 +34,8 @@ export function portraitCandidates(p: { id?: string | undefined; portrait?: stri
   const out: string[] = []
   if (p.id && m.ids.has(p.id)) out.push(generatedUrl(p.id, size, base))
   if (p.portrait && m.ids.has(p.portrait)) out.push(generatedUrl(p.portrait, size, base))
-  const legacy = p.portrait ?? p.id
-  if (legacy) out.push(legacyUrl(legacy, base))
+  // The older files exist only for officers whose data names a `portrait` (contracts/data.ts); guessing by id cost a 404 per officer.
+  if (p.portrait) out.push(legacyUrl(p.portrait, base))
   return [...new Set(out)]
 }
 
