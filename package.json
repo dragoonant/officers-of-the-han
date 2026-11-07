@@ -14,8 +14,15 @@
     "validate:data": "tsx tools/validate-data.ts",
     "sim": "tsx tools/sim.ts",
     "bench:ai": "tsx tools/ai-bench.ts",
-    "audio:gen": "node tools/audio/gen-music.mjs && node tools/audio/master-audio.mjs",
-    "bench:battle": "tsx tools/battle-bench.ts"
+    "bench:battle": "tsx tools/battle-bench.ts",
+    "portraits:prompts": "node tools/gen/portraits/build-prompts.mjs",
+    "portraits:gen": "node tools/gen/portraits/gen-portraits.mjs",
+    "portraits:sheets": "node tools/gen/portraits/contact-sheets.mjs",
+    "portraits:pick": "node tools/gen/portraits/pick-portraits.mjs",
+    "portraits:fake": "node tools/gen/portraits/fake-flux-studio.mjs",
+    "audio:gen": "node tools/audio/gen-music.mjs",
+    "audio:master": "node tools/audio/master-audio.mjs",
+    "audio:fake": "node tools/audio/fake-audio-studio.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.8",

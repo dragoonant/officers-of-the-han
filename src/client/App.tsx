@@ -1,5 +1,7 @@
 import { useEffect } from 'react'
 import { installNoSelect } from './ui'
+import { bindGameAudio } from './audio/gameAudio'
+import { SoundButton } from './audio/SoundControl'
 import './theme.css'
 import { useGame } from './store/game'
 import { useUi } from './store/ui'
@@ -16,6 +18,7 @@ declare global {
 
 export function App() {
   useEffect(() => installNoSelect(), [])
+  useEffect(() => bindGameAudio(), [])
   // test hooks (the e2e text sweep drives the stores; the engine is pure)
   useEffect(() => { window.__game = useGame; window.__ui = useUi; window.__world = world }, [])
   const screen = useGame((g) => g.screen)
@@ -25,6 +28,7 @@ export function App() {
       {screen === 'new' && <NewGame />}
       {screen === 'game' && <Game />}
       {screen === 'end' && <End />}
+      {screen === 'title' && <SoundButton />}
     </div>
   )
 }

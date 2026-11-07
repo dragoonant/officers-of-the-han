@@ -1,0 +1,22 @@
+/* The audition page: every music slot, effect and portrait state. Own file, tokens from theme.css. */
+body.sounds { background: var(--lacquer); color: var(--paper); font-family: var(--font-body); margin: 0; overflow: auto; }
+.snp { max-width: 960px; margin: 0 auto; padding: 16px 16px 60px; }
+.snp h1 { font-family: var(--font-display); letter-spacing: 0.12em; text-transform: uppercase; font-size: 22px; margin: 6px 0 4px; color: var(--ochre); }
+.snp h2 { font-family: var(--font-display); letter-spacing: 0.12em; text-transform: uppercase; font-size: 14px; margin: 26px 0 8px; color: var(--ochre); border-bottom: 1px solid var(--lacquer-3); padding-bottom: 4px; }
+.snp .lede { color: var(--dust); font-size: 14px; margin: 0 0 10px; }
+.snp .slot { background: var(--lacquer-2); border: 1px solid var(--lacquer-3); border-radius: 8px; padding: 8px 12px; margin: 6px 0; }
+.snp .slot .head { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+.snp .slot .name { font-weight: 800; font-size: 14px; }
+.snp .slot .miss { color: var(--dust); font-size: 13px; }
+.snp .take { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 6px; font-size: 13px; color: var(--dust); }
+.snp .take b { color: var(--paper); font-weight: 600; }
+.snp button { appearance: none; font: inherit; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; min-height: 32px; padding: 3px 14px; cursor: pointer; color: var(--paper); background: var(--lacquer-3); border: 1px solid var(--bronze-face); border-radius: 6px; }
+.snp button.on { background: var(--red-lacquer); border-color: var(--vermilion); }
+.snp .moods { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+.snp table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.snp td, .snp th { text-align: left; padding: 4px 6px; border-bottom: 1px solid var(--lacquer-3); }
+.snp .pgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.snp .pcell { background: var(--lacquer-2); border: 1px solid var(--lacquer-3); border-radius: 8px; padding: 8px; display: flex; gap: 8px; align-items: center; font-size: 12px; }
+.snp .st-generated { color: var(--verdigris); font-weight: 800; }
+.snp .st-file { color: var(--ochre); font-weight: 800; }
+.snp .st-medallion { color: var(--dust); }

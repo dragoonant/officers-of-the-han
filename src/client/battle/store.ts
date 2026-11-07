@@ -7,6 +7,7 @@ import { autoDuel } from '../../duel'
 import { createBattle, legalActions, outcomeOf, query, step, type BattleAction, type BattleEvent, type BattleState, type TacticId } from '../../battle'
 import type { BattleSetup } from '../../contracts/battle'
 import { inField } from '../../battle/hex'
+import { audioHooks } from '../audio/hooks'
 import { Director, type Beat, type Speed } from './director'
 import { eventLine, terrainName } from './eventLines'
 import { tileXZ } from './layout'
@@ -107,6 +108,7 @@ const director = new Director({
     })
     set((s) => ({ feed: [...s.feed.slice(-199), { id: feedId++, text, kind: ev.kind }] }))
     if (st.speed === 'instant') return
+    audioHooks.battleEvent(ev, (id) => state.units.find((u) => u.id === id)?.type)
     switch (ev.kind) {
       case 'attack': {
         const t = unitHex(ev.target)

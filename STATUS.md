@@ -2,6 +2,9 @@
 
 **2026-11-07, end of the first overnight run.** M0–M3, M4a and M4b done. **Live on Pages: https://dragoonant.github.io/officers-of-the-han/** (lab: https://dragoonant.github.io/officers-of-the-han/lab.html). It was first deployed on 2026-11-07 after the owner created the repo.
 
+## Art, music and sound (branch `m-av`, not merged; PLAN D20)
+Built and tested against fake studios; **no real generation yet** (the studios run on the owner's PC). The game is silent and shows the older portraits or medallions until files exist. See `docs/handoff/m-av.md` and the runbook `docs/handoff/m5-av-runbook.md`. Nothing is verified by eye or ear.
+
 ## Playable now (`npm run dev`)
 - Title, new game in 190: pick any of 159 officers, or create your own. Map framing centres on you, with a "Find me" button.
 - The lacquer map of 48 cities and 73 roads, with city boxes, officer cards, houses and chronicle panels, and letters. Months have 30 days per officer, spent on work, people, court, travel and self.

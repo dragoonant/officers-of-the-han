@@ -9,6 +9,7 @@ import { Hud } from './Hud'
 import { Letters } from './Letters'
 import { MapView } from './MapView'
 import { HowToPlay } from './Title'
+import { SoundPanel } from '../audio/SoundControl'
 import { LacquerBox, LacquerButton } from './seam'
 import { ChroniclePanel, CityBox, FactionsPanel, LogRow, OfficerCard } from './Views'
 
@@ -50,6 +51,8 @@ export function Game() {
       {ui.panel === 'menu' && (
         <LacquerBox title="Menu" onClose={() => ui.setPanel(null)} testid="menu-panel">
           <p className="dust">The game saves after every action. Leaving now loses nothing.</p>
+          <div className="sec">Sound</div>
+          <SoundPanel />
           <div className="row">
             <LacquerButton onClick={() => ui.setPanel('help')}>How to play</LacquerButton>
             <LacquerButton primary testid="to-title" onClick={() => { ui.setPanel(null); ui.setCity(null); goTitle() }}>Save and return to the title<span className="sub">Continue reopens this very spot</span></LacquerButton>

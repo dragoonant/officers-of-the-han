@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { Mirror, type MirrorRing } from './Mirror'
+import { portraitCandidates } from './portraitSource'
+import { usePortraitManifest } from './usePortraitManifest'
 
 const BASE = (() => {
   try {
@@ -23,24 +25,28 @@ export function Medallion({ name, size }: { name: string; size: number }) {
 }
 
 /**
- * An officer portrait in a mirror frame. `portrait` (or `id`) names public/portraits/<name>.webp; without a file the medallion is shown.
+ * An officer portrait in a mirror frame. a generated portrait listed in public/portraits/gen/manifest.json wins (by `id`, then `portrait`); else `portrait` (or `id`) names public/portraits/<name>.webp; without a file the medallion is shown.
  * `rings` forwards to the mirror (vigor / spirit arcs); `faction` is a CSS colour for the lacquer dot.
  */
 export function Portrait({ id, name, portrait, size = 56, faction, rings, selected, target }: { id?: string; name: string; portrait?: string; size?: number; faction?: string; rings?: MirrorRing[]; selected?: boolean; target?: boolean }) {
-  const file = portrait ?? id
-  const [state, setState] = useState<'loading' | 'ok' | 'none'>(file ? 'loading' : 'none')
+  const manifest = usePortraitManifest()
+  const urls = portraitCandidates({ id, portrait }, size, manifest, BASE)
+  const [bad, setBad] = useState<string[]>([])
+  const [loaded, setLoaded] = useState<string | null>(null)
+  const src = urls.find((u) => !bad.includes(u))
   return (
     <span style={{ position: 'relative', display: 'inline-block', width: size, height: size, flex: '0 0 auto' }}>
       <Mirror size={size} rings={rings} selected={selected} target={target}>
-        {state === 'none' ? <Medallion name={name} size={size} /> : null}
-        {file && state !== 'none' && (
+        {!src ? <Medallion name={name} size={size} /> : null}
+        {src && (
           <img
-            src={`${BASE}portraits/${file}.webp`}
+            key={src}
+            src={src}
             alt={name}
             draggable={false}
-            onLoad={() => setState('ok')}
-            onError={() => setState('none')}
-            style={{ opacity: state === 'ok' ? 1 : 0 }}
+            onLoad={() => setLoaded(src)}
+            onError={() => setBad((b) => [...b, src])}
+            style={{ opacity: loaded === src ? 1 : 0 }}
           />
         )}
       </Mirror>

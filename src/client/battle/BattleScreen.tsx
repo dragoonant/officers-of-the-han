@@ -14,6 +14,7 @@ import { Terrain } from './Terrain'
 import { Marks } from './Marks'
 import { sidePigments } from './layout'
 import { computeMarks } from './marks'
+import { useAudioScene } from '../audio/scene'
 import { disposeBattle, hoverTile, initBattle, resolveDuel, tapTile, useBattle } from './store'
 import './battle.css'
 
@@ -139,6 +140,7 @@ export function BattleScreen({ setup, initial, onChange, onDone }: { setup: Batt
       setReady(false)
     }
   }, [setup, initial])
+  useAudioScene('battle') // after the init effect: the music must not read the last battle's result
   const pigments = useMemo(() => sidePigments(setup.attackerFaction, setup.defenderFaction), [setup])
   const state = useBattle((s) => s.state)
   const ended = useBattle((s) => s.ended)

@@ -58,7 +58,7 @@ export function Hud({ s }: { s: WorldState }) {
     <div className="whud" data-testid="hud">
       <MonthDial ym={s.ym} />
       <DaysDial days={v.days} />
-      <button className="wchip" style={{ padding: 0, border: 'none', background: 'none' }} onClick={() => open(s.player)} aria-label="Your officer card" data-testid="open-me"><Portrait name={v.name} portrait={v.portrait} size={44} ring={color ? `var(--f-${color})` : undefined} /></button>
+      <button className="wchip" style={{ padding: 0, border: 'none', background: 'none' }} onClick={() => open(s.player)} aria-label="Your officer card" data-testid="open-me"><Portrait id={v.id} name={v.name} portrait={v.portrait} size={44} ring={color ? `var(--f-${color})` : undefined} /></button>
       <div className="info">
         <div className="l1">{v.name} - {post}</div>
         <div className="l2">{color ? <FactionDot color={color} /> : null} {v.factionName ?? 'No house'}{v.cityName ? `, ${v.cityName}` : ''} - {ymText(s.ym)}</div>

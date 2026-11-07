@@ -17,6 +17,7 @@ export default defineConfig(({ mode }) => ({
       input: {
         main: fileURLToPath(new URL('./index.html', import.meta.url)),
         lab: fileURLToPath(new URL('./lab.html', import.meta.url)),
+        sounds: fileURLToPath(new URL('./sounds.html', import.meta.url)),
       },
       output: {
         manualChunks(id: string) {

@@ -1,6 +1,8 @@
 import { useCallback, useState } from 'react'
 import type { DebateOutcome, DebateSetup } from '../../contracts/contest'
 import { createDebate, debateTells, force, KIND_NAME, MAX_ROUNDS, parseTablet, stepDebate, type ArgKind, type DebateRound, type DebateState, type Side, type TabletId } from '../../debate'
+import { audioHooks } from '../audio/hooks'
+import { useAudioScene } from '../audio/scene'
 import { CloudBand, LacquerButton, Portrait } from '../ui'
 import './contests.css'
 
@@ -46,6 +48,7 @@ function describe(setup: DebateSetup, r: DebateRound): string {
  * as percentages over its tablets. If neither side is the player, a Next round button steps it. onDone fires once on Continue.
  */
 export function DebateScreen({ setup, onDone }: { setup: DebateSetup; onDone: (o: DebateOutcome) => void }) {
+  useAudioScene('debate')
   const [st, setSt] = useState<DebateState>(() => createDebate(setup))
   const [last, setLast] = useState<DebateRound | null>(null)
   const [msg, setMsg] = useState('')
@@ -59,6 +62,8 @@ export function DebateScreen({ setup, onDone }: { setup: DebateSetup; onDone: (o
       }
       setMsg('')
       for (const e of r.events) if (e.kind === 'round') setLast(e.record)
+      audioHooks.debateTally()
+      if (r.state.outcome) audioHooks.debateResult(me ? r.state.outcome.winner === me : null)
       setSt(r.state)
     },
     [st],

@@ -23,8 +23,9 @@ Asked through the multiple-choice UI before the owner went to sleep (two batches
 - **D15** Portraits: the 128 tactics portraits are copied for the officers they match; every other officer gets a lacquer medallion with a cloud-scroll monogram (a designed card face, not a stand-in). Rendered or painted portraits for the rest arrive later at the same paths.
 - **D16** Saves: KB rule 22 from the first playable; storage key `oth-save`.
 - **D17** KB rules 24–27 (no text selection on long press, picking by tile, model loaded before shown, mouse controls) from the first playable.
-- **D18** Audio: not in the first playable. The Audio Studio runs only on the owner's PC; a later session on the PC generates it.
+- **D18** Audio: not in the first playable. The Audio Studio runs only on the owner's PC; a later session on the PC generates it. (Built up to the generation step by D20.)
 - **D19** Working title "Officers of the Han" until the owner picks one.
+- **D20** Art, music and sound pass (owner request 2026-11-07): portraits from the owner's Flux Studio (FLUX.2 klein) and music and effects from the owner's Audio Studio (ACE-Step, Stable Audio Open), both on the Windows PC "evilaegis" that the cloud container cannot reach. Built and tested against fake studios up to the generation step; a later session on the PC runs `docs/handoff/m5-av-runbook.md`. Specs: `docs/spec/55-portraits.md` (own style: mineral-pigment head-and-shoulders on black lacquer, 291 prompts = 195 officers + 96 generic faces, 256 and 128 px WebP, generated files in `public/portraits/gen/` with a runtime manifest so the older portrait stays a fallback) and `docs/spec/60-audio.md` (13 music cues, 18 effects, mood map, loudness targets, about 5 MB budget, settings in `oth-audio`, silent until files exist). Looks and sounds are **not verified** until the owner sees and hears them.
 
 ## Milestones
 | Id | What | Status |
@@ -35,8 +36,8 @@ Asked through the multiple-choice UI before the owner went to sleep (two batches
 | M2b | Hex battle engine (`src/battle`) + battle AI + bench; duel and debate engines (`src/duel`, `src/debate`) | done |
 | M3 | First playable on Pages: title, new game (pick or create officer), lacquer map, city/officer/letters screens, month loop, hex battle board, duel and debate screens, autosave + Continue, e2e | done; live on Pages 2026-11-07 |
 | M4 | Balance: sim + bench passes, AI tiers | M4a and M4b done (Dong Zhuo dominance fixed); open: factions at 200 above the band, a quiet late game |
-| M5 | Art: portraits for every officer, battle figures per officer kit (owner PC for GPU) | |
-| M6 | Audio (owner PC) | |
+| M5 | Art: portraits for every officer, battle figures per officer kit (owner PC for GPU) | portrait pipeline, runtime fallback and specs built (branch `m-av`); generation on the PC pending; battle figures not started |
+| M6 | Audio (owner PC) | cue tables, runner, mastering, in-game director, settings, hooks and `sounds.html` built (branch `m-av`); generation on the PC pending |
 | M7 | Polish, Viceroy, more scenarios (184, 194, 200) | |
 
 ## Rulings / balance log
@@ -113,3 +114,8 @@ Format: `RULING: <rule> | <what we did> | <why> | <status>`.
 - 2026-11-07 v0.1 written at M0.
 
 - 2026-11-07 M3c (integration): world and battle CSS shared `.hud`, `.ticker`, `.actions` and `.chip`; the world's are now `whud`, `wticker`, `wactions` and `wchip`. The battle letter hands the saved battle to `BattleScreen` once, on mount, so a save no longer resets the board. Wrapper test ids are `world-battle`, `world-duel` and `world-debate`. Engine requests left open: a battle result letter, `suggestArmy` with a proposer, a list of startable officers, and a guard in `ArmyForm` when `war` or `propose` is unavailable (`docs/handoff/m3c-integ.md`).
+- RULING: D20-PORTRAIT-PATH | generated portraits are written to `public/portraits/gen/<id>.webp` (256 px) and `<id>-128.webp`, not over `public/portraits/<id>.webp`, and are used only when `public/portraits/gen/manifest.json` lists the id | the older copied portraits must stay a real fallback until the owner has seen the new ones; a committed empty manifest means no 404 and no console error before files exist | accepted (m-av 2026-11-07)
+- RULING: D20-PORTRAIT-PROMPTS | prompts carry no officer name, courtesy name, game name or era name (a proper noun in a clause invites lettering) and are linted against KB rule 23 at build time and in a test; physical traits come only from the sourced table `TRAITS`; officers who appear after 190 are drawn at their appearance age | KB local-ai-studios and rules 7 and 23 | accepted (m-av 2026-11-07)
+- RULING: D20-AUDIO-FORMAT | shipped audio is OGG Vorbis q4 only; the M4A alternative is written only with `master-audio.mjs --alt` | the donor shipped OGG q5 plus M4A, 9.7 MB of OGG for two takes and 12 MB of M4A; the budget here is about 5 MB for the whole score; old Safari without Vorbis would hear nothing, which is the owner's call | open (owner may ask for `--alt`)
+- RULING: D20-AUDIO-SETTINGS | the settings are music, effects and mute (no master slider); mute zeroes the master gain; key `oth-audio` | owner's request | accepted (m-av 2026-11-07)
+- RULING: D20-WAR-NEAR | the `war` map mood plays when an army not of the player's house (any army for a wanderer) is marching to or from the player's city or a city one road away | a presentation-only reading of "war near your city"; no engine change | accepted (m-av 2026-11-07)

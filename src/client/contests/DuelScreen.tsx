@@ -1,6 +1,8 @@
 import { useCallback, useMemo, useState } from 'react'
 import type { DuelOutcome, DuelSetup } from '../../contracts/contest'
 import { createDuel, hitBase, query as duelQuery, stepDuel, STANCE_NAME, type DuelRound, type DuelState, type Side, type Stance } from '../../duel'
+import { audioHooks } from '../audio/hooks'
+import { useAudioScene } from '../audio/scene'
 import { CloudBand, LacquerButton, Portrait } from '../ui'
 import './contests.css'
 
@@ -36,6 +38,7 @@ export function duelResultLine(setup: DuelSetup, o: DuelOutcome): string {
  * the player presses Continue on the result.
  */
 export function DuelScreen({ setup, onDone }: { setup: DuelSetup; onDone: (o: DuelOutcome) => void }) {
+  useAudioScene('duel')
   const [st, setSt] = useState<DuelState>(() => createDuel(setup))
   const [last, setLast] = useState<DuelRound | null>(null)
   const [msg, setMsg] = useState('')
@@ -49,7 +52,7 @@ export function DuelScreen({ setup, onDone }: { setup: DuelSetup; onDone: (o: Du
         return
       }
       setMsg('')
-      for (const e of r.events) if (e.kind === 'round') setLast(e.record)
+      for (const e of r.events) if (e.kind === 'round') { setLast(e.record); audioHooks.duelRound(e.record) }
       setSt(r.state)
     },
     [st],
