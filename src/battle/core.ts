@@ -164,8 +164,6 @@ export interface CalcOpts {
 }
 
 export function calcDamage(state: BattleState, att: BUnit, def: BUnit, o: CalcOpts): DamageCalc {
-  const aq = o.attQ ?? att.q
-  const ar = o.attR ?? att.r
   const dq = o.defQ ?? def.q
   const dr = o.defR ?? def.r
   const troops = o.attTroops ?? att.troops
@@ -201,8 +199,6 @@ export function calcDamage(state: BattleState, att: BUnit, def: BUnit, o: CalcOp
     }
   }
   if (o.extra !== undefined && o.extra !== 1) mults.push({ name: 'Volley', value: o.extra })
-  void aq
-  void ar
   let mid = troops * 0.12
   for (const m of mults) mid *= m.value
   return { mid, mults }

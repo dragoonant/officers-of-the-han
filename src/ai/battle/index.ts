@@ -3,19 +3,16 @@
 //   the walls for defenders) + tactic values (fire, confuse, taunt, rally, volley) + duel value.
 // Deterministic: no randomness; ties go to the earlier option in enumeration order (stay put first, then reach order,
 // attacks, gate, tactics, challenge, wait). `chooseRandomAction` is the bench's weak tier (a seeded uniform pick).
-import type { BattleSide } from '../../contracts/battle'
 import { clamp, nextFloat, seedRng } from '../../shared/rng'
 import {
-  alive, calcDamage, cellAt, dmgAt, enemiesOf, alliesOf, enterCost, isBrokenGate, maxRange, reach, tacticChance, unitById,
+  alive, calcDamage, cellAt, dmgAt, enemiesOf, alliesOf, enterCost, isBrokenGate, maxRange, reach, unitById,
 } from '../../battle/core'
 import { KEEP_COL, KEEP_ROW, WALL_COL, GATE_ROWS } from '../../battle/field'
-import { hexDistance, hexIndex, hexesWithin, neighbors, offsetToAxial, axialToOffset } from '../../battle/hex'
-import { gateTargets, legalActions, legalOfKind, tauntInfo } from '../../battle/legal'
-import { attackTargetsFrom, canChallenge, tacticTargetsFrom, volleyVictims } from '../../battle/query'
-import { MOVE_POINTS } from '../../battle/terrain'
+import { hexDistance, hexIndex, neighbors, offsetToAxial, axialToOffset } from '../../battle/hex'
+import { legalActions, legalOfKind, tauntInfo } from '../../battle/legal'
+import { attackTargetsFrom, tacticTargetsFrom, volleyVictims } from '../../battle/query'
+import { MOVE_POINTS, TERRAIN } from '../../battle/terrain'
 import type { BattleAction, BattleState, BUnit, TacticId } from '../../battle/types'
-
-const other = (s: BattleSide): BattleSide => (s === 'attacker' ? 'defender' : 'attacker')
 
 // ---- tuning -----------------------------------------------------------------------------------
 const W_EXPOSURE = 0.3 // share of the damage an enemy could do to us next turn that we count
@@ -253,12 +250,11 @@ function positionScore(c: Ctx, q: number, r: number): number {
   }
   // terrain: stand on good ground
   const cell = cellAt(state, q, r)
-  if (cell) s += (1 - (cell.terrain === 'ford' ? 1.15 : 1) * 0) + (1 - TERR_DEF(cell.terrain)) * 60
+  if (cell) s += (1 - TERRAIN[cell.terrain].def) * 60
   if (cell && cell.burn > 0) s -= u.troops * 0.25
   return s
 }
 
-const TERR_DEF = (t: string): number => (({ forest: 0.8, hill: 0.85, ford: 1.15, marsh: 1.1, keep: 0.7, town: 0.85, gate: 0.8 }) as Record<string, number>)[t] ?? 1
 
 interface Plan {
   score: number
@@ -337,7 +333,7 @@ export function chooseBattleAction(state: BattleState, unitId: string): BattleAc
   const forced = taunt && (taunt.canAttackNow || taunt.attackHexes.size > 0) ? taunt.taunter.id : null
   const best: Plan = { score: -Infinity, hex: null, action: null }
   // stay put (or, already moved, the only option)
-  considerFrom(c, u.q, u.r, u.moved ? u.movedDist : 0, forced && taunt!.canAttackNow ? forced : forced, best, null)
+  considerFrom(c, u.q, u.r, u.moved ? u.movedDist : 0, forced, best, null)
   if (!u.moved) {
     const allowed = new Set(legalOfKind(state, u, 'move').map((a) => (a.kind === 'move' ? hexIndex(a.q, a.r) : -1)))
     const nodes = [...reach(state, u).entries()].sort((a, b) => a[0] - b[0])
@@ -378,7 +374,3 @@ export function chooseAction(state: BattleState, unitId: string, tier: AiTier = 
   return tier === 'random' ? chooseRandomAction(state, unitId) : chooseBattleAction(state, unitId)
 }
 
-void other
-void hexesWithin
-void gateTargets
-void canChallenge
