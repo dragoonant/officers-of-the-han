@@ -10,8 +10,8 @@ export { BattleScreen, DebateScreen, DuelScreen } from '../contests'
 export { CloudBand } from '../ui'
 export { Mirror } from '../ui'
 
-export function Portrait({ name, portrait, size = 56, ring }: { name: string; portrait?: string | undefined; size?: number; ring?: string | undefined }) {
-  return <RealPortrait name={name} {...(portrait ? { portrait } : {})} size={size} {...(ring ? { faction: ring } : {})} />
+export function Portrait({ id, name, portrait, size = 56, ring }: { id?: string | undefined; name: string; portrait?: string | undefined; size?: number; ring?: string | undefined }) {
+  return <RealPortrait name={name} {...(id ? { id } : {})} {...(portrait ? { portrait } : {})} size={size} {...(ring ? { faction: ring } : {})} />
 }
 export function StatDial({ label, value, size = 46 }: { label: string; value: number; size?: number }) {
   return <span data-stat={label}><RealDial label={label} value={value} size={size} /></span>

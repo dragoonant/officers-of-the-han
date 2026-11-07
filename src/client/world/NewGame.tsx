@@ -9,6 +9,7 @@ import { TEMPERAMENT_TEXT, TROOP_TEXT, money } from './format'
 import { cityNameOf, colorOf, factionNameOf, nameOf, portraitOf } from './lookup'
 import { LacquerButton, Portrait, StatDial } from './seam'
 import { statLabel } from './ui'
+import { usePortraitManifest } from '../ui/usePortraitManifest'
 
 const SCEN = GAME_DATA.scenarios[0]!
 const POOL = 320
@@ -105,7 +106,7 @@ function Picker({ seed, options, start }: PartProps) {
             const o = base.officers[id]!
             return (
               <button key={id} className={`pick${sel === id ? ' sel' : ''}`} onClick={() => setSel(id)} data-pick={id}>
-                <Portrait name={nameOf(base, id)} portrait={portraitOf(base, id)} size={60} ring={o.faction ? `var(--f-${colorOf(base, o.faction)})` : undefined} />
+                <Portrait id={id} name={nameOf(base, id)} portrait={portraitOf(base, id)} size={60} ring={o.faction ? `var(--f-${colorOf(base, o.faction)})` : undefined} />
                 <span className="nm">{nameOf(base, id)}</span>
               </button>
             )
@@ -116,7 +117,7 @@ function Picker({ seed, options, start }: PartProps) {
         {v && (
           <>
             <div className="row" style={{ alignItems: 'flex-start' }}>
-              <Portrait name={v.name} portrait={v.portrait} size={72} ring={v.faction ? `var(--f-${colorOf(preview, v.faction)})` : undefined} />
+              <Portrait id={v.id} name={v.name} portrait={v.portrait} size={72} ring={v.faction ? `var(--f-${colorOf(preview, v.faction)})` : undefined} />
               <div>
                 <h3 style={{ fontSize: 14, color: 'var(--ochre)' }}>{v.name}</h3>
                 <div>{v.post === 'wanderer' ? 'Wanderer' : v.post === 'ruler' ? 'Ruler' : v.post === 'prefect' ? 'Prefect' : 'Officer'}, {v.rankName}</div>
@@ -154,6 +155,8 @@ function Creator({ seed, options, start }: PartProps) {
   const [temperament, setTemperament] = useState<Temperament>('steady')
   const [bestType, setBestType] = useState<TroopType>('spear')
   const [portrait, setPortrait] = useState<string | undefined>(undefined)
+  // generated faces (face-01 ...) come first once their manifest lists them; the older generic portraits follow
+  const faces = [...usePortraitManifest().ids].filter((k) => /^face-\d+$/.test(k)).sort()
   const [city, setCity] = useState('luoyang')
   const total = STAT_KEYS.reduce((a, k) => a + stats[k], 0)
   const left = POOL - total
@@ -185,7 +188,7 @@ function Creator({ seed, options, start }: PartProps) {
       <div className="sec">Portrait</div>
       <div className="portraits" style={{ maxHeight: 150, overflow: 'auto' }}>
         <button className={`pick${!portrait ? ' sel' : ''}`} onClick={() => setPortrait(undefined)}><Portrait name={name || '?'} size={48} /><span className="nm">Medallion</span></button>
-        {GAME_DATA.genericPortraits.map((p) => (
+        {[...faces, ...GAME_DATA.genericPortraits].map((p) => (
           <button key={p} className={`pick${portrait === p ? ' sel' : ''}`} onClick={() => setPortrait(p)} aria-label={`Portrait ${p}`}>
             <Portrait name={name || '?'} portrait={p} size={48} />
           </button>

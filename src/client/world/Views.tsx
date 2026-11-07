@@ -20,7 +20,7 @@ export function OfficerChip({ s, id, extra, selected, target, onClick }: { s: Wo
   const o = s.officers[id]
   return (
     <button className={`wchip${selected ? ' sel' : ''}${target ? ' target' : ''}`} onClick={onClick ?? (() => open(id))} data-officer={id}>
-      <Portrait name={nameOf(s, id)} portrait={portraitOf(s, id)} size={30} ring={o?.faction ? `var(--f-${colorOf(s, o.faction)})` : undefined} />
+      <Portrait id={id} name={nameOf(s, id)} portrait={portraitOf(s, id)} size={30} ring={o?.faction ? `var(--f-${colorOf(s, o.faction)})` : undefined} />
       <span>{nameOf(s, id)}{extra ? <span className="sm"> {extra}</span> : null}</span>
     </button>
   )
@@ -45,7 +45,7 @@ export function OfficerCard({ s, id, onClose }: { s: WorldState; id: string; onC
   return (
     <LacquerBox title={v.name} onClose={onClose} testid="officer-card">
       <div className="row" style={{ alignItems: 'flex-start', gap: 14 }}>
-        <Portrait name={v.name} portrait={v.portrait} size={92} ring={color ? `var(--f-${color})` : undefined} />
+        <Portrait id={v.id} name={v.name} portrait={v.portrait} size={92} ring={color ? `var(--f-${color})` : undefined} />
         <div className="grow" style={{ minWidth: 180 }}>
           {v.courtesy && <div className="dust">Courtesy name {v.courtesy}</div>}
           <div><b>{v.post === 'ruler' ? 'Ruler' : v.post === 'wanderer' ? 'Wanderer' : v.post === 'prefect' ? 'Prefect' : 'Officer'}</b>, {v.rankName}{v.isPlayer ? ' (you)' : ''}</div>

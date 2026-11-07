@@ -49,6 +49,9 @@ All from Google Fonts with system fallbacks.
 - **Battle:** the 3D hex board is a **lacquered gaming board**: each hex a slightly raised lacquer tile, painted in mineral colours by terrain (malachite plain, celadon grass, darker malachite forest with small carved trees, umber hill steps, azurite river with ochre ripple lines, vermilion-and-black wall blocks, an ochre keep). Figures stand on the tiles in the house style (KB rule 7) with a faction-pigment sash; no bases. The initiative order is a row of small mirrors across the top. Picking is by tile only (KB rule 25); mouse and touch controls per KB rule 27.
 - **Duel:** two large mirrors facing each other, the duelists' portraits inside, vigor and spirit as rings round them; the AI's stance odds shown under its mirror; four stance buttons. **Debate:** two lacquer trays; argument tablets are small lacquered wooden tallies with the kind's glyph and power in ochre; both hands face up; the opponent's odds shown over its tablets.
 
+## Portraits and sound
+Portraits (the painted faces inside the mirror frames) are specified in `55-portraits.md`: mineral pigment on black lacquer, vermilion, ochre and bone white, head centred for the round crop. Sound is specified in `60-audio.md`: guqin, pipa, xiao, dizi, bianzhong bells, zheng, war drums and gongs; effects named for lacquer, silk, bronze and tally tiles. Both arrive as files from the owner's PC and the game is complete without them (medallion, silence).
+
 ## Motion
 - Lids lift in 180 ms; letters unroll in 260 ms; nothing bounces. The month change is the dial rim turning one segment (400 ms). Battle moves follow the presentation-director pattern from three-kingdoms-tactics (presented-state cursor; Instant speed for e2e).
 
@@ -57,3 +60,4 @@ Everything works at 390 × 844 portrait and 844 × 390 landscape: boxes become b
 
 ## Change log
 - 2026-11-07 v0.1 written at M0.
+- 2026-11-07 v0.2 added "Portraits and sound" (PLAN D20); see 55-portraits.md and 60-audio.md.
