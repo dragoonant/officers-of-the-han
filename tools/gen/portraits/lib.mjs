@@ -115,7 +115,7 @@ function ageClause(age, sex) {
 }
 
 const ROBE = ['madder red', 'deep ochre', 'umber brown', 'bone white with a dark border', 'dark indigo-black with a vermilion border', 'soot grey with an ochre border']
-const ARMOUR_TRIM = ['vermilion cord', 'ochre cord', 'bone white cord', 'black lacquer edging']
+const ARMOUR_TRIM = ['vermilion cord', 'ochre cord', 'bone white cord', 'black silk cord']
 
 function facialHair(sex, age, key) {
   if (sex === 'f') return ''
@@ -174,7 +174,8 @@ export function buildPrompt(spec) {
   const { key, sex, age, role, troop, temperament, post, trait } = spec
   const parts = []
   parts.push(ageClause(age, sex))
-  const face = facialHair(sex, age, `${key}:hair`)
+  // A sourced trait that describes the beard or face hair replaces the generic facial-hair pick, so the two never contradict.
+  const face = trait && /beard|moustache|whisker|shaven/i.test(trait) ? '' : facialHair(sex, age, `${key}:hair`)
   if (face) parts.push(face)
   if (trait) parts.push(trait)
   parts.push(dressClause({ sex, role, troop, post, age, key }))
